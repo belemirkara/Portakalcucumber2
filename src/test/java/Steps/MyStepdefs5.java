@@ -186,6 +186,22 @@ public class MyStepdefs5 {
 
 
     }
+
+    @And("^ı delete subesorumlusuad$")
+    public void ıDeleteSubesorumlusuad() throws Throwable {
+        WebElement subesorumlusuad = (new WebDriverWait(base.driver, 60))
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"contactForm\"]/div[2]/input[1]")));
+
+        subesorumlusuad.clear();
     }
+
+    @And("^ı delete şube sorumlusu soyad$")
+    public void ıDeleteŞubeSorumlusuSoyad() throws Throwable {
+        WebElement subesorumlususoyad = (new WebDriverWait(base.driver, 60))
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"contactForm\"]/div[2]/input[2]")));
+
+        subesorumlususoyad.clear();
+    }
+}
 
 
