@@ -30,7 +30,7 @@ public class MyStepdefs4 {
     public void iNavigateToLoginPage() throws Throwable {
 
         base.driver.get("http://portakal.ystest.com");
-    } 
+    }
 
     @And("^ı enter kullaniciadi$")
     public void ıEnterKullaniciadi() throws Throwable {
@@ -38,7 +38,7 @@ public class MyStepdefs4 {
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("username")));
         kullaniciadi.click();
         kullaniciadi.sendKeys("900411");
-    }
+    } 
 
     @And("^ı enter pw$")
     public void ıEnterPw() throws Throwable {
