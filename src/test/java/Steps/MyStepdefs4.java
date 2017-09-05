@@ -30,7 +30,7 @@ public class MyStepdefs4 {
     public void iNavigateToLoginPage() throws Throwable {
 
         base.driver.get("http://portakal.ystest.com");
-    }
+    } 
 
     @And("^ı enter kullaniciadi$")
     public void ıEnterKullaniciadi() throws Throwable {
