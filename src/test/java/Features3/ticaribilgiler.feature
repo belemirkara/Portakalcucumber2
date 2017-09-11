@@ -13,6 +13,7 @@ Feature:Ticari bilgiler
     And ı enter the vergi dairesi
     And ı select ticari tür
     And ı enter iban
+    And ı enter kep adresi
     And ı delete fatura e mail adres and type again
     When ı click kaydet button
     And ı see the işlem gerçekleştiriliyorr pop up
@@ -25,7 +26,7 @@ Feature:Ticari bilgiler
     And ı see the ticari bilgileriniz başarıyla kaydedildi pop up
     And ı confirm ticari bilgileriniz başarıyla kaydedildi pop up message
     And ı click tamam button
-    Then ı go to servis bilgileri page
+
 
 
 

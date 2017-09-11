@@ -37,15 +37,15 @@ public class MyStepdefs4 {
         WebElement kullaniciadi= (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("username")));
         kullaniciadi.click();
-        kullaniciadi.sendKeys("900411");
-    } 
+        kullaniciadi.sendKeys("900414");
+    }
 
     @And("^ı enter pw$")
     public void ıEnterPw() throws Throwable {
         WebElement password= (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("password")));
         password.click();
-        password.sendKeys("8u0iL22D");
+        password.sendKeys("PwNHDwtY");
     }
 
     @And("^ı click benihatırla checkbox if ı want$")

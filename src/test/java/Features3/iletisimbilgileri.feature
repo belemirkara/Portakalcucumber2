@@ -31,4 +31,4 @@ And ı click tamam button
     And ı see the islem Başarılı pop up
  And ı confirm the islem basarili pop up message
     And ı click tamam button
-    Then ı go to next page
+

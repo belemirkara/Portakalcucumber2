@@ -220,21 +220,16 @@ public class MyStepdefs3 extends BaseUtil {
     @Then("^ı stay in same page$")
     public void ıStayInSamePage() throws Throwable {
         WebElement staysamepage= (new WebDriverWait(base.driver, 15))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[1]/div[1]/div")));
+                .until(ExpectedConditions.presenceOfElementLocated(By.id("registerTab0")));
                 staysamepage.click();
     }
 
-    @Then("^ı go to next page$")
-    public void ıGoToNextPage() throws Throwable {
-        WebElement nextpage= (new WebDriverWait(base.driver, 15))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[1]/div/div[1]")));
-    nextpage.click();
-    }
 
 
     @And("^ı click tamam button$")
     public void ıClickTamamButton() throws Throwable {
-        Thread.sleep(10000);
+
+        Thread.sleep(1000);
 
         base.driver.findElement(By.xpath("/html/body/div[2]/div[2]/button[1]")).click();
     }

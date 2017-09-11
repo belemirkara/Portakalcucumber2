@@ -17,13 +17,13 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-public class MyStepdefs5 {
+public class Zorunlualankontroluiletisimbilg {
     public BaseUtil base;
     UUID uuid = UUID.randomUUID();
     String randomUUIDString = uuid.toString();
     Random r=new Random();
 
-    public MyStepdefs5(BaseUtil base) {
+    public Zorunlualankontroluiletisimbilg(BaseUtil base) {
 
 
         this.base = base;
@@ -201,6 +201,22 @@ public class MyStepdefs5 {
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"contactForm\"]/div[2]/input[2]")));
 
         subesorumlususoyad.clear();
+    }
+
+    @And("^ı delete şube sorumlusu ad$")
+    public void ıDeleteŞubeSorumlusuAd() throws Throwable {
+        WebElement subesorumlusuad = (new WebDriverWait(base.driver, 60))
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"contactForm\"]/div[2]/input[1]")));
+
+        subesorumlusuad.clear();
+    }
+
+    @And("^ı delete şube sorumlusu tel if it was entered$")
+    public void ıDeleteŞubeSorumlusuTelIfItWasEntered() throws Throwable {
+        WebElement subesorumlusutel = (new WebDriverWait(base.driver, 60))
+                .until(ExpectedConditions.presenceOfElementLocated(By.id("restaurant-po-number")));
+
+        subesorumlusutel.clear();
     }
 }
 
