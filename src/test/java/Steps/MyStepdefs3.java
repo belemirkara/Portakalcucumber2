@@ -204,7 +204,7 @@ public class MyStepdefs3 extends BaseUtil {
 
             String ab = islembasarilipopup.getText();
 
-            Assert.assertEquals("İletişim bilgileriniz başarıyla kaydedildi.", ab);
+            Assert.assertEquals("Ticari bilgileriniz başarıyla kaydedildi.", ab);
 
         } catch(AssertionError ae) {
 

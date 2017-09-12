@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.*;
 
 
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -33,78 +34,97 @@ public class BaseUtil {
         return output;
 
     }
-    public void uret2()  {
-        WebElement ilce = (new WebDriverWait(driver, 90))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("restaurant-county")));
-        Select s2 = new Select(ilce);
 
-        FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver);
-        wait.pollingEvery(250,  TimeUnit.MILLISECONDS);
-        wait.withTimeout(45, TimeUnit.SECONDS);
+public void uret2() {
 
-        Function<WebDriver, Boolean> function = new Function<WebDriver, Boolean>()
-        {
-            public Boolean apply(WebDriver arg0) {
-                if (s2.getOptions().isEmpty()) {
-                    return false;
+    driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
+    //ilçe
+
+    WebElement ilce = (new WebDriverWait(driver, 90))
+            .until(ExpectedConditions.presenceOfElementLocated(By.id("restaurant-county")));
+
+    Select ddlIlce = new Select(ilce);
+
+    List<WebElement> resultList = ddlIlce.getOptions();
+    int result = resultList.size();
+
+    while (result == 0) {
+        uret2();
+    }
+
+    FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver);
+    wait.pollingEvery(250, TimeUnit.MILLISECONDS);
+    wait.withTimeout(45, TimeUnit.SECONDS);
+
+    Function<WebDriver, Boolean> function = new Function<WebDriver, Boolean>() {
+        public Boolean apply(WebDriver arg0) {
+            if (ddlIlce.getOptions().isEmpty()) {
+                return false;
+            }
+
+            return true;
+        }
+    };
+
+    wait.until(function);
+
+    int listSize = ddlIlce.getOptions().size();
+    if (listSize > 1) {
+        int optionIndex = r.nextInt(listSize - 1);
+
+        if (optionIndex == 0) {
+            ddlIlce.selectByIndex(1);
+        }
+
+        if (optionIndex > 0) {
+            ddlIlce.selectByIndex(optionIndex);
+        }
+    }
+
+}
+public void uret3(){
+
+            driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
+            WebElement semt = (new WebDriverWait(driver, 90))
+                    .until(ExpectedConditions.presenceOfElementLocated(By.id("restaurant-district")));
+            Select ddlsemt = new Select(semt);
+
+
+
+            List<WebElement> resultList = ddlsemt.getOptions();
+            int result = resultList.size();
+
+            while (result == 0){
+                uret3();
+            }
+            FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver);
+            wait.pollingEvery(250,  TimeUnit.MILLISECONDS);
+            wait.withTimeout(45, TimeUnit.SECONDS);
+
+            Function<WebDriver, Boolean> function = new Function<WebDriver, Boolean>()
+            {
+                public Boolean apply(WebDriver arg0) {
+                    if (ddlsemt.getOptions().isEmpty()) {
+                        return false;
+                    }
+
+                    return true;
+                }
+            };
+
+            wait.until(function);
+
+            int listSize = ddlsemt.getOptions().size();
+            if (listSize > 1) {
+                int optionIndex = r.nextInt(listSize - 1);
+
+                if (optionIndex == 0) {
+                    ddlsemt.selectByIndex(1);
                 }
 
-                return true;
-            }
-        };
-
-        wait.until(function);
-
-        int listSize = s2.getOptions().size();
-        if (listSize > 1) {
-            int optionIndex= r.nextInt(listSize - 1);
-
-            if(optionIndex==0) {
-                s2.selectByIndex(1);
+                if (optionIndex > 0) {
+                    ddlsemt.selectByIndex(optionIndex);
+                }
             }
 
-           if(optionIndex>0){
-                s2.selectByIndex(optionIndex);
-           }
-
-
-
-        }}
-
-  public void uret3(){
-
-      WebElement semt= (new WebDriverWait(driver, 90))
-              .until(ExpectedConditions.presenceOfElementLocated(By.id("restaurant-district")));
-      Select s2 = new Select(semt);
-
-      FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver);
-      wait.pollingEvery(250,  TimeUnit.MILLISECONDS);
-      wait.withTimeout(45, TimeUnit.SECONDS);
-
-      Function<WebDriver, Boolean> function = new Function<WebDriver, Boolean>()
-      {
-          public Boolean apply(WebDriver arg0) {
-              if (s2.getOptions().isEmpty()) {
-                  return false;
-              }
-
-              return true;
-          }
-      };
-
-      wait.until(function);
-
-      int listSize = s2.getOptions().size();
-      if (listSize > 1) {
-          int optionIndex = r.nextInt(listSize - 1);
-
-          if (optionIndex == 0) {
-              s2.selectByIndex(1);
-          }
-
-          if (optionIndex > 0) {
-              s2.selectByIndex(optionIndex);
-          }
-
-
-      }}}
+    }}

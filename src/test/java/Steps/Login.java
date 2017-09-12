@@ -13,14 +13,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.Random;
 import java.util.UUID;
 
-public class MyStepdefs4 {
+public class Login {
 
     public BaseUtil base;
     UUID uuid = UUID.randomUUID();
     String randomUUIDString = uuid.toString();
     Random r=new Random();
 
-    public MyStepdefs4(BaseUtil base) {
+    public Login(BaseUtil base) {
 
 
         this.base = base;
@@ -37,7 +37,7 @@ public class MyStepdefs4 {
         WebElement kullaniciadi= (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("username")));
         kullaniciadi.click();
-        kullaniciadi.sendKeys("900414");
+        kullaniciadi.sendKeys("900422");
     }
 
     @And("^ı enter pw$")
@@ -45,7 +45,7 @@ public class MyStepdefs4 {
         WebElement password= (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("password")));
         password.click();
-        password.sendKeys("PwNHDwtY");
+        password.sendKeys("qenAPqcQ");
     }
 
     @And("^ı click benihatırla checkbox if ı want$")
@@ -69,5 +69,7 @@ public class MyStepdefs4 {
     public void ıLoginSuccessfully() throws Throwable {
         WebElement girisyap= (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[1]")));
+
+        Thread.sleep(1000);
     }
 }

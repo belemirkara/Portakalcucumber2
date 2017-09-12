@@ -26,7 +26,7 @@ Feature:Ticari bilgiler
     And ı see the ticari bilgileriniz başarıyla kaydedildi pop up
     And ı confirm ticari bilgileriniz başarıyla kaydedildi pop up message
     And ı click tamam button
-
+    And ı close the page
 
 
 

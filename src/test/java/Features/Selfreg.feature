@@ -19,3 +19,5 @@ Feature:RegisterFeature
     And ı see the işlem gerçekleştiriliyor pop up
     And ı see the bilgilendirme pop up
     Then ı confirm the pop up message
+    Then ı click tamam button
+    Then ı close the page

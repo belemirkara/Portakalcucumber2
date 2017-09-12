@@ -1,6 +1,7 @@
 package Steps;
 
 import Base.BaseUtil;
+import com.google.common.base.Function;
 import com.sun.xml.internal.rngom.parse.host.Base;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
@@ -8,11 +9,9 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
 import org.junit.Test;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -22,7 +21,7 @@ import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 
-public class MyStepdefs extends BaseUtil {
+public class Selfreghappypath extends BaseUtil {
 
     public BaseUtil base;
     Random r = new Random();
@@ -30,7 +29,7 @@ public class MyStepdefs extends BaseUtil {
     String randomUUIDString = uuid.toString();
 
 
-    public MyStepdefs(BaseUtil base) {
+    public Selfreghappypath(BaseUtil base) {
         this.base = base;
     }
 
@@ -52,44 +51,33 @@ public class MyStepdefs extends BaseUtil {
         //şehir
         String[] sehir = {"ADANA", "ADIYAMAN", "AFYONKARAHİSAR", "AKSARAY", "AMASYA", "ANKARA", "ANTALYA", "AYDIN", "BALIKESİR", "BATMAN", "BİLECİK",
                 "BOLU", "BURSA", "ÇANAKKALE", "ÇORUM", "DENİZLİ", "DİYARBAKIR", "DÜZCE", "EDİRNE", "ELAZIĞ", "ERZİNCAN", "ERZURUM", "ESKİŞEHİR",
-                "GAZİANTEP", "GİRESUN", "HATAY", "ISPARTA", "İSTANBUL", "İZMİR", "KAHRAMANMARAŞ", "KARABÜK", "KASTAMONU", "KAYSERİ", "KIBRIS", "KIRIKKALE", "KIRKLARELİ", "KIRŞEHİR",
+                "GAZİANTEP", "GİRESUN", "HATAY", "ISPARTA", "İSTANBUL", "İZMİR", "KAHRAMANMARAŞ", "KARABÜK", "KASTAMONU", "KAYSERİ", "KIBRIS", "KIRKLARELİ", "KIRŞEHİR",
                 "KOCAELİ", "KONYA", "KÜTAHYA", "MALATYA", "MANİSA", "MARDİN", "MERSİN", "MUĞLA", "NEVŞEHİR", "NİĞDE", "ORDU", "OSMANİYE", "RİZE", "SAKARYA", "SAMSUN", "ŞANLIURFA",
                 "SİNOP", "SİVAS", "TEKİRDAĞ", "TOKAT", "TRABZON", "UŞAK", "VAN", "YALOVA", "YOZGAT", "ZONGULDAK"};
 
 
-        WebElement Select_il = (new WebDriverWait(base.driver, 30))
+        WebElement Select_il = (new WebDriverWait(base.driver, 45))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("restaurant-city")));
-        Select s1 = new Select(Select_il);
+        Select ddlil = new Select(Select_il);
 
 
+        List<WebElement> resultList = ddlil.getOptions();
+        int result = resultList.size();
 
-        int gelensehir = r.nextInt(sehir.length);
+        int gelensehir = r.nextInt(sehir.length-1);
 
 
-        s1.selectByVisibleText(sehir[gelensehir]);
+        ddlil.selectByVisibleText(sehir[gelensehir]);
+
 
     }
 
 
     @And("^ı choose ilce from the ilce combobox$")
     public void ıChooseIlceFromTheIlceCombobox() throws Throwable {
-
-        //ilçe
-
-
-
         base.uret2();
+
     }
-
-    @And("^I choose semt from the semt combobox$")
-    public void iChooseSemtFromTheSemtCombobox() throws Throwable {
-
-        //semt
-
-
-           base.uret3();
-        }
-
 
     @And("^ı enter restoran adresi with correct format$")
     public void ıEnterRestoranAdresiWithCorrectFormat() throws Throwable {
@@ -186,6 +174,7 @@ public class MyStepdefs extends BaseUtil {
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[2]/div[1]/div[1]/div/div[1]/div[2]/a")));
 
         hmnuyeol.click();
+        base.driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
     }
 
     @And("^ı see the işlem gerçekleştiriliyor pop up$")
@@ -238,6 +227,12 @@ public class MyStepdefs extends BaseUtil {
        }
 
 
-}}
+}
+
+    @And("^I choose semt from the semt combobox$")
+    public void iChooseSemtFromTheSemtCombobox() throws Throwable {
+        base.uret3();
+    }
+}
 
 
