@@ -37,7 +37,7 @@ public class Login {
         WebElement kullaniciadi= (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("username")));
         kullaniciadi.click();
-        kullaniciadi.sendKeys("900422");
+        kullaniciadi.sendKeys("900417");
     }
 
     @And("^ı enter pw$")
@@ -45,7 +45,7 @@ public class Login {
         WebElement password= (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("password")));
         password.click();
-        password.sendKeys("qenAPqcQ");
+        password.sendKeys("Lv2JAhQf");
     }
 
     @And("^ı click benihatırla checkbox if ı want$")
