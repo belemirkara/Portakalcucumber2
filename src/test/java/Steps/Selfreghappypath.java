@@ -174,7 +174,7 @@ public class Selfreghappypath extends BaseUtil {
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[2]/div[1]/div[1]/div/div[1]/div[2]/a")));
 
         hmnuyeol.click();
-        base.driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
+        Thread.sleep(3000);
     }
 
     @And("^ı see the işlem gerçekleştiriliyor pop up$")

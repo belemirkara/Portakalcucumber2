@@ -104,7 +104,7 @@ public class zrunlualankontroluticaribilg {
     public void ıRefreshThePage() throws Throwable {
         base.driver.navigate().refresh();
 
-        base.driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
+        Thread.sleep(3000);
 
 
     }

@@ -31,6 +31,7 @@ public class Hook extends BaseUtil {
         System.setProperty("webdriver.gecko.driver", "//Users//belemir.karabacakoglu//Desktop//geckodriver");
         base.driver = new FirefoxDriver();
 
+
     }
 
 
