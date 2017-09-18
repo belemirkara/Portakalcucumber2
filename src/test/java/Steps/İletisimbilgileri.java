@@ -18,13 +18,13 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-public class MyStepdefs3 extends BaseUtil {
+public class İletisimbilgileri extends BaseUtil {
     public BaseUtil base;
     UUID uuid = UUID.randomUUID();
     String randomUUIDString = uuid.toString();
     Random r = new Random();
 
-    public MyStepdefs3(BaseUtil base) {
+    public İletisimbilgileri(BaseUtil base) {
 
 
         this.base = base;
@@ -157,29 +157,14 @@ public class MyStepdefs3 extends BaseUtil {
         base.driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
     }
 
-    @And("^ı see the işlem gerçekleştiriliyorr pop up$")
-    public void ıSeeTheIşlemGerçekleştiriliyorrPopUp() throws Throwable {
 
-
-        try {
-            Thread.sleep(1000);
-            Alert alt4 = base.driver.switchTo().alert();
-            alt4.accept();
-
-        } catch (NoAlertPresentException noe) {
-
-
-        }
-    }
-
-
-    @And("^ı see the islem Başarılı pop up$")
-    public void ıSeeTheIslemBaşarılıPopUp() throws Throwable {
+    @And("^ı see İletişim bilgileriniz başarıyla kaydedildi pop up$")
+    public void ıSeeİletişimBilgilerinizBaşarıylaKaydedildiPopUp() throws Throwable {
 
         try {
 
 
-            base.driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[6]")).click();
+            base.driver.findElement(By.id("1")).click();
             Thread.sleep(1000);
 
             Alert alt3 = base.driver.switchTo().alert();
@@ -192,19 +177,21 @@ public class MyStepdefs3 extends BaseUtil {
 
     }
 
-    @And("^ı confirm the islem basarili pop up message$")
-    public void ıConfirmTheIslemBasariliPopUpMessage() throws Throwable {
+    @And("^ı confirm İletişim bilgileriniz başarıyla kaydedildi pop up message$")
+    public void ıConfirmİletişimBilgilerinizBaşarıylaKaydedildiPopUpMessage() throws Throwable {
+
 
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
 
         try{
             WebElement islembasarilipopup= (new WebDriverWait(base.driver, 15))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[2]/div[2]/div[6]")));
+                    .until(ExpectedConditions.presenceOfElementLocated(By.id("1")));
 
             String ab = islembasarilipopup.getText();
 
-            Assert.assertEquals("Ticari bilgileriniz başarıyla kaydedildi.", ab);
+            Assert.assertEquals("İletişim bilgileriniz başarıyla kaydedildi.", ab);
+            Thread.sleep(3000);
 
         } catch(AssertionError ae) {
 
@@ -219,9 +206,14 @@ public class MyStepdefs3 extends BaseUtil {
 
     @Then("^ı stay in same page$")
     public void ıStayInSamePage() throws Throwable {
-        WebElement staysamepage= (new WebDriverWait(base.driver, 15))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("registerTab0")));
-                staysamepage.click();
+        try {
+            String URL = base.driver.getCurrentUrl();
+            Assert.assertEquals(URL, "http://portakal.ystest.com/SelfRegistration/registrationwizard/contact" );
+            Thread.sleep(1000);
+        } catch (AssertionError ae) {
+
+            Assert.fail();
+        }
     }
 
 
@@ -232,6 +224,8 @@ public class MyStepdefs3 extends BaseUtil {
         Thread.sleep(1000);
 
         base.driver.findElement(By.xpath("/html/body/div[2]/div[2]/button[1]")).click();
+
     }
+
 }
 

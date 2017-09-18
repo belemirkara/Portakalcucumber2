@@ -1,27 +1,26 @@
-Feature:Obligatiory of fields in calisma saatleri page
+Feature:Update hours in calisma saatleri page
   This feature deals with calisma saatleri page
 
 
-  Scenario: Obligatiory of fields in calisma saatleri page
+  Scenario: Update hours in calisma saatleri page
     Given I navigate to login page
     And ı get browser foreground
     And ı enter kullaniciadi
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
     And ı see ı am in çalışma saatleri page
     And ı get full screen
-    When ı click Formu temizle button
-    When ı click kaydet button
-    And ı see Tabloyu kayıt edebilmeniz için en az bir adet çalışma saati oluşturmanız gerekmektedir pop up
-    And ı confirm Tabloyu kayıt edebilmeniz için en az bir adet çalışma saati oluşturmanız gerekmektedir pop up message
-    And ı click tamam button
-    And ı refresh the page
-    Then ı see ı am in çalışma saatleri page
-    And ı click Formu temizle button
-    When ı click kaydetvedevametbutton
-    And ı see Tabloyu kayıt edebilmeniz için en az bir adet çalışma saati oluşturmanız gerekmektedir pop up
-    And  ı confirm Tabloyu kayıt edebilmeniz için en az bir adet çalışma saati oluşturmanız gerekmektedir pop up message
-    And ı click tamam button
-    And ı close the page
+   And ı click Formu temizle button
+    And ı click an field in the table
+    And ı see working hours
+    And ı click minutes in working hours
+    And ı see values
+    When ı choose a value from the working hours
+    Then ı see the selected hours are updated
+    When ı update the hours same
+    Then ı see alert
+    When ı update the second hour is smaller than the first
+    Then ı see alerttwo
+    When ı update the first hour is bigger tahn the second
+    Then ı see alerttwo

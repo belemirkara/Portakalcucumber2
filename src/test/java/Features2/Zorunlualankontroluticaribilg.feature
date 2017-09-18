@@ -8,7 +8,6 @@ Feature:Obligatory fields in ticari bilg page
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
     And ı see ı am in ticari bilgiler page
     And ı delete ticari unvan
     And ı enter the vergi dairesi
@@ -39,7 +38,6 @@ Feature:Obligatory fields in ticari bilg page
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
     And ı see ı am in ticari bilgiler page
     And ı enter the ticari unvan
     And ı delete the vergi dairesi
@@ -70,7 +68,6 @@ Feature:Obligatory fields in ticari bilg page
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
     And ı see ı am in ticari bilgiler page
     And ı enter the ticari unvan
     And ı enter the vergi dairesi
@@ -100,7 +97,6 @@ Feature:Obligatory fields in ticari bilg page
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
     And ı see ı am in ticari bilgiler page
     And ı enter the ticari unvan
     And ı enter the vergi dairesi
@@ -136,7 +132,6 @@ Feature:Obligatory fields in ticari bilg page
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
     And ı see ı am in ticari bilgiler page
     And ı enter the ticari unvan
     And ı enter the vergi dairesi
@@ -170,7 +165,6 @@ Feature:Obligatory fields in ticari bilg page
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
     And ı see ı am in ticari bilgiler page
     And ı enter the ticari unvan
     And ı enter the vergi dairesi
@@ -201,7 +195,6 @@ Feature:Obligatory fields in ticari bilg page
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
     And ı see ı am in ticari bilgiler page
     And ı enter the ticari unvan
     And ı enter the vergi dairesi
@@ -237,7 +230,6 @@ Feature:Obligatory fields in ticari bilg page
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
     And ı see ı am in ticari bilgiler page
     And ı enter the ticari unvan
     And ı enter the vergi dairesi
@@ -245,14 +237,15 @@ Feature:Obligatory fields in ticari bilg page
     And ı enter iban
     And ı delete fatura e mail adres and type again
     When ı click kaydet button
-    Then ı see the islem Başarılı pop up
-    And ı confirm the islem basarili pop up message
+    Then ı see the ticari bilgileriniz başarıyla kaydedildi pop up
+    And ı confirm ticari bilgileriniz başarıyla kaydedildi pop up message
     And ı click tamam button
+    And ı see ı stay in ticari bilgiler page
     And ı refresh the page
     And ı delete fatura e mail adres and type again
     When ı click kaydetvedevametbutton
-    Then ı see the islem Başarılı pop up
-    And ı confirm the islem basarili pop up message
+    Then ı see the ticari bilgileriniz başarıyla kaydedildi pop up
+    And ı confirm ticari bilgileriniz başarıyla kaydedildi pop up message
     And ı click tamam button
     And ı close the page
 
@@ -262,7 +255,6 @@ Feature:Obligatory fields in ticari bilg page
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
     And ı see ı am in ticari bilgiler page
     And ı enter the ticari unvan
     And ı enter the vergi dairesi
@@ -272,14 +264,15 @@ Feature:Obligatory fields in ticari bilg page
     And ı delete mersis
     And ı delete fatura e mail adres and type again
     When ı click kaydet button
-    Then ı see the islem Başarılı pop up
-    And ı confirm the islem basarili pop up message
+    Then ı see the ticari bilgileriniz başarıyla kaydedildi pop up
+    And ı confirm ticari bilgileriniz başarıyla kaydedildi pop up message
     And ı click tamam button
+    And ı see ı stay in ticari bilgiler page
     And ı refresh the page
     And ı delete fatura e mail adres and type again
     When ı click kaydetvedevametbutton
-    Then ı see the islem Başarılı pop up
-    And ı confirm the islem basarili pop up message
+    Then ı see the ticari bilgileriniz başarıyla kaydedildi pop up
+    And ı confirm ticari bilgileriniz başarıyla kaydedildi pop up message
     And ı click tamam button
     And ı close the page
 

@@ -114,7 +114,6 @@ Feature:Obligatory fields in iletisim bilg page
     And ı delete restoran tel and type again
     And ı delete email and type again
     And ı click kaydet button
-    And ı see the işlem gerçekleştiriliyorr pop up
     And ı see Şube sorumlusu soyadı boş bırakılamaz pop up
     And ı confirm Şube sorumlusu soyadı boş bırakılamaz pop up message
     And ı click tamam button
@@ -129,7 +128,6 @@ Feature:Obligatory fields in iletisim bilg page
     And ı delete restoran tel and type again
     And ı delete email and type again
     And ı click kaydetvedevametbutton
-    And ı see the işlem gerçekleştiriliyorr pop up
     And ı see Şube sorumlusu soyadı boş bırakılamaz pop up
     And ı confirm Şube sorumlusu soyadı boş bırakılamaz pop up message
     And ı click tamam button
@@ -151,7 +149,6 @@ Feature:Obligatory fields in iletisim bilg page
     And ı delete restoran tel and type again
     And ı delete email and type again
     And ı click kaydet button
-    And ı see the işlem gerçekleştiriliyorr pop up
     And ı see Şube sorumlusu adı boş bırakılamaz pop up
     And ı confirm Şube sorumlusu adı boş bırakılamaz pop up message
     And ı click tamam button
@@ -166,7 +163,6 @@ Feature:Obligatory fields in iletisim bilg page
     And ı delete restoran tel and type again
     And ı delete email and type again
     And ı click kaydetvedevametbutton
-    And ı see the işlem gerçekleştiriliyorr pop up
     And ı see Şube sorumlusu adı boş bırakılamaz pop up
     And ı confirm Şube sorumlusu adı boş bırakılamaz pop up message
     And ı click tamam button
@@ -189,10 +185,10 @@ Feature:Obligatory fields in iletisim bilg page
     And ı delete restoran tel and type again
     And ı delete email and type again
     And ı click kaydet button
-    And ı see the işlem gerçekleştiriliyorr pop up
-    And ı see the islem Başarılı pop up
-    And ı confirm the islem basarili pop up message
+    And ı see İletişim bilgileriniz başarıyla kaydedildi pop up
+    And ı confirm İletişim bilgileriniz başarıyla kaydedildi pop up message
     And ı click tamam button
+    Then ı see ı stay in iletisim bilgileri page
     And ı refresh the page
     And I click the iletisim bilgileri in progress bar
     And ı delete restoran sahibi ad and type again
@@ -203,9 +199,8 @@ Feature:Obligatory fields in iletisim bilg page
     And ı delete restoran tel and type again
     And ı delete email and type again
     And ı click kaydetvedevametbutton
-    And ı see the işlem gerçekleştiriliyorr pop up
-    And ı see the islem Başarılı pop up
-    And ı confirm the islem basarili pop up message
+    And ı see İletişim bilgileriniz başarıyla kaydedildi pop up
+    And ı confirm İletişim bilgileriniz başarıyla kaydedildi pop up message
     And ı click tamam button
     Then ı close the page
 

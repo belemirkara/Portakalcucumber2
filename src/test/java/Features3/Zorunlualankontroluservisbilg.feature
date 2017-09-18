@@ -9,7 +9,6 @@ Feature:Obligatiory of fields in servis bilg page
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
      And ı see ı am in servis bilg page
   When ı dont do anything in odeme yontemleri
   Then ı see the   Servis bilgilerinizi kaydedebilmeniz için mutfak seçmeniz gerekmektedir txt
@@ -26,7 +25,6 @@ Feature:Obligatiory of fields in servis bilg page
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
     And ı see ı am in servis bilg page
     And ı choose mutfak
     When ı dont do anything in odeme yontemleri
@@ -50,7 +48,6 @@ Feature:Obligatiory of fields in servis bilg page
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
     And ı see ı am in servis bilg page
     And ı delete clicks in odeme yontemi
     And ı close the page
@@ -62,7 +59,6 @@ Feature:Obligatiory of fields in servis bilg page
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
     And ı see ı am in servis bilg page
     And ı choose mutfak
     When ı check ödeme yöntemi

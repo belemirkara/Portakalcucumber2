@@ -409,4 +409,19 @@ public class zrunlualankontroluticaribilg {
         }
 
 }
+
+    @And("^ı see ı stay in ticari bilgiler page$")
+    public void ıSeeIStayInTicariBilgilerPage() throws Throwable {
+        Thread.sleep(3000);
+
+        try {
+            String URL = base.driver.getCurrentUrl();
+            Assert.assertEquals(URL, "http://portakal.ystest.com/SelfRegistration/registrationwizard/commercial" );
+            Thread.sleep(1000);
+        } catch (AssertionError ae) {
+
+            Assert.fail();
+        }
+
+}
 }

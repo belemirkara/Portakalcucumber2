@@ -112,7 +112,7 @@ public class Zorunlualankontroluiletisimbilg {
         try {
 
 
-            base.driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[6]")).click();
+            base.driver.findElement(By.id("2")).click();
             Thread.sleep(1000);
 
             Alert alt3 = base.driver.switchTo().alert();
@@ -132,10 +132,10 @@ public class Zorunlualankontroluiletisimbilg {
 
 
         try{
-            WebElement islembasarilipopup= (new WebDriverWait(base.driver, 15))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[2]/div[2]/div[6]")));
+            WebElement islembasarisizpopup= (new WebDriverWait(base.driver, 15))
+                    .until(ExpectedConditions.presenceOfElementLocated(By.id("2")));
 
-            String ab = islembasarilipopup.getText();
+            String ab = islembasarisizpopup.getText();
 
             Assert.assertEquals("Şube sorumlusu soyadı boş bırakılamaz.", ab);
 
@@ -152,7 +152,7 @@ public class Zorunlualankontroluiletisimbilg {
         try {
 
 
-            base.driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[6]")).click();
+            base.driver.findElement(By.id("2")).click();
             Thread.sleep(1000);
 
             Alert alt3 = base.driver.switchTo().alert();
@@ -172,10 +172,10 @@ public class Zorunlualankontroluiletisimbilg {
 
 
         try{
-            WebElement islembasarilipopup= (new WebDriverWait(base.driver, 15))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[2]/div[2]/div[6]")));
+            WebElement islembasarisizpopup= (new WebDriverWait(base.driver, 15))
+                    .until(ExpectedConditions.presenceOfElementLocated(By.id("2")));
 
-            String ab = islembasarilipopup.getText();
+            String ab = islembasarisizpopup.getText();
 
             Assert.assertEquals("Şube sorumlusu adı boş bırakılamaz.", ab);
 
@@ -217,6 +217,21 @@ public class Zorunlualankontroluiletisimbilg {
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("restaurant-po-number")));
 
         subesorumlusutel.clear();
+    }
+
+    @Then("^ı see ı stay in iletisim bilgileri page$")
+    public void ıSeeIStayInIletisimBilgileriPage() throws Throwable {
+
+        Thread.sleep(3000);
+
+        try {
+            String URL = base.driver.getCurrentUrl();
+            Assert.assertEquals(URL, "http://portakal.ystest.com/SelfRegistration/registrationwizard/contact" );
+            Thread.sleep(1000);
+        } catch (AssertionError ae) {
+
+            Assert.fail();
+        }
     }
 }
 

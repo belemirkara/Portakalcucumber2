@@ -118,9 +118,16 @@ public class ticaribilgilerr {
 
     @Then("^ı stay in ticari bilgiler page$")
     public void ıStayInTicariBilgilerPage() throws Throwable {
-        WebElement ticaribilgiler = (new WebDriverWait(base.driver, 30))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("registerTab1")));
-        ticaribilgiler.click();
+
+        Thread.sleep(3000);
+        try {
+            String URL = base.driver.getCurrentUrl();
+            Assert.assertEquals(URL, "http://portakal.ystest.com/SelfRegistration/registrationwizard/commercial" );
+            Thread.sleep(1000);
+        } catch (AssertionError ae) {
+
+            Assert.fail();
+        }
     }
 
 

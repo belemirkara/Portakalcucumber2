@@ -8,7 +8,6 @@ Feature:Happy path of calışma saatleri page
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
     And ı see ı am in çalışma saatleri page
     And ı get full screen
     When ı click from left to right

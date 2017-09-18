@@ -55,72 +55,66 @@ public class calismasaatleri extends BaseUtil {
 
     @Then("^ı confirm the coming hours$")
     public void ıConfirmTheComingHours() throws Throwable {
-
-        WebElement pzt = (new WebDriverWait(base.driver, 5))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("1_6")));
-
+        WebElement pzt = base.driver.findElement(By.id("1_6"));
         pzt.click();
-        WebElement sali = (new WebDriverWait(base.driver, 5))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("2_6")));
-
+        WebElement sali = base.driver.findElement(By.id("2_6"));
         sali.click();
-        WebElement cars = (new WebDriverWait(base.driver, 5))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("3_6")));
-
-        cars.click();
-        WebElement pers = (new WebDriverWait(base.driver, 5))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("4_6")));
-
+        WebElement crsmba = base.driver.findElement(By.id("3_6"));
+        crsmba.click();
+        WebElement pers = base.driver.findElement(By.id("4_6"));
         pers.click();
-
-        WebElement cuma = (new WebDriverWait(base.driver, 5))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("5_6")));
-
+        WebElement cuma = base.driver.findElement(By.id("5_6"));
         cuma.click();
-        WebElement cumartesi = (new WebDriverWait(base.driver, 5))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("6_6")));
-
-        cumartesi.click();
-        WebElement pazar = (new WebDriverWait(base.driver, 5))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("0_6")));
-
+        WebElement cmrtesi = base.driver.findElement(By.id("6_6"));
+        cmrtesi.click();
+        WebElement pazar = base.driver.findElement(By.id("0_6"));
         pazar.click();
 
 
         try {
 
             String ab = pzt.getText();
+            String ab1 = sali.getText();
+            String ab2 = crsmba.getText();
+            String ab3 = pers.getText();
+            String ab4 = cuma.getText();
+            String ab5 = cmrtesi.getText();
+            String ab6 = pazar.getText();
+
             Assert.assertTrue(ab.contains("06:00\n"));
             Assert.assertTrue(ab.contains("06:45"));
+            Thread.sleep(1000);
 
-            String ab1 = sali.getText();
             Assert.assertTrue(ab1.contains("06:00\n"));
             Assert.assertTrue(ab1.contains("06:45"));
+            Thread.sleep(1000);
 
-            String ab2 = cars.getText();
             Assert.assertTrue(ab2.contains("06:00\n"));
             Assert.assertTrue(ab2.contains("06:45"));
+            Thread.sleep(1000);
 
-            String ab3 = pers.getText();
             Assert.assertTrue(ab3.contains("06:00\n"));
             Assert.assertTrue(ab3.contains("06:45"));
+            Thread.sleep(1000);
 
-            String ab4 = cuma.getText();
             Assert.assertTrue(ab4.contains("06:00\n"));
             Assert.assertTrue(ab4.contains("06:45"));
+            Thread.sleep(1000);
 
-            String ab5 = cumartesi.getText();
             Assert.assertTrue(ab5.contains("06:00\n"));
             Assert.assertTrue(ab5.contains("06:45"));
+            Thread.sleep(1000);
 
-            String ab6 = pazar.getText();
             Assert.assertTrue(ab6.contains("06:00\n"));
             Assert.assertTrue(ab6.contains("06:45"));
+            Thread.sleep(1000);
 
         } catch (AssertionError ae) {
 
             Assert.fail();
         }
+
+
     }
 
     @When("^ı click up to down$")
@@ -137,37 +131,21 @@ public class calismasaatleri extends BaseUtil {
         move.moveByOffset(100, 202);
         move.release();
         move.perform();
-        // WebElement src = base.driver.findElement(By.id("1_9"));
 
-        // WebElement trgt = base.driver.findElement(By.id("1_18"));
-
-
-        //Actions builder = new Actions(base.driver);
-
-        // builder.dragAndDrop(src,trgt).build().perform();
-        // WebElement element = base.driver.findElement(By.id("1_9"));
-
-        // WebElement target = base.driver.findElement(By.id("1_19"));
-
-        //(new Actions(base.driver)).dragAndDrop(element, target).perform();
     }
 
 
     @Then("^ı confirm the coming hourss$")
     public void ıConfirmTheComingHourss() throws Throwable {
 
-
-        WebElement ud = (new WebDriverWait(base.driver, 5))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("2_9")));
-
-        ud.click();
+        WebElement sali = base.driver.findElement(By.id("2_9"));
+        sali.click();
+        String ab2 = sali.getText();
 
         try {
 
-            String ba = ud.getText();
-            Assert.assertTrue(ba.contains("09:00\n"));
-            Assert.assertTrue(ba.contains("17:00"));
-
+            Assert.assertTrue(ab2.contains("09:00\n"));
+            Assert.assertTrue(ab2.contains("17:00"));
         } catch (AssertionError ae) {
 
             Assert.fail();
@@ -195,6 +173,7 @@ public class calismasaatleri extends BaseUtil {
 
     @And("^ı confirm Çalışma saatleri başarıyla kayıt edildi pop up message$")
     public void ıConfirmÇalışmaSaatleriBaşarıylaKayıtEdildiPopUpMessage() throws Throwable {
+
         Thread.sleep(3000);
 
         try {

@@ -21,14 +21,13 @@ Feature:Iletisim bilgileri
   And ı delete restoran sahibi ad and type again
 And ı delete email and type again
   When ı click kaydet button
-    And ı see the işlem gerçekleştiriliyorr pop up
-    And ı see the islem Başarılı pop up
-And ı confirm the islem basarili pop up message
+    And ı see İletişim bilgileriniz başarıyla kaydedildi pop up
+And ı confirm İletişim bilgileriniz başarıyla kaydedildi pop up message
 And ı click tamam button
     Then ı stay in same page
   When ı click kaydetvedevametbutton
-    And ı see the işlem gerçekleştiriliyor pop up
-    And ı see the islem Başarılı pop up
- And ı confirm the islem basarili pop up message
+    And ı see İletişim bilgileriniz başarıyla kaydedildi pop up
+    And ı confirm İletişim bilgileriniz başarıyla kaydedildi pop up message
     And ı click tamam button
+    And ı close the page
 

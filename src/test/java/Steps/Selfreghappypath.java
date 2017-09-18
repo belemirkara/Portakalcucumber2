@@ -61,22 +61,19 @@ public class Selfreghappypath extends BaseUtil {
         Select ddlil = new Select(Select_il);
 
 
-        List<WebElement> resultList = ddlil.getOptions();
-        int result = resultList.size();
-
         int gelensehir = r.nextInt(sehir.length-1);
 
 
         ddlil.selectByVisibleText(sehir[gelensehir]);
 
-
+  Thread.sleep(3000);
     }
 
 
     @And("^ı choose ilce from the ilce combobox$")
     public void ıChooseIlceFromTheIlceCombobox() throws Throwable {
         base.uret2();
-
+        Thread.sleep(3000);
     }
 
     @And("^ı enter restoran adresi with correct format$")
@@ -232,6 +229,7 @@ public class Selfreghappypath extends BaseUtil {
     @And("^I choose semt from the semt combobox$")
     public void iChooseSemtFromTheSemtCombobox() throws Throwable {
         base.uret3();
+        Thread.sleep(3000);
     }
 }
 

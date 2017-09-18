@@ -40,37 +40,45 @@ public class SilveFormuTemizleButonCalismasaatleri extends BaseUtil {
 
     @And("^ı see field is deleted which ı clicked sil button$")
     public void ıSeeFieldIsDeletedWhichIClickedSilButton() throws Throwable {
-        WebElement pzt = (new WebDriverWait(base.driver, 5))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("1_6")));
+        List<WebElement> pzt = base.driver.findElements(By.id("1_6"));
+
+        List<WebElement> tableCells= base.driver.findElements(By.id("workinghoursStatus"));
 
 
-        Thread.sleep(3000);
-        try {
 
-            String ab = pzt.getText();
-            Assert.assertEquals("",ab);
+        for(WebElement row : pzt) {
+            if(!pzt.contains(tableCells)){
 
-        } catch (AssertionError ae) {
+            }
 
-            Assert.fail();
+            else{
+                Assert.fail();
+            }
         }
+        Thread.sleep(3000);
+
     }
 
     @And("^ı see fields are deleted which ı clicked sil button$")
     public void ıSeeFieldsAreDeletedWhichIClickedSilButton() throws Throwable {
-        WebElement sali = (new WebDriverWait(base.driver, 5))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("2_9")));
+        List<WebElement> sali = base.driver.findElements(By.id("2_9"));
+
+        List<WebElement> tableCells= base.driver.findElements(By.id("workinghoursStatus"));
+
+
+
+        for(WebElement row : sali) {
+            if(!sali.contains(tableCells)){
+
+            }
+
+            else{
+                Assert.fail();
+            }
+        }
         Thread.sleep(3000);
 
-        try {
 
-            String ab = sali.getText();
-            Assert.assertEquals("",ab);
-
-        } catch (AssertionError ae) {
-
-            Assert.fail();
-        }
     }
 
     @Then("^ı click Silforupdwn button$")
@@ -98,10 +106,6 @@ public class SilveFormuTemizleButonCalismasaatleri extends BaseUtil {
         List<WebElement> tableCells= base.driver.findElements(By.id("workinghoursStatus"));
 
 
-        WebElement tablo = (new WebDriverWait(base.driver, 90))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("workingHoursSelection")));
-        WebElement cell = (new WebDriverWait(base.driver, 90))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("workinghoursStatus")));
 
         for(WebElement row : table) {
             if(!table.contains(tableCells));

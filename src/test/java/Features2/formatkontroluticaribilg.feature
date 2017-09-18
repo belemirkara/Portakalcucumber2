@@ -9,7 +9,6 @@ Feature:Format control in ticari bilg page
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
     And ı see ı am in ticari bilgiler page
     And ı enter the ticari unvan
     And ı enter the vergi dairesi
@@ -45,7 +44,6 @@ Feature:Format control in ticari bilg page
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
     And ı see ı am in ticari bilgiler page
     And ı enter the ticari unvan
     And ı enter the vergi dairesi
@@ -80,7 +78,6 @@ Feature:Format control in ticari bilg page
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
     And ı see ı am in ticari bilgiler page
     And ı enter the ticari unvan
     And ı enter the vergi dairesi
@@ -115,7 +112,6 @@ Feature:Format control in ticari bilg page
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
     And ı see ı am in ticari bilgiler page
     And ı enter the ticari unvan
     And ı enter the vergi dairesi
@@ -150,7 +146,6 @@ Feature:Format control in ticari bilg page
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
     And ı see ı am in ticari bilgiler page
     And ı enter the ticari unvan
     And ı enter the vergi dairesi
@@ -182,7 +177,6 @@ Feature:Format control in ticari bilg page
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
     And ı see ı am in ticari bilgiler page
     And ı enter the ticari unvan
     And ı enter the vergi dairesi
@@ -214,7 +208,6 @@ Feature:Format control in ticari bilg page
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
     And ı see ı am in ticari bilgiler page
     And ı enter the ticari unvan
     And ı enter the vergi dairesi
@@ -247,7 +240,6 @@ Feature:Format control in ticari bilg page
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
     And ı see ı am in ticari bilgiler page
     And ı enter the ticari unvan
     And ı enter the vergi dairesi
@@ -279,7 +271,6 @@ Feature:Format control in ticari bilg page
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
     And ı see ı am in ticari bilgiler page
     And ı enter the ticari unvan
     And ı enter the vergi dairesi
@@ -310,7 +301,6 @@ Feature:Format control in ticari bilg page
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
     And ı see ı am in ticari bilgiler page
     And ı enter the ticari unvan
     And ı enter the vergi dairesi
