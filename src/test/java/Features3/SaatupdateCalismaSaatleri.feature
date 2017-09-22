@@ -15,12 +15,5 @@ Feature:Update hours in calisma saatleri page
     And ı click an field in the table
     And ı see working hours
     And ı click minutes in working hours
-    And ı see values
-    When ı choose a value from the working hours
-    Then ı see the selected hours are updated
-    When ı update the hours same
-    Then ı see alert
-    When ı update the second hour is smaller than the first
-    Then ı see alerttwo
-    When ı update the first hour is bigger tahn the second
-    Then ı see alerttwo
+    And ı see and update values and control accuracy
+

@@ -56,19 +56,19 @@ public class calismasaatleri extends BaseUtil {
     @Then("^ı confirm the coming hours$")
     public void ıConfirmTheComingHours() throws Throwable {
         WebElement pzt = base.driver.findElement(By.id("1_6"));
-        pzt.click();
+
         WebElement sali = base.driver.findElement(By.id("2_6"));
-        sali.click();
+
         WebElement crsmba = base.driver.findElement(By.id("3_6"));
-        crsmba.click();
+
         WebElement pers = base.driver.findElement(By.id("4_6"));
-        pers.click();
+
         WebElement cuma = base.driver.findElement(By.id("5_6"));
-        cuma.click();
+
         WebElement cmrtesi = base.driver.findElement(By.id("6_6"));
-        cmrtesi.click();
+
         WebElement pazar = base.driver.findElement(By.id("0_6"));
-        pazar.click();
+
 
 
         try {
@@ -139,7 +139,6 @@ public class calismasaatleri extends BaseUtil {
     public void ıConfirmTheComingHourss() throws Throwable {
 
         WebElement sali = base.driver.findElement(By.id("2_9"));
-        sali.click();
         String ab2 = sali.getText();
 
         try {
