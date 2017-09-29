@@ -8,7 +8,6 @@ Feature:Happy path of fields in servis bilg page
     And ı enter pw
     And ı click benihatırla checkbox if ı want
     And ı click girisyap button
-    Then ı login successfully
     And ı see ı am in servis bilg page
    And ı choose mutfak
     And ı check ödeme yöntemi

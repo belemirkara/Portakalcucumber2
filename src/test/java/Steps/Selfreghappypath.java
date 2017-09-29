@@ -41,7 +41,7 @@ public class Selfreghappypath extends BaseUtil {
 
         rstrnadi.sendKeys(randomUUIDString);
 
-
+        Thread.sleep(3000);
     }
 
     @And("^ı choose il from the il combobox$")

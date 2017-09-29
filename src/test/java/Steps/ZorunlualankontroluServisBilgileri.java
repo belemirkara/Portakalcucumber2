@@ -94,6 +94,8 @@ public class ZorunlualankontroluServisBilgileri extends BaseUtil {
 
     @And("^ı choose mutfak$")
     public void ıChooseMutfak() throws Throwable {
+        Thread.sleep(1000);
+
         String[] mutfak = {"Börek", "Cafe", "Çiğ Köfte", "Çin Mutfağı", "Damacana Su", "Deniz Mahsulleri", "Döner", "Dünya Mutfağı",
                 "Ev Yemekleri", "Fastfood & Sandwich", "Japon Mutfağı", "Kebap & Türk Mutfağı", "Kokoreç", "Köfte", "Kumpir", "Pasta & Tatlı", "Pide", "Pizza & İtalyan", "Tavuk"};
 
