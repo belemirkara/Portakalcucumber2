@@ -20,8 +20,8 @@ public class MyStepdefs1 extends BaseUtil {
         this.base = base;
     }
 
-    @And("^ı enter şube sorumlusu ad with correct format$")
-    public void ıEnterŞubeSorumlusuAdWithCorrectFormat() throws Throwable {
+    @And("^i enter sube sorumlusu ad with correct format$")
+    public void iEntersubeSorumlusuAdWithCorrectFormat() throws Throwable {
 
         WebElement subesorumluad= (new WebDriverWait(base.driver, 15))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[1]/div/div[1]/div/div[3]/input[1]")));
@@ -29,8 +29,8 @@ public class MyStepdefs1 extends BaseUtil {
 
     }
 
-    @And("^ı enter şube sorumlusu soyad with correct format$")
-    public void ıEnterŞubeSorumlusuSoyadWithCorrectFormat() throws Throwable {
+    @And("^i enter sube sorumlusu soyad with correct format$")
+    public void iEntersubeSorumlusuSoyadWithCorrectFormat() throws Throwable {
 
         WebElement subesorumlusoyad= (new WebDriverWait(base.driver, 15))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[1]/div/div[1]/div/div[3]/input[2]")));
@@ -38,8 +38,8 @@ public class MyStepdefs1 extends BaseUtil {
 
     }
 
-    @And("^ı enter şube sorumlusu telno with correct format$")
-    public void ıEnterŞubeSorumlusuTelnoWithCorrectFormat() throws Throwable {
+    @And("^i enter sube sorumlusu telno with correct format$")
+    public void iEntersubeSorumlusuTelnoWithCorrectFormat() throws Throwable {
 
         int randomNumber = r.nextInt(899999) + 1000000;
 

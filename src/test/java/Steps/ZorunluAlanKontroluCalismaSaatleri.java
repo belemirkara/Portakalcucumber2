@@ -21,7 +21,7 @@ public class ZorunluAlanKontroluCalismaSaatleri  extends BaseUtil {
     public BaseUtil base;
     Random r = new Random();
     UUID uuid = UUID.randomUUID();
-    String randomUUIDString = uuid.toString();
+    String randomUUiDString = uuid.toString();
 
     public ZorunluAlanKontroluCalismaSaatleri(BaseUtil base) {
 
@@ -31,8 +31,8 @@ public class ZorunluAlanKontroluCalismaSaatleri  extends BaseUtil {
 
 
 
-    @And("^ı see Tabloyu kayıt edebilmeniz için en az bir adet çalışma saati oluşturmanız gerekmektedir pop up$")
-    public void ıSeeTabloyuKayıtEdebilmenizIçinEnAzBirAdetÇalışmaSaatiOluşturmanızGerekmektedirPopUp() throws Throwable {
+    @And("^i see Tabloyu kayit edebilmeniz icin en az bir adet calisma saati olusturmaniz gerekmektedir pop up$")
+    public void iSeeTabloyuKayitEdebilmenizicinEnAzBirAdetcalismaSaatiOlusturmanizGerekmektedirPopUp() throws Throwable {
         try {
 
             base.driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[6]"));
@@ -51,8 +51,8 @@ public class ZorunluAlanKontroluCalismaSaatleri  extends BaseUtil {
     }
 
 
-    @And("^ı confirm Tabloyu kayıt edebilmeniz için en az bir adet çalışma saati oluşturmanız gerekmektedir pop up message$")
-    public void ıConfirmTabloyuKayıtEdebilmenizIçinEnAzBirAdetÇalışmaSaatiOluşturmanızGerekmektedirPopUpMessage() throws Throwable {
+    @And("^i confirm Tabloyu kayit edebilmeniz icin en az bir adet calisma saati olusturmaniz gerekmektedir pop up message$")
+    public void iConfirmTabloyuKayitEdebilmenizicinEnAzBirAdetcalismaSaatiOlusturmanizGerekmektedirPopUpMessage() throws Throwable {
         Thread.sleep(3000);
 
         try {
@@ -61,7 +61,7 @@ public class ZorunluAlanKontroluCalismaSaatleri  extends BaseUtil {
 
             String ab = cs.getText();
 
-            Assert.assertEquals("Tabloyu kayıt edebilmeniz için en az bir adet çalışma saati oluşturmanız gerekmektedir.", ab);
+            Assert.assertEquals("Tabloyu kayit edebilmeniz icin en az bir adet calisma saati olusturmaniz gerekmektedir.", ab);
 
         } catch (AssertionError ae) {
 

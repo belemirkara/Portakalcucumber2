@@ -17,11 +17,12 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.UUID;
 
+
 public class Login {
 
     public BaseUtil base;
     UUID uuid = UUID.randomUUID();
-    String randomUUIDString = uuid.toString();
+    String randomUUiDString = uuid.toString();
     Random r = new Random();
 
     public Login(BaseUtil base) {
@@ -30,24 +31,27 @@ public class Login {
         this.base = base;
     }
 
-    @And("^ı enter kullaniciadi$")
-    public void ıEnterKullaniciadi() throws Throwable {
+    @And("^i enter kullaniciadi$")
+    public void iEnterKullaniciadi() throws Throwable {
+
         WebElement kullaniciadi = (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("username")));
         kullaniciadi.click();
-        kullaniciadi.sendKeys("900438");
+        kullaniciadi.sendKeys("900443");
     }
 
-    @And("^ı enter pw$")
-    public void ıEnterPw() throws Throwable {
+    @And("^i enter pw$")
+    public void iEnterPw() throws Throwable {
+
         WebElement password = (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("password")));
         password.click();
-        password.sendKeys("Grj080vu");
+        password.sendKeys("z58BQvsK");
     }
 
-    @And("^ı click benihatırla checkbox if ı want$")
-    public void ıClickBenihatırlaCheckboxIfIWant() throws Throwable {
+    @And("^i click benihatirla checkbox if i want$")
+    public void iClickBenihatirlaCheckboxifiWant() throws Throwable {
+
         WebElement benihatirla = (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("rememberMe")));
         benihatirla.click();
@@ -55,8 +59,9 @@ public class Login {
     }
 
 
-    @And("^ı click girisyap button$")
-    public void ıClickGirisyapButton() throws Throwable {
+    @And("^i click girisyap button$")
+    public void iClickGirisyapButton() throws Throwable {
+
         WebElement girisyap = (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[2]/div[1]/div[1]/div/div[2]/div[2]/form/fieldset/div[4]/button")));
         girisyap.click();
@@ -65,8 +70,9 @@ public class Login {
 
     }
 
-    @Then("^ı login successfully$")
-    public void ıLoginSuccessfully() throws Throwable {
+    @Then("^i login successfully$")
+    public void iLoginSuccessfully() throws Throwable {
+
         try {
             String URL = base.driver.getCurrentUrl();
             Assert.assertEquals(URL, "http://portakal.ystest.com/SelfRegistration/registrationwizard/commercial");
@@ -77,10 +83,14 @@ public class Login {
         }
     }
 
-    @Given("^I navigate to login page$")
+    @Given("^i navigate to login page$")
     public void iNavigateToLoginPage() throws Throwable {
         base.driver.navigate().to("http://portakal.ystest.com");
         Thread.sleep(1000);
-    }
 
+
+
+
+
+    }
 }

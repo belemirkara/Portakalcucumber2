@@ -32,8 +32,10 @@ public class zrunlualankontroluticaribilg {
     }
 
 
-    @And("^ı see the Ticari ünvan boş bırakılamaz pop up$")
-    public void ıSeeTheTicariÜnvanBoşBırakılamazPopUp() throws Throwable {
+
+    @Then("^i see the Ticari unvan bos birakilamaz pop up$")
+    public void iSeeTheTicariUnvanBosBirakilamazPopUp() throws Throwable {
+
         try {
 
 
@@ -51,8 +53,10 @@ public class zrunlualankontroluticaribilg {
     }
 
 
-    @And("^ı confirm Ticari ünvan boş bırakılamaz pop up message$")
-    public void ıConfirmTicariÜnvanBoşBırakılamazPopUpMessage() throws Throwable {
+
+    @And("^i confirm Ticari unvan bos birakilamaz pop up message$")
+    public void iConfirmTicariUnvanBosBirakilamazPopUpMessage() throws Throwable {
+
 
 
         try {
@@ -62,7 +66,7 @@ public class zrunlualankontroluticaribilg {
 
             String ab = tcariunvan.getText();
 
-            Assert.assertEquals("Ticari ünvan boş bırakılamaz.", ab);
+            Assert.assertEquals("Ticari unvan bos birakilamaz.", ab);
 
 
         } catch (AssertionError ae) {
@@ -72,36 +76,24 @@ public class zrunlualankontroluticaribilg {
         }
     }
 
-    @And("^ı delete ticari unvan$")
-    public void ıDeleteTicariUnvan() throws Throwable {
+
+
+    @And("^i delete ticari unvan$")
+    public void iDeleteTicariUnvan() throws Throwable {
+
+
         WebElement ticariunvn = (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("legalName")));
         ticariunvn.clear();
     }
 
-    @Then("^ı see the Ticari ünvan boş bırakılamazz pop up$")
-    public void ıSeeTheTicariÜnvanBoşBırakılamazzPopUp() throws Throwable {
-        try {
-
-
-            base.driver.findElement(By.id("3"));
-            // Thread.sleep(1000);
-
-            Alert alt8 = base.driver.switchTo().alert();
-            alt8.accept();
-
-        } catch (NoAlertPresentException noe) {
-
-            base.driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
-        }
 
 
 
-    }
+    @And("^i refresh the page$")
+    public void iRefreshThePage() throws Throwable {
 
 
-    @And("^ı refresh the page$")
-    public void ıRefreshThePage() throws Throwable {
         base.driver.navigate().refresh();
 
         Thread.sleep(3000);
@@ -109,16 +101,20 @@ public class zrunlualankontroluticaribilg {
 
     }
 
-    @And("^ı delete the vergi dairesi$")
-    public void ıDeleteTheVergiDairesi() throws Throwable {
+
+
+    @And("^i delete the vergi dairesi$")
+    public void iDeleteTheVergiDairesi() throws Throwable {
+
+     
         WebElement vergidairesi = (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("taxoffice")));
         vergidairesi.clear();
     }
 
 
-    @Then("^ı see the Vergi dairesi boş bırakılamaz pop up$")
-    public void ıSeeTheVergiDairesiBoşBırakılamazPopUp() throws Throwable {
+    @Then("^i see the Vergi dairesi bos birakilamaz pop up$")
+    public void iSeeTheVergiDairesiBosBirakilamazPopUp() throws Throwable {
         try {
 
 
@@ -136,8 +132,8 @@ public class zrunlualankontroluticaribilg {
     }
 
 
-    @And("^ı confirm Vergi dairesi boş bırakılamaz pop up message$")
-    public void ıConfirmVergiDairesiBoşBırakılamazPopUpMessage() throws Throwable {
+    @And("^i confirm Vergi dairesi bos birakilamaz pop up message$")
+    public void iConfirmVergiDairesiBosBirakilamazPopUpMessage() throws Throwable {
         try {
 
 
@@ -146,7 +142,7 @@ public class zrunlualankontroluticaribilg {
 
             String abc = vergidairesi.getText();
 
-            Assert.assertEquals("Vergi dairesi boş bırakılamaz.", abc);
+            Assert.assertEquals("Vergi dairesi bos birakilamaz.", abc);
 
         } catch (AssertionError ae) {
 
@@ -156,8 +152,8 @@ public class zrunlualankontroluticaribilg {
 
     }
 
-    @Then("^ı see the ticari tür boş bırakılamaz pop up$")
-    public void ıSeeTheTicariTürBoşBırakılamazPopUp() throws Throwable {
+    @Then("^i see the ticari tur bos birakilamaz pop up$")
+    public void iSeeTheTicariTurBosBirakilamazPopUp() throws Throwable {
         try {
 
 
@@ -175,8 +171,8 @@ public class zrunlualankontroluticaribilg {
 
     }
 
-    @And("^ı confirm the ticari tür boş bırakılamaz pop up message$")
-    public void ıConfirmTheTicariTürBoşBırakılamazPopUpMessage() throws Throwable {
+    @And("^i confirm the ticari tur bos birakilamaz pop up message$")
+    public void iConfirmTheTicariTurBosBirakilamazPopUpMessage() throws Throwable {
         try {
 
 
@@ -185,7 +181,7 @@ public class zrunlualankontroluticaribilg {
 
             String abc = vergidairesi.getText();
 
-            Assert.assertEquals("Ticari türü boş bırakılamaz.", abc);
+            Assert.assertEquals("Ticari turu bos birakilamaz.", abc);
 
         } catch (AssertionError ae) {
 
@@ -194,8 +190,9 @@ public class zrunlualankontroluticaribilg {
         }
     }
 
-    @And("^ı select ticari tür combobox$")
-    public void ıSelectTicariTürCombobox() throws Throwable {
+
+    @And("^i select ticari tur combobox$")
+    public void iSelectTicariTurCombobox() throws Throwable {
 
         Select s4 = new Select(base.driver.findElement(By.id("legalType")));
         s4.selectByVisibleText("Şahıs");
@@ -203,15 +200,15 @@ public class zrunlualankontroluticaribilg {
 
 
 
-    @And("^ı see TCKN field ı delete TCKN if it was entered$")
-    public void ıSeeTCKNFieldIDeleteTCKNIfItWasEntered() throws Throwable {
+    @And("^i see TCKN field i delete TCKN if it was entered$")
+    public void iSeeTCKNFieldIDeleteTCKNIfItWasEntered() throws Throwable {
         WebElement tckn = (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("identitynumber")));
         tckn.click();
         tckn.clear();
     }
-    @And("^ı enter mersis$")
-    public void ıEnterMersis() throws Throwable {
+    @And("^i enter mersis$")
+    public void iEnterMersis() throws Throwable {
         String[] mersis = {"00011", "00012", "00013", "00014", "00015", "00016", "00017", "00018", "00019"};
 
         WebElement mersiss = (new WebDriverWait(base.driver, 30))
@@ -222,8 +219,8 @@ public class zrunlualankontroluticaribilg {
         mersiss.sendKeys("60591947528" + gelenmersis);
     }
 
-    @Then("^ı see the TC kimlik numarası boş bırakılamaz pop up$")
-    public void ıSeeTheTCKimlikNumarasıBoşBırakılamazPopUp() throws Throwable {
+    @Then("^i see the TC kimlik numarasi bos birakilamaz pop up$")
+    public void iSeeTheTCKimlikNumarasiBosBirakilamazPopUp() throws Throwable {
         try {
 
 
@@ -240,8 +237,8 @@ public class zrunlualankontroluticaribilg {
 
     }
 
-    @And("^ı confirm the TC kimlik numarası boş bırakılamaz pop up message$")
-    public void ıConfirmTheTCKimlikNumarasıBoşBırakılamazPopUpMessage() throws Throwable {
+    @And("^i confirm the TC kimlik numarasi bos birakilamaz pop up message$")
+    public void iConfirmTheTCKimlikNumarasiBosBirakilamazPopUpMessage() throws Throwable {
         try {
 
 
@@ -250,7 +247,7 @@ public class zrunlualankontroluticaribilg {
 
             String abc = tckn.getText();
 
-            Assert.assertEquals("TC kimlik numarası boş bırakılamaz.", abc);
+            Assert.assertEquals("TC kimlik numarasi bos birakilamaz.", abc);
 
         } catch (AssertionError ae) {
 
@@ -260,16 +257,17 @@ public class zrunlualankontroluticaribilg {
     }
 
 
-    @And("^ı delete iban if it was entered$")
-    public void ıDeleteIbanIfItWasEntered() throws Throwable {
+    @And("^i delete iban if it was entered$")
+    public void iDeleteIbanIfItWasEntered() throws Throwable {
         WebElement iban = (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("ibannumber")));
         iban.click();
         iban.clear();
     }
 
-    @Then("^ı see the IBAN alanının uzunluğu (\\d+) olmalıdır pop up$")
-    public void ıSeeTheIBANAlanınınUzunluğuOlmalıdırPopUp(int arg0) throws Throwable {
+    @Then("^i see the iBAN alaninin uzunluğu yirmialti olmalidir pop up$")
+    public void iSeeTheIBANAlanininUzunluğuYirmialtiOlmalidirPopUp() throws Throwable {
+
         try {
 
 
@@ -287,8 +285,10 @@ public class zrunlualankontroluticaribilg {
     }
 
 
-    @And("^ı confirm the IBAN alanının uzunluğu (\\d+) olmalıdır pop up message$")
-    public void ıConfirmTheIBANAlanınınUzunluğuOlmalıdırPopUpMessage(int arg0) throws Throwable {
+    @And("^i confirm the iBAN alaninin uzunluğu yirmialti olmalidir pop up message$")
+    public void iConfirmTheIBANAlanininUzunluğuYirmialtiOlmalidirPopUpMessage() throws Throwable {
+
+
         try {
 
 
@@ -297,7 +297,7 @@ public class zrunlualankontroluticaribilg {
 
             String abc = ibanpopup.getText();
 
-            Assert.assertEquals("IBAN alanının uzunluğu 26 olmalıdır.", abc);
+            Assert.assertEquals("IBAN alaninin uzunluğu 26 olmalidir.", abc);
 
         } catch (AssertionError ae) {
 
@@ -305,16 +305,16 @@ public class zrunlualankontroluticaribilg {
         }
     }
 
-    @And("^ı delete fatura e mail adres$")
-    public void ıDeleteFaturaEMailAdres() throws Throwable {
+    @And("^i delete fatura e mail adres$")
+    public void iDeleteFaturaEMailAdres() throws Throwable {
         WebElement faturaemail = (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("earchivemailaddress")));
         faturaemail.click();
         faturaemail.clear();
     }
 
-    @Then("^ı see Fatura e-mail adresi boş bırakılamaz pop up$")
-    public void ıSeeFaturaEMailAdresiBoşBırakılamazPopUp() throws Throwable {
+    @Then("^i see Fatura e-mail adresi bos birakilamaz pop up$")
+    public void iSeeFaturaEMailAdresiBosBirakilamazPopUp() throws Throwable {
         try {
 
 
@@ -331,8 +331,8 @@ public class zrunlualankontroluticaribilg {
 
     }
 
-    @And("^ı confirm Fatura e-mail adresi boş bırakılamaz pop up message$")
-    public void ıConfirmFaturaEMailAdresiBoşBırakılamazPopUpMessage() throws Throwable {
+    @And("^i confirm Fatura e-mail adresi bos birakilamaz pop up message$")
+    public void iConfirmFaturaEMailAdresiBosBirakilamazPopUpMessage() throws Throwable {
         try {
 
 
@@ -341,38 +341,42 @@ public class zrunlualankontroluticaribilg {
 
             String abc = ibanpopup.getText();
 
-            Assert.assertEquals("Fatura e-mail adresi boş bırakılamaz.", abc);
+            Assert.assertEquals("Fatura e-mail adresi bos birakilamaz.", abc);
 
         } catch (AssertionError ae) {
 
             Assert.fail();
         }}
 
-    @And("^ı delete mersis$")
-    public void ıDeleteMersis() throws Throwable {
+
+    @And("^i delete mersis$")
+    public void iDeleteMersis() throws Throwable {
+
         WebElement mersis = (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("mersisnumber")));
         mersis.click();
         mersis.clear();
     }
 
-    @And("^ı select ticari tür comboboxiki$")
-    public void ıSelectTicariTürComboboxiki() throws Throwable {
+
+    @And("^i select ticari tur comboboxiki$")
+    public void iSelectTicariTurComboboxiki() throws Throwable {
+
         Select s4 = new Select(base.driver.findElement(By.id("legalType")));
 
                 s4.selectByVisibleText("Diğer");
             }
 
-    @And("^ı delete vergi no if it was entered$")
-    public void ıDeleteVergiNoIfItWasEntered() throws Throwable {
+    @And("^i delete vergi no if it was entered$")
+    public void iDeleteVergiNoIfItWasEntered() throws Throwable {
         WebElement vergino = (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("taxnumber")));
         vergino.click();
         vergino.clear();
     }
 
-    @Then("^ı see Vergi numarası boş bırakılamaz pop up$")
-    public void ıSeeVergiNumarasıBoşBırakılamazPopUp() throws Throwable {
+    @Then("^i see Vergi numarasi bos birakilamaz pop up$")
+    public void iSeeVergiNumarasiBosBirakilamazPopUp() throws Throwable {
         try {
 
 
@@ -391,8 +395,8 @@ public class zrunlualankontroluticaribilg {
 
 }
 
-    @And("^ı confirm Vergi numarası boş bırakılamaz pop up message$")
-    public void ıConfirmVergiNumarasıBoşBırakılamazPopUpMessage() throws Throwable {
+    @And("^i confirm Vergi numarasi bos birakilamaz pop up message$")
+    public void iConfirmVergiNumarasiBosBirakilamazPopUpMessage() throws Throwable {
         try {
 
 
@@ -401,7 +405,7 @@ public class zrunlualankontroluticaribilg {
 
             String abc = ibanpopup.getText();
 
-            Assert.assertEquals("Vergi numarası boş bırakılamaz.", abc);
+            Assert.assertEquals("Vergi numarasi bos birakilamaz.", abc);
 
         } catch (AssertionError ae) {
 
@@ -410,8 +414,8 @@ public class zrunlualankontroluticaribilg {
 
 }
 
-    @And("^ı see ı stay in ticari bilgiler page$")
-    public void ıSeeIStayInTicariBilgilerPage() throws Throwable {
+    @And("^i see i stay in ticari bilgiler page$")
+    public void iSeeIStayInTicariBilgilerPage() throws Throwable {
         Thread.sleep(3000);
 
         try {
@@ -423,5 +427,22 @@ public class zrunlualankontroluticaribilg {
             Assert.fail();
         }
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
 }

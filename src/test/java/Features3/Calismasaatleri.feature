@@ -1,29 +1,29 @@
-Feature:Happy path of calışma saatleri page
-  This feature deals with the çalışma saatleri of the portakal
+Feature:Happy path of calisma saatleri page
+  This feature deals with the calisma saatleri of the portakal
 
-  Scenario: Happy path of calışma saatleri page
-    Given I navigate to login page
-    And ı get browser foreground
-    And ı enter kullaniciadi
-    And ı enter pw
-    And ı click benihatırla checkbox if ı want
-    And ı click girisyap button
-    And ı see ı am in çalışma saatleri page
-    And ı get full screen
-    When ı click from left to right
-    Then ı confirm the coming hours
-    When ı click up to down
-    Then ı confirm the coming hourss
-    When ı click kaydet button
-    Then ı see Çalışma saatleri başarıyla kayıt edildi pop up
-    And ı confirm Çalışma saatleri başarıyla kayıt edildi pop up message
-    And ı click tamam button
-    And ı refresh the page
-    And ı click Formu temizle button
-    And ı click from left to right
-    And ı click up to down
-    When ı click kaydetvedevametbutton
-    Then ı see Çalışma saatleri başarıyla kayıt edildi pop up
-    And ı confirm Çalışma saatleri başarıyla kayıt edildi pop up message
-    And ı click tamam button
-    And ı close the page
+  Scenario: Happy path of calisma saatleri page
+    Given i navigate to login page
+    And i get browser foreground
+    And i enter kullaniciadi
+    And i enter pw
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
+    And i see i am in calisma saatleri page
+    And i get full screen
+    When i click from left to right
+    Then i confirm the coming hours
+    When i click up to down
+    Then i confirm the coming hourss
+    When i click kaydet button
+    Then i see Çalisma saatleri basariyla kayit edildi pop up
+    And i confirm Çalisma saatleri basariyla kayit edildi pop up message
+    And i click tamam button
+    And i refresh the page
+    And i click Formu temizle button
+    And i click from left to right
+    And i click up to down
+    When i click kaydetvedevametbutton
+    Then i see Çalisma saatleri basariyla kayit edildi pop up
+    And i confirm Çalisma saatleri basariyla kayit edildi pop up message
+    And i click tamam button
+    And i close the page

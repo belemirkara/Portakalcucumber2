@@ -4,323 +4,323 @@ Feature:Format control in ticari bilg page
 
 
   Scenario:Format control of tckn
-    Given I navigate to login page
-    And ı enter kullaniciadi
-    And ı enter pw
-    And ı click benihatırla checkbox if ı want
-    And ı click girisyap button
-    And ı see ı am in ticari bilgiler page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür combobox
-    And ı delete tckn and send tckn with wrong format
-    And ı enter iban
-    And ı enter kep adresi
-    And ı delete mersis
-    And ı delete fatura e mail adres and type again
-    When ı click kaydet button
-    Then ı see TC kimlik numarası doğru formatta değildir pop up
-    And ı confirm TC kimlik numarası doğru formatta değildir pop up message
-    And ı click tamam button
-    And ı refresh the page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür combobox
-    And ı delete tckn and send tckn with wrong format
-    And ı enter iban
-    And ı enter kep adresi
-    And ı delete mersis
-    And ı delete fatura e mail adres and type again
-    When ı click kaydetvedevametbutton
-    Then ı see TC kimlik numarası doğru formatta değildir pop up
-    And ı confirm TC kimlik numarası doğru formatta değildir pop up message
-    And ı click tamam button
-    And ı close the page
+    Given i navigate to login page
+    And i enter kullaniciadi
+    And i enter pw
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
+    And i see i am in ticari bilgiler page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur combobox
+    And i delete tckn and send tckn with wrong format
+    And i enter iban
+    And i enter kep adresi
+    And i delete mersis
+    And i delete fatura e mail adres and type again
+    When i click kaydet button
+    Then i see TC kimlik numarasi dogru formatta degildir pop up
+    And i confirm TC kimlik numarasi dogru formatta degildir pop up message
+    And i click tamam button
+    And i refresh the page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur combobox
+    And i delete tckn and send tckn with wrong format
+    And i enter iban
+    And i enter kep adresi
+    And i delete mersis
+    And i delete fatura e mail adres and type again
+    When i click kaydetvedevametbutton
+    Then i see TC kimlik numarasi dogru formatta degildir pop up
+    And i confirm TC kimlik numarasi dogru formatta degildir pop up message
+    And i click tamam button
+    And i close the page
 
 
   Scenario:Format control of tckn
-    Given I navigate to login page
-    And ı enter kullaniciadi
-    And ı enter pw
-    And ı click benihatırla checkbox if ı want
-    And ı click girisyap button
-    And ı see ı am in ticari bilgiler page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür combobox
-    And ı delete tckn and send tckn with missing format
-    And ı enter iban
-    And ı enter kep adresi
-    And ı delete mersis
-    And ı delete fatura e mail adres and type again
-    When ı click kaydet button
-    Then ı see TC kimlik numarası alanının uzunluğu 11 olmalıdır pop up
-    And ı confirm TC kimlik numarası alanının uzunluğu 11 olmalıdır pop up message
-    And ı click tamam button
-    And ı refresh the page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür combobox
-    And ı delete tckn and send tckn with missing format
-    And ı enter iban
-    And ı enter kep adresi
-    And ı delete mersis
-    And ı delete fatura e mail adres and type again
-    When ı click kaydetvedevametbutton
-    Then ı see TC kimlik numarası alanının uzunluğu 11 olmalıdır pop up
-    And ı confirm TC kimlik numarası alanının uzunluğu 11 olmalıdır pop up message
-    And ı click tamam button
-    And ı close the page
+    Given i navigate to login page
+    And i enter kullaniciadi
+    And i enter pw
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
+    And i see i am in ticari bilgiler page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur combobox
+    And i delete tckn and send tckn with missing format
+    And i enter iban
+    And i enter kep adresi
+    And i delete mersis
+    And i delete fatura e mail adres and type again
+    When i click kaydet button
+    Then i see TC kimlik numarasi alaninin uzunlugu onbir olmalidir pop up
+    And i confirm TC kimlik numarasi alaninin uzunlugu onbir olmalidir pop up message
+    And i click tamam button
+    And i refresh the page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur combobox
+    And i delete tckn and send tckn with missing format
+    And i enter iban
+    And i enter kep adresi
+    And i delete mersis
+    And i delete fatura e mail adres and type again
+    When i click kaydetvedevametbutton
+    Then i see TC kimlik numarasi alaninin uzunlugu onbir olmalidir pop up
+    And i confirm TC kimlik numarasi alaninin uzunlugu onbir olmalidir pop up message
+    And i click tamam button
+    And i close the page
 
   Scenario:Format control of vergi no
-    Given I navigate to login page
-    And ı enter kullaniciadi
-    And ı enter pw
-    And ı click benihatırla checkbox if ı want
-    And ı click girisyap button
-    And ı see ı am in ticari bilgiler page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür comboboxiki
-    And ı delete vergi no and enter wrong format
-    And ı enter iban
-    And ı enter kep adresi
-    And ı delete mersis
-    And ı delete fatura e mail adres and type again
-    When ı click kaydet button
-    Then ı see Vergi numarası doğru formatta değildir pop up
-    And ı confirm Vergi numarası doğru formatta değildir pop up message
-    And ı click tamam button
-    And ı refresh the page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür comboboxiki
-    And ı delete vergi no and enter wrong format
-    And ı enter iban
-    And ı enter kep adresi
-    And ı delete mersis
-    And ı delete fatura e mail adres and type again
-    When ı click kaydetvedevametbutton
-    Then ı see Vergi numarası doğru formatta değildir pop up
-    And ı confirm Vergi numarası doğru formatta değildir pop up message
-    And ı click tamam button
-    And ı close the page
+    Given i navigate to login page
+    And i enter kullaniciadi
+    And i enter pw
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
+    And i see i am in ticari bilgiler page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur comboboxiki
+    And i delete vergi no and enter wrong format
+    And i enter iban
+    And i enter kep adresi
+    And i delete mersis
+    And i delete fatura e mail adres and type again
+    When i click kaydet button
+    Then i see Vergi numarasi dogru formatta degildir pop up
+    And i confirm Vergi numarasi dogru formatta degildir pop up message
+    And i click tamam button
+    And i refresh the page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur comboboxiki
+    And i delete vergi no and enter wrong format
+    And i enter iban
+    And i enter kep adresi
+    And i delete mersis
+    And i delete fatura e mail adres and type again
+    When i click kaydetvedevametbutton
+    Then i see Vergi numarasi dogru formatta degildir pop up
+    And i confirm Vergi numarasi dogru formatta degildir pop up message
+    And i click tamam button
+    And i close the page
 
   Scenario:Format control of vergi no
-    Given I navigate to login page
-    And ı enter kullaniciadi
-    And ı enter pw
-    And ı click benihatırla checkbox if ı want
-    And ı click girisyap button
-    And ı see ı am in ticari bilgiler page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür comboboxiki
-    And ı delete vergi no and enter missing format
-    And ı enter iban
-    And ı enter kep adresi
-    And ı delete mersis
-    And ı delete fatura e mail adres and type again
-    When ı click kaydet button
-    Then ı see Vergi numarası alanının uzunluğu 10 olmalıdır pop up
-    And ı confirm Vergi numarası alanının uzunluğu 10 olmalıdır pop up message
-    And ı click tamam button
-    And ı refresh the page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür comboboxiki
-    And ı delete vergi no and enter missing format
-    And ı enter iban
-    And ı enter kep adresi
-    And ı delete mersis
-    And ı delete fatura e mail adres and type again
-    When ı click kaydetvedevametbutton
-    Then ı see Vergi numarası alanının uzunluğu 10 olmalıdır pop up
-    And ı confirm Vergi numarası alanının uzunluğu 10 olmalıdır pop up message
-    And ı click tamam button
-    And ı close the page
+    Given i navigate to login page
+    And i enter kullaniciadi
+    And i enter pw
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
+    And i see i am in ticari bilgiler page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur comboboxiki
+    And i delete vergi no and enter missing format
+    And i enter iban
+    And i enter kep adresi
+    And i delete mersis
+    And i delete fatura e mail adres and type again
+    When i click kaydet button
+    Then i see Vergi numarasi alaninin uzunlugu on olmalidir pop up
+    And i confirm Vergi numarasi alaninin uzunlugu on olmalidir pop up message
+    And i click tamam button
+    And i refresh the page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur comboboxiki
+    And i delete vergi no and enter missing format
+    And i enter iban
+    And i enter kep adresi
+    And i delete mersis
+    And i delete fatura e mail adres and type again
+    When i click kaydetvedevametbutton
+    Then i see Vergi numarasi alaninin uzunlugu on olmalidir pop up
+    And i confirm Vergi numarasi alaninin uzunlugu on olmalidir pop up message
+    And i click tamam button
+    And i close the page
 
   Scenario:Format control of iban
-    Given I navigate to login page
-    And ı enter kullaniciadi
-    And ı enter pw
-    And ı click benihatırla checkbox if ı want
-    And ı click girisyap button
-    And ı see ı am in ticari bilgiler page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür
-    And ı delete iban and enter wrong format iban
-    And ı enter kep adresi
-    And ı delete fatura e mail adres and type again
-    When ı click kaydet button
-    Then ı see IBAN doğru formatta değildir pop up
-    And ı confirm IBAN doğru formatta değildir pop up message
-    And ı click tamam button
-    And ı refresh the page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür
-    And ı delete iban and enter wrong format iban
-    And ı enter kep adresi
-    And ı delete mersis
-    And ı delete fatura e mail adres and type again
-    When ı click kaydetvedevametbutton
-    Then ı see IBAN doğru formatta değildir pop up
-    And ı confirm IBAN doğru formatta değildir pop up message
-    And ı click tamam button
-    And ı close the page
+    Given i navigate to login page
+    And i enter kullaniciadi
+    And i enter pw
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
+    And i see i am in ticari bilgiler page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur
+    And i delete iban and enter wrong format iban
+    And i enter kep adresi
+    And i delete fatura e mail adres and type again
+    When i click kaydet button
+    Then i see iBAN dogru formatta degildir pop up
+    And i confirm iBAN dogru formatta degildir pop up message
+    And i click tamam button
+    And i refresh the page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur
+    And i delete iban and enter wrong format iban
+    And i enter kep adresi
+    And i delete mersis
+    And i delete fatura e mail adres and type again
+    When i click kaydetvedevametbutton
+    Then i see iBAN dogru formatta degildir pop up
+    And i confirm iBAN dogru formatta degildir pop up message
+    And i click tamam button
+    And i close the page
 
   Scenario:Format control of iban
-    Given I navigate to login page
-    And ı enter kullaniciadi
-    And ı enter pw
-    And ı click benihatırla checkbox if ı want
-    And ı click girisyap button
-    And ı see ı am in ticari bilgiler page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür
-    And ı delete iban and enter missing format iban
-    And ı enter kep adresi
-    And ı delete fatura e mail adres and type again
-    When ı click kaydet button
-    Then ı see IBAN alanının uzunluğu 26 olmalıdır pop up
-    And ı confirm IBAN alanının uzunluğu 26 olmalıdır pop up message
-    And ı click tamam button
-    And ı refresh the page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür
-    And ı delete iban and enter missing format iban
-    And ı enter kep adresi
-    And ı delete mersis
-    And ı delete fatura e mail adres and type again
-    When ı click kaydetvedevametbutton
-    Then ı see IBAN alanının uzunluğu 26 olmalıdır pop up
-    And ı confirm IBAN alanının uzunluğu 26 olmalıdır pop up message
-    And ı click tamam button
-    And ı close the page
+    Given i navigate to login page
+    And i enter kullaniciadi
+    And i enter pw
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
+    And i see i am in ticari bilgiler page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur
+    And i delete iban and enter missing format iban
+    And i enter kep adresi
+    And i delete fatura e mail adres and type again
+    When i click kaydet button
+    Then i see iBAN alaninin uzunlugu yirmialti olmalidir pop up
+    And i confirm iBAN alaninin uzunlugu yirmialti olmalidir pop up message
+    And i click tamam button
+    And i refresh the page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur
+    And i delete iban and enter missing format iban
+    And i enter kep adresi
+    And i delete mersis
+    And i delete fatura e mail adres and type again
+    When i click kaydetvedevametbutton
+    Then i see iBAN alaninin uzunlugu yirmialti olmalidir pop up
+    And i confirm iBAN alaninin uzunlugu yirmialti olmalidir pop up message
+    And i click tamam button
+    And i close the page
 
   Scenario:Format control of kep adresi
-    Given I navigate to login page
-    And ı enter kullaniciadi
-    And ı enter pw
-    And ı click benihatırla checkbox if ı want
-    And ı click girisyap button
-    And ı see ı am in ticari bilgiler page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür
-    And ı enter iban
-    And ı delete kep adresi and enter wrong format kep adresi
-    And ı delete fatura e mail adres and type again
-    When ı click kaydet button
-    Then ı see Kep adresi doğru formatta değildir pop up
-    And ı confirm Kep adresi doğru formatta değildir pop up message
-    And ı click tamam button
-    And ı refresh the page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür
-    And ı enter iban
-    And ı delete kep adresi and enter wrong format kep adresi
-    And ı delete mersis
-    And ı delete fatura e mail adres and type again
-    When ı click kaydetvedevametbutton
-    Then ı see Kep adresi doğru formatta değildir pop up
-    And ı confirm Kep adresi doğru formatta değildir pop up message
-    And ı click tamam button
-    And ı close the page
+    Given i navigate to login page
+    And i enter kullaniciadi
+    And i enter pw
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
+    And i see i am in ticari bilgiler page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur
+    And i enter iban
+    And i delete kep adresi and enter wrong format kep adresi
+    And i delete fatura e mail adres and type again
+    When i click kaydet button
+    Then i see Kep adresi dogru formatta degildir pop up
+    And i confirm Kep adresi dogru formatta degildir pop up message
+    And i click tamam button
+    And i refresh the page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur
+    And i enter iban
+    And i delete kep adresi and enter wrong format kep adresi
+    And i delete mersis
+    And i delete fatura e mail adres and type again
+    When i click kaydetvedevametbutton
+    Then i see Kep adresi dogru formatta degildir pop up
+    And i confirm Kep adresi dogru formatta degildir pop up message
+    And i click tamam button
+    And i close the page
 
 
   Scenario:Format control of mersis
-    Given I navigate to login page
-    And ı enter kullaniciadi
-    And ı enter pw
-    And ı click benihatırla checkbox if ı want
-    And ı click girisyap button
-    And ı see ı am in ticari bilgiler page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür with wrong format mersis
-    And ı enter iban
-    And ı enter kep adresi
-    And ı delete fatura e mail adres and type again
-    When ı click kaydet button
-    Then ı see Mersis numarası doğru formatta değildir pop up
-    And ı confirm Mersis numarası doğru formatta değildir pop up message
-    And ı click tamam button
-    And ı refresh the page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür with wrong format mersis
-    And ı enter iban
-    And ı enter kep adresi
-    And ı delete fatura e mail adres and type again
-    When ı click kaydetvedevametbutton
-    Then ı see Mersis numarası doğru formatta değildir pop up
-    And ı confirm Mersis numarası doğru formatta değildir pop up message
-    And ı click tamam button
-    And ı close the page
+    Given i navigate to login page
+    And i enter kullaniciadi
+    And i enter pw
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
+    And i see i am in ticari bilgiler page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur with wrong format mersis
+    And i enter iban
+    And i enter kep adresi
+    And i delete fatura e mail adres and type again
+    When i click kaydet button
+    Then i see Mersis numarasi dogru formatta degildir pop up
+    And i confirm Mersis numarasi dogru formatta degildir pop up message
+    And i click tamam button
+    And i refresh the page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur with wrong format mersis
+    And i enter iban
+    And i enter kep adresi
+    And i delete fatura e mail adres and type again
+    When i click kaydetvedevametbutton
+    Then i see Mersis numarasi dogru formatta degildir pop up
+    And i confirm Mersis numarasi dogru formatta degildir pop up message
+    And i click tamam button
+    And i close the page
 
 
   Scenario:Format control of mersis
-    Given I navigate to login page
-    And ı enter kullaniciadi
-    And ı enter pw
-    And ı click benihatırla checkbox if ı want
-    And ı click girisyap button
-    And ı see ı am in ticari bilgiler page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür with missing format mersis
-    And ı enter iban
-    And ı enter kep adresi
-    And ı delete fatura e mail adres and type again
-    When ı click kaydet button
-    Then ı see Mersis numarası alanının uzunluğu 16 olmalıdır pop up
-    And ı confirm Mersis numarası alanının uzunluğu 16 olmalıdır pop up message
-    And ı click tamam button
-    And ı refresh the page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür with missing format mersis
-    And ı enter iban
-    And ı enter kep adresi
-    And ı delete fatura e mail adres and type again
-    When ı click kaydetvedevametbutton
-    Then ı see Mersis numarası alanının uzunluğu 16 olmalıdır pop up
-    And ı confirm Mersis numarası alanının uzunluğu 16 olmalıdır pop up message
-    And ı click tamam button
-    And ı close the page
+    Given i navigate to login page
+    And i enter kullaniciadi
+    And i enter pw
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
+    And i see i am in ticari bilgiler page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur with missing format mersis
+    And i enter iban
+    And i enter kep adresi
+    And i delete fatura e mail adres and type again
+    When i click kaydet button
+    Then i see Mersis numarasi alaninin uzunlugu onalti olmalidir pop up
+    And i confirm Mersis numarasi alaninin uzunlugu onalti olmalidir pop up message
+    And i click tamam button
+    And i refresh the page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur with missing format mersis
+    And i enter iban
+    And i enter kep adresi
+    And i delete fatura e mail adres and type again
+    When i click kaydetvedevametbutton
+    Then i see Mersis numarasi alaninin uzunlugu onalti olmalidir pop up
+    And i confirm Mersis numarasi alaninin uzunlugu onalti olmalidir pop up message
+    And i click tamam button
+    And i close the page
 
   Scenario:Format control of fatura e-mail adres format
-    Given I navigate to login page
-    And ı enter kullaniciadi
-    And ı enter pw
-    And ı click benihatırla checkbox if ı want
-    And ı click girisyap button
-    And ı see ı am in ticari bilgiler page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür
-    And ı enter iban
-    And ı enter kep adresi
-    And ı delete fatura e mail adres and type wrong format
-    When ı click kaydet button
-    Then ı see Lütfen geçerli bir mail adresi giriniz pop up
-    And ı confirm Lütfen geçerli bir mail adresi giriniz pop up message
-    And ı click tamam button
-    And ı refresh the page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür
-    And ı enter iban
-    And ı enter kep adresi
-    And ı delete fatura e mail adres and type wrong format
-    When ı click kaydetvedevametbutton
-    Then ı see Lütfen geçerli bir mail adresi giriniz pop up
-    And ı confirm Lütfen geçerli bir mail adresi giriniz pop up message
-    And ı click tamam button
-    And ı close the page
+    Given i navigate to login page
+    And i enter kullaniciadi
+    And i enter pw
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
+    And i see i am in ticari bilgiler page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur
+    And i enter iban
+    And i enter kep adresi
+    And i delete fatura e mail adres and type wrong format
+    When i click kaydet button
+    Then i see Lutfen gecerli bir mail adresi giriniz pop up
+    And i confirm Lutfen gecerli bir mail adresi giriniz pop up message
+    And i click tamam button
+    And i refresh the page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur
+    And i enter iban
+    And i enter kep adresi
+    And i delete fatura e mail adres and type wrong format
+    When i click kaydetvedevametbutton
+    Then i see Lutfen gecerli bir mail adresi giriniz pop up
+    And i confirm Lutfen gecerli bir mail adresi giriniz pop up message
+    And i click tamam button
+    And i close the page

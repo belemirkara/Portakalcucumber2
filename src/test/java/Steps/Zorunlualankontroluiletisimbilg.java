@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 public class Zorunlualankontroluiletisimbilg {
     public BaseUtil base;
     UUID uuid = UUID.randomUUID();
-    String randomUUIDString = uuid.toString();
+    String randomUUiDString = uuid.toString();
     Random r=new Random();
 
     public Zorunlualankontroluiletisimbilg(BaseUtil base) {
@@ -30,8 +30,8 @@ public class Zorunlualankontroluiletisimbilg {
     }
 
 
-    @And("^ı delete restoran sahibi ad$")
-    public void ıDeleteRestoranSahibiAd() throws Throwable {
+    @And("^i delete restoran sahibi ad$")
+    public void iDeleteRestoranSahibiAd() throws Throwable {
         WebElement rstrnsahbiad = (new WebDriverWait(base.driver, 60))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"contactForm\"]/div[1]/input[1]")));
 
@@ -39,12 +39,12 @@ public class Zorunlualankontroluiletisimbilg {
     }
 
 
-    @Then("^ı see the  Zorunla alanlar içinde doldurulmamış alanlar mevcut txt$")
-    public void ıSeeTheZorunlaAlanlarIçindeDoldurulmamışAlanlarMevcutTxt() throws Throwable {
+    @Then("^i see the Zorunlu alanlar icinde doldurulmamis alanlar mevcut txt$")
+    public void iSeeTheZorunlaAlanlaricindeDoldurulmamisAlanlarMevcutTxt() throws Throwable {
         try{
 
             String ab=base.driver.findElement(By.xpath("//*[@id=\"contactForm\"]/div[3]")).getText();
-            Assert.assertEquals("Zorunla alanlar içinde doldurulmamış alanlar mevcut !", ab);
+            Assert.assertEquals("Zorunla alanlar icinde doldurulmamis alanlar mevcut !", ab);
 
         } catch(AssertionError ae) {
 
@@ -57,8 +57,8 @@ public class Zorunlualankontroluiletisimbilg {
 
 
 
-    @Then("^ı see kaydet ve kaydetvedevamet button are unclickable$")
-    public boolean ıSeeKaydetVeKaydetvedevametButtonAreUnclickable() throws Throwable {
+    @Then("^i see kaydet ve kaydetvedevamet button are unclickable$")
+    public boolean iSeeKaydetVeKaydetvedevametButtonAreUnclickable() throws Throwable {
 
             try{
                 WebDriverWait wait = new WebDriverWait(base.driver, 6);
@@ -70,45 +70,46 @@ public class Zorunlualankontroluiletisimbilg {
             }
         }
 
-    @And("^ı delete restoran sahibi soyad$")
-    public void ıDeleteRestoranSahibiSoyad() throws Throwable {
+    @And("^i delete restoran sahibi soyad$")
+    public void iDeleteRestoranSahibiSoyad() throws Throwable {
         WebElement rstrnsahbisoyad = (new WebDriverWait(base.driver, 60))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"contactForm\"]/div[1]/input[2]")));
 
         rstrnsahbisoyad.clear();
     }
 
-    @Then("^ı close the page$")
-    public void ıCloseThePage() throws Throwable {
+    @Then("^i close the page$")
+    public void iCloseThePage() throws Throwable {
+
        base.driver.quit();
     }
 
-    @And("^ı delete restoran sahibi telefon$")
-    public void ıDeleteRestoranSahibiTelefon() throws Throwable {
+    @And("^i delete restoran sahibi telefon$")
+    public void iDeleteRestoranSahibiTelefon() throws Throwable {
         WebElement rstrnsahibitel = (new WebDriverWait(base.driver, 60))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("restaurant-owner-phone")));
 
         rstrnsahibitel.clear();
     }
 
-    @And("^ı delete restoran tel$")
-    public void ıDeleteRestoranTel() throws Throwable {
+    @And("^i delete restoran tel$")
+    public void iDeleteRestoranTel() throws Throwable {
         WebElement restorantelno = (new WebDriverWait(base.driver, 60))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("restaurant-phone")));
 
         restorantelno.clear();
     }
 
-    @And("^ı delete email$")
-    public void ıDeleteEmail() throws Throwable {
+    @And("^i delete email$")
+    public void iDeleteEmail() throws Throwable {
         WebElement email = (new WebDriverWait(base.driver, 60))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("restaurant-owner-email")));
 
         email.clear();
     }
 
-    @And("^ı see Şube sorumlusu soyadı boş bırakılamaz pop up$")
-    public void ıSeeŞubeSorumlusuSoyadıBoşBırakılamazPopUp() throws Throwable {
+    @And("^i see sube sorumlusu soyadi bos birakilamaz pop up$")
+    public void iSeesubeSorumlusuSoyadiBosBirakilamazPopUp() throws Throwable {
         try {
 
 
@@ -126,8 +127,8 @@ public class Zorunlualankontroluiletisimbilg {
     }
 
 
-    @And("^ı confirm Şube sorumlusu soyadı boş bırakılamaz pop up message$")
-    public void ıConfirmŞubeSorumlusuSoyadıBoşBırakılamazPopUpMessage() throws Throwable {
+    @And("^i confirm sube sorumlusu soyadi bos birakilamaz pop up message$")
+    public void iConfirmsubeSorumlusuSoyadiBosBirakilamazPopUpMessage() throws Throwable {
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
 
@@ -137,7 +138,7 @@ public class Zorunlualankontroluiletisimbilg {
 
             String ab = islembasarisizpopup.getText();
 
-            Assert.assertEquals("Şube sorumlusu soyadı boş bırakılamaz.", ab);
+            Assert.assertEquals("sube sorumlusu soyadi bos birakilamaz.", ab);
 
         } catch(AssertionError ae) {
 
@@ -147,8 +148,8 @@ public class Zorunlualankontroluiletisimbilg {
 
     }
 
-    @And("^ı see Şube sorumlusu adı boş bırakılamaz pop up$")
-    public void ıSeeŞubeSorumlusuAdıBoşBırakılamazPopUp() throws Throwable {
+    @And("^i see sube sorumlusu adi bos birakilamaz pop up$")
+    public void iSeesubeSorumlusuAdiBosBirakilamazPopUp() throws Throwable {
         try {
 
 
@@ -166,8 +167,8 @@ public class Zorunlualankontroluiletisimbilg {
     }
 
 
-    @And("^ı confirm Şube sorumlusu adı boş bırakılamaz pop up message$")
-    public void ıConfirmŞubeSorumlusuAdıBoşBırakılamazPopUpMessage() throws Throwable {
+    @And("^i confirm sube sorumlusu adi bos birakilamaz pop up message$")
+    public void iConfirmsubeSorumlusuAdiBosBirakilamazPopUpMessage() throws Throwable {
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
 
@@ -177,7 +178,7 @@ public class Zorunlualankontroluiletisimbilg {
 
             String ab = islembasarisizpopup.getText();
 
-            Assert.assertEquals("Şube sorumlusu adı boş bırakılamaz.", ab);
+            Assert.assertEquals("sube sorumlusu adi bos birakilamaz.", ab);
 
         } catch(AssertionError ae) {
 
@@ -187,40 +188,40 @@ public class Zorunlualankontroluiletisimbilg {
 
     }
 
-    @And("^ı delete subesorumlusuad$")
-    public void ıDeleteSubesorumlusuad() throws Throwable {
+    @And("^i delete subesorumlusuad$")
+    public void iDeleteSubesorumlusuad() throws Throwable {
         WebElement subesorumlusuad = (new WebDriverWait(base.driver, 60))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"contactForm\"]/div[2]/input[1]")));
 
         subesorumlusuad.clear();
     }
 
-    @And("^ı delete şube sorumlusu soyad$")
-    public void ıDeleteŞubeSorumlusuSoyad() throws Throwable {
+    @And("^i delete sube sorumlusu soyad$")
+    public void iDeletesubeSorumlusuSoyad() throws Throwable {
         WebElement subesorumlususoyad = (new WebDriverWait(base.driver, 60))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"contactForm\"]/div[2]/input[2]")));
 
         subesorumlususoyad.clear();
     }
 
-    @And("^ı delete şube sorumlusu ad$")
-    public void ıDeleteŞubeSorumlusuAd() throws Throwable {
+    @And("^i delete sube sorumlusu ad$")
+    public void iDeletesubeSorumlusuAd() throws Throwable {
         WebElement subesorumlusuad = (new WebDriverWait(base.driver, 60))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"contactForm\"]/div[2]/input[1]")));
 
         subesorumlusuad.clear();
     }
 
-    @And("^ı delete şube sorumlusu tel if it was entered$")
-    public void ıDeleteŞubeSorumlusuTelIfItWasEntered() throws Throwable {
+    @And("^i delete sube sorumlusu tel if it was entered$")
+    public void iDeletesubeSorumlusuTelifitWasEntered() throws Throwable {
         WebElement subesorumlusutel = (new WebDriverWait(base.driver, 60))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("restaurant-po-number")));
 
         subesorumlusutel.clear();
     }
 
-    @Then("^ı see ı stay in iletisim bilgileri page$")
-    public void ıSeeIStayInIletisimBilgileriPage() throws Throwable {
+    @Then("^i see i stay in iletisim bilgileri page$")
+    public void iSeeiStayiniletisimBilgileriPage() throws Throwable {
 
         Thread.sleep(3000);
 
@@ -232,6 +233,7 @@ public class Zorunlualankontroluiletisimbilg {
 
             Assert.fail();
         }
+
     }
 }
 

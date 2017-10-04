@@ -29,8 +29,9 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
         this.base = base;
     }
 
-    @And("^ı delete tckn and send tckn with wrong format$")
-    public void ıDeleteTcknAndSendTcknWithWrongFormat() throws Throwable {
+    @And("^i delete tckn and send tckn with wrong format$")
+    public void iDeleteTcknAndSendTcknWithWrongFormat() throws Throwable {
+
         WebElement tckn = (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("identitynumber")));
         tckn.click();
@@ -38,8 +39,9 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
         tckn.sendKeys("12345678999");
     }
 
-    @Then("^ı see TC kimlik numarası doğru formatta değildir pop up$")
-    public void ıSeeTCKimlikNumarasıDoğruFormattaDeğildirPopUp() throws Throwable {
+    @Then("^i see TC kimlik numarasi dogru formatta degildir pop up$")
+    public void iSeeTCKimlikNumarasiDogruFormattaDegildirPopUp() throws Throwable {
+
         try {
 
             base.driver.findElement(By.id("3"));
@@ -56,8 +58,9 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
     }
 
-    @And("^ı confirm TC kimlik numarası doğru formatta değildir pop up message$")
-    public void ıConfirmTCKimlikNumarasıDoğruFormattaDeğildirPopUpMessage() throws Throwable {
+    @And("^i confirm TC kimlik numarasi dogru formatta degildir pop up message$")
+    public void iConfirmTCKimlikNumarasiDogruFormattaDegildirPopUpMessage() throws Throwable {
+
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
         try {
@@ -66,7 +69,7 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
 
             String ab = tcknwrngformat.getText();
 
-            Assert.assertEquals("TC kimlik numarası doğru formatta değildir.", ab);
+            Assert.assertEquals("TC kimlik numarasi doğru formatta değildir.", ab);
 
         } catch (AssertionError ae) {
 
@@ -78,8 +81,10 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
     }
 
 
-    @And("^ı delete tckn and send tckn with missing format$")
-    public void ıDeleteTcknAndSendTcknWithMissingFormat() throws Throwable {
+
+    @And("^i delete tckn and send tckn with missing format$")
+    public void iDeleteTcknAndSendTcknWithMissingFormat() throws Throwable {
+
         WebElement tckn = (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("identitynumber")));
         tckn.click();
@@ -87,8 +92,9 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
         tckn.sendKeys("1234567899");
     }
 
-    @Then("^ı see TC kimlik numarası alanının uzunluğu (\\d+) olmalıdır pop up$")
-    public void ıSeeTCKimlikNumarasıAlanınınUzunluğuOlmalıdırPopUp(int arg0) throws Throwable {
+    @Then("^i see TC kimlik numarasi alaninin uzunlugu onbir olmalidir pop up$")
+    public void iSeeTCKimlikNumarasiAlanininUzunluguOnbirOlmalidirPopUp() throws Throwable {
+
         try {
 
             base.driver.findElement(By.id("3"));
@@ -105,8 +111,10 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
     }
 
-    @And("^ı confirm TC kimlik numarası alanının uzunluğu (\\d+) olmalıdır pop up message$")
-    public void ıConfirmTCKimlikNumarasıAlanınınUzunluğuOlmalıdırPopUpMessage(int arg0) throws Throwable {
+
+    @And("^i confirm TC kimlik numarasi alaninin uzunlugu onbir olmalidir pop up message$")
+    public void iConfirmTCKimlikNumarasiAlanininUzunluguOnbirOlmalidirPopUpMessage() throws Throwable {
+
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
         try {
@@ -115,7 +123,7 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
 
             String ab = tcknwrngformat.getText();
 
-            Assert.assertEquals("TC kimlik numarası alanının uzunluğu 11 olmalıdır.", ab);
+            Assert.assertEquals("TC kimlik numarasi alaninin uzunluğu 11 olmalıdır.", ab);
 
         } catch (AssertionError ae) {
 
@@ -126,8 +134,9 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
 
     }
 
-    @And("^ı delete vergi no and enter wrong format$")
-    public void ıDeleteVergiNoAndEnterWrongFormat() throws Throwable {
+    @And("^i delete vergi no and enter wrong format$")
+    public void iDeleteVergiNoAndEnterWrongFormat() throws Throwable {
+
         WebElement vergino = (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("taxnumber")));
         vergino.click();
@@ -135,8 +144,9 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
         vergino.sendKeys("0000000000");
     }
 
-    @Then("^ı see Vergi numarası doğru formatta değildir pop up$")
-    public void ıSeeVergiNumarasıDoğruFormattaDeğildirPopUp() throws Throwable {
+    @Then("^i see Vergi numarasi dogru formatta degildir pop up$")
+    public void iSeeVergiNumarasiDogruFormattaDegildirPopUp() throws Throwable {
+
         try {
 
             base.driver.findElement(By.id("3"));
@@ -153,8 +163,9 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
     }
 
-    @And("^ı confirm Vergi numarası doğru formatta değildir pop up message$")
-    public void ıConfirmVergiNumarasıDoğruFormattaDeğildirPopUpMessage() throws Throwable {
+    @And("^i confirm Vergi numarasi dogru formatta degildir pop up message$")
+    public void iConfirmVergiNumarasiDogruFormattaDegildirPopUpMessage() throws Throwable {
+
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
         try {
@@ -163,7 +174,7 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
 
             String ab = verginowrngformat.getText();
 
-            Assert.assertEquals("Vergi numarası doğru formatta değildir.", ab);
+            Assert.assertEquals("Vergi numarasi doğru formatta değildir.", ab);
 
         } catch (AssertionError ae) {
 
@@ -171,8 +182,9 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
 
         } }
 
-    @And("^ı delete vergi no and enter missing format$")
-    public void ıDeleteVergiNoAndEnterMissingFormat() throws Throwable {
+    @And("^i delete vergi no and enter missing format$")
+    public void iDeleteVergiNoAndEnterMissingFormat() throws Throwable {
+
         WebElement vergino = (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("taxnumber")));
         vergino.click();
@@ -180,8 +192,10 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
         vergino.sendKeys("123456789");
     }
 
-    @Then("^ı see Vergi numarası alanının uzunluğu (\\d+) olmalıdır pop up$")
-    public void ıSeeVergiNumarasıAlanınınUzunluğuOlmalıdırPopUp(int arg0) throws Throwable {
+
+    @Then("^i see Vergi numarasi alaninin uzunlugu on olmalidir pop up$")
+    public void iSeeVergiNumarasiAlanininUzunluguOnOlmalidirPopUp() throws Throwable {
+
         try {
 
             base.driver.findElement(By.id("3"));
@@ -199,8 +213,10 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
     }
 
 
-    @And("^ı confirm Vergi numarası alanının uzunluğu (\\d+) olmalıdır pop up message$")
-    public void ıConfirmVergiNumarasıAlanınınUzunluğuOlmalıdırPopUpMessage(int arg0) throws Throwable {
+    @And("^i confirm Vergi numarasi alaninin uzunlugu on olmalidir pop up message$")
+    public void iConfirmVergiNumarasiAlanininUzunluguOnOlmalidirPopUpMessage() throws Throwable {
+
+
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
         try {
@@ -217,8 +233,10 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
 
         } }
 
-    @And("^ı delete iban and enter wrong format iban$")
-    public void ıDeleteIbanAndEnterWrongFormatIban() throws Throwable {
+
+    @And("^i delete iban and enter wrong format iban$")
+    public void iDeleteibanAndEnterWrongFormatiban() throws Throwable {
+
         WebElement iban = (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("ibannumber")));
        iban.click();
@@ -226,8 +244,9 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
         iban.sendKeys("TR000000000000000000000000");
     }
 
-    @Then("^ı see IBAN doğru formatta değildir pop up$")
-    public void ıSeeIBANDoğruFormattaDeğildirPopUp() throws Throwable {
+    @Then("^i see iBAN dogru formatta degildir pop up$")
+    public void iSeeiBANDogruFormattaDegildirPopUp() throws Throwable {
+
         try {
 
             base.driver.findElement(By.id("3"));
@@ -245,8 +264,9 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
     }
 
 
-    @And("^ı confirm IBAN doğru formatta değildir pop up message$")
-    public void ıConfirmIBANDoğruFormattaDeğildirPopUpMessage() throws Throwable {
+    @And("^i confirm iBAN dogru formatta degildir pop up message$")
+    public void iConfirmiBANDogruFormattaDegildirPopUpMessage() throws Throwable {
+
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
         try {
@@ -255,7 +275,7 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
 
             String ab = ibannowrngformat.getText();
 
-            Assert.assertEquals("IBAN doğru formatta değildir.", ab);
+            Assert.assertEquals("iBAN doğru formatta değildir.", ab);
 
         } catch (AssertionError ae) {
 
@@ -263,8 +283,9 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
 
         } }
 
-    @And("^ı delete iban and enter missing format iban$")
-    public void ıDeleteIbanAndEnterMissingFormatIban() throws Throwable {
+    @And("^i delete iban and enter missing format iban$")
+    public void iDeleteibanAndEnterMissingFormatiban() throws Throwable {
+
         WebElement iban = (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("ibannumber")));
         iban.click();
@@ -273,8 +294,9 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
     }
 
 
-    @Then("^ı see IBAN alanının uzunluğu (\\d+) olmalıdır pop up$")
-    public void ıSeeIBANAlanınınUzunluğuOlmalıdırPopUp(int arg0) throws Throwable {
+    @Then("^i see iBAN alaninin uzunlugu yirmialti olmalidir pop up$")
+    public void iSeeiBANAlanininUzunluguYirmialtiOlmalidirPopUp() throws Throwable {
+
         try {
 
             base.driver.findElement(By.id("3"));
@@ -292,8 +314,9 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
     }
 
 
-    @And("^ı confirm IBAN alanının uzunluğu (\\d+) olmalıdır pop up message$")
-    public void ıConfirmIBANAlanınınUzunluğuOlmalıdırPopUpMessage(int arg0) throws Throwable {
+    @And("^i confirm iBAN alaninin uzunlugu yirmialti olmalidir pop up message$")
+    public void iConfirmiBANAlanininUzunluguYirmialtiOlmalidirPopUpMessage() throws Throwable {
+
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
         try {
@@ -302,7 +325,7 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
 
             String ab = ibannowrngformat.getText();
 
-            Assert.assertEquals("IBAN alanının uzunluğu 26 olmalıdır.", ab);
+            Assert.assertEquals("iBAN alanının uzunluğu 26 olmalıdır.", ab);
 
         } catch (AssertionError ae) {
 
@@ -310,8 +333,9 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
 
         } }
 
-    @And("^ı delete kep adresi and enter wrong format kep adresi$")
-    public void ıDeleteKepAdresiAndEnterWrongFormatKepAdresi() throws Throwable {
+    @And("^i delete kep adresi and enter wrong format kep adresi$")
+    public void iDeleteKepAdresiAndEnterWrongFormatKepAdresi() throws Throwable {
+
         WebElement kepadres = (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("kepaddress")));
         kepadres.click();
@@ -319,8 +343,10 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
         kepadres.sendKeys(randomUUIDString);
     }
 
-    @Then("^ı see Kep adresi doğru formatta değildir pop up$")
-    public void ıSeeKepAdresiDoğruFormattaDeğildirPopUp() throws Throwable {
+
+    @Then("^i see Kep adresi dogru formatta degildir pop up$")
+    public void iSeeKepAdresiDogruFormattaDegildirPopUp() throws Throwable {
+
         try {
 
             base.driver.findElement(By.id("3"));
@@ -338,8 +364,9 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
     }
 
 
-    @And("^ı confirm Kep adresi doğru formatta değildir pop up message$")
-    public void ıConfirmKepAdresiDoğruFormattaDeğildirPopUpMessage() throws Throwable {
+    @And("^i confirm Kep adresi dogru formatta degildir pop up message$")
+    public void iConfirmKepAdresiDogruFormattaDegildirPopUpMessage() throws Throwable {
+
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
         try {
@@ -356,8 +383,8 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
 
         } }
 
-    @And("^ı select ticari tür with wrong format mersis$")
-    public void ıSelectTicariTürWithWrongFormatMersis() throws Throwable {
+    @And("^i select ticari tur with wrong format mersis$")
+    public void iSelectTicariTurWithWrongFormatMersis() throws Throwable {
         Select s4 = new Select(base.driver.findElement(By.id("legalType")));
 
         String[] mersis = {"00011", "00012", "00013", "00014", "00015", "00016", "00017", "00018", "00019"};
@@ -365,9 +392,9 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
 
         int listSize = s4.getOptions().size();
         if (listSize > 1) {
-            int optionIndex = r.nextInt(listSize - 1);
+            int optionindex = r.nextInt(listSize - 1);
 
-            if (optionIndex == 0 || optionIndex==1) {
+            if (optionindex == 0 || optionindex==1) {
                 s4.selectByVisibleText("Şahıs");
 
                 WebElement tckn = (new WebDriverWait(base.driver, 30))
@@ -385,7 +412,7 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
                 mersiss.sendKeys("0" + "4780040920" + gelenmersis);
 
             }
-            if (optionIndex == 2) {
+            if (optionindex == 2) {
                 s4.selectByVisibleText("Diğer");
                 WebElement vergino = (new WebDriverWait(base.driver, 30))
                         .until(ExpectedConditions.presenceOfElementLocated(By.id("taxnumber")));
@@ -404,8 +431,9 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
     }
 
 
-    @Then("^ı see Mersis numarası doğru formatta değildir pop up$")
-    public void ıSeeMersisNumarasıDoğruFormattaDeğildirPopUp() throws Throwable {
+    @Then("^i see Mersis numarasi dogru formatta degildir pop up$")
+    public void iSeeMersisNumarasiDogruFormattaDegildirPopUp() throws Throwable {
+
         try {
 
             base.driver.findElement(By.id("3"));
@@ -422,9 +450,9 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
     }
 
+    @And("^i confirm Mersis numarasi dogru formatta degildir pop up message$")
+    public void iConfirmMersisNumarasiDogruFormattaDegildirPopUpMessage() throws Throwable {
 
-    @And("^ı confirm Mersis numarası doğru formatta değildir pop up message$")
-    public void ıConfirmMersisNumarasıDoğruFormattaDeğildirPopUpMessage() throws Throwable {
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
         try {
@@ -433,7 +461,7 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
 
             String ab = kepadreswrongformat.getText();
 
-            Assert.assertEquals("Mersis numarası doğru formatta değildir.", ab);
+            Assert.assertEquals("Mersis numarasi doğru formatta değildir.", ab);
 
         } catch (AssertionError ae) {
 
@@ -441,16 +469,19 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
 
         } }
 
-    @And("^ı select ticari tür with missing format mersis$")
-    public void ıSelectTicariTürWithMissingFormatMersis() throws Throwable {
+
+    @And("^i select ticari tur with missing format mersis$")
+    public void iSelectTicariTurWithMissingFormatMersis() throws Throwable {
+
+
 
         Select s4 = new Select(base.driver.findElement(By.id("legalType")));
 
         int listSize = s4.getOptions().size();
         if (listSize > 1) {
-            int optionIndex = r.nextInt(listSize - 1);
+            int optionindex = r.nextInt(listSize - 1);
 
-            if (optionIndex == 0 || optionIndex==1) {
+            if (optionindex == 0 || optionindex==1) {
                 s4.selectByVisibleText("Şahıs");
 
                 WebElement tckn = (new WebDriverWait(base.driver, 30))
@@ -467,7 +498,7 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
                 mersiss.sendKeys("60591947528" );
 
             }
-            if (optionIndex == 2) {
+            if (optionindex == 2) {
                 s4.selectByVisibleText("Diğer");
                 WebElement vergino = (new WebDriverWait(base.driver, 30))
                         .until(ExpectedConditions.presenceOfElementLocated(By.id("taxnumber")));
@@ -484,8 +515,9 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
         }
     }
 
-    @Then("^ı see Mersis numarası alanının uzunluğu (\\d+) olmalıdır pop up$")
-    public void ıSeeMersisNumarasıAlanınınUzunluğuOlmalıdırPopUp(int arg0) throws Throwable {
+    @Then("^i see Mersis numarasi alaninin uzunlugu onalti olmalidir pop up$")
+    public void iSeeMersisNumarasiAlanininUzunluguOnaltiOlmalidirPopUp() throws Throwable {
+
         try {
 
             base.driver.findElement(By.id("3"));
@@ -504,8 +536,10 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
 
 
 
-    @And("^ı confirm Mersis numarası alanının uzunluğu (\\d+) olmalıdır pop up message$")
-    public void ıConfirmMersisNumarasıAlanınınUzunluğuOlmalıdırPopUpMessage(int arg0) throws Throwable {
+
+    @And("^i confirm Mersis numarasi alaninin uzunlugu onalti olmalidir pop up message$")
+    public void iConfirmMersisNumarasiAlanininUzunluguOnaltiOlmalidirPopUpMessage() throws Throwable {
+
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
         try {
@@ -521,9 +555,10 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
             Assert.fail();
 
         } }
+    @And("^i delete fatura e mail adres and type wrong format$")
+    public void iDeleteFaturaEMailAdresAndTypeWrongFormat() throws Throwable {
 
-    @And("^ı delete fatura e mail adres and type wrong format$")
-    public void ıDeleteFaturaEMailAdresAndTypeWrongFormat() throws Throwable {
+
         WebElement faturaemail = (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("earchivemailaddress")));
         faturaemail.click();
@@ -538,8 +573,9 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
 
     }
 
-        @Then("^ı see Lütfen geçerli bir mail adresi giriniz pop up$")
-    public void ıSeeLütfenGeçerliBirMailAdresiGirinizPopUp() throws Throwable {
+    @Then("^i see Lutfen gecerli bir mail adresi giriniz pop up$")
+    public void iSeeLutfenGecerliBirMailAdresiGirinizPopUp() throws Throwable {
+
             try {
 
                 base.driver.findElement(By.id("emailerror"));
@@ -557,8 +593,10 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
 
     }
 
-    @And("^ı confirm Lütfen geçerli bir mail adresi giriniz pop up message$")
-    public void ıConfirmLütfenGeçerliBirMailAdresiGirinizPopUpMessage() throws Throwable {
+
+    @And("^i confirm Lutfen gecerli bir mail adresi giriniz pop up message$")
+    public void iConfirmLutfenGecerliBirMailAdresiGirinizPopUpMessage() throws Throwable {
+
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
         try {
@@ -574,6 +612,31 @@ public class FormatKontroluTicariBilg  extends BaseUtil {
             Assert.fail();
 
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }
 

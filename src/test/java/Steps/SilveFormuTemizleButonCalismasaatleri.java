@@ -15,13 +15,14 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
+
 public class SilveFormuTemizleButonCalismasaatleri extends BaseUtil {
 
 
     public BaseUtil base;
     Random r = new Random();
     UUID uuid = UUID.randomUUID();
-    String randomUUIDString = uuid.toString();
+    String randomUUiDString = uuid.toString();
 
     public SilveFormuTemizleButonCalismasaatleri(BaseUtil base) {
 
@@ -29,8 +30,8 @@ public class SilveFormuTemizleButonCalismasaatleri extends BaseUtil {
     }
 
 
-    @Then("^ı click Sil button$")
-    public void ıClickSilButton() throws Throwable {
+    @Then("^i click Sil button$")
+    public void iClickSilButton() throws Throwable {
         WebElement silbttn = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"1_6\"]/div/table/tbody/tr[3]/td/a")));
         silbttn.click();
@@ -38,8 +39,8 @@ public class SilveFormuTemizleButonCalismasaatleri extends BaseUtil {
 
     }
 
-    @And("^ı see field is deleted which ı clicked sil button$")
-    public void ıSeeFieldIsDeletedWhichIClickedSilButton() throws Throwable {
+    @And("^i see field is deleted which i clicked sil button$")
+    public void iSeeFieldisDeletedWhichiClickedSilButton() throws Throwable {
         List<WebElement> pzt = base.driver.findElements(By.id("1_6"));
 
         List<WebElement> tableCells= base.driver.findElements(By.id("workinghoursStatus"));
@@ -59,8 +60,8 @@ public class SilveFormuTemizleButonCalismasaatleri extends BaseUtil {
 
     }
 
-    @And("^ı see fields are deleted which ı clicked sil button$")
-    public void ıSeeFieldsAreDeletedWhichIClickedSilButton() throws Throwable {
+    @And("^i see fields are deleted which i clicked sil button$")
+    public void iSeeFieldsAreDeletedWhichiClickedSilButton() throws Throwable {
         List<WebElement> sali = base.driver.findElements(By.id("2_9"));
 
         List<WebElement> tableCells= base.driver.findElements(By.id("workinghoursStatus"));
@@ -81,16 +82,16 @@ public class SilveFormuTemizleButonCalismasaatleri extends BaseUtil {
 
     }
 
-    @Then("^ı click Silforupdwn button$")
-    public void ıClickSilforupdwnButton() throws Throwable {
+    @Then("^i click Silforupdwn button$")
+    public void iClickSilforupdwnButton() throws Throwable {
         WebElement silbttn = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"2_9\"]/div/table/tbody/tr[3]/td/a")));
         silbttn.click();
         Thread.sleep(3000);
     }
 
-    @Then("^ı click Formu temizle button$")
-    public void ıClickFormuTemizleButton() throws Throwable {
+    @Then("^i click Formu temizle button$")
+    public void iClickFormuTemizleButton() throws Throwable {
 
         WebElement formutemizlebttn = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath(" /html/body/div[1]/div/div[1]/div/small/u")));
@@ -98,8 +99,8 @@ public class SilveFormuTemizleButonCalismasaatleri extends BaseUtil {
         Thread.sleep(3000);
     }
 
-    @And("^ı see all of fields are deleted$")
-    public void ıSeeAllOfFieldsAreDeleted() throws Throwable {
+    @And("^i see all of fields are deleted$")
+    public void iSeeAllOfFieldsAreDeleted() throws Throwable {
 
         List<WebElement> table = base.driver.findElements(By.id("workingHoursSelection"));
 

@@ -21,18 +21,26 @@ import java.util.concurrent.TimeUnit;
 
 public class ZorunlualankontroluServisBilgileri extends BaseUtil {
 
+    private ServisBilg sb;
 
     public BaseUtil base;
     Random r = new Random();
     UUID uuid = UUID.randomUUID();
     String randomUUIDString = uuid.toString();
 
-    public ZorunlualankontroluServisBilgileri(BaseUtil base) {
-        this.base = base;
+    public ZorunlualankontroluServisBilgileri(BaseUtil base){
+
     }
 
-    @And("^ı see ı am in servis bilg page$")
-    public void ıSeeIAmInServisBilgPage() throws Throwable {
+    public ZorunlualankontroluServisBilgileri(ServisBilg se) {
+        this.sb = se;
+    }
+
+
+    @And("^i see i am in servis bilg page$")
+    public void iSeeIAmInServisBilgPage() throws Throwable {
+
+
         WebElement servisbilg = (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("registerTab2")));
         servisbilg.click();
@@ -40,8 +48,11 @@ public class ZorunlualankontroluServisBilgileri extends BaseUtil {
     }
 
 
-    @Then("^ı see the   Servis bilgilerinizi kaydedebilmeniz için mutfak seçmeniz gerekmektedir txt$")
-    public void ıSeeTheServisBilgileriniziKaydedebilmenizIçinMutfakSeçmenizGerekmektedirTxt() throws Throwable {
+
+    @Then("^i see the   Servis bilgilerinizi kaydedebilmeniz icin mutfak secmeniz gerekmektedir txt$")
+    public void iSeeTheServisBilgileriniziKaydedebilmenizIcinMutfakSecmenizGerekmektedirTxt() throws Throwable {
+
+
         try {
 
             String ab = base.driver.findElement(By.xpath("//*[@id=\"paymentForm\"]/div[1]")).getText();
@@ -55,8 +66,10 @@ public class ZorunlualankontroluServisBilgileri extends BaseUtil {
 
     }
 
-    @When("^ı check ödeme yöntemi$")
-    public void ıCheckÖdemeYöntemi() throws Throwable {
+    @And("^i check odeme yontemi$")
+    public void iCheckOdemeYontemi() throws Throwable {
+
+
 
         WebElement option1 = (new WebDriverWait(base.driver, 5))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("creditCard")));
@@ -87,13 +100,17 @@ public class ZorunlualankontroluServisBilgileri extends BaseUtil {
         option9.click();
     }
 
-    @When("^ı dont do anything in odeme yontemleri$")
-    public void ıDontDoAnythingInOdemeYontemleri() throws Throwable {
+
+    @When("^i dont do anything in odeme yontemleri$")
+    public void iDontDoAnythingInOdemeYontemleri() throws Throwable {
 
     }
 
-    @And("^ı choose mutfak$")
-    public void ıChooseMutfak() throws Throwable {
+
+    @And("^i choose mutfak$")
+    public void iChooseMutfak() throws Throwable {
+
+
         Thread.sleep(1000);
 
         String[] mutfak = {"Börek", "Cafe", "Çiğ Köfte", "Çin Mutfağı", "Damacana Su", "Deniz Mahsulleri", "Döner", "Dünya Mutfağı",
@@ -104,17 +121,74 @@ public class ZorunlualankontroluServisBilgileri extends BaseUtil {
         Select ddlmutfak = new Select(Select_mutfak);
 
 
-        int gelenmutvak = r.nextInt(mutfak.length-1);
+        int gelenmutvak = r.nextInt(mutfak.length - 1);
 
 
         ddlmutfak.selectByVisibleText(mutfak[gelenmutvak]);
 
+        if (ddlmutfak.equals("Börek")) {
+            sb.borekisTakeniFillTheTextfields();
+        }
 
-    }
+        if (ddlmutfak.equals("Cafe")) {
+            sb.cafeisTakeniFillTheTextfields();
+        }
+        if (ddlmutfak.equals("Çiğ Köfte")) {
+            sb.cigKofteisTakeniFillTheTextfields();
+        }
+        if (ddlmutfak.equals("Çin Mutfağı")) {
+            sb.cinMutfagiisTakeniFillTheTextfields();
+        }
+        if (ddlmutfak.equals("Damacana Su")) {
+            sb.damacanaSuisTakeniFillTheTextfields();
+        }
+        if (ddlmutfak.equals("Deniz Mahsulleri")) {
+            sb.denizMahsulleriisTakeniFillTheTextfields();
+        }
+        if (ddlmutfak.equals("Döner")) {
+            sb.donerIsTakenIFillTheTextfields();
+        }
+        if (ddlmutfak.equals("Dünya Mutfağı")) {
+            sb.dunyaMutfagiIsTakenIFillTheTextfields();
+        }
+        if (ddlmutfak.equals("Ev Yemekleri")) {
+            sb.evYemekleriisTakeniFillTheTextfields();
+        }
+        if (ddlmutfak.equals("Fastfood & Sandwich")) {
+            sb.fastfoodSandwichisTakeniFillTheTextfields();
+        }
+        if (ddlmutfak.equals("Japon Mutfağı")) {
+            sb.japonMutfagiisTakeniFillTheTextfields();
+        }
+        if (ddlmutfak.equals("Kebap & Türk Mutfağı")) {
+            sb.kebapTurkMutfagiisTakeniFillTheTextfields();
 
+        }
+        if (ddlmutfak.equals("Kokoreç")) {
+            sb.kokorecisTakeniFillTheTextfields();
+        }
+        if (ddlmutfak.equals("Köfte")) {
+            sb.kofteisTakeniFillTheTextfields();
+        }
+        if (ddlmutfak.equals("Kumpir")) {
+            sb.kumpirisTakeniFillTheTextfields();
+        }
+        if (ddlmutfak.equals("Pasta & Tatlı")) {
+            sb.pastaTatliisTakeniFillTheTextfields();
+        }
+        if (ddlmutfak.equals("Pide")) {
+            sb.pideisTakeniFillTheTextfields();
+        }
+        if (ddlmutfak.equals("Pizza & İtalyan")) {
+            sb.pizzaitalyaniFillTheTextfields();
+        }
+            if (ddlmutfak.equals("Tavuk")) {
+                sb.tavukisTakeniFillTheTextfields();
+    }}
 
-    @Then("^ı see Servis bilgileriniz başarıyla kaydedildi pop up$")
-    public void ıSeeServisBilgilerinizBaşarıylaKaydedildiPopUp() throws Throwable {
+       @Then("^i see Servis bilgileriniz basariyla kaydedildi pop up$")
+     public void iSeeServisBilgilerinizBasariylaKaydedildiPopUp() throws Throwable {
+
         try {
 
 
@@ -133,8 +207,9 @@ public class ZorunlualankontroluServisBilgileri extends BaseUtil {
     }
 
 
-    @And("^ı confirm Servis bilgileriniz başarıyla kaydedildi pop up message$")
-    public void ıConfirmServisBilgilerinizBaşarıylaKaydedildiPopUpMessage() throws Throwable {
+    @And("^i confirm Servis bilgileriniz basariyla kaydedildi pop up message$")
+    public void iConfirmServisBilgilerinizBasariylaKaydedildiPopUpMessage() throws Throwable {
+
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
 
@@ -152,8 +227,10 @@ public class ZorunlualankontroluServisBilgileri extends BaseUtil {
         }
     }
 
-    @And("^ı delete clicks in odeme yontemi$")
-    public void ıDeleteClicksInOdemeYontemi() throws Throwable {
+    @And("^i delete clicks in odeme yontemi$")
+    public void iDeleteClicksInOdemeYontemi() throws Throwable {
+
+
 
         WebElement option1 = (new WebDriverWait(base.driver, 5))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("creditCard")));
@@ -182,7 +259,11 @@ public class ZorunlualankontroluServisBilgileri extends BaseUtil {
         WebElement option9 = (new WebDriverWait(base.driver, 5))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("wallet")));
         option9.click();
+
+
     }
-    }
+
+
+}
 
 

@@ -26,15 +26,15 @@ public class calismasaatleri extends BaseUtil {
     public BaseUtil base;
     Random r = new Random();
     UUID uuid = UUID.randomUUID();
-    String randomUUIDString = uuid.toString();
+    String randomUUiDString = uuid.toString();
 
     public calismasaatleri(BaseUtil base) {
 
         this.base = base;
     }
 
-    @And("^ı see ı am in çalışma saatleri page$")
-    public void ıSeeIAmInÇalışmaSaatleriPage() throws Throwable {
+    @And("^i see i am in calisma saatleri page$")
+    public void iSeeiAminÇalismaSaatleriPage() throws Throwable {
         WebElement calismasaatleri = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("registerTab3")));
         calismasaatleri.click();
@@ -42,8 +42,8 @@ public class calismasaatleri extends BaseUtil {
         Thread.sleep(3000);
     }
 
-    @When("^ı click from left to right$")
-    public void ıClickFromLeftToRight() throws Throwable {
+    @When("^i click from left to right$")
+    public void iClickFromLeftToRight() throws Throwable {
 
         WebElement element = base.driver.findElement(By.id("1_6"));
 
@@ -53,8 +53,8 @@ public class calismasaatleri extends BaseUtil {
          Thread.sleep(3000);
     }
 
-    @Then("^ı confirm the coming hours$")
-    public void ıConfirmTheComingHours() throws Throwable {
+    @Then("^i confirm the coming hours$")
+    public void iConfirmTheComingHours() throws Throwable {
         WebElement pzt = base.driver.findElement(By.id("1_6"));
 
         WebElement sali = base.driver.findElement(By.id("2_6"));
@@ -117,8 +117,8 @@ public class calismasaatleri extends BaseUtil {
 
     }
 
-    @When("^ı click up to down$")
-    public void ıClickUpToDown() throws Throwable {
+    @When("^i click up to down$")
+    public void iClickUpToDown() throws Throwable {
 
 
         Thread.sleep(3000);
@@ -135,8 +135,8 @@ public class calismasaatleri extends BaseUtil {
     }
 
 
-    @Then("^ı confirm the coming hourss$")
-    public void ıConfirmTheComingHourss() throws Throwable {
+    @Then("^i confirm the coming hourss$")
+    public void iConfirmTheComingHourss() throws Throwable {
 
         WebElement sali = base.driver.findElement(By.id("2_9"));
         String ab2 = sali.getText();
@@ -151,8 +151,8 @@ public class calismasaatleri extends BaseUtil {
         }
     }
 
-    @Then("^ı see Çalışma saatleri başarıyla kayıt edildi pop up$")
-    public void ıSeeÇalışmaSaatleriBaşarıylaKayıtEdildiPopUp() throws Throwable {
+    @Then("^i see Çalisma saatleri basariyla kayit edildi pop up$")
+    public void iSeeÇalismaSaatleriBasariylaKayitEdildiPopUp() throws Throwable {
         try {
 
             base.driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[6]"));
@@ -170,8 +170,8 @@ public class calismasaatleri extends BaseUtil {
 
     }
 
-    @And("^ı confirm Çalışma saatleri başarıyla kayıt edildi pop up message$")
-    public void ıConfirmÇalışmaSaatleriBaşarıylaKayıtEdildiPopUpMessage() throws Throwable {
+    @And("^i confirm Çalisma saatleri basariyla kayit edildi pop up message$")
+    public void iConfirmÇalismaSaatleriBasariylaKayitEdildiPopUpMessage() throws Throwable {
 
         Thread.sleep(3000);
 
@@ -181,7 +181,7 @@ public class calismasaatleri extends BaseUtil {
 
             String ab = cs.getText();
 
-            Assert.assertEquals("Çalışma saatleri başarıyla kayıt edildi.", ab);
+            Assert.assertEquals("Çalisma saatleri basariyla kayit edildi.", ab);
 
         } catch (AssertionError ae) {
 
@@ -190,14 +190,14 @@ public class calismasaatleri extends BaseUtil {
         }
     }
 
-    @And("^ı get full screen$")
-    public void ıGetFullScreen() throws Throwable {
+    @And("^i get full screen$")
+    public void iGetFullScreen() throws Throwable {
         base.driver.manage().window().maximize();
         Thread.sleep(3000);
     }
 
-    @And("^ı get browser foreground$")
-    public void ıGetBrowserForeground() throws Throwable {
+    @And("^i get browser foreground$")
+    public void iGetBrowserForeground() throws Throwable {
             Thread.sleep(3000);
         }
     }

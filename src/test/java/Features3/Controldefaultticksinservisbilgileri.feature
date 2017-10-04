@@ -3,16 +3,16 @@ Feature:Control of default ticks in servis bilg page
 
 
   Scenario:Control of default ticks in servis bilg page
-    Given I navigate to login page
-    And ı enter kullaniciadi
-    And ı enter pw
-    And ı click benihatırla checkbox if ı want
-    And ı click girisyap button
-    And ı see ı am in servis bilg page
-    And ı want to click nakit
-    And ı see ı cant
-    And ı want to click okk
-    And ı see ı cantt
-    And ı close the page
+    Given i navigate to login page
+    And i enter kullaniciadi
+    And i enter pw
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
+    And i see i am in servis bilg page
+    And i want to click nakit
+    And i see i cant
+    And i want to click okk
+    And i see i cantt
+    And i close the page
 
 

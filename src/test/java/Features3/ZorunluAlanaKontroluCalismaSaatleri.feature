@@ -3,25 +3,25 @@ Feature:Obligatiory of fields in calisma saatleri page
 
 
   Scenario: Obligatiory of fields in calisma saatleri page
-    Given I navigate to login page
-    And ı get browser foreground
-    And ı enter kullaniciadi
-    And ı enter pw
-    And ı click benihatırla checkbox if ı want
-    And ı click girisyap button
-    And ı see ı am in çalışma saatleri page
-    And ı get full screen
-    When ı click Formu temizle button
-    When ı click kaydet button
-    And ı see Tabloyu kayıt edebilmeniz için en az bir adet çalışma saati oluşturmanız gerekmektedir pop up
-    And ı confirm Tabloyu kayıt edebilmeniz için en az bir adet çalışma saati oluşturmanız gerekmektedir pop up message
-    And ı click tamam button
-    And ı refresh the page
-    Then ı see ı am in çalışma saatleri page
-    And ı click Formu temizle button
-    When ı click kaydetvedevametbutton
-    And ı see Tabloyu kayıt edebilmeniz için en az bir adet çalışma saati oluşturmanız gerekmektedir pop up
-    And  ı confirm Tabloyu kayıt edebilmeniz için en az bir adet çalışma saati oluşturmanız gerekmektedir pop up message
-    And ı click tamam button
-    And ı close the page
+    Given i navigate to login page
+    And i get browser foreground
+    And i enter kullaniciadi
+    And i enter pw
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
+    And i see i am in calisma saatleri page
+    And i get full screen
+    When i click Formu temizle button
+    When i click kaydet button
+    And i see Tabloyu kayit edebilmeniz icin en az bir adet calisma saati olusturmaniz gerekmektedir pop up
+    And i confirm Tabloyu kayit edebilmeniz icin en az bir adet calisma saati olusturmaniz gerekmektedir pop up message
+    And i click tamam button
+    And i refresh the page
+    Then i see i am in calisma saatleri page
+    And i click Formu temizle button
+    When i click kaydetvedevametbutton
+    And i see Tabloyu kayit edebilmeniz icin en az bir adet calisma saati olusturmaniz gerekmektedir pop up
+    And  i confirm Tabloyu kayit edebilmeniz icin en az bir adet calisma saati olusturmaniz gerekmektedir pop up message
+    And i click tamam button
+    And i close the page
 

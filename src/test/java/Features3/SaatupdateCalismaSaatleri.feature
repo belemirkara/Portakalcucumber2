@@ -3,17 +3,17 @@ Feature:Update hours in calisma saatleri page
 
 
   Scenario: Update hours in calisma saatleri page
-    Given I navigate to login page
-    And ı get browser foreground
-    And ı enter kullaniciadi
-    And ı enter pw
-    And ı click benihatırla checkbox if ı want
-    And ı click girisyap button
-    And ı see ı am in çalışma saatleri page
-    And ı get full screen
-   And ı click Formu temizle button
-    And ı click an field in the table
-    And ı see working hours
-    And ı click minutes in working hours
-    And ı see and update values and control accuracy
+    Given i navigate to login page
+    And i get browser foreground
+    And i enter kullaniciadi
+    And i enter pw
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
+    And i see i am in calisma saatleri page
+    And i get full screen
+   And i click Formu temizle button
+    And i click an field in the table
+    And i see working hours
+    And i click minutes in working hours
+    And i see and update values and control accuracy
 

@@ -3,277 +3,277 @@ Feature:Obligatory fields in ticari bilg page
 
 
   Scenario: Control of the ticari unvan field
-    Given I navigate to login page
-    And ı enter kullaniciadi
-    And ı enter pw
-    And ı click benihatırla checkbox if ı want
-    And ı click girisyap button
-    And ı see ı am in ticari bilgiler page
-    And ı delete ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür
-    And ı enter iban
-    And ı enter kep adresi
-    And ı delete fatura e mail adres and type again
-    When ı click kaydet button
-    Then ı see the Ticari ünvan boş bırakılamaz pop up
-    And ı confirm Ticari ünvan boş bırakılamaz pop up message
-    And ı click tamam button
-    And ı refresh the page
-    And ı delete ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür
-    And ı enter iban
-    And ı enter kep adresi
-    And ı delete fatura e mail adres and type again
-    When ı click kaydetvedevametbutton
-    Then ı see the Ticari ünvan boş bırakılamaz pop up
-    And ı confirm Ticari ünvan boş bırakılamaz pop up message
-    And ı click tamam button
-   And ı close the page
+    Given i navigate to login page
+    And i enter kullaniciadi
+    And i enter pw
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
+    And i see i am in ticari bilgiler page
+    And i delete ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur
+    And i enter iban
+    And i enter kep adresi
+    And i delete fatura e mail adres and type again
+    When i click kaydet button
+    Then i see the Ticari unvan bos birakilamaz pop up
+    And i confirm Ticari unvan bos birakilamaz pop up message
+    And i click tamam button
+    And i refresh the page
+    And i delete ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur
+    And i enter iban
+    And i enter kep adresi
+    And i delete fatura e mail adres and type again
+    When i click kaydetvedevametbutton
+    Then i see the Ticari unvan bos birakilamaz pop up
+    And i confirm Ticari unvan bos birakilamaz pop up message
+    And i click tamam button
+   And i close the page
 
   Scenario: Control of the vergi dairesi field
-    Given I navigate to login page
-    And ı enter kullaniciadi
-    And ı enter pw
-    And ı click benihatırla checkbox if ı want
-    And ı click girisyap button
-    And ı see ı am in ticari bilgiler page
-    And ı enter the ticari unvan
-    And ı delete the vergi dairesi
-    And ı select ticari tür
-    And ı enter iban
-    And ı enter kep adresi
-    And ı delete fatura e mail adres and type again
-    When ı click kaydet button
-    Then ı see the Vergi dairesi boş bırakılamaz pop up
-    And ı confirm Vergi dairesi boş bırakılamaz pop up message
-    And ı click tamam button
-    And ı refresh the page
-    And ı enter the ticari unvan
-    And ı delete the vergi dairesi
-    And ı select ticari tür
-    And ı enter iban
-    And ı enter kep adresi
-    And ı delete fatura e mail adres and type again
-    When ı click kaydetvedevametbutton
-    Then ı see the Vergi dairesi boş bırakılamaz pop up
-    And ı confirm Vergi dairesi boş bırakılamaz pop up message
-    And ı click tamam button
-    And ı close the page
+    Given i navigate to login page
+    And i enter kullaniciadi
+    And i enter pw
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
+    And i see i am in ticari bilgiler page
+    And i enter the ticari unvan
+    And i delete the vergi dairesi
+    And i select ticari tur
+    And i enter iban
+    And i enter kep adresi
+    And i delete fatura e mail adres and type again
+    When i click kaydet button
+    Then i see the Vergi dairesi bos birakilamaz pop up
+    And i confirm Vergi dairesi bos birakilamaz pop up message
+    And i click tamam button
+    And i refresh the page
+    And i enter the ticari unvan
+    And i delete the vergi dairesi
+    And i select ticari tur
+    And i enter iban
+    And i enter kep adresi
+    And i delete fatura e mail adres and type again
+    When i click kaydetvedevametbutton
+    Then i see the Vergi dairesi bos birakilamaz pop up
+    And i confirm Vergi dairesi bos birakilamaz pop up message
+    And i click tamam button
+    And i close the page
 
-  Scenario: Control of the ticari tür combobox
-    Given I navigate to login page
-    And ı enter kullaniciadi
-    And ı enter pw
-    And ı click benihatırla checkbox if ı want
-    And ı click girisyap button
-    And ı see ı am in ticari bilgiler page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı enter iban
-    And ı enter kep adresi
-    And ı delete fatura e mail adres and type again
-    When ı click kaydet button
-    Then ı see the ticari tür boş bırakılamaz pop up
-    And ı confirm the ticari tür boş bırakılamaz pop up message
-    And ı click tamam button
-    And ı refresh the page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı enter iban
-    And ı enter kep adresi
-    And ı delete fatura e mail adres and type again
-    When ı click kaydetvedevametbutton
-    Then ı see the ticari tür boş bırakılamaz pop up
-    And ı confirm the ticari tür boş bırakılamaz pop up message
-    And ı click tamam button
-    And ı close the page
+  Scenario: Control of the ticari tur combobox
+    Given i navigate to login page
+    And i enter kullaniciadi
+    And i enter pw
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
+    And i see i am in ticari bilgiler page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i enter iban
+    And i enter kep adresi
+    And i delete fatura e mail adres and type again
+    When i click kaydet button
+    Then i see the ticari tur bos birakilamaz pop up
+    And i confirm the ticari tur bos birakilamaz pop up message
+    And i click tamam button
+    And i refresh the page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i enter iban
+    And i enter kep adresi
+    And i delete fatura e mail adres and type again
+    When i click kaydetvedevametbutton
+    Then i see the ticari tur bos birakilamaz pop up
+    And i confirm the ticari tur bos birakilamaz pop up message
+    And i click tamam button
+    And i close the page
 
 
   Scenario: Control of the TCKN
-    Given I navigate to login page
-    And ı enter kullaniciadi
-    And ı enter pw
-    And ı click benihatırla checkbox if ı want
-    And ı click girisyap button
-    And ı see ı am in ticari bilgiler page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür combobox
-    And ı see TCKN field ı delete TCKN if it was entered
-    And ı enter iban
-    And ı enter kep adresi
-    And ı enter mersis
-    And ı delete fatura e mail adres and type again
-    When ı click kaydet button
-    Then ı see the TC kimlik numarası boş bırakılamaz pop up
-    And ı confirm the TC kimlik numarası boş bırakılamaz pop up message
-    And ı click tamam button
-    And ı refresh the page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür combobox
-    And ı see TCKN field ı delete TCKN if it was entered
-    And ı enter iban
-    And ı enter kep adresi
-    And ı enter mersis
-    And ı delete fatura e mail adres and type again
-    When ı click kaydetvedevametbutton
-    Then ı see the TC kimlik numarası boş bırakılamaz pop up
-    And ı confirm the TC kimlik numarası boş bırakılamaz pop up message
-    And ı click tamam button
-    And ı close the page
+    Given i navigate to login page
+    And i enter kullaniciadi
+    And i enter pw
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
+    And i see i am in ticari bilgiler page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur combobox
+    And i see TCKN field i delete TCKN if it was entered
+    And i enter iban
+    And i enter kep adresi
+    And i enter mersis
+    And i delete fatura e mail adres and type again
+    When i click kaydet button
+    Then i see the TC kimlik numarasi bos birakilamaz pop up
+    And i confirm the TC kimlik numarasi bos birakilamaz pop up message
+    And i click tamam button
+    And i refresh the page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur combobox
+    And i see TCKN field i delete TCKN if it was entered
+    And i enter iban
+    And i enter kep adresi
+    And i enter mersis
+    And i delete fatura e mail adres and type again
+    When i click kaydetvedevametbutton
+    Then i see the TC kimlik numarasi bos birakilamaz pop up
+    And i confirm the TC kimlik numarasi bos birakilamaz pop up message
+    And i click tamam button
+    And i close the page
 
 
   Scenario: Control of the iban
-    Given I navigate to login page
-    And ı enter kullaniciadi
-    And ı enter pw
-    And ı click benihatırla checkbox if ı want
-    And ı click girisyap button
-    And ı see ı am in ticari bilgiler page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür
-    And ı delete iban if it was entered
-    And ı enter kep adresi
-    And ı delete fatura e mail adres and type again
-    When ı click kaydet button
-    Then ı see the IBAN alanının uzunluğu 26 olmalıdır pop up
-    And ı confirm the IBAN alanının uzunluğu 26 olmalıdır pop up message
-    And ı click tamam button
-    And ı refresh the page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür
-    And ı delete iban if it was entered
-    And ı enter kep adresi
-    And ı enter mersis
-    And ı delete fatura e mail adres and type again
-    When ı click kaydetvedevametbutton
-    Then ı see the IBAN alanının uzunluğu 26 olmalıdır pop up
-    And ı confirm the IBAN alanının uzunluğu 26 olmalıdır pop up message
-    And ı click tamam button
-    And ı close the page
+    Given i navigate to login page
+    And i enter kullaniciadi
+    And i enter pw
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
+    And i see i am in ticari bilgiler page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur
+    And i delete iban if it was entered
+    And i enter kep adresi
+    And i delete fatura e mail adres and type again
+    When i click kaydet button
+    Then i see the iBAN alaninin uzunluğu yirmialti olmalidir pop up
+    And i confirm the iBAN alaninin uzunluğu yirmialti olmalidir pop up message
+    And i click tamam button
+    And i refresh the page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur
+    And i delete iban if it was entered
+    And i enter kep adresi
+    And i enter mersis
+    And i delete fatura e mail adres and type again
+    When i click kaydetvedevametbutton
+    Then i see the iBAN alaninin uzunluğu yirmialti olmalidir pop up
+    And i confirm the iBAN alaninin uzunluğu yirmialti olmalidir pop up message
+    And i click tamam button
+    And i close the page
 
 
 
   Scenario: Control of the Fatura E-Mail Adresi
-    Given I navigate to login page
-    And ı enter kullaniciadi
-    And ı enter pw
-    And ı click benihatırla checkbox if ı want
-    And ı click girisyap button
-    And ı see ı am in ticari bilgiler page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür
-    And ı enter iban
-    And ı enter kep adresi
-    And ı delete fatura e mail adres
-    When ı click kaydet button
-    Then ı see Fatura e-mail adresi boş bırakılamaz pop up
-    And ı confirm Fatura e-mail adresi boş bırakılamaz pop up message
-    And ı click tamam button
-    And ı refresh the page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür
-    And ı enter iban
-    And ı enter kep adresi
-    And ı delete fatura e mail adres
-    When ı click kaydetvedevametbutton
-    Then ı see Fatura e-mail adresi boş bırakılamaz pop up
-    And ı confirm Fatura e-mail adresi boş bırakılamaz pop up message
-    And ı click tamam button
-    And ı close the page
+    Given i navigate to login page
+    And i enter kullaniciadi
+    And i enter pw
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
+    And i see i am in ticari bilgiler page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur
+    And i enter iban
+    And i enter kep adresi
+    And i delete fatura e mail adres
+    When i click kaydet button
+    Then i see Fatura e-mail adresi bos birakilamaz pop up
+    And i confirm Fatura e-mail adresi bos birakilamaz pop up message
+    And i click tamam button
+    And i refresh the page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur
+    And i enter iban
+    And i enter kep adresi
+    And i delete fatura e mail adres
+    When i click kaydetvedevametbutton
+    Then i see Fatura e-mail adresi bos birakilamaz pop up
+    And i confirm Fatura e-mail adresi bos birakilamaz pop up message
+    And i click tamam button
+    And i close the page
 
   Scenario: Control of the vergi no
-    Given I navigate to login page
-    And ı enter kullaniciadi
-    And ı enter pw
-    And ı click benihatırla checkbox if ı want
-    And ı click girisyap button
-    And ı see ı am in ticari bilgiler page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür comboboxiki
-    And ı delete vergi no if it was entered
-    And ı enter iban
-    And ı enter kep adresi
-    And ı enter mersis
-    And ı delete fatura e mail adres and type again
-    When ı click kaydet button
-    Then ı see Vergi numarası boş bırakılamaz pop up
-    And ı confirm Vergi numarası boş bırakılamaz pop up message
-    And ı click tamam button
-    And ı refresh the page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür comboboxiki
-    And ı delete vergi no if it was entered
-    And ı enter iban
-    And ı enter kep adresi
-    And ı enter mersis
-    And ı delete fatura e mail adres and type again
-    When ı click kaydetvedevametbutton
-    Then ı see Vergi numarası boş bırakılamaz pop up
-    And ı confirm Vergi numarası boş bırakılamaz pop up message
-    And ı click tamam button
-    And ı close the page
+    Given i navigate to login page
+    And i enter kullaniciadi
+    And i enter pw
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
+    And i see i am in ticari bilgiler page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur comboboxiki
+    And i delete vergi no if it was entered
+    And i enter iban
+    And i enter kep adresi
+    And i enter mersis
+    And i delete fatura e mail adres and type again
+    When i click kaydet button
+    Then i see Vergi numarasi bos birakilamaz pop up
+    And i confirm Vergi numarasi bos birakilamaz pop up message
+    And i click tamam button
+    And i refresh the page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur comboboxiki
+    And i delete vergi no if it was entered
+    And i enter iban
+    And i enter kep adresi
+    And i enter mersis
+    And i delete fatura e mail adres and type again
+    When i click kaydetvedevametbutton
+    Then i see Vergi numarasi bos birakilamaz pop up
+    And i confirm Vergi numarasi bos birakilamaz pop up message
+    And i click tamam button
+    And i close the page
 
 
   Scenario: Control of the kep adresi
-    Given I navigate to login page
-    And ı enter kullaniciadi
-    And ı enter pw
-    And ı click benihatırla checkbox if ı want
-    And ı click girisyap button
-    And ı see ı am in ticari bilgiler page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür
-    And ı enter iban
-    And ı delete fatura e mail adres and type again
-    When ı click kaydet button
-    Then ı see the ticari bilgileriniz başarıyla kaydedildi pop up
-    And ı confirm ticari bilgileriniz başarıyla kaydedildi pop up message
-    And ı click tamam button
-    And ı see ı stay in ticari bilgiler page
-    And ı refresh the page
-    And ı delete fatura e mail adres and type again
-    When ı click kaydetvedevametbutton
-    Then ı see the ticari bilgileriniz başarıyla kaydedildi pop up
-    And ı confirm ticari bilgileriniz başarıyla kaydedildi pop up message
-    And ı click tamam button
-    And ı close the page
+    Given i navigate to login page
+    And i enter kullaniciadi
+    And i enter pw
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
+    And i see i am in ticari bilgiler page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur
+    And i enter iban
+    And i delete fatura e mail adres and type again
+    When i click kaydet button
+    Then i see the ticari bilgileriniz basariyla kaydedildi pop up
+    And i confirm ticari bilgileriniz basariyla kaydedildi pop up message
+    And i click tamam button
+    And i see i stay in ticari bilgiler page
+    And i refresh the page
+    And i delete fatura e mail adres and type again
+    When i click kaydetvedevametbutton
+    Then i see the ticari bilgileriniz basariyla kaydedildi pop up
+    And i confirm ticari bilgileriniz basariyla kaydedildi pop up message
+    And i click tamam button
+    And i close the page
 
   Scenario: Control of the mersis
-    Given I navigate to login page
-    And ı enter kullaniciadi
-    And ı enter pw
-    And ı click benihatırla checkbox if ı want
-    And ı click girisyap button
-    And ı see ı am in ticari bilgiler page
-    And ı enter the ticari unvan
-    And ı enter the vergi dairesi
-    And ı select ticari tür
-    And ı enter iban
-    And ı enter kep adresi
-    And ı delete mersis
-    And ı delete fatura e mail adres and type again
-    When ı click kaydet button
-    Then ı see the ticari bilgileriniz başarıyla kaydedildi pop up
-    And ı confirm ticari bilgileriniz başarıyla kaydedildi pop up message
-    And ı click tamam button
-    And ı see ı stay in ticari bilgiler page
-    And ı refresh the page
-    And ı delete fatura e mail adres and type again
-    When ı click kaydetvedevametbutton
-    Then ı see the ticari bilgileriniz başarıyla kaydedildi pop up
-    And ı confirm ticari bilgileriniz başarıyla kaydedildi pop up message
-    And ı click tamam button
-    And ı close the page
+    Given i navigate to login page
+    And i enter kullaniciadi
+    And i enter pw
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
+    And i see i am in ticari bilgiler page
+    And i enter the ticari unvan
+    And i enter the vergi dairesi
+    And i select ticari tur
+    And i enter iban
+    And i enter kep adresi
+    And i delete mersis
+    And i delete fatura e mail adres and type again
+    When i click kaydet button
+    Then i see the ticari bilgileriniz basariyla kaydedildi pop up
+    And i confirm ticari bilgileriniz basariyla kaydedildi pop up message
+    And i click tamam button
+    And i see i stay in ticari bilgiler page
+    And i refresh the page
+    And i delete fatura e mail adres and type again
+    When i click kaydetvedevametbutton
+    Then i see the ticari bilgileriniz basariyla kaydedildi pop up
+    And i confirm ticari bilgileriniz basariyla kaydedildi pop up message
+    And i click tamam button
+    And i close the page
 
 

@@ -23,8 +23,8 @@ public class Zorunlualankontroluselfreg {
 
         this.base = base;
     }
-    @And("^ı see restoran adı bos bırakılamaz pop op$")
-    public void ıSeeRestoranAdıBosBırakılamazPopOp() throws Throwable {
+    @And("^i see restoran adi bos birakilamaz pop op$")
+    public void iSeeRestoranAdiBosBirakilamazPopOp() throws Throwable {
         try {
 
             base.driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[6]"));
@@ -42,8 +42,8 @@ public class Zorunlualankontroluselfreg {
     }
 
 
-    @Then("^ı confirm the restoran adı boş bırakılamaz pop op message$")
-    public void ıConfirmTheRestoranAdıBoşBırakılamazPopOpMessage() throws Throwable {
+    @Then("^i confirm the restoran adi bos birakilamaz pop op message$")
+    public void iConfirmTheRestoranAdiBosBirakilamazPopOpMessage() throws Throwable {
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
         try {
@@ -52,7 +52,7 @@ public class Zorunlualankontroluselfreg {
 
             String ab = restoranadi.getText();
 
-            Assert.assertEquals("Restoranınızın adı boş bırakılamaz.", ab);
+            Assert.assertEquals("Restoraninizin adi bos birakilamaz.", ab);
 
         } catch (AssertionError ae) {
 
@@ -63,8 +63,11 @@ public class Zorunlualankontroluselfreg {
 
     }
 
-    @And("^ı see lütfen il seçiniz pop op$")
-    public void ıSeeLütfenIlSeçinizPopOp() throws Throwable {
+    @And("^i see lutfen il seciniz pop op$")
+    public void iSeeLutfenIlSecinizPopOp() throws Throwable {
+
+
+
         try {
 
             base.driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[6]"));
@@ -82,9 +85,9 @@ public class Zorunlualankontroluselfreg {
     }
 
 
+    @Then("^i confirm the lutfen il seciniz pop op message$")
+    public void iConfirmTheLutfenIlSecinizPopOpMessage() throws Throwable {
 
-    @Then("^ı confirm the lütfen il seçiniz pop op message$")
-    public void ıConfirmTheLütfenIlSeçinizPopOpMessage() throws Throwable {
 
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
@@ -94,7 +97,7 @@ public class Zorunlualankontroluselfreg {
 
             String ab = il.getText();
 
-            Assert.assertEquals("Lütfen İl Seçiniz", ab);
+            Assert.assertEquals("Lütfen il Seciniz", ab);
 
         } catch (AssertionError ae) {
 
@@ -104,8 +107,9 @@ public class Zorunlualankontroluselfreg {
 
 
     }
-    @And("^ı see lütfen ilce seçiniz pop op$")
-    public void ıSeeLütfenIlceSeçinizPopOp() throws Throwable {
+    @And("^i see lutfen ilce seciniz pop op$")
+    public void iSeeLutfenIlceSecinizPopOp() throws Throwable {
+
         try {
 
             base.driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[6]"));
@@ -125,8 +129,10 @@ public class Zorunlualankontroluselfreg {
 
 
 
-    @Then("^ı confirm the lütfen ilce seçiniz pop op message$")
-    public void ıConfirmTheLütfenIlceSeçinizPopOpMessage() throws Throwable {
+
+    @Then("^i confirm the lutfen ilce seciniz pop op message$")
+    public void iConfirmTheLutfenIlceSecinizPopOpMessage() throws Throwable {
+
 
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
         try{
@@ -134,7 +140,7 @@ public class Zorunlualankontroluselfreg {
                     .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[2]/div[2]/div[6]")));
             String ab = ilcepopup.getText();
 
-            Assert.assertEquals("Lütfen İlçe Seçiniz", ab);
+            Assert.assertEquals("Lütfen ilce Seciniz", ab);
 
         } catch(AssertionError ae) {
 
@@ -144,8 +150,9 @@ public class Zorunlualankontroluselfreg {
 
     }
 
-    @And("^ı see lütfen semt seçiniz pop op$")
-    public void ıSeeLütfenSemtSeçinizPopOp() throws Throwable {
+    @And("^i see lutfen semt seciniz pop op$")
+    public void iSeeLutfenSemtSecinizPopOp() throws Throwable {
+
         try {
 
             base.driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[6]"));
@@ -162,9 +169,9 @@ public class Zorunlualankontroluselfreg {
 
     }
 
+    @Then("^i confirm the lutfen semt seciniz pop op message$")
+    public void iConfirmTheLutfenSemtSecinizPopOpMessage() throws Throwable {
 
-    @Then("^ı confirm the lütfen semt seçiniz pop op message$")
-    public void ıConfirmTheLütfenSemtSeçinizPopOpMessage() throws Throwable {
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
         try{
@@ -173,7 +180,7 @@ public class Zorunlualankontroluselfreg {
                     .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[2]/div[2]/div[6]")));
             String ab = semtpopup.getText();
 
-            Assert.assertEquals("Lütfen Semt Seçiniz", ab);
+            Assert.assertEquals("Lütfen Semt Seciniz", ab);
 
         } catch(AssertionError ae) {
 
@@ -182,8 +189,8 @@ public class Zorunlualankontroluselfreg {
 
 
     }
-    @And("^ı see Adres boş bırakılamaz pop op$")
-    public void ıSeeAdresBoşBırakılamazPopOp() throws Throwable {
+    @And("^i see Adres bos birakilamaz pop op$")
+    public void iSeeAdresBosBirakilamazPopOp() throws Throwable {
 
         try {
 
@@ -203,8 +210,8 @@ public class Zorunlualankontroluselfreg {
 
 
 
-    @Then("^ı confirm the Adres boş bırakılamaz pop op message$")
-    public void ıConfirmTheAdresBoşBırakılamazPopOpMessage() throws Throwable {
+    @Then("^i confirm the Adres bos birakilamaz pop op message$")
+    public void iConfirmTheAdresBosBirakilamazPopOpMessage() throws Throwable {
 
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
         try{
@@ -213,7 +220,7 @@ public class Zorunlualankontroluselfreg {
                     .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[2]/div[2]/div[6]")));
             String ab = adrespopup.getText();
 
-            Assert.assertEquals("Adres boş bırakılamaz.", ab);
+            Assert.assertEquals("Adres bos birakilamaz.", ab);
 
         } catch(AssertionError ae) {
 
@@ -222,8 +229,8 @@ public class Zorunlualankontroluselfreg {
 
 
     }
-    @And("^ı see Restoran sahibi adı boş bırakılamaz pop op$")
-    public void ıSeeRestoranSahibiAdıBoşBırakılamazPopOp() throws Throwable {
+    @And("^i see Restoran sahibi adi bos birakilamaz pop op$")
+    public void iSeeRestoranSahibiAdiBosBirakilamazPopOp() throws Throwable {
         try {
 
             base.driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[6]"));
@@ -242,8 +249,8 @@ public class Zorunlualankontroluselfreg {
 
 
 
-    @Then("^ı confirm the Restoran sahibi adı boş bırakılamaz pop op message$")
-    public void ıConfirmTheRestoranSahibiAdıBoşBırakılamazPopOpMessage() throws Throwable {
+    @Then("^i confirm the Restoran sahibi adi bos birakilamaz pop op message$")
+    public void iConfirmTheRestoranSahibiAdiBosBirakilamazPopOpMessage() throws Throwable {
 
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
         try{
@@ -251,7 +258,7 @@ public class Zorunlualankontroluselfreg {
                     .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[2]/div[2]/div[6]")));
             String ab = restoranshbipopup.getText();
 
-            Assert.assertEquals("Restoran sahibi adı boş bırakılamaz.", ab);
+            Assert.assertEquals("Restoran sahibi adi bos birakilamaz.", ab);
 
         } catch(AssertionError ae) {
 
@@ -261,8 +268,8 @@ public class Zorunlualankontroluselfreg {
 
     }
 
-    @And("^ı see Restoran sahibi soyadı boş bırakılamaz pop op$")
-    public void ıSeeRestoranSahibiSoyadıBoşBırakılamazPopOp() throws Throwable {
+    @And("^i see Restoran sahibi soyadi bos birakilamaz pop op$")
+    public void iSeeRestoranSahibiSoyadiBosBirakilamazPopOp() throws Throwable {
         try {
 
             base.driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[6]"));
@@ -280,8 +287,8 @@ public class Zorunlualankontroluselfreg {
     }
 
 
-    @Then("^ı confirm the Restoran sahibi soyadı boş bırakılamaz pop op message$")
-    public void ıConfirmTheRestoranSahibiSoyadıBoşBırakılamazPopOpMessage() throws Throwable {
+    @Then("^i confirm the Restoran sahibi soyadi bos birakilamaz pop op message$")
+    public void iConfirmTheRestoranSahibiSoyadiBosBirakilamazPopOpMessage() throws Throwable {
 
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
         try{
@@ -289,7 +296,7 @@ public class Zorunlualankontroluselfreg {
                     .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[2]/div[2]/div[6]")));
             String ab = restoranshbisoyadpopup.getText();
 
-            Assert.assertEquals("Restoran sahibi soyadı boş bırakılamaz.", ab);
+            Assert.assertEquals("Restoran sahibi soyadi bos birakilamaz.", ab);
 
         } catch(AssertionError ae) {
 
@@ -299,8 +306,8 @@ public class Zorunlualankontroluselfreg {
 
     }
 
-    @And("^ı see Restoran sahibi telefon numarası boş bırakılamaz pop op$")
-    public void ıSeeRestoranSahibiTelefonNumarasıBoşBırakılamazPopOp() throws Throwable {
+    @And("^i see Restoran sahibi telefon numarasi bos birakilamaz pop op$")
+    public void iSeeRestoranSahibiTelefonNumarasiBosBirakilamazPopOp() throws Throwable {
         try {
 
             base.driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[6]"));
@@ -319,8 +326,8 @@ public class Zorunlualankontroluselfreg {
 
 
 
-    @Then("^ı confirm the Restoran sahibi telefon numarası boş bırakılamaz pop op message$")
-    public void ıConfirmTheRestoranSahibiTelefonNumarasıBoşBırakılamazPopOpMessage() throws Throwable {
+    @Then("^i confirm the Restoran sahibi telefon numarasi bos birakilamaz pop op message$")
+    public void iConfirmTheRestoranSahibiTelefonNumarasiBosBirakilamazPopOpMessage() throws Throwable {
 
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
         try{
@@ -329,7 +336,7 @@ public class Zorunlualankontroluselfreg {
             String ab = restoranshbitelpopup.getText();
 
 
-            Assert.assertEquals("Restoran sahibi telefon numarası boş bırakılamaz.", ab);
+            Assert.assertEquals("Restoran sahibi telefon numarasi bos birakilamaz.", ab);
 
         } catch(AssertionError ae) {
 
@@ -338,8 +345,8 @@ public class Zorunlualankontroluselfreg {
 
 
     }
-    @And("^ı see Restoran telefon numarası boş bırakılamaz pop op$")
-    public void ıSeeRestoranTelefonNumarasıBoşBırakılamazPopOp() throws Throwable {
+    @And("^i see Restoran telefon numarasi bos birakilamaz pop op$")
+    public void iSeeRestoranTelefonNumarasiBosBirakilamazPopOp() throws Throwable {
         try {
 
             base.driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[6]"));
@@ -355,8 +362,8 @@ public class Zorunlualankontroluselfreg {
         }
 
     }
-    @Then("^ı confirm the Restoran telefon numarası boş bırakılamaz pop op message$")
-    public void ıConfirmTheRestoranTelefonNumarasıBoşBırakılamazPopOpMessage() throws Throwable {
+    @Then("^i confirm the Restoran telefon numarasi bos birakilamaz pop op message$")
+    public void iConfirmTheRestoranTelefonNumarasiBosBirakilamazPopOpMessage() throws Throwable {
 
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
         try{
@@ -365,7 +372,7 @@ public class Zorunlualankontroluselfreg {
             String ab = restorantelpopup.getText();
 
 
-            Assert.assertEquals("Restoran telefon numarası boş bırakılamaz.", ab);
+            Assert.assertEquals("Restoran telefon numarasi bos birakilamaz.", ab);
 
         } catch(AssertionError ae) {
 
@@ -375,8 +382,8 @@ public class Zorunlualankontroluselfreg {
 
     }
 
-    @And("^ı see Email boş bırakılamaz pop op$")
-    public void ıSeeEmailBoşBırakılamazPopOp() throws Throwable {
+    @And("^i see Email bos birakilamaz pop op$")
+    public void iSeeEmailBosBirakilamazPopOp() throws Throwable {
         try {
 
             base.driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[6]"));
@@ -393,8 +400,8 @@ public class Zorunlualankontroluselfreg {
 
     }
 
-    @Then("^ı confirm the Email boş bırakılamaz pop op message$")
-    public void ıConfirmTheEmailBoşBırakılamazPopOpMessage() throws Throwable {
+    @Then("^i confirm the Email bos birakilamaz pop op message$")
+    public void iConfirmTheEmailBosBirakilamazPopOpMessage() throws Throwable {
 
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
         try{
@@ -405,7 +412,7 @@ public class Zorunlualankontroluselfreg {
 
 
 
-            Assert.assertEquals("Email boş bırakılamaz.", ab);
+            Assert.assertEquals("Email bos birakilamaz.", ab);
 
         } catch(AssertionError ae) {
 
@@ -413,8 +420,8 @@ public class Zorunlualankontroluselfreg {
         }
     }
 
-    @And("^ı see Emailson boş bırakılamaz pop op$")
-    public void ıSeeEmailsonBoşBırakılamazPopOp() throws Throwable {
+    @And("^i see Emailson bos birakilamaz pop op$")
+    public void iSeeEmailsonBosBirakilamazPopOp() throws Throwable {
         try {
 
             base.driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[6]"));
@@ -430,8 +437,8 @@ public class Zorunlualankontroluselfreg {
         }
 
     }
-    @Then("^ı confirm the Emailson boş bırakılamaz pop op message$")
-    public void ıConfirmTheEmailsonBoşBırakılamazPopOpMessage() throws Throwable {
+    @Then("^i confirm the Emailson bos birakilamaz pop op message$")
+    public void iConfirmTheEmailsonBosBirakilamazPopOpMessage() throws Throwable {
 
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
         try{
@@ -447,5 +454,11 @@ public class Zorunlualankontroluselfreg {
 
             Assert.fail();
         }
+
+
+
+
+
+
     }
 }

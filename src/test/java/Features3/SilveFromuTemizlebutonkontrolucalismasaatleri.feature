@@ -1,37 +1,37 @@
 
-Feature:Control of Sil ve Formu temizle button in calışma saatleri page
-  This feature deals with the çalışma saatleri of the portakal
+Feature:Control of Sil ve Formu temizle button in calisma saatleri page
+  This feature deals with the çalisma saatleri of the portakal
 
-  Scenario: Control of Sil button in calışma saatleri page
-    Given I navigate to login page
-    And ı get browser foreground
-    And ı enter kullaniciadi
-    And ı enter pw
-    And ı click benihatırla checkbox if ı want
-    And ı click girisyap button
-    And ı see ı am in çalışma saatleri page
-    And ı get full screen
-    When ı click from left to right
-    Then ı click Sil button
-    And ı see field is deleted which ı clicked sil button
-    When ı click up to down
-    Then ı click Silforupdwn button
-    And ı see fields are deleted which ı clicked sil button
-    And ı close the page
+  Scenario: Control of Sil button in calisma saatleri page
+    Given i navigate to login page
+    And i get browser foreground
+    And i enter kullaniciadi
+    And i enter pw
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
+    And i see i am in calisma saatleri page
+    And i get full screen
+    When i click from left to right
+    Then i click Sil button
+    And i see field is deleted which i clicked sil button
+    When i click up to down
+    Then i click Silforupdwn button
+    And i see fields are deleted which i clicked sil button
+    And i close the page
 
 
-  Scenario: Control of Formu Temizle button in calışma saatleri page
-    Given I navigate to login page
-    And ı get browser foreground
-    And ı enter kullaniciadi
-    And ı enter pw
-    And ı click benihatırla checkbox if ı want
-    And ı click girisyap button
-    And ı see ı am in çalışma saatleri page
-    And ı get full screen
-    When ı click from left to right
-    Then ı click Formu temizle button
-    When ı click up to down
-    Then ı click Formu temizle button
-    And ı see all of fields are deleted
-    And ı close the page
+  Scenario: Control of Formu Temizle button in calisma saatleri page
+    Given i navigate to login page
+    And i get browser foreground
+    And i enter kullaniciadi
+    And i enter pw
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
+    And i see i am in calisma saatleri page
+    And i get full screen
+    When i click from left to right
+    Then i click Formu temizle button
+    When i click up to down
+    Then i click Formu temizle button
+    And i see all of fields are deleted
+    And i close the page

@@ -21,7 +21,7 @@ public class ticaribilgilerr {
 
     public BaseUtil base;
     UUID uuid = UUID.randomUUID();
-    String randomUUIDString = uuid.toString();
+    String randomUUiDString = uuid.toString();
     Random r = new Random();
 
     public ticaribilgilerr(BaseUtil base) {
@@ -31,28 +31,33 @@ public class ticaribilgilerr {
     }
 
 
-    @And("^ı enter the ticari unvan$")
-    public void ıEnterTheTicariUnvan() throws Throwable {
+
+    @And("^i enter the ticari unvan$")
+    public void iEnterTheTicariUnvan() throws Throwable {
+
         WebElement ticariunvan = (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("legalName")));
         ticariunvan.click();
         ticariunvan.clear();
-        ticariunvan.sendKeys(randomUUIDString);
+        ticariunvan.sendKeys(randomUUiDString);
     }
 
 
-    @And("^ı enter the vergi dairesi$")
-    public void ıEnterTheVergiDairesi() throws Throwable {
+    @And("^i enter the vergi dairesi$")
+    public void iEnterTheVergiDairesi() throws Throwable {
+
         WebElement vergidairesi = (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("taxoffice")));
         vergidairesi.click();
         vergidairesi.clear();
-        vergidairesi.sendKeys(randomUUIDString);
+        vergidairesi.sendKeys(randomUUiDString);
     }
 
 
-    @And("^ı select ticari tür$")
-    public void ıSelectTicariTür() throws Throwable {
+    @And("^i select ticari tur$")
+    public void iSelectTicariTur() throws Throwable {
+
+
 
         Select s4 = new Select(base.driver.findElement(By.id("legalType")));
 
@@ -61,10 +66,10 @@ public class ticaribilgilerr {
 
         int listSize = s4.getOptions().size();
         if (listSize > 1) {
-            int optionIndex = r.nextInt(listSize - 1);
+            int optionindex = r.nextInt(listSize - 1);
 
-            if (optionIndex == 0 || optionIndex==1) {
-                s4.selectByVisibleText("Şahıs");
+            if (optionindex == 0 || optionindex==1) {
+                s4.selectByVisibleText("sahis");
 
                 WebElement tckn = (new WebDriverWait(base.driver, 30))
                         .until(ExpectedConditions.presenceOfElementLocated(By.id("identitynumber")));
@@ -80,7 +85,7 @@ public class ticaribilgilerr {
                 mersiss.sendKeys("60591947528" + gelenmersis);
 
             }
-            if (optionIndex == 2) {
+            if (optionindex == 2) {
                 s4.selectByVisibleText("Diğer");
                 WebElement vergino = (new WebDriverWait(base.driver, 30))
                         .until(ExpectedConditions.presenceOfElementLocated(By.id("taxnumber")));
@@ -97,8 +102,9 @@ public class ticaribilgilerr {
         }
     }
 
-    @And("^ı see ı am in ticari bilgiler page$")
-    public void ıSeeIAmInTicariBilgilerPage() throws Throwable {
+    @And("^i see i am in ticari bilgiler page$")
+    public void iSeeiAminTicariBilgilerPage() throws Throwable {
+
 
         WebElement ticaribilg = (new WebDriverWait(base.driver, 60))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("registerTab1")));
@@ -107,8 +113,10 @@ public class ticaribilgilerr {
     }
 
 
-    @And("^ı delete fatura e mail adres and type again$")
-    public void ıDeleteFaturaEMailAdresAndTypeAgain() throws Throwable {
+
+    @And("^i delete fatura e mail adres and type again$")
+    public void iDeleteFaturaEMailAdresAndTypeAgain() throws Throwable {
+
         WebElement email = (new WebDriverWait(base.driver, 5))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("earchivemailaddress")));
 
@@ -116,8 +124,8 @@ public class ticaribilgilerr {
         email.sendKeys(base.uret() + "@" + "afhdagf.com");
     }
 
-    @Then("^ı stay in ticari bilgiler page$")
-    public void ıStayInTicariBilgilerPage() throws Throwable {
+    @Then("^i stay in ticari bilgiler page$")
+    public void iStayinTicariBilgilerPage() throws Throwable {
 
         Thread.sleep(3000);
         try {
@@ -131,8 +139,10 @@ public class ticaribilgilerr {
     }
 
 
-    @And("^ı enter iban$")
-    public void ıEnterIban() throws Throwable {
+
+    @And("^i enter iban$")
+    public void iEnteriban() throws Throwable {
+
         String[] iban = {"TR830004600354888000002868", "TR330013400000000286800007", "TR110020500000070770700001"};
         WebElement Select_iban = (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("ibannumber")));
@@ -145,8 +155,8 @@ public class ticaribilgilerr {
 
     }
 
-    @And("^ı see the ticari bilgileriniz başarıyla kaydedildi pop up$")
-    public void ıSeeTheTicariBilgilerinizBaşarıylaKaydedildiPopUp() throws Throwable {
+    @And("^i see the ticari bilgileriniz basariyla kaydedildi pop up$")
+    public void iSeeTheTicariBilgilerinizBasariylaKaydedildiPopUp() throws Throwable {
         try {
 
             base.driver.findElement(By.id("1"));
@@ -164,8 +174,8 @@ public class ticaribilgilerr {
     }
 
 
-    @And("^ı confirm ticari bilgileriniz başarıyla kaydedildi pop up message$")
-    public void ıConfirmTicariBilgilerinizBaşarıylaKaydedildiPopUpMessage() throws Throwable {
+    @And("^i confirm ticari bilgileriniz basariyla kaydedildi pop up message$")
+    public void iConfirmTicariBilgilerinizBasariylaKaydedildiPopUpMessage() throws Throwable {
 
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
@@ -186,14 +196,24 @@ public class ticaribilgilerr {
 
     }
 
-    @And("^ı enter kep adresi$")
-    public void ıEnterKepAdresi() throws Throwable {
+    @And("^i enter kep adresi$")
+    public void iEnterKepAdresi() throws Throwable {
+
         WebElement kepadresi = (new WebDriverWait(base.driver, 60))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("kepaddress")));
 
         kepadresi.clear();
 
         kepadresi.sendKeys(base.uret() + "." + base.uret() + "@" + "hs03.kep.tr");
+
+
+
+
+
+
+
+
+
     }
 }
 
