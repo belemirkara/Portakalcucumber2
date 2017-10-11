@@ -200,7 +200,10 @@ public class calismasaatleri extends BaseUtil {
     public void iGetBrowserForeground() throws Throwable {
             Thread.sleep(3000);
         }
+
+
     }
+
 
 
 

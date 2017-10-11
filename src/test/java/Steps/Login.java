@@ -18,12 +18,17 @@ import java.util.Random;
 import java.util.UUID;
 
 
-public class Login {
+import java.sql.*;
+
+public class Login extends BaseUtil {
 
     public BaseUtil base;
     UUID uuid = UUID.randomUUID();
     String randomUUiDString = uuid.toString();
     Random r = new Random();
+    private Connection connection;
+    private static Statement statement;
+    private static ResultSet rs;
 
     public Login(BaseUtil base) {
 
@@ -31,23 +36,61 @@ public class Login {
         this.base = base;
     }
 
-    @And("^i enter kullaniciadi$")
-    public void iEnterKullaniciadi() throws Throwable {
 
-        WebElement kullaniciadi = (new WebDriverWait(base.driver, 30))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("username")));
-        kullaniciadi.click();
-        kullaniciadi.sendKeys("900443");
-    }
+    @And("^i enter kullaniciadi and pw from db$")
+    public void iEnterKullaniciadiAndPwFromDb() throws Throwable {
 
-    @And("^i enter pw$")
-    public void iEnterPw() throws Throwable {
+        String hostName = "192.168.0.40";
+        String dbName = "SALCATEST_MSCRM";
+        String user = "CrmSqlUser";
+        String password = "CrmSqlPass";
+        String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;loginTimeout=30;", hostName, dbName, user, password);
 
-        WebElement password = (new WebDriverWait(base.driver, 30))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("password")));
-        password.click();
-        password.sendKeys("z58BQvsK");
-    }
+        Connection connection = null;
+                try {
+                    //Class.forName("com.microsoft.jdbc.sqlserver.SQLServerDriver");
+                    System.out.println("Connecting to Database...");
+                    connection = DriverManager.getConnection(url);
+                    if (connection != null) {
+                        System.out.println("Connected to the Database...");
+                    }
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+
+
+
+
+                       try{
+
+                    String query = "select TOP 1 * from Account (NOLOCK) WHERE new_accountusername is NOT NULL and new_accountpassword is NOT NULL and new_portalstatus=1 order by CreatedOn desc";
+                    statement = connection.createStatement();
+                    rs = statement.executeQuery(query);
+
+                   while(rs.next()){
+
+
+                       String username= rs.getString("new_accountusername");
+                       String passwrd= rs.getString("new_accountpassword");
+
+                        base.driver.findElement((By.id("username"))).sendKeys(username);
+                        base.driver.findElement((By.id("password"))).sendKeys(passwrd);
+
+
+                } }catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+
+                if (connection != null) {
+                    try {
+                        System.out.println("Closing Database Connection...");
+                        connection.close();
+                    } catch (SQLException ex) {
+                        ex.printStackTrace();
+                    }
+                }
+
+            }
 
     @And("^i click benihatirla checkbox if i want$")
     public void iClickBenihatirlaCheckboxifiWant() throws Throwable {
@@ -55,6 +98,7 @@ public class Login {
         WebElement benihatirla = (new WebDriverWait(base.driver, 30))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("rememberMe")));
         benihatirla.click();
+        Thread.sleep(3000);
 
     }
 
@@ -76,7 +120,7 @@ public class Login {
         try {
             String URL = base.driver.getCurrentUrl();
             Assert.assertEquals(URL, "http://portakal.ystest.com/SelfRegistration/registrationwizard/commercial");
-            Thread.sleep(1000);
+            Thread.sleep(3000);
         } catch (AssertionError ae) {
 
             Assert.fail();
@@ -88,9 +132,7 @@ public class Login {
         base.driver.navigate().to("http://portakal.ystest.com");
         Thread.sleep(1000);
 
-
-
-
-
     }
+
+
 }
