@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.UUID;
@@ -29,13 +30,15 @@ public class Login extends BaseUtil {
     private Connection connection;
     private static Statement statement;
     private static ResultSet rs;
+    public static String FilePath ="//Users//belemir.karabacakoglu//Desktop//templogin.txt";
+    public static String fileUserName;
+    public static String filePassword;
 
     public Login(BaseUtil base) {
 
 
         this.base = base;
     }
-
 
     @And("^i enter kullaniciadi and pw from db$")
     public void iEnterKullaniciadiAndPwFromDb() throws Throwable {
@@ -58,20 +61,27 @@ public class Login extends BaseUtil {
                     ex.printStackTrace();
                 }
 
-
-
-
                        try{
 
                     String query = "select TOP 1 * from Account (NOLOCK) WHERE new_accountusername is NOT NULL and new_accountpassword is NOT NULL and new_portalstatus=1 order by CreatedOn desc";
                     statement = connection.createStatement();
                     rs = statement.executeQuery(query);
 
-                   while(rs.next()){
+                   while(rs.next())
+                   {
+
+                       String username = rs.getString("new_accountusername");
+                       String passwrd  = rs.getString("new_accountpassword");
+
+                       try (Writer writer = new BufferedWriter(new OutputStreamWriter(
+                               new FileOutputStream(FilePath), "utf-8"))) {
+
+                           String result = username + "-" + passwrd;
+
+                           writer.write(result);
+                       }
 
 
-                       String username= rs.getString("new_accountusername");
-                       String passwrd= rs.getString("new_accountpassword");
 
                         base.driver.findElement((By.id("username"))).sendKeys(username);
                         base.driver.findElement((By.id("password"))).sendKeys(passwrd);

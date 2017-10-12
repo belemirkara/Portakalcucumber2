@@ -4,8 +4,7 @@ Feature:Obligatory fields in ticari bilg page
 
   Scenario: Control of the ticari unvan field
     Given i navigate to login page
-    And i enter kullaniciadi
-    And i enter pw
+    And i get kullaniciadi and pw from login
     And i click benihatirla checkbox if i want
     And i click girisyap button
     And i see i am in ticari bilgiler page
@@ -34,8 +33,7 @@ Feature:Obligatory fields in ticari bilg page
 
   Scenario: Control of the vergi dairesi field
     Given i navigate to login page
-    And i enter kullaniciadi
-    And i enter pw
+    And i get kullaniciadi and pw from login
     And i click benihatirla checkbox if i want
     And i click girisyap button
     And i see i am in ticari bilgiler page
@@ -64,8 +62,7 @@ Feature:Obligatory fields in ticari bilg page
 
   Scenario: Control of the ticari tur combobox
     Given i navigate to login page
-    And i enter kullaniciadi
-    And i enter pw
+    And i get kullaniciadi and pw from login
     And i click benihatirla checkbox if i want
     And i click girisyap button
     And i see i am in ticari bilgiler page
@@ -93,8 +90,7 @@ Feature:Obligatory fields in ticari bilg page
 
   Scenario: Control of the TCKN
     Given i navigate to login page
-    And i enter kullaniciadi
-    And i enter pw
+    And i get kullaniciadi and pw from login
     And i click benihatirla checkbox if i want
     And i click girisyap button
     And i see i am in ticari bilgiler page
@@ -128,8 +124,7 @@ Feature:Obligatory fields in ticari bilg page
 
   Scenario: Control of the iban
     Given i navigate to login page
-    And i enter kullaniciadi
-    And i enter pw
+    And i get kullaniciadi and pw from login
     And i click benihatirla checkbox if i want
     And i click girisyap button
     And i see i am in ticari bilgiler page
@@ -161,8 +156,7 @@ Feature:Obligatory fields in ticari bilg page
 
   Scenario: Control of the Fatura E-Mail Adresi
     Given i navigate to login page
-    And i enter kullaniciadi
-    And i enter pw
+    And i get kullaniciadi and pw from login
     And i click benihatirla checkbox if i want
     And i click girisyap button
     And i see i am in ticari bilgiler page
@@ -191,8 +185,7 @@ Feature:Obligatory fields in ticari bilg page
 
   Scenario: Control of the vergi no
     Given i navigate to login page
-    And i enter kullaniciadi
-    And i enter pw
+    And i get kullaniciadi and pw from login
     And i click benihatirla checkbox if i want
     And i click girisyap button
     And i see i am in ticari bilgiler page
@@ -226,8 +219,7 @@ Feature:Obligatory fields in ticari bilg page
 
   Scenario: Control of the kep adresi
     Given i navigate to login page
-    And i enter kullaniciadi
-    And i enter pw
+    And i get kullaniciadi and pw from login
     And i click benihatirla checkbox if i want
     And i click girisyap button
     And i see i am in ticari bilgiler page
@@ -251,8 +243,7 @@ Feature:Obligatory fields in ticari bilg page
 
   Scenario: Control of the mersis
     Given i navigate to login page
-    And i enter kullaniciadi
-    And i enter pw
+    And i get kullaniciadi and pw from login
     And i click benihatirla checkbox if i want
     And i click girisyap button
     And i see i am in ticari bilgiler page

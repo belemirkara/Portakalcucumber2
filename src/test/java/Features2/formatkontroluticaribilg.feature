@@ -5,8 +5,7 @@ Feature:Format control in ticari bilg page
 
   Scenario:Format control of tckn
     Given i navigate to login page
-    And i enter kullaniciadi
-    And i enter pw
+    And i get kullaniciadi and pw from login
     And i click benihatirla checkbox if i want
     And i click girisyap button
     And i see i am in ticari bilgiler page
@@ -40,8 +39,7 @@ Feature:Format control in ticari bilg page
 
   Scenario:Format control of tckn
     Given i navigate to login page
-    And i enter kullaniciadi
-    And i enter pw
+    And i get kullaniciadi and pw from login
     And i click benihatirla checkbox if i want
     And i click girisyap button
     And i see i am in ticari bilgiler page
@@ -74,8 +72,7 @@ Feature:Format control in ticari bilg page
 
   Scenario:Format control of vergi no
     Given i navigate to login page
-    And i enter kullaniciadi
-    And i enter pw
+    And i get kullaniciadi and pw from login
     And i click benihatirla checkbox if i want
     And i click girisyap button
     And i see i am in ticari bilgiler page
@@ -108,8 +105,7 @@ Feature:Format control in ticari bilg page
 
   Scenario:Format control of vergi no
     Given i navigate to login page
-    And i enter kullaniciadi
-    And i enter pw
+    And i get kullaniciadi and pw from login
     And i click benihatirla checkbox if i want
     And i click girisyap button
     And i see i am in ticari bilgiler page
@@ -142,8 +138,7 @@ Feature:Format control in ticari bilg page
 
   Scenario:Format control of iban
     Given i navigate to login page
-    And i enter kullaniciadi
-    And i enter pw
+    And i get kullaniciadi and pw from login
     And i click benihatirla checkbox if i want
     And i click girisyap button
     And i see i am in ticari bilgiler page
@@ -173,8 +168,7 @@ Feature:Format control in ticari bilg page
 
   Scenario:Format control of iban
     Given i navigate to login page
-    And i enter kullaniciadi
-    And i enter pw
+    And i get kullaniciadi and pw from login
     And i click benihatirla checkbox if i want
     And i click girisyap button
     And i see i am in ticari bilgiler page
@@ -204,8 +198,7 @@ Feature:Format control in ticari bilg page
 
   Scenario:Format control of kep adresi
     Given i navigate to login page
-    And i enter kullaniciadi
-    And i enter pw
+    And i get kullaniciadi and pw from login
     And i click benihatirla checkbox if i want
     And i click girisyap button
     And i see i am in ticari bilgiler page
@@ -236,8 +229,7 @@ Feature:Format control in ticari bilg page
 
   Scenario:Format control of mersis
     Given i navigate to login page
-    And i enter kullaniciadi
-    And i enter pw
+    And i get kullaniciadi and pw from login
     And i click benihatirla checkbox if i want
     And i click girisyap button
     And i see i am in ticari bilgiler page
@@ -267,8 +259,7 @@ Feature:Format control in ticari bilg page
 
   Scenario:Format control of mersis
     Given i navigate to login page
-    And i enter kullaniciadi
-    And i enter pw
+    And i get kullaniciadi and pw from login
     And i click benihatirla checkbox if i want
     And i click girisyap button
     And i see i am in ticari bilgiler page
@@ -297,8 +288,7 @@ Feature:Format control in ticari bilg page
 
   Scenario:Format control of fatura e-mail adres format
     Given i navigate to login page
-    And i enter kullaniciadi
-    And i enter pw
+    And i get kullaniciadi and pw from login
     And i click benihatirla checkbox if i want
     And i click girisyap button
     And i see i am in ticari bilgiler page

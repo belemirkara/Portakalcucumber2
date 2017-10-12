@@ -4,7 +4,7 @@ Feature:Happy path of calisma saatleri page
   Scenario: Happy path of calisma saatleri page
     Given i navigate to login page
     And i get browser foreground
-    And i enter kullaniciadi and pw from db
+    And i get kullaniciadi and pw from login
     And i click benihatirla checkbox if i want
     And i click girisyap button
     And i see i am in calisma saatleri page

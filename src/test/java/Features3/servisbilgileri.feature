@@ -4,8 +4,7 @@ Feature:Happy path of fields in servis bilg page
 
   Scenario:Happy path of mutfak secimi in servis bilg page
     Given i navigate to login page
-    And i enter kullaniciadi
-    And i enter pw
+    And i get kullaniciadi and pw from login
     And i click benihatirla checkbox if i want
     And i click girisyap button
     And i see i am in servis bilg page

@@ -14,7 +14,10 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import sun.rmi.runtime.Log;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -181,7 +184,7 @@ public class calismasaatleri extends BaseUtil {
 
             String ab = cs.getText();
 
-            Assert.assertEquals("Çalisma saatleri basariyla kayit edildi.", ab);
+            Assert.assertEquals("Çalışma saatleri başarıyla kayıt edildi.", ab);
 
         } catch (AssertionError ae) {
 
@@ -202,7 +205,45 @@ public class calismasaatleri extends BaseUtil {
         }
 
 
+    @And("^i get kullaniciadi and pw from login$")
+    public void iGetKullaniciadiAndPwFromLogin() throws Throwable {
+
+        try(BufferedReader br = new BufferedReader(new FileReader(Login.FilePath))) {
+
+            StringBuilder sb = new StringBuilder();
+            String line = br.readLine();
+
+            while (line != null) {
+                sb.append(line);
+                sb.append(System.lineSeparator());
+                line = br.readLine();
+            }
+
+            String everything = sb.toString();
+
+            String[] abc = everything.split("-");
+
+            Login.fileUserName = abc[0];
+            Login.filePassword = abc[1];
+
+        }
+
+        WebElement username = (new WebDriverWait(base.driver, 90))
+                .until(ExpectedConditions.presenceOfElementLocated(By.id("username")));
+        username.click();
+        username.sendKeys(Login.fileUserName);
+
+        WebElement password = (new WebDriverWait(base.driver, 90))
+                .until(ExpectedConditions.presenceOfElementLocated(By.id("password")));
+        password.click();
+        password.sendKeys(Login.filePassword);
+
+
+
+        base.driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
+        Thread.sleep(3000);
     }
+}
 
 
 

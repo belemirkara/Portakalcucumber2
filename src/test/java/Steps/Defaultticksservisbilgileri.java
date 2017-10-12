@@ -24,14 +24,14 @@ public class Defaultticksservisbilgileri extends BaseUtil {
         this.base = base;
     }
 
-    @And("^ı want to click nakit$")
+    @And("^i want to click nakit$")
     public void iWantToClickNakit() throws Throwable {
         WebElement cash = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("cash")));
         cash.click();
     }
 
-    @And("^ı see ı cant$")
+    @And("^i see i cant$")
     public boolean iSeeiCant() throws Throwable {
         try{
             WebDriverWait wait = new WebDriverWait(base.driver, 6);
@@ -44,7 +44,7 @@ public class Defaultticksservisbilgileri extends BaseUtil {
 
     }
 
-    @And("^ı want to click okk$")
+    @And("^i want to click okk$")
     public void iWantToClickOkk() throws Throwable {
         WebElement occ = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("occ")));
@@ -53,8 +53,8 @@ public class Defaultticksservisbilgileri extends BaseUtil {
 
 }
 
-    @And("^ı see ı cantt$")
-    public boolean ıSeeiCantt() throws Throwable {
+    @And("^i see i cantt$")
+    public boolean iSeeiCantt() throws Throwable {
         try{
             WebDriverWait wait = new WebDriverWait(base.driver, 6);
             wait.until(ExpectedConditions.elementToBeClickable(base.driver.findElement(By.id("occ"))));

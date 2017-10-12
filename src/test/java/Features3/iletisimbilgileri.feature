@@ -5,8 +5,7 @@ Feature:iletisim bilgileri
 
   Scenario:Delete the contents in the fields and fill again
     Given i navigate to login page
-    And i enter kullaniciadi
-    And i enter pw
+    And i get kullaniciadi and pw from login
     And i click benihatirla checkbox if i want
     And i click girisyap button
     Then i login successfully

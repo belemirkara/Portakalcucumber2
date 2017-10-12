@@ -5,8 +5,7 @@ Feature:Update hours in calisma saatleri page
   Scenario: Update hours in calisma saatleri page
     Given i navigate to login page
     And i get browser foreground
-    And i enter kullaniciadi
-    And i enter pw
+    And i get kullaniciadi and pw from login
     And i click benihatirla checkbox if i want
     And i click girisyap button
     And i see i am in calisma saatleri page
