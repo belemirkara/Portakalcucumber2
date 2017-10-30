@@ -2,7 +2,7 @@
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="kotlin-language" name="Kotlin">
-      <configuration version="3" platform="JVM 1.8" useProjectSettings="false">
+      <configuration version="2" platform="JVM 1.8" useProjectSettings="false">
         <compilerSettings />
         <compilerArguments>
           <option name="jvmTarget" value="1.8" />
@@ -14,6 +14,7 @@
           <option name="pluginClasspaths">
             <array />
           </option>
+          <option name="coroutinesWarn" value="true" />
         </compilerArguments>
       </configuration>
     </facet>
@@ -38,7 +39,8 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" scope="TEST" name="Maven: info.cukes:cucumber-java:1.2.5" level="project" />
+    <orderEntry type="library" name="cucumber-java" level="application" />
+    <orderEntry type="library" name="Maven: info.cukes:cucumber-java:1.2.5" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: info.cukes:cucumber-picocontainer:1.2.5" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: info.cukes:cucumber-jvm-deps:1.0.5" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: info.cukes:gherkin:2.12.2" level="project" />
@@ -72,13 +74,12 @@
     <orderEntry type="library" scope="TEST" name="Maven: info.cukes:cucumber-junit:1.2.5" level="project" />
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-chrome-driver:3.6.0" level="project" />
     <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-remote-driver:3.6.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: io.cucumber:gherkin:5.0.0" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: io.cucumber:gherkin-jvm-deps:1.0.4" level="project" />
+    <orderEntry type="library" name="Maven: io.cucumber:gherkin:5.0.0" level="project" />
+    <orderEntry type="library" name="Maven: io.cucumber:gherkin-jvm-deps:1.0.4" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.51" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib:1.1.51" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains:annotations:13.0" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.51" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.jetbrains.kotlin:kotlin-test:1.1.51" level="project" />
-    <orderEntry type="library" name="cucumber-java" level="application" />
   </component>
 </module>
