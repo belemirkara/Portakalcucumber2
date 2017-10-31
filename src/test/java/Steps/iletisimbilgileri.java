@@ -34,8 +34,9 @@ public class iletisimbilgileri extends BaseUtil {
 
     @Given("^i click the iletisim bilgileri in progress bar$")
     public void iClickTheiletisimBilgileriinProgressBar() throws Throwable {
+
         WebElement iletisimbilg = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[1]/div[1]/div/div/wizard-step/ul/li[1]/a")));
+                .until(ExpectedConditions.presenceOfElementLocated(By.id("registerTab0")));
 
         iletisimbilg.click();
 

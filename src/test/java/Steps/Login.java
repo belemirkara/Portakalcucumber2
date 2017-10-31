@@ -127,6 +127,7 @@ public class Login extends BaseUtil {
     @Then("^i login successfully$")
     public void iLoginSuccessfully() throws Throwable {
 
+        Thread.sleep(3000);
         try {
             String URL = base.driver.getCurrentUrl();
             Assert.assertEquals(URL, "http://portakal.ystest.com/SelfRegistration/registrationwizard/commercial");

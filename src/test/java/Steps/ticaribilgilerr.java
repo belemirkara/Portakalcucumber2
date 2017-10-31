@@ -17,7 +17,7 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-public class ticaribilgilerr {
+public class ticaribilgilerr extends BaseUtil {
 
     public BaseUtil base;
     UUID uuid = UUID.randomUUID();

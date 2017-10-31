@@ -4,6 +4,8 @@ import Base.BaseUtil;
 import cucumber.api.PendingException;
 import cucumber.api.Scenario;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -32,6 +34,7 @@ public class GonderimBolgeleri extends BaseUtil {
 
     @And("^i click the gonderim bolgeleri in progress bar$")
     public void iClickTheGonderimBolgeleriinProgressBar() throws Throwable {
+
         WebElement gonderimbolg = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("registerTab4")));
         gonderimbolg.click();
@@ -39,10 +42,10 @@ public class GonderimBolgeleri extends BaseUtil {
         Thread.sleep(3000);
     }
 
-    @And("^i enter ana semt amount as max (\\d+) tl and click enter$")
-    public void iEnterAnaSemtAmountAsMaxTlAndClickEnter(int arg0) throws Throwable {
+    @And("^i enter ana semt amount as max five tl and click enter i control that all fields are filled by same amount$")
+    public void iEnterAnaSemtAmountAsMaxFiveTlAndClickEnterIControlThatAllFieldsAreFilledBySameAmount() throws Throwable {
 
-        Thread.sleep(1000);
+
 
         int min = 0;
         int max = 5;
@@ -64,254 +67,271 @@ public class GonderimBolgeleri extends BaseUtil {
 
     }
 
+    @And("^i enter en yakin semtler amount max thirty tl and click enter i control that all fields are filled by same amount$")
+    public void iEnterEnYakinSemtlerAmountMaxThirtyTlAndClickEnterIControlThatAllFieldsAreFilledBySameAmount() throws Throwable {
 
-            int min = 0;
-            int max = 30;
+        int min = 0;
+        int max = 30;
 
-                base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-            Boolean isPresent = base.driver.findElements(By.id("semt_1")).size() > 0;
-            if(isPresent==true) {
+        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        Boolean isPresent = base.driver.findElements(By.id("semt_1")).size() > 0;
+        if (isPresent == true) {
 
-                WebElement enyakinsemtsemtfield = (new WebDriverWait(base.driver, 45))
-                        .until(ExpectedConditions.presenceOfElementLocated(By.id("othertotalprice_1")));
-                enyakinsemtsemtfield.click();
-                enyakinsemtsemtfield.clear();
+            WebElement enyakinsemtsemtfield = (new WebDriverWait(base.driver, 45))
+                    .until(ExpectedConditions.presenceOfElementLocated(By.id("othertotalprice_1")));
+            enyakinsemtsemtfield.click();
+            enyakinsemtsemtfield.clear();
 
 
-                enyakinsemtsemtfield.sendKeys(String.valueOf(randomamountValueofdiger));
-                Thread.sleep(700);
 
-                base.driver.findElement(By.id("totalprice_1")).sendKeys(Keys.ENTER);
+            enyakinsemtsemtfield.sendKeys(String.valueOf(randomamountValueofdiger));
+            Thread.sleep(700);
 
-                int row = 0; //it's 1 to accommodate fogr the first thing you want being a 'th' tag
-                List<WebElement> tableRows = base.driver.findElements(By.id("semt_1"));//this gets all elements on your page with a class of dataRow (which are your tr's)
 
-                for (WebElement singleRow : tableRows) //this for loop increments each of these tr's
-                {
+            base.driver.findElement(By.id("othertotalprice_1")).sendKeys(Keys.ENTER);
 
-                    List<WebElement> rowTDs = singleRow.findElements(By.tagName("td"));//this gets every td in the current tr and puts it into a list
-                    for (WebElement singleTD : rowTDs) //this increments through that list of td's
-                    {
-                        String a=singleTD.getText(); //this gives you back the text contained in that cell
-                           if(a.equalsIgnoreCase("randomamountValueofdiger")){
+            String enyakinsf=enyakinsemtsemtfield.getText();
 
-                           }else{
-                               Assert.fail();
-                           }
+
+            WebElement enyakinsemtsemtfield1 = (new WebDriverWait(base.driver, 45))
+                    .until(ExpectedConditions.presenceOfElementLocated(By.id("deliverMinPrice1")));
+
+            enyakinsemtsemtfield1.click();
+
+            String enyakinsf1=enyakinsemtsemtfield1.getText();
+
+                    if (enyakinsf.equals(enyakinsf1)) {
+
+                    } else {
+                        Assert.fail();
                     }
 
-                    row++; //increment the row counter
-                }
 
+        } else if (isPresent == false) {
 
-            }else if(isPresent==false) {
-                iEnterAmountinTumuneUygulanacakFiyatYakinSemtlerAsMaxThirtyTlAndClickEnterAndSeeAllFieldsinEnYakinSemtlerAreFilledByTheSameAmount();
-            }}
-    @And("^i enter amount in Tumune uygulanacak fiyat yakin semtler as max thirty tl and click enter and see all fields in en yakin semtler are filled by the same amount$")
-    public void iEnterAmountinTumuneUygulanacakFiyatYakinSemtlerAsMaxThirtyTlAndClickEnterAndSeeAllFieldsinEnYakinSemtlerAreFilledByTheSameAmount() throws Throwable {
+        }
+    }
+
+    @And("^i enter yakin semtler amount max thirty and click enter and i control that all fields are filled by same amount$")
+    public void iEnterYakinSemtlerAmountMaxThirtyAndClickEnterAndIControlThatAllFieldsAreFilledBySameAmount() throws Throwable {
+
         int min = 0;
         int max = 30;
 
         base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         Boolean isPresent = base.driver.findElements(By.id("semt_2")).size() > 0;
 
-        if(isPresent==true) {
+        if (isPresent == true) {
 
-            WebElement enyakinsemtsemtfield = (new WebDriverWait(base.driver, 45))
+            WebElement yakinsemtfield = (new WebDriverWait(base.driver, 45))
                     .until(ExpectedConditions.presenceOfElementLocated(By.id("othertotalprice_2")));
-            enyakinsemtsemtfield.click();
-            enyakinsemtsemtfield.clear();
+            yakinsemtfield.click();
+            yakinsemtfield.clear();
 
 
-            enyakinsemtsemtfield.sendKeys(String.valueOf(randomamountValueofdiger));
+            yakinsemtfield.sendKeys(String.valueOf(randomamountValueofdiger));
+
+
             Thread.sleep(700);
+            base.driver.findElement(By.id("othertotalprice_2")).sendKeys(Keys.ENTER);
+            String yakinsf=yakinsemtfield.getText();
 
-            base.driver.findElement(By.id("totalprice_1")).sendKeys(Keys.ENTER);
+            WebElement yakinsemtfield1 = (new WebDriverWait(base.driver, 45))
+                    .until(ExpectedConditions.presenceOfElementLocated(By.id("deliverMinPrice2")));
 
-            int row = 0; //it's 1 to accommodate fogr the first thing you want being a 'th' tag
-            List<WebElement> tableRows = base.driver.findElements(By.id("semt_2"));//this gets all elements on your page with a class of dataRow (which are your tr's)
+            yakinsemtfield1.click();
 
-            for (WebElement singleRow : tableRows) //this for loop increments each of these tr's
-            {
+            String yakinsf1=yakinsemtfield1.getText();
 
-                List<WebElement> rowTDs = singleRow.findElements(By.tagName("td"));//this gets every td in the current tr and puts it into a list
-                for (WebElement singleTD : rowTDs) //this increments through that list of td's
-                {
-                    String a=singleTD.getText(); //this gives you back the text contained in that cell
-                    if(a.equalsIgnoreCase("randomamountValueofdiger")){
+            if (yakinsf.equals(yakinsf1)) {
 
-                    }else{
-                        Assert.fail();
-                    }
-                }
-
-                row++; //increment the row counter
+            } else {
+                Assert.fail();
             }
 
 
-        }else if(isPresent==false) {
-            iEnterAmountinTumuneUygulanacakFiyatUzakSemtlerAsMaxThirtyTlAndClickEnterAndSeeAllFieldsinEnYakinSemtlerAreFilledByTheSameAmount();
 
-        }}
+        } else if (isPresent == false) {
 
 
-    @And("^i enter amount in tumune uygulanacak fiyat uzak semtler as max thirty tl and click enter and see all fields in en yakin semtler are filled by the same amount$")
-    public void iEnterAmountinTumuneUygulanacakFiyatUzakSemtlerAsMaxThirtyTlAndClickEnterAndSeeAllFieldsinEnYakinSemtlerAreFilledByTheSameAmount() throws Throwable {
+        }
+    }
+
+
+    @And("^i enter uzak semtler amount max thirty and click enter and i control that all fields are filled by same amount$")
+    public void iEnterUzakSemtlerAmountMaxThirtyAndClickEnterAndIControlThatAllFieldsAreFilledBySameAmount() throws Throwable {
+
 
 
         int min = 0;
         int max = 30;
 
         base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        Boolean isPresent = base.driver.findElements(By.id("semt_2")).size() > 0;
-        if(isPresent==true) {
+        Boolean isPresent = base.driver.findElements(By.id("semt_3")).size() > 0;
 
-            WebElement enyakinsemtsemtfield = (new WebDriverWait(base.driver, 45))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("totalprice_1")));
-            enyakinsemtsemtfield.click();
-            enyakinsemtsemtfield.clear();
+        if (isPresent == true) {
+
+            WebElement uzaksemtfield = (new WebDriverWait(base.driver, 45))
+                    .until(ExpectedConditions.presenceOfElementLocated(By.id("othertotalprice_3")));
+            uzaksemtfield.click();
+            uzaksemtfield.clear();
 
 
-            enyakinsemtsemtfield.sendKeys(String.valueOf(randomamountValueofdiger));
+           uzaksemtfield.sendKeys(String.valueOf(randomamountValueofdiger));
             Thread.sleep(700);
 
-            base.driver.findElement(By.id("totalprice_1")).sendKeys(Keys.ENTER);
+            base.driver.findElement(By.id("othertotalprice_3")).sendKeys(Keys.ENTER);
 
-            int row = 0; //it's 1 to accommodate fogr the first thing you want being a 'th' tag
-            List<WebElement> tableRows = base.driver.findElements(By.id("semt_1"));//this gets all elements on your page with a class of dataRow (which are your tr's)
+            String uzaksf=uzaksemtfield.getText();
 
-            for (WebElement singleRow : tableRows) //this for loop increments each of these tr's
-            {
+            WebElement uzaksemtfield1 = (new WebDriverWait(base.driver, 45))
+                    .until(ExpectedConditions.presenceOfElementLocated(By.id("deliverMinPrice3")));
 
-                List<WebElement> rowTDs = singleRow.findElements(By.tagName("td"));//this gets every td in the current tr and puts it into a list
-                for (WebElement singleTD : rowTDs) //this increments through that list of td's
-                {
-                    String a=singleTD.getText(); //this gives you back the text contained in that cell
-                    if(a.equalsIgnoreCase("randomamountValueofdiger")){
+            uzaksemtfield1.click();
 
-                    }else{
-                        Assert.fail();
-                    }
-                }
+            String uzaksf1=uzaksemtfield1.getText();
 
-                row++; //increment the row counter
+            if (uzaksf.equals(uzaksf1)) {
+
+            } else {
+                Assert.fail();
             }
 
 
-        }else if(isPresent==false) {
-            iChooseSemtinSemtleriSecinizCombobox();
-
-        }}
+        } else if (isPresent == false) {
 
 
+        }
+    }
 
 
     @And("^i choose semt in semtleri seciniz combobox$")
     public void iChooseSemtinSemtleriSecinizCombobox() throws Throwable {
 
 
+        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        Boolean isPresent = base.driver.findElements(By.id("semt_0")).size() > 0;
 
-            base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-            Boolean isPresent = base.driver.findElements(By.id("semt_0")).size() > 0;
+        if (isPresent == true) {
 
-            if(isPresent==true) {
-
-                WebElement choosesemt = (new WebDriverWait(base.driver, 45))
-                        .until(ExpectedConditions.presenceOfElementLocated(By.id("districtSelectBox")));
-                     choosesemt.click();
-               Thread.sleep(700);
-
-               WebElement choosesemtcombobox = (new WebDriverWait(base.driver, 45))
-                       .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"districtSelectBox\"]/div/ul")));
-      choosesemtcombobox.click();
-
-                WebElement tumunusec = (new WebDriverWait(base.driver, 45))
-                        .until(ExpectedConditions.presenceOfElementLocated(By.id("checkallbutton")));
-                tumunusec.click();
-                WebElement tumunusecbutton = (new WebDriverWait(base.driver, 45))
-                        .until(ExpectedConditions.presenceOfElementLocated(By.id("add_district")));
-                 tumunusecbutton.click();
-                List<WebElement> options = base.driver.findElements(By.xpath("//*[@id=\"districtSelectBox\"]/div/ul"));
-
-                Thread.sleep(700);
+            WebElement choosesemt = (new WebDriverWait(base.driver, 45))
+                    .until(ExpectedConditions.presenceOfElementLocated(By.id("districtSelectBox")));
+            choosesemt.click();
+            Thread.sleep(700);
 
 
-                   WebElement choosesemtfield = (new WebDriverWait(base.driver, 45))
-                           .until(ExpectedConditions.presenceOfElementLocated(By.id("totalprice_0")));
-                   choosesemtfield.click();
-                   choosesemtfield.clear();
+            WebElement tumunusecbutton = (new WebDriverWait(base.driver, 45))
+                    .until(ExpectedConditions.presenceOfElementLocated(By.id("checkallbutton")));
+            tumunusecbutton.click();
+
+            WebElement semteklebutton = (new WebDriverWait(base.driver, 45))
+                    .until(ExpectedConditions.presenceOfElementLocated(By.id("add_district")));
+            semteklebutton.click();
+
+            List<WebElement> options = base.driver.findElements(By.xpath("//*[@id=\"districtSelectBox\"]/div/ul"));
+
+            Thread.sleep(700);
 
 
-                   choosesemtfield.sendKeys(String.valueOf(randomamountValueofdiger));
-                   Thread.sleep(700);
-
-                  choosesemtfield.sendKeys(Keys.ENTER);
-
-                         int row = 0; //it's 1 to accommodate fogr the first thing you want being a 'th' tag
-                         WebElement table = base.driver.findElement(By.id("semt_0"));
-
-                         List<WebElement> tableRows = table.findElements(By.className("text-right"));
-
-                         for (WebElement singleRow : tableRows)
-                         {
-
-                             List<WebElement> rowTDs = singleRow.findElements(By.tagName("td"));//this gets every td in the current tr and puts it into a list
-                             for (WebElement singleTD : rowTDs)
-                             {
-                                 String a=singleTD.getText();
-                                 if(a.equalsIgnoreCase("randomamountValueofdiger")){
-
-                                 }else{
-                                     Assert.fail();
-                                 }
-                             }
-
-                             row++; //increment the row counter
-                         }
-              }else if(isPresent==false) {
-
-                   base.driver.findElement(By.id("btnSave")).click();
-
-               }}
+            WebElement digersemtfield = (new WebDriverWait(base.driver, 45))
+                    .until(ExpectedConditions.presenceOfElementLocated(By.id("othertotalprice_0")));
+            digersemtfield.click();
+            digersemtfield.clear();
 
 
+            digersemtfield.sendKeys(String.valueOf(randomamountValueofdiger));
+            Thread.sleep(700);
+
+            digersemtfield.sendKeys(Keys.ENTER);
+
+            String digersf=digersemtfield.getText();
+
+            WebElement digersemtfield1 = (new WebDriverWait(base.driver, 45))
+                    .until(ExpectedConditions.presenceOfElementLocated(By.id("deliverMinPrice0")));
+
+
+            String digersf1=digersemtfield1.getText();
+
+            if (digersf.equals(digersf1)) {
+
+            } else {
+                Assert.fail();
+            }
+
+
+
+        } else if (isPresent == false) {
+
+
+
+        }
+    }
 
 
     @And("^i see islem basariyla gerceklestirildi pop up$")
     public void iSeeislemBasariylaGerceklestirildiPopUp() throws Throwable {
-        base.driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
+
+        base.driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
 
         try {
-            Alert alt2 = base.driver.switchTo().alert();
-            alt2.accept();
+
+
+            base.driver.findElement(By.id("1")).click();
+            Thread.sleep(1000);
+
+            Alert alt3 = base.driver.switchTo().alert();
+            alt3.accept();
 
         } catch (NoAlertPresentException noe) {
 
-        }
 
-
+        }base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
     }
 
-
     @And("^i confirm islem basariyla gerceklestirildi pop up message$")
     public void iConfirmislemBasariylaGerceklestirildiPopUpMessage() throws Throwable {
+
+
         base.driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
 
-        try{
-            WebElement successpopup= (new WebDriverWait(base.driver, 15))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[2]/div[2]/div[6]")));
+        try {
+            WebElement successpopup = (new WebDriverWait(base.driver, 15))
+                    .until(ExpectedConditions.presenceOfElementLocated(By.id("1")));
 
             String ab = successpopup.getText();
 
-            Assert.assertEquals("islem basariyla gerceklestirildi.", ab);
+            Assert.assertEquals("İşlem başarıyla gerçekleştirildi.", ab);
 
-        } catch(AssertionError ae) {
+        } catch (AssertionError ae) {
 
             Assert.fail();
         }
 
     }
+    @Then("^i stay in gonderim bolgeleri page$")
+    public void iStayInGonderimBolgeleriPage() throws Throwable {
+
+        Thread.sleep(3000);
+        try {
+            String URL = base.driver.getCurrentUrl();
+            Assert.assertEquals(URL, "http://portakal.ystest.com/SelfRegistration/registrationwizard/delivery" );
+            Thread.sleep(1000);
+        } catch (AssertionError ae) {
+
+            Assert.fail();
+        }
+    }
 
 
+    @When("^i click kaydetvedevametbutton in gonderim bolg$")
+    public void iClickKaydetvedevametbuttonInGonderimBolg() throws Throwable {
+        WebElement kvdb = (new WebDriverWait(base.driver, 15))
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[1]/div/div[1]/div/a[2]")));
+kvdb.click();
+    }
 }
+
+
+
+

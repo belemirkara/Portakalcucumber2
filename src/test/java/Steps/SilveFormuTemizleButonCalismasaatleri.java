@@ -32,6 +32,7 @@ public class SilveFormuTemizleButonCalismasaatleri extends BaseUtil {
 
     @Then("^i click Sil button$")
     public void iClickSilButton() throws Throwable {
+
         WebElement silbttn = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"1_6\"]/div/table/tbody/tr[3]/td/a")));
         silbttn.click();
