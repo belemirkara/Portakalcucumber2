@@ -8,7 +8,7 @@ Feature:Gonderim Bolgeleri
     And i click benihatirla checkbox if i want
     And i click girisyap button
     And i click the gonderim bolgeleri in progress bar
-    And i enter ana semt amount as max five tl and click enter i control that all fields are filled by same amount
+    And i enter ana semt amount as max five tl and click enter
     And i enter en yakin semtler amount max thirty tl and click enter i control that all fields are filled by same amount
     And i enter yakin semtler amount max thirty and click enter and i control that all fields are filled by same amount
     And i enter uzak semtler amount max thirty and click enter and i control that all fields are filled by same amount

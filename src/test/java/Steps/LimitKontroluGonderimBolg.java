@@ -4,9 +4,7 @@ import Base.BaseUtil;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -57,104 +55,7 @@ public class LimitKontroluGonderimBolg extends BaseUtil {
 
     }
 
-    @And("^i enter en yakin semtler amount much more thirty tl and click enter i control that all fields are filled by same amount$")
-    public void iEnterEnYakinSemtlerAmountMuchMoreThirtyTlAndClickEnterIControlThatAllFieldsAreFilledBySameAmount() throws Throwable {
 
-        int min = 31;
-        int max = 101;
-
-        int randomvalueforothersemtler=r.nextInt((max - min) + 1) + min;
-
-        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        Boolean isPresent = base.driver.findElements(By.id("semt_1")).size() > 0;
-        if (isPresent == true) {
-
-            WebElement enyakinsemtsemtfield = (new WebDriverWait(base.driver, 45))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("othertotalprice_1")));
-            enyakinsemtsemtfield.click();
-            enyakinsemtsemtfield.clear();
-
-
-
-            enyakinsemtsemtfield.sendKeys(String.valueOf(randomvalueforothersemtler));
-            Thread.sleep(700);
-
-
-            base.driver.findElement(By.id("othertotalprice_1")).sendKeys(Keys.ENTER);
-
-
-
-
-        } else if (isPresent == false) {
-
-        }
-    }
-
-    @And("^i enter yakin semtler amount much more thirty tl and click enter and i control that all fields are filled by same amount$")
-    public void iEnterYakinSemtlerAmountMuchMoreThirtyTlAndClickEnterAndIControlThatAllFieldsAreFilledBySameAmount() throws Throwable {
-
-        int min = 31;
-        int max = 101;
-
-        int randomvalueforothersemtler=r.nextInt((max - min) + 1) + min;
-
-        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        Boolean isPresent = base.driver.findElements(By.id("semt_2")).size() > 0;
-        if (isPresent == true) {
-
-            WebElement yakinsemtsemtfield = (new WebDriverWait(base.driver, 45))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("othertotalprice_2")));
-            yakinsemtsemtfield.click();
-            yakinsemtsemtfield.clear();
-
-
-
-            yakinsemtsemtfield.sendKeys(String.valueOf(randomvalueforothersemtler));
-            Thread.sleep(700);
-
-
-            base.driver.findElement(By.id("othertotalprice_2")).sendKeys(Keys.ENTER);
-
-
-
-
-        } else if (isPresent == false) {
-
-        }
-    }
-
-    @And("^i enter uzak semtler amount much more thirty tl and click enter and i control that all fields are filled by same amount$")
-    public void iEnterUzakSemtlerAmountMuchMoreThirtyTlAndClickEnterAndIControlThatAllFieldsAreFilledBySameAmount() throws Throwable {
-
-        int min = 31;
-        int max = 101;
-
-        int randomvalueforothersemtler=r.nextInt((max - min) + 1) + min;
-
-        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        Boolean isPresent = base.driver.findElements(By.id("semt_3")).size() > 0;
-        if (isPresent == true) {
-
-            WebElement yakinsemtsemtfield = (new WebDriverWait(base.driver, 45))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("othertotalprice_3")));
-            yakinsemtsemtfield.click();
-            yakinsemtsemtfield.clear();
-
-
-
-            yakinsemtsemtfield.sendKeys(String.valueOf(randomvalueforothersemtler));
-            Thread.sleep(700);
-
-
-            base.driver.findElement(By.id("othertotalprice_3")).sendKeys(Keys.ENTER);
-
-
-
-
-        } else if (isPresent == false) {
-
-        }
-    }
 
     @And("^i choose semt in semtleri seciniz combobox and much more thirty tl$")
     public void iChooseSemtInSemtleriSecinizComboboxAndMuchMoreThirtyTl() throws Throwable {
@@ -184,7 +85,7 @@ public class LimitKontroluGonderimBolg extends BaseUtil {
                     .until(ExpectedConditions.presenceOfElementLocated(By.id("add_district")));
             semteklebutton.click();
 
-            List<WebElement> options = base.driver.findElements(By.xpath("//*[@id=\"districtSelectBox\"]/div/ul"));
+            List<WebElement> options = base.driver.findElements(By.id("cb_1_2188790fd3d1394df6f35d42c16ff08766642c59b336c3cb6eea8c638b5a3ed2"));
 
             Thread.sleep(700);
 
@@ -206,7 +107,74 @@ public class LimitKontroluGonderimBolg extends BaseUtil {
     }
 
 
-}
+    @And("^i see all districts are in another gonderim bolg page and i enter correct values in the fields$")
+    public void iSeeAllDistrictsAreInAnotherGonderimBolgPageAndIEnterCorrectValuesInTheFields() throws Throwable {
+
+
+        int anasemt=5;
+        int digersemt=30;
+        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        Boolean isPresent = base.driver.findElements(By.xpath("/html/body/div[1]/div/div[1]/div/div[4]/div/table")).size() > 0;
+        Boolean isPresentanasemt = base.driver.findElements(By.xpath("/html/body/div[1]/div/div[1]/div/div[4]/div/table/tbody/tr[1]/td[1]")).size() > 0;
+
+        if (isPresent == true && isPresentanasemt==true) {
+
+            WebElement anasemtfieldinanotherpage = (new WebDriverWait(base.driver, 45))
+                    .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[1]/div/div[1]/div/div[4]/div/table/tbody/tr[1]/td[3]/input")));
+
+            anasemtfieldinanotherpage.click();
+            anasemtfieldinanotherpage.clear();
+            anasemtfieldinanotherpage.sendKeys(String.valueOf(anasemt));
+            Thread.sleep(700);
+
+            anasemtfieldinanotherpage.sendKeys(Keys.ENTER);
+
+            WebElement digersemtfieldinanotherpage = (new WebDriverWait(base.driver, 45))
+                    .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[1]/div/div[1]/div/div[4]/div/table/tbody/tr[2]/td[3]/input")));
+            digersemtfieldinanotherpage.click();
+            digersemtfieldinanotherpage.clear();
+            digersemtfieldinanotherpage.sendKeys(String.valueOf(digersemt));
+            Thread.sleep(700);
+
+            digersemtfieldinanotherpage.sendKeys(Keys.ENTER);
+
+            WebElement kaydetbutton = (new WebDriverWait(base.driver, 45))
+                    .until(ExpectedConditions.presenceOfElementLocated(By.id("btnSave")));
+
+            kaydetbutton.click();
+
+
+        }
+        else if(isPresent == false && isPresentanasemt==false){
+
+            Assert.fail();
+        }
+    }
+
+
+    @And("^i handle alert$")
+    public void iHandleAlert() throws Throwable {
+
+        WebElement alert = (new WebDriverWait(base.driver, 45))
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[1]/div/div[1]/div/div[4]/div/div")));
+        alert.click();
+
+        try {
+            WebElement successpopup = (new WebDriverWait(base.driver, 15))
+                    .until(ExpectedConditions.presenceOfElementLocated(By.id("1")));
+
+            String ab = successpopup.getText();
+
+            Assert.assertEquals("İşlem başarıyla gerçekleştirildi.", ab);
+
+        } catch (AssertionError ae) {
+
+            Assert.fail();
+        }
+
+    }
+    }
+
 
 
 

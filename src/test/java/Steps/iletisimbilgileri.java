@@ -47,7 +47,7 @@ public class iletisimbilgileri extends BaseUtil {
     public void iDeleteRestoranSahibiAdAndTypeAgain() throws Throwable {
 
         WebElement rstrnsahbiad = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"contactForm\"]/div[1]/input[1]")));
+                .until(ExpectedConditions.presenceOfElementLocated(By.id("ownerName")));
 
         rstrnsahbiad.clear();
         rstrnsahbiad.sendKeys(base.uret());
@@ -57,8 +57,9 @@ public class iletisimbilgileri extends BaseUtil {
 
     @And("^i delete restoran sahibi soyad and type again$")
     public void iDeleteRestoranSahibiSoyadAndTypeAgain() throws Throwable {
+
         WebElement rstrnsahbisyad = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"contactForm\"]/div[1]/input[2]")));
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("ownerLastName")));
 
         rstrnsahbisyad.clear();
         rstrnsahbisyad.sendKeys(base.uret());
@@ -79,9 +80,9 @@ public class iletisimbilgileri extends BaseUtil {
     }
 
     @And("^i enter sube sorumlusu ad if i want$")
-    public void iEnterŞubeSorumlusuAdifiWant() throws Throwable {
+    public void iEntersubeSorumlusuAdifiWant() throws Throwable {
         WebElement subesrmlsad = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"contactForm\"]/div[2]/input[1]")));
+                .until(ExpectedConditions.presenceOfElementLocated(By.id("managerName")));
 
         subesrmlsad.clear();
         subesrmlsad.sendKeys(base.uret());
@@ -89,9 +90,10 @@ public class iletisimbilgileri extends BaseUtil {
     }
 
     @And("^i enter sube sorumlusu soyad if i want$")
-    public void iEnterŞubeSorumlusuSoyadifiWant() throws Throwable {
+    public void iEntersubeSorumlusuSoyadifiWant() throws Throwable {
+
         WebElement subesrmlsad = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"contactForm\"]/div[2]/input[2]")));
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("managerLastName")));
 
             subesrmlsad.clear();
 
@@ -101,7 +103,7 @@ public class iletisimbilgileri extends BaseUtil {
     }
 
     @And("^i enter sube sorumlusu tel if i want$")
-    public void iEnterŞubeSorumlusuTelifiWant() throws Throwable {
+    public void iEntersubeSorumlusuTelifiWant() throws Throwable {
 
 
         int randomNumber = r.nextInt(899999) + 1000000;
@@ -231,9 +233,9 @@ public class iletisimbilgileri extends BaseUtil {
 
         base.driver.findElement(By.xpath("/html/body/div[2]/div[2]/button[1]")).click();
 
+        Thread.sleep(1000);
 
-
-
+        
     }
 }
 

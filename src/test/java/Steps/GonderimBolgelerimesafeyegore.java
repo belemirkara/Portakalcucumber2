@@ -17,7 +17,7 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-public class GonderimBolgeleri extends BaseUtil {
+public class GonderimBolgelerimesafeyegore extends BaseUtil {
 
     public BaseUtil base;
     Random r = new Random();
@@ -26,7 +26,7 @@ public class GonderimBolgeleri extends BaseUtil {
     int randomamountValue = r.nextInt(6);
     int randomamountValueofdiger = r.nextInt(31);
 
-    public GonderimBolgeleri(BaseUtil base) {
+    public GonderimBolgelerimesafeyegore(BaseUtil base) {
 
 
         this.base = base;
@@ -42,8 +42,8 @@ public class GonderimBolgeleri extends BaseUtil {
         Thread.sleep(3000);
     }
 
-    @And("^i enter ana semt amount as max five tl and click enter i control that all fields are filled by same amount$")
-    public void iEnterAnaSemtAmountAsMaxFiveTlAndClickEnterIControlThatAllFieldsAreFilledBySameAmount() throws Throwable {
+    @And("^i enter ana semt amount as max five tl and click enter$")
+    public void iEnterAnaSemtAmountAsMaxFiveTlAndClickEnter() throws Throwable {
 
 
 
@@ -90,15 +90,14 @@ public class GonderimBolgeleri extends BaseUtil {
 
             base.driver.findElement(By.id("othertotalprice_1")).sendKeys(Keys.ENTER);
 
-            String enyakinsf=enyakinsemtsemtfield.getText();
+            String enyakinsf=enyakinsemtsemtfield.getAttribute("value");
 
 
             WebElement enyakinsemtsemtfield1 = (new WebDriverWait(base.driver, 45))
                     .until(ExpectedConditions.presenceOfElementLocated(By.id("deliverMinPrice1")));
 
-            enyakinsemtsemtfield1.click();
 
-            String enyakinsf1=enyakinsemtsemtfield1.getText();
+            String enyakinsf1=enyakinsemtsemtfield1.getAttribute("value");
 
                     if (enyakinsf.equals(enyakinsf1)) {
 
@@ -134,14 +133,14 @@ public class GonderimBolgeleri extends BaseUtil {
 
             Thread.sleep(700);
             base.driver.findElement(By.id("othertotalprice_2")).sendKeys(Keys.ENTER);
-            String yakinsf=yakinsemtfield.getText();
+
+            String yakinsf=yakinsemtfield.getAttribute("value");
 
             WebElement yakinsemtfield1 = (new WebDriverWait(base.driver, 45))
                     .until(ExpectedConditions.presenceOfElementLocated(By.id("deliverMinPrice2")));
 
-            yakinsemtfield1.click();
 
-            String yakinsf1=yakinsemtfield1.getText();
+            String yakinsf1=yakinsemtfield1.getAttribute("value");
 
             if (yakinsf.equals(yakinsf1)) {
 
@@ -182,14 +181,13 @@ public class GonderimBolgeleri extends BaseUtil {
 
             base.driver.findElement(By.id("othertotalprice_3")).sendKeys(Keys.ENTER);
 
-            String uzaksf=uzaksemtfield.getText();
+            String uzaksf=uzaksemtfield.getAttribute("value");
 
             WebElement uzaksemtfield1 = (new WebDriverWait(base.driver, 45))
                     .until(ExpectedConditions.presenceOfElementLocated(By.id("deliverMinPrice3")));
 
-            uzaksemtfield1.click();
 
-            String uzaksf1=uzaksemtfield1.getText();
+            String uzaksf1=uzaksemtfield1.getAttribute("value");
 
             if (uzaksf.equals(uzaksf1)) {
 
@@ -327,9 +325,11 @@ public class GonderimBolgeleri extends BaseUtil {
     @When("^i click kaydetvedevametbutton in gonderim bolg$")
     public void iClickKaydetvedevametbuttonInGonderimBolg() throws Throwable {
         WebElement kvdb = (new WebDriverWait(base.driver, 15))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[1]/div/div[1]/div/a[2]")));
+                .until(ExpectedConditions.presenceOfElementLocated(By.id("btnSaveContinue")));
 kvdb.click();
     }
+
+
 }
 
 
