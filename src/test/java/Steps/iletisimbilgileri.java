@@ -235,7 +235,7 @@ public class iletisimbilgileri extends BaseUtil {
 
         Thread.sleep(1000);
 
-        
+
     }
 }
 

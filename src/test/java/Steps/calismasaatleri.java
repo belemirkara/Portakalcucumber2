@@ -158,20 +158,20 @@ public class calismasaatleri extends BaseUtil {
     public void iSeeÇalismaSaatleriBasariylaKayitEdildiPopUp() throws Throwable {
         try {
 
-            base.driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[6]"));
-            Thread.sleep(1000);
+        base.driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[6]"));
+        Thread.sleep(1000);
 
-            Alert alt3 = base.driver.switchTo().alert();
-            alt3.accept();
-
-
-        } catch (NoAlertPresentException noe) {
+        Alert alt3 = base.driver.switchTo().alert();
+        alt3.accept();
 
 
-        }
-        base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+    } catch (NoAlertPresentException noe) {
+
 
     }
+        base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+
+}
 
     @And("^i confirm Çalisma saatleri basariyla kayit edildi pop up message$")
     public void iConfirmÇalismaSaatleriBasariylaKayitEdildiPopUpMessage() throws Throwable {
