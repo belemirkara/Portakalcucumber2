@@ -1,24 +1,25 @@
 package Steps;
 
 import Base.BaseUtil;
+import com.google.common.base.Function;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.*;
+import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
@@ -29,6 +30,15 @@ public class reklamtop4 extends BaseUtil {
     Random r = new Random();
     UUID uuid = UUID.randomUUID();
     String randomUUiDString = uuid.toString();
+
+
+    private Connection connection;
+    private static Statement statement;
+    private static ResultSet rs;
+    public static String FilePath ="//Users//belemir.karabacakoglu//Desktop//templogin.txt";
+    public static String fileUserName;
+    public static String filePassword;
+
     public static String FilePathcityselect ="//Users//belemir.karabacakoglu//Desktop//cityselect.txt";
     public static String FilePathdistrictselect ="//Users//belemir.karabacakoglu//Desktop//districtselect.txt";
     public static String FilePathdateselect ="//Users//belemir.karabacakoglu//Desktop//dateselect.txt";
@@ -44,26 +54,10 @@ public class reklamtop4 extends BaseUtil {
     }
 
 
-    @And("^i enter kullaniciadi and pw as an admin$")
-    public void iEnterKullaniciadiAndPwAsAnAdmin() throws Throwable {
-
-        WebElement username = (new WebDriverWait(base.driver, 90))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("username")));
-        username.click();
-        username.sendKeys("Yemeksepeti/belemir.karabacak");
-
-
-        WebElement password = (new WebDriverWait(base.driver, 90))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("password")));
-        password.click();
-        password.sendKeys("13101988");
-        Thread.sleep(3000);
-    }
-
     @And("^i see i am in portakal homepage$")
     public void iSeeIAmInPortakalHomepage() throws Throwable {
 
-        Thread.sleep(3000);
+        Thread.sleep(6000);
         try {
             String URL = base.driver.getCurrentUrl();
             Assert.assertEquals(URL, "http://portakal01.ystest.com/" );
@@ -87,9 +81,9 @@ public class reklamtop4 extends BaseUtil {
     @Then("^i see four subtab of reklam are opened$")
     public void iSeeFourSubtabOfReklamAreOpened() throws Throwable {
 
-        WebElement reklamssubtab= (new WebDriverWait(base.driver, 90))
+        /*WebElement reklamssubtab= (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[1]/div/div[4]/div/ul/li[2]/a/i")));
-        reklamssubtab.click();
+        reklamssubtab.click(); */
 
     }
 
@@ -97,31 +91,24 @@ public class reklamtop4 extends BaseUtil {
     public void iClickFirstOptionTOP(int arg0) throws Throwable {
 
         List<WebElement> options = base.driver.findElements(By.xpath("/html/body/div[1]/div/div[4]/div/ul/li[2]/a/i"));
-        int index = options.size();
-        options.get(0).click();
+        for (WebElement opt : options) {
 
-    }
+            if (opt.getText().equals("TOP4")) {
+                opt.click();
+    }}}
 
-    @Then("^i see i am in top(\\d+)'s homepage$")
-    public void iSeeIAmInTopSHomepage(int arg0) throws Throwable {
-
-        Thread.sleep(3000);
-        try {
-
-        Assert.assertEquals( base.driver.getClass(), "tab-pane fade active in" );
-
-
-        } catch (AssertionError ae) {
-
-            Assert.fail();
-        }
-
-    }
 
     @When("^i choose city from the city combobox in top(\\d+) s homepage$")
     public void iChooseCityFromTheCityComboboxInTopSHomepage(int arg0) throws Throwable {
 
         Thread.sleep(1000);
+
+        WebElement city= (new WebDriverWait(base.driver, 90))
+                .until(ExpectedConditions.presenceOfElementLocated(By.id("citySelectBox")));
+        city.click();
+
+
+        Set<Cookie> allcookies = driver.manage().getCookies();
 
         String[] sehir = {"ADANA", "ADIYAMAN", "AFYONKARAHİSAR", "AKSARAY", "AMASYA", "ANKARA", "ANTALYA", "AYDIN", "BALiKESİR", "BATMAN", "BİLECİK",
                 "BOLU", "BURSA", "ÇANAKKALE", "ÇORUM", "DENİZLİ", "DİYARBAKiR", "DÜZCE", "EDİRNE", "ELAZiĞ", "ERZİNCAN", "ERZURUM", "ESKİŞEHİR",
@@ -130,16 +117,24 @@ public class reklamtop4 extends BaseUtil {
                 "SİNOP", "SİVAS", "TEKİRDAĞ", "TOKAT", "TRABZON", "UŞAK", "VAN", "YALOVA", "YOZGAT", "ZONGULDAK"};
 
 
-        WebElement Select_il = (new WebDriverWait(base.driver, 45))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("citySelectBox")));
-
-        Select ddlil = new Select(Select_il);
+        List<WebElement> options = base.driver.findElements(By.cssSelector("#citySelectBox > div > ul"));
 
 
         int gelensehir = r.nextInt(sehir.length-1);
 
+        String array=sehir[gelensehir];
 
-        ddlil.selectByVisibleText(sehir[gelensehir]);
+
+        for (WebElement opt : options) {
+
+            if(opt.getAttribute("ck").equals(array)) {
+
+                opt.click();
+
+
+                }
+
+            }
 
         Thread.sleep(3000);
 
@@ -157,9 +152,14 @@ public class reklamtop4 extends BaseUtil {
     @When("^i choose restaurant from the restoran combobox in top(\\d+)'s homepage$")
     public void iChooseRestaurantFromTheRestoranComboboxInTopSHomepage(int arg0) throws Throwable {
 
-        List<WebElement> options = base.driver.findElements(By.id("restaurantSelectBox"));
+        List<WebElement> options = base.driver.findElements(By.xpath("//*[@id=\"restaurantSelectBox\"]/div/ul"));
+
+        WebElement restoran= (new WebDriverWait(base.driver, 90))
+                .until(ExpectedConditions.presenceOfElementLocated(By.id("restaurantSelectBox")));
+        restoran.click();
+
         int index = options.size();
-        int gelenrestoran = r.nextInt(index-1);
+         int gelenrestoran = r.nextInt(index-1);
         options.get(gelenrestoran).click();
 
     }
@@ -169,8 +169,18 @@ public class reklamtop4 extends BaseUtil {
 
         WebElement top4homepage= (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("tab_Description")));
-        top4homepage.click();
+        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        if (top4homepage.isDisplayed())
+        {
+
+        } else
+        {
+            Assert.fail();
+        }
+
     }
+
+
 
     @When("^i click second tab rezervasyon$")
     public void iClickSecondTabRezervasyon() throws Throwable {
@@ -184,8 +194,17 @@ public class reklamtop4 extends BaseUtil {
     public void iSeeContentsOfRezervasyonInSecondTab() throws Throwable {
 
         WebElement secondtabreservation= (new WebDriverWait(base.driver, 90))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("tab_Description")));
-        secondtabreservation.click();
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"middle\"]/div[2]/div")));
+
+        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        if (secondtabreservation.isDisplayed())
+        {
+
+        } else
+        {
+            Assert.fail();
+        }
+
     }
 
 
@@ -193,7 +212,7 @@ public class reklamtop4 extends BaseUtil {
     public void iClickKampanyaTarihiCombobox() throws Throwable {
 
         WebElement kampanyatarihi= (new WebDriverWait(base.driver, 90))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("bs_1_0")));
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"bs_1_0\"]/div/button")));
         kampanyatarihi.click();
 
     }
@@ -201,35 +220,51 @@ public class reklamtop4 extends BaseUtil {
     @And("^i click the clickable option from the kampanya tarihi combobox$")
     public void iClickTheClickableOptionFromTheKampanyaTarihiCombobox() throws Throwable {
 
-        List<WebElement> options = base.driver.findElements(By.id("bs_1_0"));
-        int index = options.size();
-        int gelenkampanyatarihi= r.nextInt(index-1);
-        options.get(gelenkampanyatarihi).click();
-
-        try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-                new FileOutputStream(FilePathdateselect), "utf-8"))) {
+        base.driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
 
 
-            writer.write(filedate);
-        }
-    }
+                List<WebElement> dropdown=base.driver.findElements(By.xpath(" //*[@id=\"bs_1_0_dd\"]/li[3]/a"));
+
+
+             int gelenkampanya= r.nextInt(dropdown.size());
+
+             for(int i=0;i<=dropdown.size();i++){
+
+                   if(i==gelenkampanya) {
+
+                       WebElement element = dropdown.get(i);
+                       element.click();
+
+                   } } }
 
     @And("^i click kampanya turu combobox$")
     public void iClickKampanyaTuruCombobox() throws Throwable {
 
+        base.driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
         WebElement kampanyaturu= (new WebDriverWait(base.driver, 90))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("bs_1_0_dd")));
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"bs_2_0\"]/div")));
         kampanyaturu.click();
     }
 
     @And("^i click the first clickable option from the kampanya turu combobox$")
     public void iClickTheFirstClickableOptionFromTheKampanyaTuruCombobox() throws Throwable {
 
-        List<WebElement> options = base.driver.findElements(By.id("bs_1_0_dd"));
-        int index = options.size();
-        int gelenkampanyaturu= r.nextInt(index-1);
-        options.get(gelenkampanyaturu).click();
-    }
+        List<WebElement> dropdown2 = base.driver.findElements(By.id("bs_2_0_dd"));
+
+       String a= base.driver.findElement(By.id("bs_2_0_dd")).getAttribute("data-size");
+        String b= base.driver.findElement(By.id("bs_2_0_dd")).getAttribute("data-option");
+
+        int sonuc=Integer.valueOf(a.toString());
+
+        for(int i=0;i<=sonuc;i++){
+
+           if(b.equals("Aylık Rezervasyon")){
+
+               WebElement element = dropdown2.get(i);
+               element.click();
+
+
+        }}}
 
     @And("^i click aylik fatura tutari combobox$")
     public void iClickAylikFaturaTutariCombobox() throws Throwable {
@@ -242,11 +277,19 @@ public class reklamtop4 extends BaseUtil {
     @And("^i click the clickable option from the aylik fatura tutari combobox$")
     public void iClickTheClickableOptionFromTheAylikFaturaTutariCombobox() throws Throwable {
 
-        List<WebElement> options = base.driver.findElements(By.id("bs_3_0"));
-        int index = options.size();
-        int gelenayliktutar= r.nextInt(index-1);
-        options.get(gelenayliktutar).click();
-    }
+        List<WebElement> dropdown3 = base.driver.findElements(By.id("bs_3_0_dd"));
+
+        int aylikfatura= r.nextInt(dropdown3.size());
+
+        for(int i=0;i<=dropdown3.size();i++){
+
+            if(i==aylikfatura) {
+
+                WebElement element = dropdown3.get(i);
+                element.click();
+
+
+    }}}
 
     @And("^i click ekle button$")
     public void iClickEkleButton() throws Throwable {
@@ -780,7 +823,8 @@ public class reklamtop4 extends BaseUtil {
 
         WebElement semt= (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"reservation-table-body\"]/tr[1]/td[1]")));
-        semt.click();
+
+       String filedistrict= semt.getText();
 
         try (Writer writer = new BufferedWriter(new OutputStreamWriter(
                 new FileOutputStream(FilePathdistrictselect), "utf-8"))) {
@@ -797,6 +841,12 @@ public class reklamtop4 extends BaseUtil {
         int index = options.size();
         int gelendate=r.nextInt(index-1);
         options.get(gelendate).click();
+    }
+
+
+    @And("^i enter kullaniciadi and pw as admin$")
+    public void iEnterKullaniciadiAndPwAsAdmin() throws Throwable {
+
     }
 }
 

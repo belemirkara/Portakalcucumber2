@@ -4,7 +4,7 @@ Feature:PortakalReklamTOP4
   Scenario:PortakalreklamTOP4
     Given i navigate to login page
     And i get browser foreground
-    And i enter kullaniciadi and pw as admin
+    And i enter kullaniciadi and pw as an tekil restaurant from db
     And i click benihatirla checkbox if i want
     And i click girisyap button
     And i see i am in portakal homepage
@@ -12,14 +12,15 @@ Feature:PortakalReklamTOP4
     When i click reklam in the navigation bar
     Then i see four subtab of reklam are opened
     When i click first option TOP4
-    When i choose city from the city combobox in top4 s homepage
-    When i choose restaurant from the restoran combobox in top4's homepage
     Then i see contents of top4 nedir in first tab
     When i click daha fazla bilgi al button in first tab top4 nedir
     Then i see contents of top4 nedir in first tab
     When i click top4 alani rezerve et button in first tab top4 nedir
     Then i see contents of rezervasyon in second tab
     When i click second tab rezervasyon
+    And i see top4 pop up
+    And i confirm top4 pop up
+    And i click tamam button in rezervation top4 pop up
     Then i see contents of rezervasyon in second tab
     And i get semt and write
     And i click kampanya tarihi combobox
@@ -62,27 +63,6 @@ Feature:PortakalReklamTOP4
     Then i see the satin alimlar field is reduced
     When i click arti button
     Then i see the satin alimlar field is opened again
-    Then i click the third tab bilgiler
-    And i see the content of bilgiler page
-    When i click the fourth tab semt raporu
-    And i see the content of semt raporu page
-    And i choose same city from il combobox
-    And i choose same district from semt combobox
-    And i choose same date from tarih combobox
-    And i click listele button
-    Then i see reservation in the field which i bought in rezervasyon tab
-    When i click the last tab toplu top4
-    Then i see date and excel field in the page
-    And i click tarih combobox
-    And i click a date from tarih combobox
-    And i click choose file button
-    And i add a file
-    And i click gonder button
-    Then i see the records in saved,being under seven points and unsaved fields
-    Then i click excele aktar button
-    And i see the excel was downloaded
-    And i click onayla button
-    Then i see saved lines in confirmed field
 
 
 

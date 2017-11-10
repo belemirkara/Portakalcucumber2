@@ -140,7 +140,7 @@ public class Login extends BaseUtil {
 
     @Given("^i navigate to login page$")
     public void iNavigateToLoginPage() throws Throwable {
-        base.driver.navigate().to("http://portakal.ystest.com");
+        base.driver.navigate().to("http://portakal01.ystest.com");
         Thread.sleep(1000);
 
     }
