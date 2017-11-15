@@ -12,8 +12,7 @@ Feature:PortakalReklamTOP4
     When i click reklam in the navigation bar
     Then i see four subtab of reklam are opened
     When i click first option TOP4
-    When i choose city from the city combobox in top4 s homepage
-    When i choose restaurant from the restoran combobox in top4's homepage
+    When i choose city and restaurant from the combobox
     Then i see contents of top4 nedir in first tab
     When i click daha fazla bilgi al button in first tab top4 nedir
     Then i see contents of top4 nedir in first tab

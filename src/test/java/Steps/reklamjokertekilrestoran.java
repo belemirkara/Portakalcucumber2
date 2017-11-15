@@ -54,16 +54,7 @@ public class reklamjokertekilrestoran extends BaseUtil {
     @When("^i click second option joker$")
     public void iClickSecondOptionJoker() throws Throwable {
 
-
-        /*   Actions builder = new Actions(base.driver);
-        WebElement element = base.driver.findElement(By.xpath("/html/body/div[1]/div/div[4]/div/ul/li[2]/a"));
-        builder.moveToElement(element).click().build().perform();
-     List<WebElement> options = base.driver.findElements(By.xpath("/html/body/div[1]/div/div[4]/div/ul/li[2]/a/i"));
-        for (WebElement opt : options) {
-
-            if (opt.getText().equals("joker")) {
-                opt.click(); */
-            }
+    }
 
     @Then("^i see contents of joker nedir in first tab$")
     public void iSeeContentsOfJokerNedirInFirstTab() throws Throwable {
@@ -71,7 +62,19 @@ public class reklamjokertekilrestoran extends BaseUtil {
         WebElement jokernedir= (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("tab_Description")));
         jokernedir.click();
+
+        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        if (jokernedir.isDisplayed())
+        {
+
+        } else
+        {
+            Assert.fail();
+        }
+
     }
+
+
 
     @When("^i click daha fazla bilgi al button in first tab joker nedir$")
     public void iClickDahaFazlaBilgiAlButtonInFirstTabJokerNedir() throws Throwable {
@@ -92,20 +95,22 @@ public class reklamjokertekilrestoran extends BaseUtil {
     @Then("^i am sent to third tab joker takvimi page$")
     public void iAmSentToThirdTabJokerTakvimiPage() throws Throwable {
 
-        WebElement JokerTakviminotaktif= (new WebDriverWait(base.driver, 90))
+
+        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+
+        WebElement JokerTakviminotaktif= (new WebDriverWait(base.driver, 0))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"tab_Register\"]/ng-include/div/div")));
 
 
-
-
-        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+       if(JokerTakviminotaktif.isDisplayed()) {
+       }
 
         if(!JokerTakviminotaktif.isDisplayed()) {
 
-        WebElement JokerTakvimiPage= (new WebDriverWait(base.driver, 90))
+        WebElement JokerTakvimiPage= (new WebDriverWait(base.driver, 0))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"middle\"]/div[2]/div")));
 
-        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+
 
         if (JokerTakvimiPage.isDisplayed())
         {
@@ -116,16 +121,14 @@ public class reklamjokertekilrestoran extends BaseUtil {
         }
 
     }
-
-    else if(JokerTakviminotaktif.isDisplayed()){
-            iClickSecondTabRaporlar();
         }
-    }
+
 
     @When("^i click second tab raporlar$")
     public void iClickSecondTabRaporlar() throws Throwable {
 
-        WebElement SecondTabRaporlar= (new WebDriverWait(base.driver, 90))
+        Thread.sleep(1000);
+        WebElement SecondTabRaporlar= (new WebDriverWait(base.driver, 10))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("menuReport")));
 
         SecondTabRaporlar.click();
@@ -134,6 +137,8 @@ public class reklamjokertekilrestoran extends BaseUtil {
 
     @And("^i see calisma Saatlerine Gore Siparis Dagiliminiz table$")
     public void iSeeCalismaSaatlerineGoreSiparisDagiliminizTable() throws Throwable {
+
+        Thread.sleep(3000);
 
         WebElement CalismaSaatlerineGoreSiparisDagiliminizTable= (new WebDriverWait(base.driver, 240))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"tab_Report\"]/ng-include/div/div[2]")));

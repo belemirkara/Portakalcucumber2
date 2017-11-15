@@ -35,6 +35,15 @@ public class reklamtop4 extends BaseUtil {
     private Connection connection;
     private static Statement statement;
     private static ResultSet rs;
+
+    private Connection c;
+    private static Statement s;
+    private static ResultSet rs1;
+
+
+
+
+
     public static String FilePath ="//Users//belemir.karabacakoglu//Desktop//templogin.txt";
     public static String fileUserName;
     public static String filePassword;
@@ -81,9 +90,6 @@ public class reklamtop4 extends BaseUtil {
     @Then("^i see four subtab of reklam are opened$")
     public void iSeeFourSubtabOfReklamAreOpened() throws Throwable {
 
-        /*WebElement reklamssubtab= (new WebDriverWait(base.driver, 90))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[1]/div/div[4]/div/ul/li[2]/a/i")));
-        reklamssubtab.click(); */
 
     }
 
@@ -98,71 +104,79 @@ public class reklamtop4 extends BaseUtil {
     }}}
 
 
-    @When("^i choose city from the city combobox in top(\\d+) s homepage$")
-    public void iChooseCityFromTheCityComboboxInTopSHomepage(int arg0) throws Throwable {
-
-        Thread.sleep(1000);
-
-        WebElement city= (new WebDriverWait(base.driver, 90))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("citySelectBox")));
-        city.click();
+    @When("^i choose city and restaurant from the combobox$")
+    public void iChooseCityAndRestaurantFromTheCombobox() throws Throwable {
 
 
-        Set<Cookie> allcookies = driver.manage().getCookies();
+        String hostName = "192.168.0.40";
+        String dbName = "SALCATEST_MSCRM";
+        String user = "CrmSqlUser";
+        String password = "CrmSqlPass";
+        String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;loginTimeout=30;", hostName, dbName, user, password);
 
-        String[] sehir = {"ADANA", "ADIYAMAN", "AFYONKARAHİSAR", "AKSARAY", "AMASYA", "ANKARA", "ANTALYA", "AYDIN", "BALiKESİR", "BATMAN", "BİLECİK",
-                "BOLU", "BURSA", "ÇANAKKALE", "ÇORUM", "DENİZLİ", "DİYARBAKiR", "DÜZCE", "EDİRNE", "ELAZiĞ", "ERZİNCAN", "ERZURUM", "ESKİŞEHİR",
-                "GAZİANTEP", "GİRESUN", "HATAY", "ISPARTA", "İSTANBUL", "İZMİR", "KAHRAMANMARAŞ", "KARABÜK", "KASTAMONU", "KAYSERİ", "KIBRIS", "KiRKLARELİ", "KiRŞEHİR",
-                "KOCAELİ", "KONYA", "KÜTAHYA", "MALATYA", "MANİSA", "MARDİN", "MERSİN", "MUĞLA", "NEVŞEHİR", "NİĞDE", "ORDU", "OSMANİYE", "RİZE", "SAKARYA", "SAMSUN", "ŞANLIURFA",
-                "SİNOP", "SİVAS", "TEKİRDAĞ", "TOKAT", "TRABZON", "UŞAK", "VAN", "YALOVA", "YOZGAT", "ZONGULDAK"};
+        Connection c = null;
+        try {
+
+            System.out.println("Connecting to Database...");
+            c = DriverManager.getConnection(url);
+            if (c != null) {
+                System.out.println("Connected to the Database...");
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        try{
+
+            String q = "select TOP 1 name,AccountId,new_cityid from Account (NOLOCK) WHERE AccountId is NOT NULL and new_cityid is NOT NULL and new_portalstatus=3 and new_isfinancialmain = 0 and new_financialaccountid is null and new_catalogname IS NOT NULL AND new_categoryname IS NOT NULL AND statecode = 0 AND statuscode = 100000015  order by CreatedOn desc";
+            Statement s = c.createStatement();
+            rs1 = s.executeQuery(q);
 
 
-        List<WebElement> options = base.driver.findElements(By.cssSelector("#citySelectBox > div > ul"));
+            while(rs1.next())
+            {
 
+                String resid = rs1.getString("AccountId");
+                String cityid  = rs1.getString("new_cityid");
 
-        int gelensehir = r.nextInt(sehir.length-1);
+              try (Writer writer = new BufferedWriter(new OutputStreamWriter(
+                        new FileOutputStream(FilePath), "utf-8"))) {
 
-        String array=sehir[gelensehir];
+                    String result = resid + "|" + cityid;
 
-
-        for (WebElement opt : options) {
-
-            if(opt.getAttribute("ck").equals(array)) {
-
-                opt.click();
-
-
+                    writer.write(result);
                 }
 
+            Thread.sleep(3000);
+
+                String urlpage = base.driver.getCurrentUrl();
+
+                StringBuilder sb = new StringBuilder(urlpage);
+                sb.append("?");
+                sb.append("cityId=");
+                sb.append(cityid);
+                sb.append("&restId=");
+                sb.append(resid);
+                String newurl=sb.toString();
+
+                base.driver.get(newurl);
+
+
+                } }catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        if (c != null) {
+            try {
+                System.out.println("Closing Database Connection...");
+                c.close();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
             }
-
-        Thread.sleep(3000);
-
-        try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-                new FileOutputStream(FilePathcityselect), "utf-8"))) {
-
-            String result =sehir[gelensehir];
-
-            writer.write(result);
         }
 
     }
 
-
-    @When("^i choose restaurant from the restoran combobox in top(\\d+)'s homepage$")
-    public void iChooseRestaurantFromTheRestoranComboboxInTopSHomepage(int arg0) throws Throwable {
-
-        List<WebElement> options = base.driver.findElements(By.xpath("//*[@id=\"restaurantSelectBox\"]/div/ul"));
-
-        WebElement restoran= (new WebDriverWait(base.driver, 90))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("restaurantSelectBox")));
-        restoran.click();
-
-        int index = options.size();
-         int gelenrestoran = r.nextInt(index-1);
-        options.get(gelenrestoran).click();
-
-    }
 
     @Then("^i see contents of top(\\d+) nedir in first tab$")
     public void iSeeContentsOfTopNedirInFirstTab(int arg0) throws Throwable {
@@ -212,7 +226,7 @@ public class reklamtop4 extends BaseUtil {
     public void iClickKampanyaTarihiCombobox() throws Throwable {
 
         WebElement kampanyatarihi= (new WebDriverWait(base.driver, 90))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"bs_1_0\"]/div/button")));
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"bs_1_0\"]")));
         kampanyatarihi.click();
 
     }
@@ -220,51 +234,39 @@ public class reklamtop4 extends BaseUtil {
     @And("^i click the clickable option from the kampanya tarihi combobox$")
     public void iClickTheClickableOptionFromTheKampanyaTarihiCombobox() throws Throwable {
 
-        base.driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
+        Thread.sleep(3000);
+
+        base.driver.manage().deleteAllCookies();
+
+        JavascriptExecutor js = (JavascriptExecutor)base.driver;
+             js.executeScript("___SeleniumHelper.DropDown(\"bs_1_0\").selectOption(5);");
+        js.executeScript("___SeleniumHelper.DropDown(\"bs_1_0\").getValue(function(val){ console.log(val); })");
+            js.executeScript("___SeleniumHelper.DropDown(\"bs_1_0\").getValue(function(val){ window.targetValue = val.dropdown_selected_value.date });");
+        js.executeScript("targetValue");
 
 
-                List<WebElement> dropdown=base.driver.findElements(By.xpath(" //*[@id=\"bs_1_0_dd\"]/li[3]/a"));
-
-
-             int gelenkampanya= r.nextInt(dropdown.size());
-
-             for(int i=0;i<=dropdown.size();i++){
-
-                   if(i==gelenkampanya) {
-
-                       WebElement element = dropdown.get(i);
-                       element.click();
-
-                   } } }
+    }
 
     @And("^i click kampanya turu combobox$")
     public void iClickKampanyaTuruCombobox() throws Throwable {
 
-        base.driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
         WebElement kampanyaturu= (new WebDriverWait(base.driver, 90))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"bs_2_0\"]/div")));
+                .until(ExpectedConditions.presenceOfElementLocated(By.id("bs_3_0")));
         kampanyaturu.click();
     }
 
     @And("^i click the first clickable option from the kampanya turu combobox$")
     public void iClickTheFirstClickableOptionFromTheKampanyaTuruCombobox() throws Throwable {
 
-        List<WebElement> dropdown2 = base.driver.findElements(By.id("bs_2_0_dd"));
+        Thread.sleep(3000);
 
-       String a= base.driver.findElement(By.id("bs_2_0_dd")).getAttribute("data-size");
-        String b= base.driver.findElement(By.id("bs_2_0_dd")).getAttribute("data-option");
+        JavascriptExecutor js1 = (JavascriptExecutor)base.driver;
 
-        int sonuc=Integer.valueOf(a.toString());
-
-        for(int i=0;i<=sonuc;i++){
-
-           if(b.equals("Aylık Rezervasyon")){
-
-               WebElement element = dropdown2.get(i);
-               element.click();
+        js1.executeScript("___SeleniumHelper.DropDown(\"bs_2_0\").selectOption(1);");
+        js1.executeScript("___SeleniumHelper.DropDown(\"bs_2_0\").getValue(function(val){ console.log(val); })");
 
 
-        }}}
+    }
 
     @And("^i click aylik fatura tutari combobox$")
     public void iClickAylikFaturaTutariCombobox() throws Throwable {
@@ -276,20 +278,15 @@ public class reklamtop4 extends BaseUtil {
 
     @And("^i click the clickable option from the aylik fatura tutari combobox$")
     public void iClickTheClickableOptionFromTheAylikFaturaTutariCombobox() throws Throwable {
-
-        List<WebElement> dropdown3 = base.driver.findElements(By.id("bs_3_0_dd"));
-
-        int aylikfatura= r.nextInt(dropdown3.size());
-
-        for(int i=0;i<=dropdown3.size();i++){
-
-            if(i==aylikfatura) {
-
-                WebElement element = dropdown3.get(i);
-                element.click();
+        JavascriptExecutor js = (JavascriptExecutor)base.driver;
 
 
-    }}}
+
+        js.executeScript("___SeleniumHelper.DropDown(\"bs_3_0\").selectOption(1);");
+        js.executeScript("___SeleniumHelper.DropDown(\"bs_3_0\").getValue(function(val){ console.log(val); })");
+        js.executeScript("___SeleniumHelper.DropDown(\"bs_3_0\").getValue(function(val){ window.targetValue1 = val.dropdown_selected_value.Description });");
+        js.executeScript("targetValue1");
+        }
 
     @And("^i click ekle button$")
     public void iClickEkleButton() throws Throwable {
@@ -360,7 +357,7 @@ public class reklamtop4 extends BaseUtil {
 
     @When("^i click onayla button$")
     public void iClickOnaylaButton() throws Throwable {
-
+           Thread.sleep(3000);
         WebElement onaylabutton= (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[6]/div[2]/button[1]")));
         onaylabutton.click();
@@ -708,8 +705,10 @@ public class reklamtop4 extends BaseUtil {
     public void iClickSilButton() throws Throwable {
 
         WebElement silbutonu= (new WebDriverWait(base.driver, 90))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"table-container\"]/table[1]/tbody/tr/td[4]/i")));
+                .until(ExpectedConditions.presenceOfElementLocated(By.id("//*[@id=\"table-container\"]/table[1]/tbody/tr/td[4]/i")));
         silbutonu.click();
+
+        Thread.sleep(3000);
 
     }
 
@@ -847,7 +846,21 @@ public class reklamtop4 extends BaseUtil {
     @And("^i enter kullaniciadi and pw as admin$")
     public void iEnterKullaniciadiAndPwAsAdmin() throws Throwable {
 
+        WebElement username= (new WebDriverWait(base.driver, 90))
+                .until(ExpectedConditions.presenceOfElementLocated(By.id("username")));
+        username.click();
+
+        username.sendKeys("Yemeksepeti/belemir.karabacak");
+
+        WebElement password= (new WebDriverWait(base.driver, 90))
+                .until(ExpectedConditions.presenceOfElementLocated(By.id("password")));
+        password.click();
+
+        password.sendKeys("13101988");
     }
+
+
+
 }
 
 
