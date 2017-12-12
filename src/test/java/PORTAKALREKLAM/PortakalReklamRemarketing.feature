@@ -29,7 +29,7 @@ Feature:PortakalReklamRemarketing
     And i click onayla button in the onayliyor musunuz alert
     And i see Talebinizi aldık En gec 3 is gunu icerisinde yayina alinacaktir pop up
     And i confirm Talebinizi aldık  En geç 3 is gunu icerisinde yayina alinacaktir pop up message
-    Then i click tamam button
+    Then i click tamam button in remarketing
 
 
 

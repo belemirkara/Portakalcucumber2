@@ -11,7 +11,7 @@ Feature:PortakalReklamTOP4
     And i get full screen
     When i click reklam in the navigation bar
     Then i see four subtab of reklam are opened
-    When i click first option TOP4
+    When i get first option TOP4
     When i choose city and restaurant from the combobox
     Then i see contents of top4 nedir in first tab
     When i click daha fazla bilgi al button in first tab top4 nedir
@@ -58,7 +58,6 @@ Feature:PortakalReklamTOP4
     And i click tamam button in Rezervasyon Listeniz Basariyla Kayit Edilmistir pop up
     And i see the reservation is came in satin alimlar field
     When i click eksi button
-    Then i see the satin alimlar field is reduced
     When i click arti button
     Then i see the satin alimlar field is opened again
     Then i click the third tab bilgiler
@@ -80,6 +79,7 @@ Feature:PortakalReklamTOP4
     Then i see the records in saved,being under seven points and unsaved fields
     Then i click excele aktar button
     And i see the excel was downloaded
+    And i confirm the excel
     And i click onayla button
     Then i see saved lines in confirmed field
 
