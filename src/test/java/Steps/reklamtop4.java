@@ -43,16 +43,13 @@ public class reklamtop4 extends BaseUtil {
     private static String downloadPath = "//Users//belemir.karabacakoglu//Downloads";
 
 
-
-
-
-    public static String FilePath ="//Users//belemir.karabacakoglu//Desktop//templogin.txt";
+    public static String FilePath = "//Users//belemir.karabacakoglu//Desktop//templogin.txt";
     public static String fileUserName;
     public static String filePassword;
 
-    public static String FilePathcityselect ="//Users//belemir.karabacakoglu//Desktop//cityselect.txt";
-    public static String FilePathdistrictselect ="//Users//belemir.karabacakoglu//Desktop//districtselect.txt";
-    public static String FilePathdateselect ="//Users//belemir.karabacakoglu//Desktop//dateselect.txt";
+    public static String FilePathcityselect = "//Users//belemir.karabacakoglu//Desktop//cityselect.txt";
+    public static String FilePathdistrictselect = "//Users//belemir.karabacakoglu//Desktop//districtselect.txt";
+    public static String FilePathdateselect = "//Users//belemir.karabacakoglu//Desktop//dateselect.txt";
 
     public static String filecityname;
     public static String filedate;
@@ -71,7 +68,7 @@ public class reklamtop4 extends BaseUtil {
         Thread.sleep(6000);
         try {
             String URL = base.driver.getCurrentUrl();
-            Assert.assertEquals(URL, "http://portakal01.ystest.com/" );
+            Assert.assertEquals(URL, "http://portakal01.ystest.com/");
             Thread.sleep(1000);
 
         } catch (AssertionError ae) {
@@ -138,19 +135,19 @@ public class reklamtop4 extends BaseUtil {
                     writer.write(result);
                 }
   */
-            Thread.sleep(3000);
+        Thread.sleep(3000);
 
-                String urlpage = base.driver.getCurrentUrl();
+        String urlpage = base.driver.getCurrentUrl();
 
-                StringBuilder sb = new StringBuilder(urlpage);
-                sb.append("?");
-                sb.append("cityId=");
-                sb.append("0C91C581-585C-E511-80CE-005056AA4260");
-                sb.append("&restId=");
-                sb.append("F3E764C4-C841-E611-80EF-005056AA5C50");
-                String newurl=sb.toString();
+        StringBuilder sb = new StringBuilder(urlpage);
+        sb.append("?");
+        sb.append("cityId=");
+        sb.append("0C91C581-585C-E511-80CE-005056AA4260");
+        sb.append("&restId=");
+        sb.append("F3E764C4-C841-E611-80EF-005056AA5C50");
+        String newurl = sb.toString();
 
-                base.driver.get(newurl);
+        base.driver.get(newurl);
 
 
          /*       } }catch (SQLException ex) {
@@ -167,30 +164,28 @@ public class reklamtop4 extends BaseUtil {
         }
 
     }
-  */}
+  */
+    }
 
     @Then("^i see contents of top(\\d+) nedir in first tab$")
     public void iSeeContentsOfTopNedirInFirstTab(int arg0) throws Throwable {
 
-        WebElement top4homepage= (new WebDriverWait(base.driver, 90))
+        WebElement top4homepage = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.className("tab-content")));
         base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        if (top4homepage.isDisplayed())
-        {
+        if (top4homepage.isDisplayed()) {
 
-        } else
-        {
+        } else {
             Assert.fail();
         }
 
     }
 
 
-
     @When("^i click second tab rezervasyon$")
     public void iClickSecondTabRezervasyon() throws Throwable {
 
-        WebElement secondtabreservation= (new WebDriverWait(base.driver, 90))
+        WebElement secondtabreservation = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("menuReservation")));
         secondtabreservation.click();
     }
@@ -198,15 +193,13 @@ public class reklamtop4 extends BaseUtil {
     @Then("^i see contents of rezervasyon in second tab$")
     public void iSeeContentsOfRezervasyonInSecondTab() throws Throwable {
 
-        WebElement secondtabreservation= (new WebDriverWait(base.driver, 90))
+        WebElement secondtabreservation = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.className("tab-content")));
 
         base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        if (secondtabreservation.isDisplayed())
-        {
+        if (secondtabreservation.isDisplayed()) {
 
-        } else
-        {
+        } else {
             Assert.fail();
         }
 
@@ -216,7 +209,7 @@ public class reklamtop4 extends BaseUtil {
     @And("^i click kampanya tarihi combobox$")
     public void iClickKampanyaTarihiCombobox() throws Throwable {
 
-        WebElement kampanyatarihi= (new WebDriverWait(base.driver, 90))
+        WebElement kampanyatarihi = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("bs_1_0")));
         kampanyatarihi.click();
 
@@ -230,15 +223,18 @@ public class reklamtop4 extends BaseUtil {
 
         base.driver.manage().deleteAllCookies();
 
-        JavascriptExecutor js = (JavascriptExecutor)base.driver;
 
-             js.executeScript("___SeleniumHelper.DropDown(\"bs_1_0\").selectOption(Math.floor((Math.random() * 5) + 1));");
-        js.executeScript("___SeleniumHelper.DropDown(\"bs_1_0\").getValue(function(val){ console.log(val); })");
-            js.executeScript("___SeleniumHelper.DropDown(\"bs_1_0\").getValue(function(val){ window.targetValue = val.dropdown_selected_value.date });");
+        JavascriptExecutor js = (JavascriptExecutor) base.driver;
+
+
+        js.executeScript("function getrandomNumber(){var rndnumber = Math.floor((Math.random() * 5) + 1); console.log('rnd',rndnumber); return rndnumber; };___SeleniumHelper.DropDown(\"bs_1_0\").selectOption(getrandomNumber());");
+        js.executeScript("___SeleniumHelper.DropDown(\"bs_1_0\").getValue(function(val){  })");
+        js.executeScript("___SeleniumHelper.DropDown(\"bs_1_0\").getValue(function(val){ window.targetValue = val.dropdown_selected_value.date });");
         js.executeScript("targetValue");
 
 
     }
+
 
     @And("^i click kampanya turu combobox$")
     public void iClickKampanyaTuruCombobox() throws Throwable {
@@ -256,7 +252,7 @@ public class reklamtop4 extends BaseUtil {
         JavascriptExecutor js1 = (JavascriptExecutor)base.driver;
 
         js1.executeScript("___SeleniumHelper.DropDown(\"bs_2_0\").selectOption(1);");
-        js1.executeScript("___SeleniumHelper.DropDown(\"bs_2_0\").getValue(function(val){ console.log(val); })");
+        js1.executeScript("___SeleniumHelper.DropDown(\"bs_2_0\").getValue()");
 
 
     }
@@ -284,33 +280,9 @@ public class reklamtop4 extends BaseUtil {
     @And("^i click ekle button$")
     public void iClickEkleButton() throws Throwable {
 
-        WebElement eklebutton= (new WebDriverWait(base.driver, 90))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("addReservationBtn")));
-        eklebutton.click();
+      while(base.driver.findElement(By.id("FullyBookedBtn")).isDisplayed()){
 
-        WebElement aktifsemtuyarisibutton= (new WebDriverWait(base.driver, 90))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[6]/div[2]/div[6]")));
-        aktifsemtuyarisibutton.click();
-
-        WebElement dolubutton= (new WebDriverWait(base.driver, 90))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("FullyBookedBtn")));
-
-
-        while(!dolubutton.isDisplayed()){
-            iClickTheClickableOptionFromTheKampanyaTarihiCombobox();
-            iClickKampanyaTuruCombobox();
-            iClickTheFirstClickableOptionFromTheKampanyaTuruCombobox();
-            iClickAylikFaturaTutariCombobox();
-            iClickTheClickableOptionFromTheAylikFaturaTutariCombobox();
-
-            }
-
-
-        if(aktifsemtuyarisibutton.isDisplayed()){
-
-            WebElement tamambutton= (new WebDriverWait(base.driver, 90))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[6]/div[2]/button[1]")));
-            tamambutton.click();
+            iClickKampanyaTarihiCombobox();
             iClickTheClickableOptionFromTheKampanyaTarihiCombobox();
             iClickKampanyaTuruCombobox();
             iClickTheFirstClickableOptionFromTheKampanyaTuruCombobox();
@@ -318,7 +290,27 @@ public class reklamtop4 extends BaseUtil {
             iClickTheClickableOptionFromTheAylikFaturaTutariCombobox();
 
         }
-    }
+            WebElement eklebutton = (new WebDriverWait(base.driver, 90))
+                    .until(ExpectedConditions.presenceOfElementLocated(By.id("addReservationBtn")));
+            eklebutton.click();
+
+            WebElement aktifsemtuyarisibutton = (new WebDriverWait(base.driver, 90))
+                    .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[6]/div[2]/div[6]")));
+
+
+            if (aktifsemtuyarisibutton.isDisplayed()) {
+
+                WebElement tamambutton = (new WebDriverWait(base.driver, 90))
+                        .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[6]/div[2]/button[1]")));
+                tamambutton.click();
+                iClickTheClickableOptionFromTheKampanyaTarihiCombobox();
+                iClickKampanyaTuruCombobox();
+                iClickTheFirstClickableOptionFromTheKampanyaTuruCombobox();
+                iClickAylikFaturaTutariCombobox();
+                iClickTheClickableOptionFromTheAylikFaturaTutariCombobox();
+
+            }
+        }
 
     @And("^i see sepetim field$")
     public void iSeeSepetimField() throws Throwable {
