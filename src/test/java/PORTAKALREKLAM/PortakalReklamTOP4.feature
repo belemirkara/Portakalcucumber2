@@ -78,7 +78,7 @@ Feature:PortakalReklamTOP4
     And i click gonder button
     Then i see the records in saved,being under seven points and unsaved fields
     Then i click excele aktar button
-    And i see the excel was downloaded
+    And i see the excel was downloaded "path" and "extension"
     And i confirm the excel
     And i click onayla button
     Then i see saved lines in confirmed field

@@ -7,21 +7,26 @@ Feature:PortakalReklamRaporlama
     And i enter kullaniciadi and pw as admin
     And i click benihatirla checkbox if i want
     And i click girisyap button
+    And i enter kullaniciadi and pw as admin
+    And i click benihatirla checkbox if i want
+    And i click girisyap button
     And i see i am in portakal homepage
     And i get full screen
     When i click raporlama in the navigation bar
     When i choose city and restaurant from the combobox
     Then i see restoran performans raporlari page
     And i see siparis&ciro trend,gondeirm bolg pazar payi,yeni kullanici orani,siparis frekansi graphs
-    When i click exceleaktar button in restoran performans raporlari page
-    And i see the excel was downloaded
+    When i click exceleaktar button
+    And i see the excel was downloaded "path" and "extension"
+    And i confirm the excel
     Then i click the second tab gonderim bolgeleri
     And i see listele button,ay secim combobox,details of gonderim bolg table,bolg gore siparis yuzdesi and bolg gore ciro yuzdesi charts,diger bolg siparis table and diger bolg ciro table
     When i choose ay from gonderim bolg ay secim combobox
     And i click listele button in raporlama gonderim bolg
-    Then i see details of gonderim bolg table,bolg gore siparis yuzdesi and bolg gore ciro yuzdesi charts,diger bolg siparis table and diger bolg ciro table
-    When i click excele aktar button in gonderim bolg
-    Then i see the excel was downloaded
+    And i see listele button,ay secim combobox,details of gonderim bolg table,bolg gore siparis yuzdesi and bolg gore ciro yuzdesi charts,diger bolg siparis table and diger bolg ciro table
+    When i click excele aktar button
+    And i see the excel was downloaded "path" and "extension"
+    And i confirm the excel
     And i click the third tab urun raporu
     And i see ay secim combobox,listele button,urun grubu combobox,urun grubu bazli satis grafigi charts
     And i click urun grubu combox and choose a urun grubu

@@ -8,20 +8,19 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.awt.event.KeyEvent;
 import java.io.*;
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class reklamtop4 extends BaseUtil {
@@ -239,7 +238,7 @@ public class reklamtop4 extends BaseUtil {
     @And("^i click kampanya turu combobox$")
     public void iClickKampanyaTuruCombobox() throws Throwable {
 
-        WebElement kampanyaturu= (new WebDriverWait(base.driver, 90))
+        WebElement kampanyaturu = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("bs_3_0")));
         kampanyaturu.click();
     }
@@ -249,7 +248,7 @@ public class reklamtop4 extends BaseUtil {
 
         Thread.sleep(3000);
 
-        JavascriptExecutor js1 = (JavascriptExecutor)base.driver;
+        JavascriptExecutor js1 = (JavascriptExecutor) base.driver;
 
         js1.executeScript("___SeleniumHelper.DropDown(\"bs_2_0\").selectOption(1);");
         js1.executeScript("___SeleniumHelper.DropDown(\"bs_2_0\").getValue()");
@@ -260,27 +259,26 @@ public class reklamtop4 extends BaseUtil {
     @And("^i click aylik fatura tutari combobox$")
     public void iClickAylikFaturaTutariCombobox() throws Throwable {
 
-        WebElement ayliktutar= (new WebDriverWait(base.driver, 90))
+        WebElement ayliktutar = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("bs_3_0")));
         ayliktutar.click();
     }
 
     @And("^i click the clickable option from the aylik fatura tutari combobox$")
     public void iClickTheClickableOptionFromTheAylikFaturaTutariCombobox() throws Throwable {
-        JavascriptExecutor js = (JavascriptExecutor)base.driver;
-
+        JavascriptExecutor js = (JavascriptExecutor) base.driver;
 
 
         js.executeScript("___SeleniumHelper.DropDown(\"bs_3_0\").selectOption(1);");
         js.executeScript("___SeleniumHelper.DropDown(\"bs_3_0\").getValue(function(val){ console.log(val); })");
         js.executeScript("___SeleniumHelper.DropDown(\"bs_3_0\").getValue(function(val){ window.targetValue1 = val.dropdown_selected_value.Description });");
         js.executeScript("targetValue1");
-        }
+    }
 
     @And("^i click ekle button$")
     public void iClickEkleButton() throws Throwable {
 
-      while(base.driver.findElement(By.id("FullyBookedBtn")).isDisplayed()){
+        while (base.driver.findElement(By.id("FullyBookedBtn")).isDisplayed()) {
 
             iClickKampanyaTarihiCombobox();
             iClickTheClickableOptionFromTheKampanyaTarihiCombobox();
@@ -290,32 +288,32 @@ public class reklamtop4 extends BaseUtil {
             iClickTheClickableOptionFromTheAylikFaturaTutariCombobox();
 
         }
-            WebElement eklebutton = (new WebDriverWait(base.driver, 90))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("addReservationBtn")));
-            eklebutton.click();
+        WebElement eklebutton = (new WebDriverWait(base.driver, 90))
+                .until(ExpectedConditions.presenceOfElementLocated(By.id("addReservationBtn")));
+        eklebutton.click();
 
-            WebElement aktifsemtuyarisibutton = (new WebDriverWait(base.driver, 90))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[6]/div[2]/div[6]")));
+        WebElement aktifsemtuyarisibutton = (new WebDriverWait(base.driver, 90))
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[6]/div[2]/div[6]")));
 
 
-            if (aktifsemtuyarisibutton.isDisplayed()) {
+        if (aktifsemtuyarisibutton.isDisplayed()) {
 
-                WebElement tamambutton = (new WebDriverWait(base.driver, 90))
-                        .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[6]/div[2]/button[1]")));
-                tamambutton.click();
-                iClickTheClickableOptionFromTheKampanyaTarihiCombobox();
-                iClickKampanyaTuruCombobox();
-                iClickTheFirstClickableOptionFromTheKampanyaTuruCombobox();
-                iClickAylikFaturaTutariCombobox();
-                iClickTheClickableOptionFromTheAylikFaturaTutariCombobox();
+            WebElement tamambutton = (new WebDriverWait(base.driver, 90))
+                    .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[6]/div[2]/button[1]")));
+            tamambutton.click();
+            iClickTheClickableOptionFromTheKampanyaTarihiCombobox();
+            iClickKampanyaTuruCombobox();
+            iClickTheFirstClickableOptionFromTheKampanyaTuruCombobox();
+            iClickAylikFaturaTutariCombobox();
+            iClickTheClickableOptionFromTheAylikFaturaTutariCombobox();
 
-            }
         }
+    }
 
     @And("^i see sepetim field$")
     public void iSeeSepetimField() throws Throwable {
 
-        WebElement sepetim= (new WebDriverWait(base.driver, 90))
+        WebElement sepetim = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("reservationSummary")));
         sepetim.click();
     }
@@ -323,7 +321,7 @@ public class reklamtop4 extends BaseUtil {
     @And("^i click satin al button$")
     public void iClickSatinAlButton() throws Throwable {
 
-        WebElement satinalbutton= (new WebDriverWait(base.driver, 90))
+        WebElement satinalbutton = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("reservationBuy")));
         satinalbutton.click();
     }
@@ -343,14 +341,15 @@ public class reklamtop4 extends BaseUtil {
         } catch (NoAlertPresentException noe) {
 
 
-        }base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+        }
+        base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
     }
 
     @When("^i click vazgec button$")
     public void iClickVazgecButton() throws Throwable {
 
-        WebElement vazgecbutton= (new WebDriverWait(base.driver, 90))
+        WebElement vazgecbutton = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[6]/div[2]/button[2]")));
         vazgecbutton.click();
     }
@@ -362,10 +361,10 @@ public class reklamtop4 extends BaseUtil {
 
         Boolean isPresent = base.driver.findElements(By.id("reservationSummary")).size() > 0;
 
-        if(isPresent==true) {
+        if (isPresent == true) {
 
 
-        }else if(isPresent==false) {
+        } else if (isPresent == false) {
             Assert.fail();
 
         }
@@ -373,8 +372,8 @@ public class reklamtop4 extends BaseUtil {
 
     @When("^i click onayla button$")
     public void iClickOnaylaButton() throws Throwable {
-           Thread.sleep(3000);
-        WebElement onaylabutton= (new WebDriverWait(base.driver, 90))
+        Thread.sleep(3000);
+        WebElement onaylabutton = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[6]/div[2]/button[1]")));
         onaylabutton.click();
     }
@@ -393,14 +392,15 @@ public class reklamtop4 extends BaseUtil {
         } catch (NoAlertPresentException noe) {
 
 
-        }base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+        }
+        base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
     }
 
     @And("^i click tamam button in Rezervasyon Listeniz Basariyla Kayit Edilmistir pop up$")
     public void iClickTamamButtonInRezervasyonListenizBasariylaKayitEdilmistirPopUp() throws Throwable {
 
-        WebElement tamambutton= (new WebDriverWait(base.driver, 90))
+        WebElement tamambutton = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[6]/div[2]/button[1]")));
         tamambutton.click();
 
@@ -413,10 +413,10 @@ public class reklamtop4 extends BaseUtil {
 
         Boolean isPresent = base.driver.findElements(By.id("pastTop4List")).size() > 0;
 
-        if(isPresent==true) {
+        if (isPresent == true) {
 
 
-        }else if(isPresent==false) {
+        } else if (isPresent == false) {
             Assert.fail();
 
         }
@@ -426,7 +426,7 @@ public class reklamtop4 extends BaseUtil {
     @When("^i click eksi button$")
     public void iClickEksiButton() throws Throwable {
 
-        WebElement eksibutton= (new WebDriverWait(base.driver, 90))
+        WebElement eksibutton = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("listBtn")));
         eksibutton.click();
 
@@ -439,9 +439,9 @@ public class reklamtop4 extends BaseUtil {
 
         Boolean isPresent = base.driver.findElements(By.xpath("//*[@id=\"tab_Reservation\"]/ng-include/div/div/div[2]/div/div[1]")).size() > 0;
 
-        if(isPresent==true) {
+        if (isPresent == true) {
             Assert.fail();
-        }else if(isPresent==false) {
+        } else if (isPresent == false) {
 
 
         }
@@ -452,7 +452,7 @@ public class reklamtop4 extends BaseUtil {
     @When("^i click arti button$")
     public void iClickArtiButton() throws Throwable {
 
-        WebElement artibutton= (new WebDriverWait(base.driver, 90))
+        WebElement artibutton = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"tab_Reservation\"]/ng-include/div/div/div[2]/h3/i[2]")));
         artibutton.click();
     }
@@ -464,10 +464,10 @@ public class reklamtop4 extends BaseUtil {
 
         Boolean isPresent = base.driver.findElements(By.xpath("//*[@id=\"tab_Reservation\"]/ng-include/div/div/div[2]/div/div[1]")).size() > 0;
 
-        if(isPresent==true) {
+        if (isPresent == true) {
 
             Assert.fail();
-        }else if(isPresent==false) {
+        } else if (isPresent == false) {
 
 
         }
@@ -477,7 +477,7 @@ public class reklamtop4 extends BaseUtil {
     @Then("^i click the third tab bilgiler$")
     public void iClickTheThirdTabBilgiler() throws Throwable {
 
-        WebElement thirdtabbilgiler= (new WebDriverWait(base.driver, 90))
+        WebElement thirdtabbilgiler = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("menuInfo")));
         thirdtabbilgiler.click();
     }
@@ -485,24 +485,24 @@ public class reklamtop4 extends BaseUtil {
     @And("^i see the content of bilgiler page$")
     public void iSeeTheContentOfBilgilerPage() throws Throwable {
 
-        WebElement contentbilgiler= (new WebDriverWait(base.driver, 90))
+        WebElement contentbilgiler = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("tab_Info")));
         contentbilgiler.click();
     }
 
-     @When("^i click the fourth tab semt raporu$")
-     public void iClickTheFourthTabSemtRaporu() throws Throwable {
+    @When("^i click the fourth tab semt raporu$")
+    public void iClickTheFourthTabSemtRaporu() throws Throwable {
 
-        WebElement semtraporu= (new WebDriverWait(base.driver, 90))
-                 .until(ExpectedConditions.presenceOfElementLocated(By.id("menuReport")));
-         semtraporu.click();
-     }
+        WebElement semtraporu = (new WebDriverWait(base.driver, 90))
+                .until(ExpectedConditions.presenceOfElementLocated(By.id("menuReport")));
+        semtraporu.click();
+    }
 
 
     @And("^i see the content of semt raporu page$")
     public void iSeeTheContentOfSemtRaporuPage() throws Throwable {
 
-        WebElement semtraporu= (new WebDriverWait(base.driver, 90))
+        WebElement semtraporu = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("tab_Description")));
         semtraporu.click();
     }
@@ -510,7 +510,7 @@ public class reklamtop4 extends BaseUtil {
     @And("^i choose same city from il combobox$")
     public void iChooseSameCityFromIlCombobox() throws Throwable {
 
-        try(BufferedReader br = new BufferedReader(new FileReader(Login.FilePath))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(Login.FilePath))) {
 
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
@@ -539,7 +539,7 @@ public class reklamtop4 extends BaseUtil {
     @And("^i choose same district from semt combobox$")
     public void iChooseSameDistrictFromSemtCombobox() throws Throwable {
 
-        try(BufferedReader br = new BufferedReader(new FileReader(Login.FilePath))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(Login.FilePath))) {
 
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
@@ -568,7 +568,7 @@ public class reklamtop4 extends BaseUtil {
     @And("^i choose same date from tarih combobox$")
     public void iChooseSameDateFromTarihCombobox() throws Throwable {
 
-        try(BufferedReader br = new BufferedReader(new FileReader(Login.FilePath))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(Login.FilePath))) {
 
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
@@ -597,7 +597,7 @@ public class reklamtop4 extends BaseUtil {
     @And("^i click listele button$")
     public void iClickListeleButton() throws Throwable {
 
-        WebElement listelebutton= (new WebDriverWait(base.driver, 90))
+        WebElement listelebutton = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("filterBtn")));
         listelebutton.click();
     }
@@ -610,29 +610,24 @@ public class reklamtop4 extends BaseUtil {
 
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd");
         LocalDate localDate = LocalDate.now();
-        String date=dtf.format(localDate);
+        String date = dtf.format(localDate);
 
 
+        if (base.driver.getPageSource().contains(date)) {
 
-        if(base.driver.getPageSource().contains(date)){
+            if (base.driver.getPageSource().contains("YEMEKSEPETI/belemir.karabacak")) {
 
-            if(base.driver.getPageSource().contains("YEMEKSEPETI/belemir.karabacak"))
-            {
-
-
-
-                }
 
             }
 
-            else
-            {
-                Assert.fail();
-            } }
+        } else {
+            Assert.fail();
+        }
+    }
 
     @When("^i click the last tab toplu top(\\d+)$")
     public void iClickTheLastTabTopluTop(int arg0) throws Throwable {
-        WebElement lasttabtoplutop4= (new WebDriverWait(base.driver, 90))
+        WebElement lasttabtoplutop4 = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("menuBulkReservation")));
         lasttabtoplutop4.click();
     }
@@ -640,17 +635,17 @@ public class reklamtop4 extends BaseUtil {
     @Then("^i see date and excel field in the page$")
     public void iSeeDateAndExcelFieldInThePage() throws Throwable {
 
-        WebElement dateselect= (new WebDriverWait(base.driver, 90))
+        WebElement dateselect = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("selectDateBtn")));
 
-        WebElement excelfile= (new WebDriverWait(base.driver, 90))
+        WebElement excelfile = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("reservationFile")));
 
     }
 
     @And("^i click tarih combobox$")
     public void iClickTarihCombobox() throws Throwable {
-      base.driver.findElement(By.id("selectDateBtn")).click();
+        base.driver.findElement(By.id("selectDateBtn")).click();
 
     }
 
@@ -661,7 +656,7 @@ public class reklamtop4 extends BaseUtil {
 
     @And("^i add a file$")
     public void iAddAFile() throws Throwable {
-        WebElement excelfile= (new WebDriverWait(base.driver, 90))
+        WebElement excelfile = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("reservationFile")));
         excelfile.sendKeys("//Users//belemir.karabacakoglu//Desktop//EmptyBulkTop4.xlsx");
     }
@@ -671,7 +666,7 @@ public class reklamtop4 extends BaseUtil {
 
         WebElement gonderbutton = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("sendTop4Btn")));
-              gonderbutton.click();
+        gonderbutton.click();
     }
 
     @Then("^i see the records in saved,being under seven points and unsaved fields$")
@@ -690,27 +685,6 @@ public class reklamtop4 extends BaseUtil {
         ExceleAktarButton.click();
     }
 
-    @And("^i see the excel was downloaded$")
-    public boolean iSeeTheExcelWasDownloaded(String dirPath, String ext) throws Throwable {
-
-        boolean flag = false;
-        File dir = new File(dirPath);
-        File[] files = dir.listFiles();
-        if (files == null || files.length == 0) {
-            flag = false;
-        }
-
-        for (int i = 1; i < files.length; i++) {
-            if (files[i].getName().contains(ext)) {
-                flag = true;
-            }
-        }
-        return flag;
-
-
-    }
-
-
 
     @Then("^i see saved lines in confirmed field$")
     public void iSeeSavedLinesInConfirmedField() throws Throwable {
@@ -721,7 +695,7 @@ public class reklamtop4 extends BaseUtil {
     @When("^i click daha fazla bilgi al button in first tab top(\\d+) nedir$")
     public void iClickDahaFazlaBilgiAlButtonInFirstTabTopNedir(int arg0) throws Throwable {
 
-        WebElement dahafazlabilgialbutton= (new WebDriverWait(base.driver, 90))
+        WebElement dahafazlabilgialbutton = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("getInfoBtn")));
         dahafazlabilgialbutton.click();
     }
@@ -729,7 +703,7 @@ public class reklamtop4 extends BaseUtil {
     @When("^i click top(\\d+) alani rezerve et button in first tab top(\\d+) nedir$")
     public void iClickTopAlaniRezerveEtButtonInFirstTabTopNedir(int arg0, int arg1) throws Throwable {
 
-        WebElement rezerveetbutonu= (new WebDriverWait(base.driver, 90))
+        WebElement rezerveetbutonu = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("reserveTop4")));
         rezerveetbutonu.click();
 
@@ -738,7 +712,7 @@ public class reklamtop4 extends BaseUtil {
     @And("^i click sil button$")
     public void iClickSilButton() throws Throwable {
 
-        WebElement silbutonu= (new WebDriverWait(base.driver, 90))
+        WebElement silbutonu = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"deleteReservation\"]")));
         silbutonu.click();
 
@@ -753,14 +727,15 @@ public class reklamtop4 extends BaseUtil {
 
         Boolean isPresent = base.driver.findElements(By.id("reservationSummary")).size() > 0;
 
-        if(isPresent==true) {
+        if (isPresent == true) {
 
             Assert.fail();
 
-        }else if(isPresent==false) {
+        } else if (isPresent == false) {
 
 
-        } }
+        }
+    }
 
     @Then("^i see Eklediginiz TOP(\\d+) rezervasyonu silinecektir devam etmek istiyor musunuz pop up$")
     public void iSeeEklediginizTOPRezervasyonuSilinecektirDevamEtmekIstiyorMusunuzPopUp(int arg0) throws Throwable {
@@ -776,7 +751,8 @@ public class reklamtop4 extends BaseUtil {
         } catch (NoAlertPresentException noe) {
 
 
-        }base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+        }
+        base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
 
     }
@@ -787,8 +763,8 @@ public class reklamtop4 extends BaseUtil {
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
 
-        try{
-            WebElement silmepopup= (new WebDriverWait(base.driver, 15))
+        try {
+            WebElement silmepopup = (new WebDriverWait(base.driver, 15))
                     .until(ExpectedConditions.presenceOfElementLocated(By.id("reservationdeleteQuestion")));
 
             String ab = silmepopup.getText();
@@ -796,7 +772,7 @@ public class reklamtop4 extends BaseUtil {
             Assert.assertEquals("Eklediğiniz TOP4 rezervasyonu silinecektir, devam etmek istiyor musunuz?", ab);
             Thread.sleep(3000);
 
-        } catch(AssertionError ae) {
+        } catch (AssertionError ae) {
 
             Assert.fail();
         }
@@ -810,8 +786,8 @@ public class reklamtop4 extends BaseUtil {
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
 
-        try{
-            WebElement satinalpopup= (new WebDriverWait(base.driver, 15))
+        try {
+            WebElement satinalpopup = (new WebDriverWait(base.driver, 15))
                     .until(ExpectedConditions.presenceOfElementLocated(By.id("reservationWarningMessage")));
 
             String ab = satinalpopup.getText();
@@ -819,7 +795,7 @@ public class reklamtop4 extends BaseUtil {
             Assert.assertEquals("Seçmiş olduğunuz rezervasyonlar faturalarınıza eklenecektir. Onaylıyor musunuz?", ab);
             Thread.sleep(3000);
 
-        } catch(AssertionError ae) {
+        } catch (AssertionError ae) {
 
             Assert.fail();
         }
@@ -833,8 +809,8 @@ public class reklamtop4 extends BaseUtil {
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
 
-        try{
-            WebElement reservasyonalmapopup= (new WebDriverWait(base.driver, 15))
+        try {
+            WebElement reservasyonalmapopup = (new WebDriverWait(base.driver, 15))
                     .until(ExpectedConditions.presenceOfElementLocated(By.id("reservationSuccessMessage")));
 
             String ab = reservasyonalmapopup.getText();
@@ -842,7 +818,7 @@ public class reklamtop4 extends BaseUtil {
             Assert.assertEquals("Rezervasyon Listeniz Başarıyla Kayıt Edilmiştir", ab);
             Thread.sleep(3000);
 
-        } catch(AssertionError ae) {
+        } catch (AssertionError ae) {
 
             Assert.fail();
         }
@@ -854,10 +830,10 @@ public class reklamtop4 extends BaseUtil {
     public void iGetSemtAndWrite() throws Throwable {
 
 
-        WebElement semt= (new WebDriverWait(base.driver, 90))
+        WebElement semt = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"reservation-table-body\"]/tr[1]/td[1]")));
 
-       String filedistrict= semt.getText();
+        String filedistrict = semt.getText();
 
         try (Writer writer = new BufferedWriter(new OutputStreamWriter(
                 new FileOutputStream(FilePathdistrictselect), "utf-8"))) {
@@ -872,7 +848,7 @@ public class reklamtop4 extends BaseUtil {
 
         List<WebElement> options = base.driver.findElements(By.id("selectDateBtn"));
         int index = options.size();
-        int gelendate=r.nextInt(index-1);
+        int gelendate = r.nextInt(index - 1);
         options.get(gelendate).click();
     }
 
@@ -880,13 +856,13 @@ public class reklamtop4 extends BaseUtil {
     @And("^i enter kullaniciadi and pw as admin$")
     public void iEnterKullaniciadiAndPwAsAdmin() throws Throwable {
 
-        WebElement username= (new WebDriverWait(base.driver, 90))
+        WebElement username = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("username")));
         username.click();
 
         username.sendKeys("Yemeksepeti/belemir.karabacak");
 
-        WebElement password= (new WebDriverWait(base.driver, 90))
+        WebElement password = (new WebDriverWait(base.driver, 90))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("password")));
         password.click();
 
@@ -896,8 +872,15 @@ public class reklamtop4 extends BaseUtil {
 
     @And("^i confirm the excel$")
     public void iConfirmTheExcel() throws Throwable {
+        try {
+            Assert.assertTrue("Failed to download document which has extension .xls", iSeeTheExcelWasDownloadedAnd(downloadPath, ".xlsx"));
 
-        Assert.assertTrue("Failed to download document which has extension .xls",iSeeTheExcelWasDownloaded(downloadPath, ".xls"));
+            Thread.sleep(1000);
+        } catch (AssertionError ae) {
+
+            Assert.fail();
+        }
+
 
     }
 
@@ -914,7 +897,28 @@ public class reklamtop4 extends BaseUtil {
         base.driver.get(newurl);
 
     }
+
+    @And("^i see the excel was downloaded \"([^\"]*)\" and \"([^\"]*)\"$")
+    public boolean iSeeTheExcelWasDownloadedAnd(String dirPath, String ext) throws Throwable {
+
+        boolean flag = false;
+        File dir = new File(dirPath);
+        File[] files = dir.listFiles();
+
+        if (files == null || files.length == 0) {
+            flag = false;
+
+            return flag;
+        }
+
+        for (int i = 1; i < files.length; i++) {
+
+            if (files[i].getName().contains(ext)) {
+                flag = true;
+            }
+        }
+        return flag;
+    }
+
+
 }
-
-
-
