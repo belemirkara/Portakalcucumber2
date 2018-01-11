@@ -1,6 +1,9 @@
 package Steps;
 
 import Base.BaseUtil;
+import Model.UserModel;
+import Pages.LoginPage;
+import Repository.Repo;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
@@ -22,6 +25,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
+
+import static Steps.Login.user1;
 
 public class calismasaatleri extends BaseUtil {
 
@@ -199,50 +204,7 @@ public class calismasaatleri extends BaseUtil {
         Thread.sleep(3000);
     }
 
-    @And("^i get browser foreground$")
-    public void iGetBrowserForeground() throws Throwable {
-            Thread.sleep(3000);
-        }
 
-
-    @And("^i get kullaniciadi and pw from login$")
-    public void iGetKullaniciadiAndPwFromLogin() throws Throwable {
-
-        try(BufferedReader br = new BufferedReader(new FileReader(Login.FilePath))) {
-
-            StringBuilder sb = new StringBuilder();
-            String line = br.readLine();
-
-            while (line != null) {
-                sb.append(line);
-                sb.append(System.lineSeparator());
-                line = br.readLine();
-            }
-
-            String everything = sb.toString();
-
-            String[] abc = everything.split("-");
-
-            Login.fileUserName = abc[0];
-            Login.filePassword = abc[1];
-
-        }
-
-        WebElement username = (new WebDriverWait(base.driver, 90))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("username")));
-        username.click();
-        username.sendKeys(Login.fileUserName);
-
-        WebElement password = (new WebDriverWait(base.driver, 90))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("password")));
-        password.click();
-        password.sendKeys(Login.filePassword);
-
-
-
-        base.driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
-        Thread.sleep(3000);
-    }
 }
 
 

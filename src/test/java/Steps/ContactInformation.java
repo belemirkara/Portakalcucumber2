@@ -1,6 +1,10 @@
 package Steps;
 
 import Base.BaseUtil;
+import Model.UserModel;
+import Pages.ContactInformationPage;
+import Pages.LoginPage;
+import Repository.Repo;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -19,14 +23,18 @@ import java.util.UUID;
 
 import java.util.concurrent.TimeUnit;
 
-public class iletisimbilgileri extends BaseUtil {
+import static Steps.Login.user1;
+
+public class ContactInformation extends BaseUtil {
 
     public BaseUtil base;
     UUID uuid = UUID.randomUUID();
     String randomUUiDString = uuid.toString();
     Random r = new Random();
+    int randomNumber = r.nextInt(899999) + 1000000;
 
-    public iletisimbilgileri(BaseUtil base) {
+
+    public ContactInformation(BaseUtil base) {
 
 
         this.base = base;
@@ -35,10 +43,10 @@ public class iletisimbilgileri extends BaseUtil {
     @Given("^i click the iletisim bilgileri in progress bar$")
     public void iClickTheiletisimBilgileriinProgressBar() throws Throwable {
 
-        WebElement iletisimbilg = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("registerTab0")));
+        Thread.sleep(3000);
+        ContactInformationPage page=new ContactInformationPage(base.driver);
 
-        iletisimbilg.click();
+        page.Contact1();
 
 
     }
@@ -46,11 +54,11 @@ public class iletisimbilgileri extends BaseUtil {
     @And("^i delete restoran sahibi ad and type again$")
     public void iDeleteRestoranSahibiAdAndTypeAgain() throws Throwable {
 
-        WebElement rstrnsahbiad = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("ownerName")));
+        Thread.sleep(3000);
+        ContactInformationPage page=new ContactInformationPage(base.driver);
+        page.Contact2(base.uret());
 
-        rstrnsahbiad.clear();
-        rstrnsahbiad.sendKeys(base.uret());
+
 
 
     }
@@ -58,46 +66,36 @@ public class iletisimbilgileri extends BaseUtil {
     @And("^i delete restoran sahibi soyad and type again$")
     public void iDeleteRestoranSahibiSoyadAndTypeAgain() throws Throwable {
 
-        WebElement rstrnsahbisyad = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("ownerLastName")));
-
-        rstrnsahbisyad.clear();
-        rstrnsahbisyad.sendKeys(base.uret());
+        Thread.sleep(3000);
+        ContactInformationPage page=new ContactInformationPage(base.driver);
+        page.Contact3(base.uret());
     }
 
     @And("^i delete restoran sahibi telefon  and type again$")
     public void iDeleteRestoranSahibiTelefonAndTypeAgain() throws Throwable {
 
-        int randomNumber = r.nextInt(899999) + 1000000;
-        WebElement rstrnsahibitel = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("restaurant-owner-phone")));
+        Thread.sleep(3000);
+        ContactInformationPage page=new ContactInformationPage(base.driver);
 
-        rstrnsahibitel.clear();
-        base.driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
-
-        rstrnsahibitel.sendKeys("(216)" + randomNumber);
+        page.Contact4("(216)" + randomNumber);
 
     }
 
     @And("^i enter sube sorumlusu ad if i want$")
     public void iEntersubeSorumlusuAdifiWant() throws Throwable {
-        WebElement subesrmlsad = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("managerName")));
 
-        subesrmlsad.clear();
-        subesrmlsad.sendKeys(base.uret());
+        Thread.sleep(3000);
+        ContactInformationPage page=new ContactInformationPage(base.driver);
+        page.Contact5(base.uret());
 
     }
 
     @And("^i enter sube sorumlusu soyad if i want$")
     public void iEntersubeSorumlusuSoyadifiWant() throws Throwable {
 
-        WebElement subesrmlsad = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("managerLastName")));
-
-            subesrmlsad.clear();
-
-            subesrmlsad.sendKeys(base.uret());
+        Thread.sleep(3000);
+        ContactInformationPage page=new ContactInformationPage(base.driver);
+        page.Contact6(base.uret());
 
 
     }
@@ -105,36 +103,27 @@ public class iletisimbilgileri extends BaseUtil {
     @And("^i enter sube sorumlusu tel if i want$")
     public void iEntersubeSorumlusuTelifiWant() throws Throwable {
 
-
-        int randomNumber = r.nextInt(899999) + 1000000;
-        WebElement subesorumlusutelno = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("restaurant-po-number")));
-
-            subesorumlusutelno.clear();
-
-            subesorumlusutelno.sendKeys("(216)" + randomNumber);
+        Thread.sleep(3000);
+        ContactInformationPage page=new ContactInformationPage(base.driver);
+        page.Contact7("(216)" + randomNumber);
 
 
     }
 
     @And("^i delete restoran tel and type again$")
     public void iDeleteRestoranTelAndTypeAgain() throws Throwable {
-        int randomNumber = r.nextInt(899999) + 1000000;
-        WebElement restorantelno = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("restaurant-phone")));
 
-        restorantelno.clear();
-        base.driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
-        restorantelno.sendKeys("(212)" + randomNumber);
+        Thread.sleep(3000);
+        ContactInformationPage page=new ContactInformationPage(base.driver);
+        page.Contact8("(212)" + randomNumber);
     }
 
     @And("^i delete email and type again$")
     public void iDeleteEmailAndTypeAgain() throws Throwable {
-        WebElement email = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("restaurant-owner-email")));
 
-        email.clear();
-        email.sendKeys(base.uret()+"@"+"afhdagf.com");
+        Thread.sleep(3000);
+        ContactInformationPage page=new ContactInformationPage(base.driver);
+        page.Contact9(base.uret()+"@"+"afhdagf.com");
 
     }
 
@@ -142,13 +131,10 @@ public class iletisimbilgileri extends BaseUtil {
     @When("^i click kaydet button$")
     public void iClickKaydetButton() throws Throwable {
 
+        Thread.sleep(3000);
+        ContactInformationPage page=new ContactInformationPage(base.driver);
+        page.Contact10();
 
-        WebElement kaydet = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("btnSave")));
-
-        kaydet.click();
-
-        base.driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
 
     }
 
@@ -158,11 +144,10 @@ public class iletisimbilgileri extends BaseUtil {
     public void iClickKaydetvedevametbutton() throws Throwable {
 
 
-        WebElement kaydetvedevamet = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("btnSaveAndContinue")));
-          kaydetvedevamet.click();
+        Thread.sleep(3000);
 
-        base.driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
+        ContactInformationPage page=new ContactInformationPage(base.driver);
+        page.Contact11();
     }
 
 
@@ -171,8 +156,8 @@ public class iletisimbilgileri extends BaseUtil {
 
         try {
 
-
-            base.driver.findElement(By.id("1")).click();
+            ContactInformationPage page=new ContactInformationPage(base.driver);
+            page.Contact14();
             Thread.sleep(1000);
 
             Alert alt3 = base.driver.switchTo().alert();
@@ -193,8 +178,8 @@ public class iletisimbilgileri extends BaseUtil {
 
 
         try{
-            WebElement islembasarilipopup= (new WebDriverWait(base.driver, 15))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("1")));
+            ContactInformationPage page=new ContactInformationPage(base.driver);
+            WebElement islembasarilipopup=page.contactinformationsuccesspopup;
 
             String ab = islembasarilipopup.getText();
 
@@ -226,16 +211,34 @@ public class iletisimbilgileri extends BaseUtil {
 
 
 
-    @Then("^i click tamam button$")
-    public void iClickTamamButton() throws Throwable {
-
-        Thread.sleep(1000);
-
-        base.driver.findElement(By.xpath("/html/body/div[2]/div[2]/button[1]")).click();
+    @Then("^i click ok button$")
+    public void iClickokButton() throws Throwable {
 
         Thread.sleep(1000);
 
 
+        ContactInformationPage page=new ContactInformationPage(base.driver);
+        page.Contact13();
+
+        Thread.sleep(1000);
+
+
+    }
+
+    @And("^i get username and pw from login$")
+    public void iGetusernameAndPwFromLogin() throws Throwable {
+
+
+        Thread.sleep(3000);
+
+Repo repo = new Repo(this.base);
+UserModel user = repo.GetUser();
+
+       ContactInformationPage page=new ContactInformationPage(base.driver);
+        page.Contact15(user.UserName, user.Password);
+
+
+        Thread.sleep(3000);
     }
 }
 

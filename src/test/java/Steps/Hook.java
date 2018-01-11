@@ -3,6 +3,7 @@ package Steps;
 import Base.BaseUtil;
 import cucumber.api.java.Before;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Capabilities;
@@ -32,26 +33,29 @@ public class Hook extends BaseUtil {
 
     }
 
-
-
-
     @Before
-    public void initializeTest(){
+    public void initializeTest() {
 
         System.setProperty("webdriver.gecko.driver", "//Users//belemir.karabacakoglu//Desktop//geckodriver");
 
         FirefoxOptions options = new FirefoxOptions();
         options.setAcceptInsecureCerts(true);
         options.addPreference("browser.download.folderList", 2);
-         options.addPreference("browser.download.dir", downloadPath);
-                 options.addPreference("browser.helperApps.neverAsk.saveToDisk", "application/xml,text/plain,text/xml,image/jpeg,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        options.addPreference("browser.download.dir", downloadPath);
+        options.addPreference("browser.helperApps.neverAsk.saveToDisk", "application/xml,text/plain,text/xml,image/jpeg,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
 
-        DesiredCapabilities caps=DesiredCapabilities.firefox();
+        DesiredCapabilities caps = DesiredCapabilities.firefox();
 
         options.merge(caps);
         base.driver = new FirefoxDriver(options);
+        base.driver.manage().window().maximize();
+    }
 
 
+        @After
+        public void closetest() {
+
+        base.driver.quit();
 
         }}
 

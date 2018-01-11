@@ -28,5 +28,5 @@ Feature:iletisim bilgileri
     And i see iletisim bilgileriniz basariyla kaydedildi pop up
     And i confirm iletisim bilgileriniz basariyla kaydedildi pop up message
     And i click ok button
-    
+
 

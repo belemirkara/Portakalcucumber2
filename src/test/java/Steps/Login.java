@@ -1,6 +1,9 @@
 package Steps;
 
 import Base.BaseUtil;
+import Model.UserModel;
+import Pages.LoginPage;
+import Repository.Repo;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -33,6 +36,7 @@ public class Login extends BaseUtil {
     public static String FilePath ="//Users//belemir.karabacakoglu//Desktop//templogin.txt";
     public static String fileUserName;
     public static String filePassword;
+   public static UserModel user1 = null;
 
     public Login(BaseUtil base) {
 
@@ -40,85 +44,38 @@ public class Login extends BaseUtil {
         this.base = base;
     }
 
-    @And("^i enter kullaniciadi and pw from db$")
-    public void iEnterKullaniciadiAndPwFromDb() throws Throwable {
+    @And("^i enter username and pw from db$")
+    public void iEnterusernameAndPwFromDb() throws Throwable {
 
-        String hostName = "192.168.0.40";
-        String dbName = "SALCATEST_MSCRM";
-        String user = "CrmSqlUser";
-        String password = "CrmSqlPass";
-        String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;loginTimeout=30;", hostName, dbName, user, password);
+        Repo repo = new Repo(base);
 
-        Connection connection = null;
-                try {
-                    //Class.forName("com.microsoft.jdbc.sqlserver.SQLServerDriver");
-                    System.out.println("Connecting to Database...");
-                    connection = DriverManager.getConnection(url);
-                    if (connection != null) {
-                        System.out.println("Connected to the Database...");
-                    }
-                } catch (SQLException ex) {
-                    ex.printStackTrace();
-                }
-
-                       try{
-
-                    String query = "select TOP 1 * from Account (NOLOCK) WHERE new_accountusername is NOT NULL and new_accountpassword is NOT NULL and new_portalstatus=1 order by CreatedOn desc";
-                    statement = connection.createStatement();
-                    rs = statement.executeQuery(query);
-
-                   while(rs.next())
-                   {
-
-                       String username = rs.getString("new_accountusername");
-                       String passwrd  = rs.getString("new_accountpassword");
-
-                       try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-                               new FileOutputStream(FilePath), "utf-8"))) {
-
-                           String result = username + "-" + passwrd;
-
-                           writer.write(result);
-                       }
+        user1 = repo.GetUser();
 
 
 
-                        base.driver.findElement((By.id("username"))).sendKeys(username);
-                        base.driver.findElement((By.id("password"))).sendKeys(passwrd);
+        LoginPage page = new LoginPage(base.driver);
+        page.Login1(user1.UserName, user1.Password);
+    }
+
+    @And("^i click rememberme checkbox$")
+    public void iClickremembermeCheckbox() throws Throwable {
+
+        LoginPage page=new LoginPage(base.driver);
+
+        page.Click1();
 
 
-                } }catch (SQLException ex) {
-                    ex.printStackTrace();
-                }
-
-                if (connection != null) {
-                    try {
-                        System.out.println("Closing Database Connection...");
-                        connection.close();
-                    } catch (SQLException ex) {
-                        ex.printStackTrace();
-                    }
-                }
-
-            }
-
-    @And("^i click benihatirla checkbox if i want$")
-    public void iClickBenihatirlaCheckboxifiWant() throws Throwable {
-
-        WebElement benihatirla = (new WebDriverWait(base.driver, 30))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("rememberMe")));
-        benihatirla.click();
         Thread.sleep(3000);
 
     }
 
 
-    @And("^i click girisyap button$")
-    public void iClickGirisyapButton() throws Throwable {
+    @And("^i click login button$")
+    public void iClickloginButton() throws Throwable {
 
-        WebElement girisyap = (new WebDriverWait(base.driver, 30))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[2]/div[1]/div[1]/div/div[2]/div[2]/form/fieldset/div[4]/button")));
-        girisyap.click();
+        LoginPage page=new LoginPage(base.driver);
+
+        page.Click2();
 
         Thread.sleep(3000);
 
@@ -140,7 +97,7 @@ public class Login extends BaseUtil {
 
     @Given("^i navigate to login page$")
     public void iNavigateToLoginPage() throws Throwable {
-        base.driver.navigate().to("http://portakal01.ystest.com");
+        base.driver.navigate().to("http://portakal.ystest.com");
         Thread.sleep(1000);
 
     }

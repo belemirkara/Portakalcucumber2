@@ -1,5 +1,6 @@
 package Pages;
 
+import Base.BaseUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,7 +11,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class SelfregPage {
+public class SelfregPage  {
+
+
 
     public SelfregPage(WebDriver driver){
 
@@ -34,7 +37,7 @@ public class SelfregPage {
     @FindBy(how=How.XPATH,using="/html/body/div[1]/div/div[1]/div/div[2]/input[1]")
     public WebElement fieldrestaurantownername;
 
-    @FindBy(how=How.ID,using="/html/body/div[1]/div/div[1]/div/div[2]/input[2]")
+    @FindBy(how=How.XPATH,using="/html/body/div[1]/div/div[1]/div/div[2]/input[2]")
     public WebElement fieldrestaurantownersurname;
 
     @FindBy(how=How.ID,using="restaurant-owner-phone")
@@ -66,32 +69,51 @@ public class SelfregPage {
         fieldrestaurantname.sendKeys(sfieldrestaurantname);
     }
 
-    public void Register2(String sfieldrestaurantcountry,String sfieldrestaurantaddress){
+    public void Register2(String sfieldrestaurantaddress){
 
-        fieldrestaurantcountry.sendKeys(sfieldrestaurantcountry);
+
         fieldrestaurantaddress.sendKeys(sfieldrestaurantaddress);
     }
 
-    public void Register3(String sfieldrestaurantcountry,String sfieldrestaurantownersurname){
+    public void Register3(String sfieldrestaurantownername){
 
-        fieldrestaurantownername.sendKeys(sfieldrestaurantcountry);
-        fieldrestaurantownersurname.sendKeys(sfieldrestaurantownersurname);
+
+        fieldrestaurantownername.sendKeys(sfieldrestaurantownername);
     }
 
-    public void Register4(String sfieldrestaurantownerno,String sfieldrestaurantno){
+    public void Register10(String sfieldrestaurantownersurname){
+
+
+        fieldrestaurantownersurname.sendKeys(sfieldrestaurantownersurname);
+
+}
+    public void Register4(String sfieldrestaurantownerno){
 
         fieldrestaurantownerno.sendKeys(sfieldrestaurantownerno);
-        fieldrestaurantno.sendKeys(sfieldrestaurantno);
+
     }
 
-    public void Register5(String sfieldfirstemail,String sfieldlastemail){
+    public void Register11(String sfieldrestaurantno){
+
+        fieldrestaurantno.sendKeys(sfieldrestaurantno);
+
+    }
+    public void Register5(String sfieldfirstemail){
 
         fieldfirstemail.sendKeys(sfieldfirstemail);
+
+    }
+
+    public void Register12(String sfieldlastemail){
+
         fieldlastemail.sendKeys(sfieldlastemail);
     }
-    public void Click(){
+    public void Click1(){
 
         buttonregister.click();
+
+    }
+    public void Click2(){
         buttonsignup.click();
     }
 

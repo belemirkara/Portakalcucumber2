@@ -78,11 +78,7 @@ public class Zorunlualankontroluiletisimbilg {
         rstrnsahbisoyad.clear();
     }
 
-    @Then("^i close the page$")
-    public void iCloseThePage() throws Throwable {
 
-       base.driver.quit();
-    }
 
     @And("^i delete restoran sahibi telefon$")
     public void iDeleteRestoranSahibiTelefon() throws Throwable {
