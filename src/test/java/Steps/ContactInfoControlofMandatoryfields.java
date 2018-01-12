@@ -17,30 +17,30 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-public class Zorunlualankontroluiletisimbilg {
+public class ContactInfoControlofMandatoryfields {
     public BaseUtil base;
     UUID uuid = UUID.randomUUID();
     String randomUUiDString = uuid.toString();
     Random r=new Random();
 
-    public Zorunlualankontroluiletisimbilg(BaseUtil base) {
+    public ContactInfoControlofMandatoryfields(BaseUtil base) {
 
 
         this.base = base;
     }
 
 
-    @And("^i delete restoran sahibi ad$")
-    public void iDeleteRestoranSahibiAd() throws Throwable {
+    @And("^i delete restaurantownername$")
+    public void iDeleterestaurantownername() throws Throwable {
         WebElement rstrnsahbiad = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"contactForm\"]/div[1]/input[1]")));
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("ownerName")));
 
         rstrnsahbiad.clear();
     }
 
 
-    @Then("^i see the Zorunlu alanlar icinde doldurulmamis alanlar mevcut txt$")
-    public void iSeeTheZorunlaAlanlaricindeDoldurulmamisAlanlarMevcutTxt() throws Throwable {
+    @Then("^i see the There are unfilled fields bw the mandatory fields txt$")
+    public void iSeeTheThereareunfilledfieldsbwthemandatoryfieldsTxt() throws Throwable {
         try{
 
             String ab=base.driver.findElement(By.xpath("//*[@id=\"contactForm\"]/div[3]")).getText();
@@ -57,8 +57,9 @@ public class Zorunlualankontroluiletisimbilg {
 
 
 
-    @Then("^i see kaydet ve kaydetvedevamet button are unclickable$")
-    public boolean iSeeKaydetVeKaydetvedevametButtonAreUnclickable() throws Throwable {
+    @Then("^i see save and saveandcontinue button are unclickable$")
+    public boolean iSeeSaveAndSaveandcontinueButtonAreUnclickable() throws Throwable {
+
 
             try{
                 WebDriverWait wait = new WebDriverWait(base.driver, 6);
@@ -70,8 +71,8 @@ public class Zorunlualankontroluiletisimbilg {
             }
         }
 
-    @And("^i delete restoran sahibi soyad$")
-    public void iDeleteRestoranSahibiSoyad() throws Throwable {
+    @And("^i delete restaurantownersurname$")
+    public void iDeleterestaurantownersurname() throws Throwable {
         WebElement rstrnsahbisoyad = (new WebDriverWait(base.driver, 60))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"contactForm\"]/div[1]/input[2]")));
 
@@ -80,16 +81,16 @@ public class Zorunlualankontroluiletisimbilg {
 
 
 
-    @And("^i delete restoran sahibi telefon$")
-    public void iDeleteRestoranSahibiTelefon() throws Throwable {
+    @And("^i delete restaurantownerno$")
+    public void iDeleterestaurantownerno() throws Throwable {
         WebElement rstrnsahibitel = (new WebDriverWait(base.driver, 60))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("restaurant-owner-phone")));
 
         rstrnsahibitel.clear();
     }
 
-    @And("^i delete restoran tel$")
-    public void iDeleteRestoranTel() throws Throwable {
+    @And("^i delete restaurantno$")
+    public void iDeleterestaurantno() throws Throwable {
         WebElement restorantelno = (new WebDriverWait(base.driver, 60))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("restaurant-phone")));
 
@@ -104,8 +105,8 @@ public class Zorunlualankontroluiletisimbilg {
         email.clear();
     }
 
-    @And("^i see sube sorumlusu soyadi bos birakilamaz pop up$")
-    public void iSeesubeSorumlusuSoyadiBosBirakilamazPopUp() throws Throwable {
+    @And("^i see dont skip managersurname pop up$")
+    public void iSeedontskipmanagersurnamePopUp() throws Throwable {
         try {
 
 
@@ -123,8 +124,8 @@ public class Zorunlualankontroluiletisimbilg {
     }
 
 
-    @And("^i confirm sube sorumlusu soyadi bos birakilamaz pop up message$")
-    public void iConfirmsubeSorumlusuSoyadiBosBirakilamazPopUpMessage() throws Throwable {
+    @And("^i confirm dont skip managersurname pop up message$")
+    public void iConfirmdontskipmanagersurnamePopUpMessage() throws Throwable {
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
 
@@ -144,8 +145,8 @@ public class Zorunlualankontroluiletisimbilg {
 
     }
 
-    @And("^i see sube sorumlusu adi bos birakilamaz pop up$")
-    public void iSeesubeSorumlusuAdiBosBirakilamazPopUp() throws Throwable {
+    @And("^i see dont skip managername pop up$")
+    public void iSeedontskipmanagernamePopUp() throws Throwable {
         try {
 
 
@@ -163,8 +164,8 @@ public class Zorunlualankontroluiletisimbilg {
     }
 
 
-    @And("^i confirm sube sorumlusu adi bos birakilamaz pop up message$")
-    public void iConfirmsubeSorumlusuAdiBosBirakilamazPopUpMessage() throws Throwable {
+    @And("^i confirm dont skip managername pop up message$")
+    public void iConfirmdontskipmanagernamePopUpMessage() throws Throwable {
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
 
@@ -184,32 +185,25 @@ public class Zorunlualankontroluiletisimbilg {
 
     }
 
-    @And("^i delete subesorumlusuad$")
-    public void iDeleteSubesorumlusuad() throws Throwable {
+    @And("^i delete managername$")
+    public void iDeletemanagername() throws Throwable {
         WebElement subesorumlusuad = (new WebDriverWait(base.driver, 60))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"contactForm\"]/div[2]/input[1]")));
 
         subesorumlusuad.clear();
     }
 
-    @And("^i delete sube sorumlusu soyad$")
-    public void iDeletesubeSorumlusuSoyad() throws Throwable {
+    @And("^i delete managersurname$")
+    public void iDeletemanagersurname() throws Throwable {
         WebElement subesorumlususoyad = (new WebDriverWait(base.driver, 60))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"contactForm\"]/div[2]/input[2]")));
 
         subesorumlususoyad.clear();
     }
 
-    @And("^i delete sube sorumlusu ad$")
-    public void iDeletesubeSorumlusuAd() throws Throwable {
-        WebElement subesorumlusuad = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"contactForm\"]/div[2]/input[1]")));
 
-        subesorumlusuad.clear();
-    }
-
-    @And("^i delete sube sorumlusu tel if it was entered$")
-    public void iDeletesubeSorumlusuTelifitWasEntered() throws Throwable {
+    @And("^i delete managerno$")
+    public void iDeletemanagerno() throws Throwable {
         WebElement subesorumlusutel = (new WebDriverWait(base.driver, 60))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("restaurant-po-number")));
 
@@ -231,6 +225,8 @@ public class Zorunlualankontroluiletisimbilg {
         }
 
     }
+
+
 }
 
 

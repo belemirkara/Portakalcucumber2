@@ -6,41 +6,41 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-public class ContactInformationPage {
+public class ContactInfoControlofmandatoryFieldsPage {
 
 
-    public ContactInformationPage(WebDriver driver) {
+    public ContactInfoControlofmandatoryFieldsPage(WebDriver driver) {
 
         PageFactory.initElements(driver, this);
 
     }
 
 
-    @FindBy(how = How.ID, using = "registerTab0")
-    public WebElement contactinformationtab;
-
     @FindBy(how = How.ID, using = "ownerName")
-    public WebElement fieldownername;
+    public WebElement fieldrestaurantownername2;
 
     @FindBy(how = How.ID, using = "ownerLastName")
-    public WebElement fieldownerLastName;
+    public WebElement fieldrestaurantownersurname2;
 
     @FindBy(how = How.ID, using = "restaurant-owner-phone")
-    public WebElement fieldrestaurantownerphone;
-
-    @FindBy(how = How.ID, using = "managerName")
-    public WebElement fieldmanagerName;
-
-    @FindBy(how = How.ID, using = "managerLastName")
-    public WebElement fieldmanagerLastName;
-
-    @FindBy(how = How.ID, using = "restaurant-po-number")
-    public WebElement fieldrestaurantponumber;
+    public WebElement fieldrestaurantownerno2;
 
     @FindBy(how = How.ID, using = "restaurant-phone")
-    public WebElement fieldrestaurantphone;
+    public WebElement fieldrestaurantno2;
 
     @FindBy(how = How.ID, using = "restaurant-owner-email")
+    public WebElement fieldrestaurantmail2;
+
+    @FindBy(how = How.ID, using = "2")
+    public WebElement failpopup;
+
+    @FindBy(how = How.ID, using = "managerName")
+    public WebElement fieldmanagername2;
+
+    @FindBy(how = How.ID, using = "managerLastName")
+    public WebElement fieldmanagersurname2;
+
+    @FindBy(how = How.ID, using = "restaurant-po-number")
     public WebElement fieldrestaurantowneremail;
 
     @FindBy(how = How.ID, using = "btnSave")
@@ -164,3 +164,6 @@ public class ContactInformationPage {
 }
 
 
+
+
+}

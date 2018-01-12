@@ -186,8 +186,8 @@ public class Selfreg extends BaseUtil {
 
 
 
-    @And("^i see the success pop up$")
-    public void iSeeThesuccessPopUp() throws Throwable {
+    @And("^i see the successselfreg pop up$")
+    public void iSeeThesuccessselfregPopUp() throws Throwable {
 
 
         base.driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
