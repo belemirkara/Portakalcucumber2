@@ -1,64 +1,48 @@
-Feature:Obligatory fields in ticari bilg page
-  This feature deals with ticari bilg page
+Feature:Mandatory fields in commercial Info page
+  This feature deals with commercial Info page
 
 
-  Scenario: Control of the ticari unvan field
+  Scenario: Control of the commercial title
     Given i navigate to login page
-    And i get kullaniciadi and pw from login
-    And i click benihatirla checkbox if i want
-    And i click girisyap button
-    And i see i am in ticari bilgiler page
-    And i delete ticari unvan
-    And i enter the vergi dairesi
-    And i select ticari tur
+    And i get username and pw from login
+    And i click rememberme checkbox
+    And i click login button
+    And i delete commercial title
+    And i enter the tax office
+    And i select commercial type
     And i enter iban
-    And i enter kep adresi
-    And i delete fatura e mail adres and type again
-    When i click kaydet button
-    Then i see the Ticari unvan bos birakilamaz pop up
-    And i confirm Ticari unvan bos birakilamaz pop up message
-    And i click tamam button
-    And i refresh the page
-    And i delete ticari unvan
-    And i enter the vergi dairesi
-    And i select ticari tur
-    And i enter iban
-    And i enter kep adresi
-    And i delete fatura e mail adres and type again
-    When i click kaydetvedevametbutton
-    Then i see the Ticari unvan bos birakilamaz pop up
-    And i confirm Ticari unvan bos birakilamaz pop up message
-    And i click tamam button
-   And i close the page
+    And i enter kep address
+    And i delete invoiceemailaddress and type again
+    When i click savebutton
+    Then i see the dont skip commercial title pop up
+    And i confirm dont skip commercial title pop up message
+    And i click ok button
+    When i click saveandcontinuebutton
+    Then i see the dont skip commercial title pop up
+    And i confirm dont skip commercial title pop up message
+    And i click ok button
+   And close browser
 
-  Scenario: Control of the vergi dairesi field
+  Scenario: Control of the tax office
     Given i navigate to login page
-    And i get kullaniciadi and pw from login
-    And i click benihatirla checkbox if i want
-    And i click girisyap button
-    And i see i am in ticari bilgiler page
-    And i enter the ticari unvan
-    And i delete the vergi dairesi
-    And i select ticari tur
+    And i get username and pw from login
+    And i click rememberme checkbox
+    And i click login button
+    And i enter the commercial title
+    And i delete the tax office
+    And i select commercial type
     And i enter iban
-    And i enter kep adresi
-    And i delete fatura e mail adres and type again
-    When i click kaydet button
-    Then i see the Vergi dairesi bos birakilamaz pop up
-    And i confirm Vergi dairesi bos birakilamaz pop up message
-    And i click tamam button
-    And i refresh the page
-    And i enter the ticari unvan
-    And i delete the vergi dairesi
-    And i select ticari tur
-    And i enter iban
-    And i enter kep adresi
-    And i delete fatura e mail adres and type again
-    When i click kaydetvedevametbutton
-    Then i see the Vergi dairesi bos birakilamaz pop up
-    And i confirm Vergi dairesi bos birakilamaz pop up message
-    And i click tamam button
-    And i close the page
+    And i enter kep address
+    And i delete invoiceemailaddress and type again
+    When i click savebutton
+    Then i see the dont skip tax office pop up
+    And i confirm the dont skip tax office pop up message
+    And i click ok button
+    When i click saveandcontinuebutton
+    Then i see the dont skip tax office pop up
+    And i confirm the dont skip tax office pop up message
+    And i click ok button
+    And close browser
 
   Scenario: Control of the ticari tur combobox
     Given i navigate to login page

@@ -1,13 +1,11 @@
 package Steps;
 
 import Base.BaseUtil;
-import com.sun.xml.internal.rngom.parse.host.Base;
-import cucumber.api.PendingException;
+import Pages.ContactInfoControlofmandatoryFieldsPage;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -16,6 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
+
 
 public class ContactInfoControlofMandatoryfields {
     public BaseUtil base;
@@ -30,87 +29,93 @@ public class ContactInfoControlofMandatoryfields {
     }
 
 
+
     @And("^i delete restaurantownername$")
     public void iDeleterestaurantownername() throws Throwable {
-        WebElement rstrnsahbiad = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("ownerName")));
 
-        rstrnsahbiad.clear();
+        Thread.sleep(3000);
+        ContactInfoControlofmandatoryFieldsPage page=new ContactInfoControlofmandatoryFieldsPage(base.driver);
+        page.ContactInfoMandatory1();
+
     }
 
 
     @Then("^i see the There are unfilled fields bw the mandatory fields txt$")
     public void iSeeTheThereareunfilledfieldsbwthemandatoryfieldsTxt() throws Throwable {
-        try{
 
-            String ab=base.driver.findElement(By.xpath("//*[@id=\"contactForm\"]/div[3]")).getText();
-            Assert.assertEquals("Zorunla alanlar icinde doldurulmamis alanlar mevcut !", ab);
+        Thread.sleep(3000);
+
+        try{
+            ContactInfoControlofmandatoryFieldsPage page=new ContactInfoControlofmandatoryFieldsPage(base.driver);
+            String ab=page.txtcontactmandatory.getText();
+            Assert.assertEquals("Zorunla alanlar içinde doldurulmamış alanlar mevcut !", ab);
 
         } catch(AssertionError ae) {
 
             Assert.fail();
-        }
-
-
-    }
-
-
-
+        } }
 
     @Then("^i see save and saveandcontinue button are unclickable$")
     public boolean iSeeSaveAndSaveandcontinueButtonAreUnclickable() throws Throwable {
 
+        Thread.sleep(3000);
 
-            try{
-                WebDriverWait wait = new WebDriverWait(base.driver, 6);
-                wait.until(ExpectedConditions.elementToBeClickable(base.driver.findElement(By.xpath("//*[@id=\"contactForm\"]/div[4]/div"))));
-                return false;
-            }
-            catch (Exception e){
-                return true;
-            }
+        try{
+            ContactInfoControlofmandatoryFieldsPage page=new ContactInfoControlofmandatoryFieldsPage(base.driver);
+            WebDriverWait wait = new WebDriverWait(base.driver, 6);
+            wait.until(ExpectedConditions.elementToBeClickable(page.BUTTONSave));
+
+            WebDriverWait wait2 = new WebDriverWait(base.driver, 6);
+            wait.until(ExpectedConditions.elementToBeClickable(page.BUTTONSaveandcontinue));
+            return false;
         }
+        catch (Exception e){
+            return true;
+        }
+    }
 
     @And("^i delete restaurantownersurname$")
     public void iDeleterestaurantownersurname() throws Throwable {
-        WebElement rstrnsahbisoyad = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"contactForm\"]/div[1]/input[2]")));
 
-        rstrnsahbisoyad.clear();
+        Thread.sleep(3000);
+        ContactInfoControlofmandatoryFieldsPage page=new ContactInfoControlofmandatoryFieldsPage(base.driver);
+        page.ContactInfoMandatory2();
+
     }
 
 
 
     @And("^i delete restaurantownerno$")
     public void iDeleterestaurantownerno() throws Throwable {
-        WebElement rstrnsahibitel = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("restaurant-owner-phone")));
 
-        rstrnsahibitel.clear();
+        Thread.sleep(3000);
+        ContactInfoControlofmandatoryFieldsPage page=new ContactInfoControlofmandatoryFieldsPage(base.driver);
+        page.ContactInfoMandatory3();
     }
+
 
     @And("^i delete restaurantno$")
     public void iDeleterestaurantno() throws Throwable {
-        WebElement restorantelno = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("restaurant-phone")));
 
-        restorantelno.clear();
+        Thread.sleep(3000);
+        ContactInfoControlofmandatoryFieldsPage page=new ContactInfoControlofmandatoryFieldsPage(base.driver);
+        page.ContactInfoMandatory4();
     }
 
     @And("^i delete email$")
     public void iDeleteEmail() throws Throwable {
-        WebElement email = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("restaurant-owner-email")));
 
-        email.clear();
+        Thread.sleep(3000);
+        ContactInfoControlofmandatoryFieldsPage page=new ContactInfoControlofmandatoryFieldsPage(base.driver);
+        page.ContactInfoMandatory5();
     }
 
     @And("^i see dont skip managersurname pop up$")
     public void iSeedontskipmanagersurnamePopUp() throws Throwable {
         try {
 
-
-            base.driver.findElement(By.id("2")).click();
+            ContactInfoControlofmandatoryFieldsPage page=new ContactInfoControlofmandatoryFieldsPage(base.driver);
+            page.ContactInfoMandatory6();
             Thread.sleep(1000);
 
             Alert alt3 = base.driver.switchTo().alert();
@@ -126,16 +131,17 @@ public class ContactInfoControlofMandatoryfields {
 
     @And("^i confirm dont skip managersurname pop up message$")
     public void iConfirmdontskipmanagersurnamePopUpMessage() throws Throwable {
+
         base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
 
         try{
-            WebElement islembasarisizpopup= (new WebDriverWait(base.driver, 15))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("2")));
+            ContactInfoControlofmandatoryFieldsPage page=new ContactInfoControlofmandatoryFieldsPage(base.driver);
+            WebElement failpopup=page.failpopup;
 
-            String ab = islembasarisizpopup.getText();
+            String ab = failpopup.getText();
 
-            Assert.assertEquals("sube sorumlusu soyadi bos birakilamaz.", ab);
+            Assert.assertEquals("Şube sorumlusu soyadı boş bırakılamaz.", ab);
 
         } catch(AssertionError ae) {
 
@@ -149,8 +155,8 @@ public class ContactInfoControlofMandatoryfields {
     public void iSeedontskipmanagernamePopUp() throws Throwable {
         try {
 
-
-            base.driver.findElement(By.id("2")).click();
+            ContactInfoControlofmandatoryFieldsPage page=new ContactInfoControlofmandatoryFieldsPage(base.driver);
+            page.ContactInfoMandatory6();
             Thread.sleep(1000);
 
             Alert alt3 = base.driver.switchTo().alert();
@@ -170,12 +176,11 @@ public class ContactInfoControlofMandatoryfields {
 
 
         try{
-            WebElement islembasarisizpopup= (new WebDriverWait(base.driver, 15))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("2")));
+            ContactInfoControlofmandatoryFieldsPage page=new ContactInfoControlofmandatoryFieldsPage(base.driver);
+            WebElement failpopup=page.failpopup;
+            String ab = failpopup.getText();
 
-            String ab = islembasarisizpopup.getText();
-
-            Assert.assertEquals("sube sorumlusu adi bos birakilamaz.", ab);
+            Assert.assertEquals("Şube sorumlusu adı boş bırakılamaz.", ab);
 
         } catch(AssertionError ae) {
 
@@ -187,27 +192,27 @@ public class ContactInfoControlofMandatoryfields {
 
     @And("^i delete managername$")
     public void iDeletemanagername() throws Throwable {
-        WebElement subesorumlusuad = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"contactForm\"]/div[2]/input[1]")));
 
-        subesorumlusuad.clear();
+        Thread.sleep(3000);
+        ContactInfoControlofmandatoryFieldsPage page=new ContactInfoControlofmandatoryFieldsPage(base.driver);
+        page.ContactInfoMandatory7();
     }
 
     @And("^i delete managersurname$")
     public void iDeletemanagersurname() throws Throwable {
-        WebElement subesorumlususoyad = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"contactForm\"]/div[2]/input[2]")));
 
-        subesorumlususoyad.clear();
+        Thread.sleep(3000);
+        ContactInfoControlofmandatoryFieldsPage page=new ContactInfoControlofmandatoryFieldsPage(base.driver);
+        page.ContactInfoMandatory8();
     }
 
 
     @And("^i delete managerno$")
     public void iDeletemanagerno() throws Throwable {
-        WebElement subesorumlusutel = (new WebDriverWait(base.driver, 60))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("restaurant-po-number")));
 
-        subesorumlusutel.clear();
+        Thread.sleep(3000);
+        ContactInfoControlofmandatoryFieldsPage page=new ContactInfoControlofmandatoryFieldsPage(base.driver);
+        page.ContactInfoMandatory9();
     }
 
     @Then("^i see i stay in iletisim bilgileri page$")
@@ -228,5 +233,3 @@ public class ContactInfoControlofMandatoryfields {
 
 
 }
-
-

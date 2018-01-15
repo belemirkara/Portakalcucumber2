@@ -119,7 +119,6 @@ Feature:Mandatory fields in contact information page
     And i click ok button
     Then close browser
 
-
   Scenario: Control of the managersurname
     Given i navigate to login page
     And i get username and pw from login
@@ -154,7 +153,7 @@ Feature:Mandatory fields in contact information page
     And i click the Contact Information in progress bar
     And i delete restaurantownername and type again
     And i delete restaurantownersurname and type again
-    And i delete restaurantno and type again
+    And i delete restaurantownerno and type again
     And i enter managername if i want
     And i enter managersurname if i want
     And i delete managerno
@@ -170,7 +169,7 @@ Feature:Mandatory fields in contact information page
     And i click ok button
     Then close browser
 
-  Scenario: Control of the managerno
+  Scenario: Control of the managername and managersurname
     Given i navigate to login page
     And i get username and pw from login
     And i click rememberme checkbox

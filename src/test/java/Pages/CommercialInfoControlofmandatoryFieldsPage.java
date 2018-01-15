@@ -6,10 +6,10 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-public class ContactInfoControlofmandatoryFieldsPage {
+public class CommercialInfoControlofmandatoryFieldsPage {
 
 
-    public ContactInfoControlofmandatoryFieldsPage(WebDriver driver) {
+    public CommercialInfoControlofmandatoryFieldsPage(WebDriver driver) {
 
         PageFactory.initElements(driver, this);
 
@@ -97,5 +97,7 @@ public class ContactInfoControlofmandatoryFieldsPage {
 
         fieldmanagerno2.clear();
     }
+
+}
 
 }

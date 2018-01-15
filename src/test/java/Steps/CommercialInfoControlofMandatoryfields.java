@@ -17,7 +17,7 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-public class zrunlualankontroluticaribilg {
+public class CommercialInfoControlofMandatoryfields {
 
 
     public BaseUtil base;
@@ -25,7 +25,7 @@ public class zrunlualankontroluticaribilg {
     String randomUUIDString = uuid.toString();
     Random r = new Random();
 
-    public zrunlualankontroluticaribilg(BaseUtil base) {
+    public CommercialInfoControlofMandatoryfields(BaseUtil base) {
 
 
         this.base = base;
@@ -33,8 +33,8 @@ public class zrunlualankontroluticaribilg {
 
 
 
-    @Then("^i see the Ticari unvan bos birakilamaz pop up$")
-    public void iSeeTheTicariUnvanBosBirakilamazPopUp() throws Throwable {
+    @Then("^i see the dont skip commercial title pop up$")
+    public void iSeeThedontskipcommercialtitlePopUp() throws Throwable {
 
         try {
 
@@ -54,8 +54,8 @@ public class zrunlualankontroluticaribilg {
 
 
 
-    @And("^i confirm Ticari unvan bos birakilamaz pop up message$")
-    public void iConfirmTicariUnvanBosBirakilamazPopUpMessage() throws Throwable {
+    @And("^i confirm dont skip commercial title pop up message$")
+    public void iConfirmdontskipcommercialtitlePopUpMessage() throws Throwable {
 
 
 
@@ -66,7 +66,7 @@ public class zrunlualankontroluticaribilg {
 
             String ab = tcariunvan.getText();
 
-            Assert.assertEquals("Ticari unvan bos birakilamaz.", ab);
+            Assert.assertEquals("Ticari ünvan boş bırakılamaz.", ab);
 
 
         } catch (AssertionError ae) {
@@ -78,8 +78,8 @@ public class zrunlualankontroluticaribilg {
 
 
 
-    @And("^i delete ticari unvan$")
-    public void iDeleteTicariUnvan() throws Throwable {
+    @And("^i delete commercial title$")
+    public void iDeletecommercialtitle() throws Throwable {
 
 
         WebElement ticariunvn = (new WebDriverWait(base.driver, 30))
@@ -87,24 +87,8 @@ public class zrunlualankontroluticaribilg {
         ticariunvn.clear();
     }
 
-
-
-
-    @And("^i refresh the page$")
-    public void iRefreshThePage() throws Throwable {
-
-
-        base.driver.navigate().refresh();
-
-        Thread.sleep(3000);
-
-
-    }
-
-
-
-    @And("^i delete the vergi dairesi$")
-    public void iDeleteTheVergiDairesi() throws Throwable {
+    @And("^i delete the tax office$")
+    public void iDeletethetaxoffice() throws Throwable {
 
      
         WebElement vergidairesi = (new WebDriverWait(base.driver, 30))
@@ -113,8 +97,8 @@ public class zrunlualankontroluticaribilg {
     }
 
 
-    @Then("^i see the Vergi dairesi bos birakilamaz pop up$")
-    public void iSeeTheVergiDairesiBosBirakilamazPopUp() throws Throwable {
+    @Then("^i see the dont skip tax office pop up$")
+    public void iSeethedontskiptaxoffice() throws Throwable {
         try {
 
 
