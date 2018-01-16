@@ -2,18 +2,11 @@ package Steps;
 
 import Base.BaseUtil;
 import Pages.CommercialInformationPage;
-import Pages.ContactInformationPage;
-import com.google.common.base.Function;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Random;
 import java.util.UUID;

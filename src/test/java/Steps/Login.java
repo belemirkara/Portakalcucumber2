@@ -4,20 +4,11 @@ import Base.BaseUtil;
 import Model.UserModel;
 import Pages.LoginPage;
 import Repository.Repo;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 import org.junit.Assert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.*;
-import java.util.ArrayList;
 import java.util.Random;
 import java.util.UUID;
 

@@ -79,7 +79,7 @@ public class CommercialInformationPage {
 
     public void Commercial5(String sfieldtaxnumber) {
         fieldtaxnumber.click();
-        fieldmersisno.sendKeys(sfieldtaxnumber);
+        fieldtaxnumber.sendKeys(sfieldtaxnumber);
 
     }
 

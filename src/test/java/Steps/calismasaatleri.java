@@ -1,10 +1,6 @@
 package Steps;
 
 import Base.BaseUtil;
-import Model.UserModel;
-import Pages.LoginPage;
-import Repository.Repo;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -15,18 +11,11 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import sun.rmi.runtime.Log;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
-
-import static Steps.Login.user1;
 
 public class calismasaatleri extends BaseUtil {
 

@@ -52,7 +52,7 @@ public class Hook extends BaseUtil {
     }
 
 
-       @After
+       @AfterClass
         public void closetest() {
 
         base.driver.quit();

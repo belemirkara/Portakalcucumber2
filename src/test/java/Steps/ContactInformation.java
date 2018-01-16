@@ -3,27 +3,20 @@ package Steps;
 import Base.BaseUtil;
 import Model.UserModel;
 import Pages.ContactInformationPage;
-import Pages.LoginPage;
 import Repository.Repo;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Random;
 import java.util.UUID;
 
 import java.util.concurrent.TimeUnit;
-
-import static Steps.Login.user1;
 
 public class ContactInformation extends BaseUtil {
 
@@ -151,23 +144,6 @@ public class ContactInformation extends BaseUtil {
     }
 
 
-    @And("^i see the success pop up$")
-    public void iSeethesuccessPopUp() throws Throwable {
-        try {
-
-            Thread.sleep(1000);
-
-            Alert alt3 = base.driver.switchTo().alert();
-            alt3.accept();
-
-
-        } catch (NoAlertPresentException noe) {
-
-            base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
-        }
-
-    }
-
 
     @And("^i confirm contact informations are saved successfully pop up message$")
     public void iConfirmcontactinformationsaresavedsuccessfullyPopUpMessage() throws Throwable {
@@ -178,9 +154,9 @@ public class ContactInformation extends BaseUtil {
 
         try{
             ContactInformationPage page=new ContactInformationPage(base.driver);
-            WebElement islembasarilipopup=page.contactinformationsuccesspopup;
+            WebElement successpopup=page.contactinformationsuccesspopup;
 
-            String ab = islembasarilipopup.getText();
+            String ab = successpopup.getText();
 
             Assert.assertEquals("İletişim bilgileriniz başarıyla kaydedildi.", ab);
             Thread.sleep(3000);

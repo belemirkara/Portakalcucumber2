@@ -1,20 +1,14 @@
 package Steps;
 
 import Base.BaseUtil;
-import Pages.LoginPage;
 import Pages.SelfregPage;
-import com.google.common.base.Function;
-import com.sun.xml.internal.rngom.parse.host.Base;
-import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
-import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
 
-import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
@@ -186,8 +180,8 @@ public class Selfreg extends BaseUtil {
 
 
 
-    @And("^i see the successselfreg pop up$")
-    public void iSeeThesuccessselfregPopUp() throws Throwable {
+    @And("^i see the success pop up$")
+    public void iSeethesuccessPopUp() throws Throwable {
 
 
         base.driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
