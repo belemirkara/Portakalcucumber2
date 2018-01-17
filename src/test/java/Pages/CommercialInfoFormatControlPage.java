@@ -99,4 +99,10 @@ public class CommercialInfoFormatControlPage {
         fieldinvoiceemail3.sendKeys(sfieldinvoiceemail3);
 
     }
+
+    public void CommercialInfoFormatControl8() {
+
+        popupemailerror.click();
+
+        }
 }

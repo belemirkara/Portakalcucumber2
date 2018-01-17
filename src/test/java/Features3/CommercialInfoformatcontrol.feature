@@ -1,6 +1,6 @@
 
-Feature:Format control in ticari bilg page
-  This feature deals with ticari bilg page
+Feature:Format control in commercial info page
+  This feature deals with commercial info page
 
 
   Scenario:Format control of tckn1
@@ -234,11 +234,11 @@ Feature:Format control in ticari bilg page
     And i enter kep address
     And i delete invoicemail and type wrong format
     When i click savebutton
-    Then i see the commercial fail pop up
+    Then i see the commercial failemail pop up
     And i confirm the please enter valid mail pop up message
     And i click ok button
     When i click saveandcontinuebutton
-    Then i see the commercial fail pop up
+    Then i see the commercial failemail pop up
     And i confirm the please enter valid mail pop up message
     And i click ok button
-    And close browser
+

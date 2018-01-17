@@ -48,8 +48,8 @@ public class Selfreg extends BaseUtil {
                 public Boolean apply(WebDriver driver) {
 
 
-                    String[] sehir = {"ADANA", "ADIYAMAN", "AFYONKARAHİSAR", "AKSARAY", "AMASYA", "ANKARA", "ANTALYA", "AYDIN", "BALiKESİR", "BATMAN", "BİLECİK",
-                            "BOLU", "BURSA", "ÇANAKKALE", "ÇORUM", "DENİZLİ", "DİYARBAKiR", "DÜZCE", "EDİRNE", "ELAZiĞ", "ERZİNCAN", "ERZURUM", "ESKİŞEHİR",
+                    String[] sehir = {"ADIYAMAN", "AFYONKARAHİSAR", "AKSARAY", "AMASYA", "ANKARA", "ANTALYA", "AYDIN", "BALiKESİR", "BATMAN", "BİLECİK",
+                            "BOLU", "BURSA", "ÇORUM", "DENİZLİ", "DİYARBAKiR", "EDİRNE", "ELAZiĞ", "ERZİNCAN", "ERZURUM", "ESKİŞEHİR",
                             "GAZİANTEP", "GİRESUN", "HATAY", "ISPARTA", "İSTANBUL", "İZMİR", "KAHRAMANMARAŞ", "KARABÜK", "KASTAMONU", "KAYSERİ", "KIBRIS", "KiRKLARELİ", "KiRŞEHİR",
                             "KOCAELİ", "KONYA", "KÜTAHYA", "MALATYA", "MANİSA", "MARDİN", "MERSİN", "MUĞLA", "NEVŞEHİR", "NİĞDE", "ORDU", "OSMANİYE", "RİZE", "SAKARYA", "SAMSUN", "ŞANLIURFA",
                             "SİNOP", "SİVAS", "TEKİRDAĞ", "TOKAT", "TRABZON", "UŞAK", "VAN", "YALOVA", "YOZGAT", "ZONGULDAK"};
@@ -180,13 +180,19 @@ public class Selfreg extends BaseUtil {
 
 
 
-    @And("^i see the success pop up$")
-    public void iSeethesuccessPopUp() throws Throwable {
+    @And("^i see the selfsuccess pop up$")
+    public void iSeetheselfsuccessPopUp() throws Throwable {
 
 
         base.driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
 
         try {
+
+            Thread.sleep(1000);
+
+            SelfregPage page = new SelfregPage(base.driver);
+            page.Click3();
+
             Alert alt2 = base.driver.switchTo().alert();
             alt2.accept();
 
@@ -197,8 +203,8 @@ public class Selfreg extends BaseUtil {
 
     }
 
-    @Then("^i confirm the pop up message$")
-    public void iConfirmThePopUpMessage() throws Throwable {
+    @Then("^i confirm the selfsuccesspop up message$")
+    public void iConfirmTheselfsuccessPopUpMessage() throws Throwable {
 
 
         base.driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);

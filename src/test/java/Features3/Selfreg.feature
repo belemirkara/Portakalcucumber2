@@ -16,7 +16,8 @@ Feature:RegisterFeature
     And i enter e-mail1 with correct format
     And i enter e-mail2 with correct format
     And i click register button
-    And i see the success pop up
-    Then i confirm the pop up message
+    And i see the selfsuccess pop up
+    Then i confirm the selfsuccesspop up message
     Then i click ok button
+
 

@@ -28,11 +28,11 @@ Feature:Mandatory of fields in serving page
     And i choose kitchen and fill the questions
     When i dont do anything in payment methods
     When i click savebutton
-    Then i see the success pop up
+    Then i see the serving success pop up
     And i confirm Serving informations are saved pop up message
     And i click ok button
     When i click saveandcontinuebutton
-    Then i see the success pop up
+    Then i see the serving success pop up
     And i confirm Serving informations are saved pop up message
     And i click ok button
     And close browser
@@ -47,11 +47,11 @@ Feature:Mandatory of fields in serving page
     And i choose kitchen and fill the questions
     When i check payment methods
     When i click savebutton
-    Then i see the success pop up
+    Then i see the serving success pop up
     And i confirm Serving informations are saved pop up message
     And i click ok button
     When i click saveandcontinuebutton
-    Then i see the success pop up
+    Then i see the serving success pop up
     And i confirm Serving informations are saved pop up message
     And i click ok button
     And close browser

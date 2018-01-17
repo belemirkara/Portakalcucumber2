@@ -53,7 +53,7 @@ public class Serving extends BaseUtil {
         ServingPage page=new ServingPage(base.driver);
 
         String[] kitchen = {"Börek", "Cafe", "Çiğ Köfte", "Çin Mutfağı", "Damacana Su", "Deniz Mahsulleri", "Döner", "Dünya Mutfağı",
-                "Ev Yemekleri", "Fastfood & Sandwich", "Japon Mutfağı", "Kebap & Türk Mutfağı", "Kokoreç", "Köfte", "Kumpir", "Pasta & Tatlı", "Pide", "Pizza & İtalyan", "Tavuk"};
+                "Ev Yemekleri", "Fastfood & Sandwich", "Japon Mutfağı", "Kokoreç", "Köfte", "Kumpir", "Pasta & Tatlı", "Pide", "Pizza & İtalyan", "Tavuk"};
 
         WebElement Selection_kitchen =page.kitchenselection;
 
@@ -161,20 +161,6 @@ public class Serving extends BaseUtil {
             page.Serving2(randomUUiDString);
 
             page.Serving3(randomUUiDString);
-        }
-
-        if (kitchen[rkitchen].equals("Kebap & Türk Mutfağı")) {
-            Thread.sleep(3000);
-
-
-            List<WebElement> options =page.checkboxdm;
-
-            int index = r.nextInt(options.size());
-            options.get(index).click();
-
-            page.Serving5(randomUUiDString);
-            page.Serving7(randomUUiDString);
-
         }
 
         if (kitchen[rkitchen].equals("Kokoreç")) {
@@ -289,5 +275,25 @@ public class Serving extends BaseUtil {
         option9.click();
     }
 
+    @Then("^i see the serving success pop up$")
+    public void iSeeTheServingSuccessPopUp() throws Throwable {
+        try {
+
+            ServingPage page=new ServingPage(base.driver);
+            page.Serving10();
+            Thread.sleep(1000);
+
+            Alert alt3 = base.driver.switchTo().alert();
+            alt3.accept();
+
+
+        } catch (NoAlertPresentException noe) {
+
+            base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+        }
+
+    }
+
 }
+
 

@@ -19,12 +19,12 @@ Feature:Contact Information
     And i delete restaurantno and type again
     And i delete email and type again
     When i click savebutton
-    And i see the success pop up
+    And i see the contactsuccess pop up
     And i confirm contact informations are saved successfully pop up message
     And i click ok button
     Then i stay in same page
     When i click saveandcontinuebutton
-    And i see the success pop up
+    And i see the contactsuccess pop up
     And i confirm contact informations are saved successfully pop up message
     And i click ok button
 

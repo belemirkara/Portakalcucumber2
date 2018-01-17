@@ -15,10 +15,10 @@ public class SelfRegPageControlofMandatoryFields {
     }
 
 
-    @FindBy(how = How.XPATH, using = "html/body/div[1]/div/div[1]/div/div[3]/input[1]")
+    @FindBy(how = How.ID, using = "managerName")
     public WebElement fieldmanagername;
 
-    @FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div[1]/div/div[3]/input[2]")
+    @FindBy(how = How.ID, using = "managerSurname")
     public WebElement fieldmanagersurname;
 
     @FindBy(how = How.ID, using = "restaurant-po-number")

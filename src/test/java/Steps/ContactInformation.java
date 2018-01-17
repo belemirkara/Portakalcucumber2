@@ -3,7 +3,9 @@ package Steps;
 import Base.BaseUtil;
 import Model.UserModel;
 import Pages.ContactInformationPage;
+import Pages.SelfregPage;
 import Repository.Repo;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -215,5 +217,26 @@ UserModel user = repo.GetUser();
 
         Thread.sleep(3000);
     }
-}
+
+    @And("^i see the contactsuccess pop up$")
+    public void iSeeTheContactsuccessPopUp() throws Throwable {
+        base.driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
+
+        try {
+
+            Thread.sleep(1000);
+
+            ContactInformationPage page=new ContactInformationPage(base.driver);
+            page.Contact18();
+
+            Alert alt2 = base.driver.switchTo().alert();
+            alt2.accept();
+
+        } catch (NoAlertPresentException noe) {
+
+        }
+
+
+    }
+    }
 

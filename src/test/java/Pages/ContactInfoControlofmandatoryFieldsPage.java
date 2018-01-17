@@ -97,5 +97,8 @@ public class ContactInfoControlofmandatoryFieldsPage {
 
         fieldmanagerno2.clear();
     }
+    public void ContactInfoMandatory10() {
 
+        failpopup.click();
+    }
 }

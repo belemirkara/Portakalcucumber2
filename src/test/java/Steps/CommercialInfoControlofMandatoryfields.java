@@ -14,7 +14,7 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-public class CommercialInfoControlofMandatoryfields {
+public class CommercialInfoControlofMandatoryfields extends BaseUtil{
 
 
     public BaseUtil base;
@@ -35,7 +35,7 @@ public class CommercialInfoControlofMandatoryfields {
 
         try {
 
-            Thread.sleep(1000);
+            Thread.sleep(3000);
 
             CommercialInfoControlofmandatoryFieldsPage page=new CommercialInfoControlofmandatoryFieldsPage(base.driver);
            page.CommercialInfoControlofmandatory1();

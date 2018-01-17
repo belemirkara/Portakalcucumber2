@@ -110,11 +110,11 @@ Feature:Mandatory fields in contact information page
     And i delete restaurantno and type again
     And i delete email and type again
     And i click savebutton
-    And i see dont skip managername pop up
+    And i see contactfail pop up
     And i confirm dont skip managername pop up message
     And i click ok button
     And i click saveandcontinuebutton
-    And i see dont skip managername pop up
+    And i see contactfail pop up
     And i confirm dont skip managername pop up message
     And i click ok button
     Then close browser
@@ -134,11 +134,11 @@ Feature:Mandatory fields in contact information page
     And i delete restaurantno and type again
     And i delete email and type again
     And i click savebutton
-    And i see dont skip managersurname pop up
+    And i see contactfail pop up
     And i confirm dont skip managersurname pop up message
     And i click ok button
     And i click saveandcontinuebutton
-    And i see dont skip managersurname pop up
+    And i see contactfail pop up
     And i confirm dont skip managersurname pop up message
     And i click ok button
     Then close browser
@@ -160,11 +160,11 @@ Feature:Mandatory fields in contact information page
     And i delete restaurantno and type again
     And i delete email and type again
     And i click savebutton
-    And i see the success pop up
+    And i see the contactsuccess pop up
     And i confirm contact informations are saved successfully pop up message
     And i click ok button
     And i click saveandcontinuebutton
-    And i see the success pop up
+    And i see the contactsuccess pop up
     And i confirm contact informations are saved successfully pop up message
     And i click ok button
     Then close browser
@@ -182,11 +182,11 @@ Feature:Mandatory fields in contact information page
     And i delete restaurantno and type again
     And i delete email and type again
     And i click savebutton
-    And i see the success pop up
+    And i see the contactsuccess pop up
     And i confirm contact informations are saved successfully pop up message
     And i click ok button
     And i click saveandcontinuebutton
-    And i see the success pop up
+    And i see the contactsuccess pop up
     And i confirm contact informations are saved successfully pop up message
     And i click ok button
     Then close browser

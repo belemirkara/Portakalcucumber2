@@ -23,12 +23,13 @@ public class SelfRegControlofMandatoryfields {
 
         this.base = base;
     }
-    @And("^i see pop up$")
-    public void iSeePopup() throws Throwable {
+
+    @And("^i see the selfreg fail pop up$")
+    public void theselfregfailpopup() throws Throwable {
 
         try {
 
-            base.driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[6]"));
+            base.driver.findElement(By.xpath("/html/body/div[2]/div[2]")).click();
             Thread.sleep(1000);
 
             Alert alt3 = base.driver.switchTo().alert();
@@ -346,8 +347,8 @@ public class SelfRegControlofMandatoryfields {
 
             SelfRegPageControlofMandatoryFields page=new SelfRegPageControlofMandatoryFields(base.driver);
 
-            WebElement email2=page.failpopup;
-            String ab = email2.getText();
+            WebElement managername=page.failpopup;
+            String ab = managername.getText();
 
 
             Assert.assertEquals("Şube sorumlusu adı boş bırakılamaz.", ab);

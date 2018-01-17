@@ -2,6 +2,7 @@ package Steps;
 
 import Base.BaseUtil;
 import Pages.ContactInfoControlofmandatoryFieldsPage;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
@@ -232,4 +233,24 @@ public class ContactInfoControlofMandatoryfields {
     }
 
 
-}
+    @And("^i see contactfail pop up$")
+    public void iSeeContactfailPopUp() throws Throwable {
+        base.driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
+
+        try {
+
+        Thread.sleep(3000);
+        ContactInfoControlofmandatoryFieldsPage page=new ContactInfoControlofmandatoryFieldsPage(base.driver);
+        page.ContactInfoMandatory10();
+
+            Alert alt2 = base.driver.switchTo().alert();
+            alt2.accept();
+
+        } catch (NoAlertPresentException noe) {
+
+        }
+
+
+    }
+    }
+

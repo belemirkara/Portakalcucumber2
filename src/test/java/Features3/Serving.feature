@@ -11,10 +11,10 @@ Feature:Happy path of fields in serving page
     And i choose kitchen and fill the questions
     And i check payment methods
     When i click savebutton
-    Then i see the success pop up
+    Then i see the serving success pop up
     And i confirm Serving informations are saved pop up message
     When i click saveandcontinuebutton
-   Then i see the success pop up
+   Then i see the serving success pop up
    And i confirm Serving informations are saved pop up message
     And close browser
 

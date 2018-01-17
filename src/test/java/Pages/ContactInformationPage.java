@@ -160,6 +160,11 @@ public class ContactInformationPage {
 
     }
 
+    public void Contact18(){
+
+        contactinformationsuccesspopup.click();
+
+    }
 
 }
 

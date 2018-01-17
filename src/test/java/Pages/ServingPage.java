@@ -125,4 +125,10 @@ public class ServingPage {
         fieldquestion8.sendKeys(sfieldquestion8);
 
     }
+
+    public void Serving10() {
+
+        fieldsuccessconfirmation.click();
+
+    }
 }

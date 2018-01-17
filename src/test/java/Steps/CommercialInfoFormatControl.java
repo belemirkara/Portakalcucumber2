@@ -1,9 +1,14 @@
 package Steps;
 
 import Base.BaseUtil;
+import Pages.CommercialInfoControlofmandatoryFieldsPage;
 import Pages.CommercialInfoFormatControlPage;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -395,34 +400,31 @@ public class CommercialInfoFormatControl extends BaseUtil {
 
             Assert.fail();
 
+        } }
+
+
+    @Then("^i see the commercial failemail pop up$")
+    public void iSeeTheCommercialFailemailPopUp() throws Throwable {
+        try {
+
+            Thread.sleep(3000);
+
+            CommercialInfoFormatControlPage page = new CommercialInfoFormatControlPage(base.driver);
+            page.CommercialInfoFormatControl8();
+
+            Alert alt3 = base.driver.switchTo().alert();
+            alt3.accept();
+
+        } catch (NoAlertPresentException noe) {
+            base.driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
+
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
+
 }
+
+
 
 
 

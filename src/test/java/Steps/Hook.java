@@ -52,7 +52,7 @@ public class Hook extends BaseUtil {
     }
 
 
-       @AfterClass
+       @cucumber.api.java.After
         public void closetest() {
 
         base.driver.quit();

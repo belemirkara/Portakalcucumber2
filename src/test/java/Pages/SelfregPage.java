@@ -29,10 +29,10 @@ public class SelfregPage  {
     @FindBy(how=How.ID,using="restaurant-address")
     public WebElement fieldrestaurantaddress;
 
-    @FindBy(how=How.XPATH,using="/html/body/div[1]/div/div[1]/div/div[2]/input[1]")
+    @FindBy(how=How.ID,using="restaurantOwnerName")
     public WebElement fieldrestaurantownername;
 
-    @FindBy(how=How.XPATH,using="/html/body/div[1]/div/div[1]/div/div[2]/input[2]")
+    @FindBy(how=How.ID,using="restaurantOwnerSurname")
     public WebElement fieldrestaurantownersurname;
 
     @FindBy(how=How.ID,using="restaurant-owner-phone")
@@ -41,16 +41,16 @@ public class SelfregPage  {
     @FindBy(how=How.ID,using="restaurant-owner-email")
     public WebElement fieldrestaurantno;
 
-    @FindBy(how=How.XPATH,using="/html/body/div[1]/div/div[1]/div/div[6]/input[1]")
+    @FindBy(how=How.ID,using="emailPartition1")
     public WebElement fieldfirstemail;
 
-    @FindBy(how=How.XPATH,using="/html/body/div[1]/div/div[1]/div/div[6]/input[2]")
+    @FindBy(how=How.ID,using="emailPartition2")
     public WebElement fieldlastemail;
 
     @FindBy(how=How.ID,using="register-my-restaurant")
     public WebElement buttonregister;
 
-    @FindBy(how=How.XPATH,using="/html/body/div[2]/div[1]/div[1]/div/div[1]/div[2]/a")
+    @FindBy(how=How.ID,using="registerYemeksepeti")
     public WebElement buttonsignup;
 
     @FindBy(how=How.ID,using="restaurantRegisterSuccessMessage")
@@ -112,5 +112,10 @@ public class SelfregPage  {
         buttonsignup.click();
     }
 
+    public void Click3(){
+        successpopupregister.click();
+    }
+
 
 }
+
