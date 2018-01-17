@@ -1,6 +1,7 @@
 package Steps;
 
 import Base.BaseUtil;
+import Pages.WorkingHoursControlofMandatoryFieldsPage;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import org.junit.Assert;
@@ -15,7 +16,7 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-public class ZorunluAlanKontroluCalismaSaatleri  extends BaseUtil {
+public class WorkingHoursControlofMandatoryFields extends BaseUtil {
 
 
     public BaseUtil base;
@@ -23,7 +24,7 @@ public class ZorunluAlanKontroluCalismaSaatleri  extends BaseUtil {
     UUID uuid = UUID.randomUUID();
     String randomUUiDString = uuid.toString();
 
-    public ZorunluAlanKontroluCalismaSaatleri(BaseUtil base) {
+    public WorkingHoursControlofMandatoryFields(BaseUtil base) {
 
         this.base = base;
     }
@@ -31,11 +32,12 @@ public class ZorunluAlanKontroluCalismaSaatleri  extends BaseUtil {
 
 
 
-    @And("^i see Tabloyu kayit edebilmeniz icin en az bir adet calisma saati olusturmaniz gerekmektedir pop up$")
-    public void iSeeTabloyuKayitEdebilmenizicinEnAzBirAdetcalismaSaatiOlusturmanizGerekmektedirPopUp() throws Throwable {
+    @And("^i see working hours fail pop up$")
+    public void iSeeworkinghoursfailPopUp() throws Throwable {
         try {
 
-            base.driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[6]"));
+            WorkingHoursControlofMandatoryFieldsPage page=new WorkingHoursControlofMandatoryFieldsPage(base.driver);
+            page.WorkingHoursControlofMandatoryFields();
             Thread.sleep(1000);
 
             Alert alt3 = base.driver.switchTo().alert();
@@ -51,17 +53,17 @@ public class ZorunluAlanKontroluCalismaSaatleri  extends BaseUtil {
     }
 
 
-    @And("^i confirm Tabloyu kayit edebilmeniz icin en az bir adet calisma saati olusturmaniz gerekmektedir pop up message$")
-    public void iConfirmTabloyuKayitEdebilmenizicinEnAzBirAdetcalismaSaatiOlusturmanizGerekmektedirPopUpMessage() throws Throwable {
+    @And("^i confirm you need to add at least a working hour for saving table pop up message$")
+    public void iConfirmyouneedtoaddatleastaworkinghourforsavingtablePopUpMessage() throws Throwable {
         Thread.sleep(3000);
 
         try {
-            WebElement cs = (new WebDriverWait(base.driver, 15))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[2]/div[2]/div[6]")));
 
+            WorkingHoursControlofMandatoryFieldsPage page=new WorkingHoursControlofMandatoryFieldsPage(base.driver);
+            WebElement cs =page.workinghoursfailpopup;
             String ab = cs.getText();
 
-            Assert.assertEquals("Tabloyu kayit edebilmeniz icin en az bir adet calisma saati olusturmaniz gerekmektedir.", ab);
+            Assert.assertEquals("Tabloyu kayıt edebilmeniz için en az bir adet çalışma saati oluşturmanız gerekmektedir.", ab);
 
         } catch (AssertionError ae) {
 

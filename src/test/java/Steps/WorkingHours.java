@@ -1,6 +1,8 @@
 package Steps;
 
 import Base.BaseUtil;
+import Pages.WorkingHoursPage;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -17,7 +19,7 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-public class calismasaatleri extends BaseUtil {
+public class WorkingHours extends BaseUtil {
 
 
     public BaseUtil base;
@@ -25,58 +27,65 @@ public class calismasaatleri extends BaseUtil {
     UUID uuid = UUID.randomUUID();
     String randomUUiDString = uuid.toString();
 
-    public calismasaatleri(BaseUtil base) {
+    public WorkingHours(BaseUtil base) {
 
         this.base = base;
     }
 
-    @And("^i see i am in calisma saatleri page$")
-    public void iSeeiAminÇalismaSaatleriPage() throws Throwable {
-        WebElement calismasaatleri = (new WebDriverWait(base.driver, 90))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("registerTab3")));
-        calismasaatleri.click();
-        base.driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
+    @And("^i click working hours tab$")
+    public void iclickworkinghourstab() throws Throwable {
+
+        Thread.sleep(3000);
+        WorkingHoursPage page=new WorkingHoursPage(base.driver);
+        page.WorkingHours();
         Thread.sleep(3000);
     }
 
     @When("^i click from left to right$")
     public void iClickFromLeftToRight() throws Throwable {
 
-        WebElement element = base.driver.findElement(By.id("1_6"));
+        Thread.sleep(3000);
+        WorkingHoursPage page=new WorkingHoursPage(base.driver);
 
-        WebElement target = base.driver.findElement(By.id("0_6"));
+        WebElement element = page.lr;
+
+        WebElement target = page.lr2;
 
         (new Actions(base.driver)).dragAndDrop(element, target).perform();
-         Thread.sleep(3000);
+
+        Thread.sleep(3000);
     }
 
     @Then("^i confirm the coming hours$")
     public void iConfirmTheComingHours() throws Throwable {
-        WebElement pzt = base.driver.findElement(By.id("1_6"));
 
-        WebElement sali = base.driver.findElement(By.id("2_6"));
+        WorkingHoursPage page=new WorkingHoursPage(base.driver);
 
-        WebElement crsmba = base.driver.findElement(By.id("3_6"));
+        WebElement monday =page.lr;
 
-        WebElement pers = base.driver.findElement(By.id("4_6"));
+        WebElement tuesday = page.lr3;
 
-        WebElement cuma = base.driver.findElement(By.id("5_6"));
+        WebElement wednesday =page.lr4;
 
-        WebElement cmrtesi = base.driver.findElement(By.id("6_6"));
+        WebElement thursday = page.lr5;
 
-        WebElement pazar = base.driver.findElement(By.id("0_6"));
+        WebElement friday = page.lr6;
+
+        WebElement saturday =page.lr7;
+
+        WebElement sunday = page.lr2;
 
 
 
         try {
 
-            String ab = pzt.getText();
-            String ab1 = sali.getText();
-            String ab2 = crsmba.getText();
-            String ab3 = pers.getText();
-            String ab4 = cuma.getText();
-            String ab5 = cmrtesi.getText();
-            String ab6 = pazar.getText();
+            String ab = monday.getText();
+            String ab1 = tuesday.getText();
+            String ab2 = wednesday.getText();
+            String ab3 = thursday.getText();
+            String ab4 = friday.getText();
+            String ab5 = saturday.getText();
+            String ab6 = sunday.getText();
 
             Assert.assertTrue(ab.contains("06:00\n"));
             Assert.assertTrue(ab.contains("06:45"));
@@ -119,9 +128,10 @@ public class calismasaatleri extends BaseUtil {
 
 
         Thread.sleep(3000);
+        WorkingHoursPage page=new WorkingHoursPage(base.driver);
 
         WebElement myElement = (new WebDriverWait(base.driver, 30))
-                .until(ExpectedConditions.elementToBeClickable(By.cssSelector("#\\31 _9")));
+                .until(ExpectedConditions.elementToBeClickable(page.ud));
         myElement.click();
         Actions move = new Actions(base.driver);
         move.moveToElement(myElement).clickAndHold();
@@ -135,8 +145,10 @@ public class calismasaatleri extends BaseUtil {
     @Then("^i confirm the coming hourss$")
     public void iConfirmTheComingHourss() throws Throwable {
 
-        WebElement sali = base.driver.findElement(By.id("2_9"));
-        String ab2 = sali.getText();
+        Thread.sleep(3000);
+        WorkingHoursPage page=new WorkingHoursPage(base.driver);
+        WebElement tuesday =page.ud1;
+        String ab2 = tuesday.getText();
 
         try {
 
@@ -148,11 +160,13 @@ public class calismasaatleri extends BaseUtil {
         }
     }
 
-    @Then("^i see Çalisma saatleri basariyla kayit edildi pop up$")
-    public void iSeeÇalismaSaatleriBasariylaKayitEdildiPopUp() throws Throwable {
+    @Then("^i see working hours success pop up$")
+    public void iSeeworkinghourssuccessPopUp() throws Throwable {
         try {
 
-        base.driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[6]"));
+            Thread.sleep(3000);
+            WorkingHoursPage page=new WorkingHoursPage(base.driver);
+            page.WorkingHours1();
         Thread.sleep(1000);
 
         Alert alt3 = base.driver.switchTo().alert();
@@ -167,14 +181,15 @@ public class calismasaatleri extends BaseUtil {
 
 }
 
-    @And("^i confirm Çalisma saatleri basariyla kayit edildi pop up message$")
-    public void iConfirmÇalismaSaatleriBasariylaKayitEdildiPopUpMessage() throws Throwable {
+    @And("^i confirm working hours are saved successfully pop up message$")
+    public void iConfirmworkinghoursaresavedsuccessfullyPopUpMessage() throws Throwable {
 
         Thread.sleep(3000);
 
         try {
-            WebElement cs = (new WebDriverWait(base.driver, 15))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[2]/div[2]/div[6]")));
+
+            WorkingHoursPage page=new WorkingHoursPage(base.driver);
+            WebElement cs = page.whsuccesspopup;
 
             String ab = cs.getText();
 
@@ -187,12 +202,11 @@ public class calismasaatleri extends BaseUtil {
         }
     }
 
-    @And("^i get full screen$")
-    public void iGetFullScreen() throws Throwable {
-        base.driver.manage().window().maximize();
-        Thread.sleep(3000);
-    }
 
+    @And("^i refresh the page$")
+    public void iRefreshThePage() throws Throwable {
+        base.driver.navigate().refresh();
+    }
 
 }
 
