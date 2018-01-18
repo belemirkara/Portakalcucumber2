@@ -21,16 +21,16 @@ public class WorkingHoursUpdatePage {
         @FindBy(how = How.ID, using ="3_8")
         public WebElement whcell;
 
-        @FindBy(how = How.XPATH, using ="//*[@id=\\\"selectedCell\\\"]/tbody/tr[1]/td/a/u")
+        @FindBy(how = How.XPATH, using ="//*[@id=\"selectedCell\"]/tbody/tr[1]/td/a/u")
         public WebElement minute1;
 
-        @FindBy(how = How.XPATH, using ="//*[@id=\\\"selectedCell\\\"]/tbody/tr[2]/td/span/a/u")
+        @FindBy(how = How.XPATH, using ="//*[@id=\"selectedCell\"]/tbody/tr[2]/td/span/a/u")
         public WebElement minute2;
 
-        @FindBy(how = How.ID, using ="/html/body/div[4]/div[2]/div/center/div/select")
+        @FindBy(how = How.XPATH, using ="/html/body/div[4]/div[2]/div/center/div/select")
         public WebElement selectminute1;
 
-        @FindBy(how = How.ID, using ="/html/body/div[5]/div[2]/div/center/div/select")
+        @FindBy(how = How.XPATH, using ="/html/body/div[5]/div[2]/div/center/div/select")
         public WebElement selectminute2;
 
 

@@ -10,7 +10,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-    public class DeliverylengthPage {
+import java.util.List;
+
+public class DeliverylengthPage {
 
 
         public DeliverylengthPage(WebDriver driver) {
@@ -66,10 +68,10 @@ import org.openqa.selenium.support.PageFactory;
         public WebElement checkallbutton;
 
         @FindBy(how = How.ID, using = "add_district")
-        public WebElement adddistrictbutton;
+        public WebElement addistrictbutton;
 
         @FindBy(how = How.XPATH, using = "//*[@id=\"districtSelectBox\"]/div/ul")
-        public WebElement comboboxoptions;
+        public List<WebElement> comboboxoptions;
 
         @FindBy(how = How.ID, using = "othertotalprice_0")
         public WebElement allselectiondistricts;
@@ -82,6 +84,8 @@ import org.openqa.selenium.support.PageFactory;
 
         @FindBy(how = How.ID, using = "btnSaveContinue")
         public WebElement saveandcontinuebuttondelivery;
+
+
 
 
         public void Deliverylength() {
@@ -102,7 +106,66 @@ import org.openqa.selenium.support.PageFactory;
             allthemostcloseddistrict.click();
             allthemostcloseddistrict.clear();
             allthemostcloseddistrict.sendKeys(sallthemostcloseddistrict);
+            allthemostcloseddistrict.sendKeys(Keys.ENTER);
         }
+
+        public void Deliverylength4(String sallcloseddistrict1) {
+
+            allcloseddistrict1.click();
+            allcloseddistrict1.clear();
+            allcloseddistrict1.sendKeys(sallcloseddistrict1);
+            allcloseddistrict1.sendKeys(Keys.ENTER);
+        }
+
+        public void Deliverylength5(String sallfardistricts) {
+
+            allfardistricts.click();
+            allfardistricts.clear();
+            allfardistricts.sendKeys(sallfardistricts);
+            allfardistricts.sendKeys(Keys.ENTER);
+        }
+
+
+
+        public void Deliverylength6() {
+
+            districtselectbox.click();
+
+        }
+
+        public void Deliverylength7() {
+
+            checkallbutton.click();
+
+        }
+
+        public void Deliverylength8() {
+
+            addistrictbutton.click();
+
+        }
+    public void Deliverylength9(String sallselectiondistricts) {
+
+        allselectiondistricts.click();
+        allselectiondistricts.clear();
+        allselectiondistricts.sendKeys(sallselectiondistricts);
+        allselectiondistricts.sendKeys(Keys.ENTER);
+    }
+
+    public void Deliverylength10() {
+
+        deliverysuccesspopup.click();
+
+    }
+
+    public void Deliverylength11() {
+
+        saveandcontinuebuttondelivery.click();
+
+    }
+
+
+
     }
 
 

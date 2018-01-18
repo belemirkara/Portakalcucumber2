@@ -1,7 +1,10 @@
 package Steps;
 
 import Base.BaseUtil;
+import Pages.ContactInformationPage;
 import Pages.DeliverylengthPage;
+import Pages.SelfregPage;
+import Pages.ServingPage;
 import cucumber.api.PendingException;
 import cucumber.api.Scenario;
 import cucumber.api.java.en.And;
@@ -38,7 +41,7 @@ public class Deliverylength extends BaseUtil {
     @And("^i click the delivery in progress bar$")
     public void iClickThedeliveryinProgressBar() throws Throwable {
 
-        Thread.sleep(3000);
+        Thread.sleep(6000);
         DeliverylengthPage page=new DeliverylengthPage(base.driver);
         page.Deliverylength();
         base.driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
@@ -55,7 +58,7 @@ public class Deliverylength extends BaseUtil {
         int max = 5;
 
 
-        WebElement anasemt =page.maindistrict;
+        WebElement maindistrict =page.maindistrict;
         page.Deliverylength2(String.valueOf(randomamountValue));
     }
 
@@ -78,13 +81,11 @@ public class Deliverylength extends BaseUtil {
             Thread.sleep(700);
 
 
-            page.allthemostcloseddistrict.sendKeys(Keys.ENTER);
 
             String themostclosedsf=page.themostcloseddistrict.getAttribute("value");
 
 
-            WebElement themostclosedsemtfield1 = (new WebDriverWait(base.driver, 45))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("deliverMinPrice1")));
+            WebElement themostclosedsemtfield1 =page.minprice;
 
 
             String themostsf1=page.minprice.getAttribute("value");
@@ -104,35 +105,24 @@ public class Deliverylength extends BaseUtil {
     @And("^i enter closed districts amount max thirty and click enter and i control that all fields are filled by same amount$")
     public void iEntercloseddistrictsAmountMaxThirtyAndClickEnterAndIControlThatAllFieldsAreFilledBySameAmount() throws Throwable {
 
+
+        Thread.sleep(3000);
+        DeliverylengthPage page=new DeliverylengthPage(base.driver);
+
         int min = 0;
         int max = 30;
-
         base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         Boolean isPresent = base.driver.findElements(By.id("semt_2")).size() > 0;
 
         if (isPresent == true) {
 
-            WebElement yakinsemtfield = (new WebDriverWait(base.driver, 45))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("othertotalprice_2")));
-            yakinsemtfield.click();
-            yakinsemtfield.clear();
+            page.Deliverylength4(String.valueOf(randomamountValueofdiger));
 
+            String closedsf=page.closeddistricts.getAttribute("value");
 
-            yakinsemtfield.sendKeys(String.valueOf(randomamountValueofdiger));
+            String closedsf1=page.minprice2.getAttribute("value");
 
-
-            Thread.sleep(700);
-            base.driver.findElement(By.id("othertotalprice_2")).sendKeys(Keys.ENTER);
-
-            String yakinsf=yakinsemtfield.getAttribute("value");
-
-            WebElement yakinsemtfield1 = (new WebDriverWait(base.driver, 45))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("deliverMinPrice2")));
-
-
-            String yakinsf1=yakinsemtfield1.getAttribute("value");
-
-            if (yakinsf.equals(yakinsf1)) {
+            if (closedsf.equals(closedsf1)) {
 
             } else {
                 Assert.fail();
@@ -150,6 +140,8 @@ public class Deliverylength extends BaseUtil {
     @And("^i enter far districts amount max thirty and click enter and i control that all fields are filled by same amount$")
     public void iEnterfardistrictsAmountMaxThirtyAndClickEnterAndIControlThatAllFieldsAreFilledBySameAmount() throws Throwable {
 
+        Thread.sleep(3000);
+        DeliverylengthPage page=new DeliverylengthPage(base.driver);
 
 
         int min = 0;
@@ -160,26 +152,18 @@ public class Deliverylength extends BaseUtil {
 
         if (isPresent == true) {
 
-            WebElement uzaksemtfield = (new WebDriverWait(base.driver, 45))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("othertotalprice_3")));
-            uzaksemtfield.click();
-            uzaksemtfield.clear();
+           page.Deliverylength5(String.valueOf(randomamountValueofdiger));
 
 
-            uzaksemtfield.sendKeys(String.valueOf(randomamountValueofdiger));
-            Thread.sleep(700);
+            String farsf=page.fardistricts.getAttribute("value");
 
-            base.driver.findElement(By.id("othertotalprice_3")).sendKeys(Keys.ENTER);
-
-            String uzaksf=uzaksemtfield.getAttribute("value");
-
-            WebElement uzaksemtfield1 = (new WebDriverWait(base.driver, 45))
+            WebElement farsemtfield1 = (new WebDriverWait(base.driver, 45))
                     .until(ExpectedConditions.presenceOfElementLocated(By.id("deliverMinPrice3")));
 
 
-            String uzaksf1=uzaksemtfield1.getAttribute("value");
+            String farsf1=page.minprice3.getAttribute("value");
 
-            if (uzaksf.equals(uzaksf1)) {
+            if (farsf.equals(farsf1)) {
 
             } else {
                 Assert.fail();
@@ -196,51 +180,41 @@ public class Deliverylength extends BaseUtil {
     @And("^i choose district in district selection combobox$")
     public void iChoosedistrictindistrictselectionCombobox() throws Throwable {
 
+        Thread.sleep(3000);
+        DeliverylengthPage page=new DeliverylengthPage(base.driver);
 
         base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         Boolean isPresent = base.driver.findElements(By.id("semt_0")).size() > 0;
 
         if (isPresent == true) {
 
-            WebElement choosesemt = (new WebDriverWait(base.driver, 45))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("districtSelectBox")));
-            choosesemt.click();
+            page.Deliverylength6();
+            Thread.sleep(1000);
+
+
+            page.Deliverylength7();
+
+            page.Deliverylength8();
+
+            List<WebElement> options =page.comboboxoptions;
+
+            Thread.sleep(1000);
+
+
+           page.Deliverylength9(String.valueOf(randomamountValueofdiger));
             Thread.sleep(700);
 
 
-            WebElement tumunusecbutton = (new WebDriverWait(base.driver, 45))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("checkallbutton")));
-            tumunusecbutton.click();
 
-            WebElement semteklebutton = (new WebDriverWait(base.driver, 45))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("add_district")));
-            semteklebutton.click();
-
-            List<WebElement> options = base.driver.findElements(By.xpath("//*[@id=\"districtSelectBox\"]/div/ul"));
-
-            Thread.sleep(700);
-
-
-            WebElement digersemtfield = (new WebDriverWait(base.driver, 45))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("othertotalprice_0")));
-            digersemtfield.click();
-            digersemtfield.clear();
-
-
-            digersemtfield.sendKeys(String.valueOf(randomamountValueofdiger));
-            Thread.sleep(700);
-
-            digersemtfield.sendKeys(Keys.ENTER);
-
-            String digersf=digersemtfield.getText();
+            String othersf=page.allselectiondistricts.getText();
 
             WebElement digersemtfield1 = (new WebDriverWait(base.driver, 45))
                     .until(ExpectedConditions.presenceOfElementLocated(By.id("deliverMinPrice0")));
 
 
-            String digersf1=digersemtfield1.getText();
+            String othersf1=page.minprice0.getText();
 
-            if (digersf.equals(digersf1)) {
+            if (othersf.equals(othersf1)) {
 
             } else {
                 Assert.fail();
@@ -258,13 +232,15 @@ public class Deliverylength extends BaseUtil {
 
     @And("^i see delivery success pop up$")
     public void iSeedeliverysuccessPopUp() throws Throwable {
+        Thread.sleep(3000);
+        DeliverylengthPage page=new DeliverylengthPage(base.driver);
 
         base.driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
 
         try {
 
 
-            base.driver.findElement(By.id("1")).click();
+            page.Deliverylength10();
             Thread.sleep(1000);
 
             Alert alt3 = base.driver.switchTo().alert();
@@ -282,14 +258,13 @@ public class Deliverylength extends BaseUtil {
     @And("^i confirm the operation is successfull pop up message$")
     public void iConfirmtheoperationissuccessfullPopUpMessage() throws Throwable {
 
-
+        Thread.sleep(3000);
+        DeliverylengthPage page=new DeliverylengthPage(base.driver);
         base.driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
 
         try {
-            WebElement successpopup = (new WebDriverWait(base.driver, 15))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("1")));
 
-            String ab = successpopup.getText();
+            String ab = page.deliverysuccesspopup.getText();
 
             Assert.assertEquals("İşlem başarıyla gerçekleştirildi.", ab);
 
@@ -316,12 +291,39 @@ public class Deliverylength extends BaseUtil {
 
     @When("^i click saveandcontinuebutton in delivery$")
     public void iClicksaveandcontinuebuttonIndelivery() throws Throwable {
-        WebElement kvdb = (new WebDriverWait(base.driver, 15))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("btnSaveContinue")));
-        kvdb.click();
+
+        Thread.sleep(3000);
+        DeliverylengthPage page=new DeliverylengthPage(base.driver);
+        page.Deliverylength11();
     }
 
 
+    @And("^i see kitchen information pop up return serving$")
+    public void iSeeKitchenInformationPopUpReturnServing() throws Throwable {
+
+        base.driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
+
+
+            DeliverylengthPage page=new DeliverylengthPage(base.driver);
+        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        Boolean isPresent = base.driver.findElements(By.id("/html/body/div[2]/div[2]/div[6]")).size() > 0;
+
+        if (isPresent == true) {
+
+            ServingPage page1=new ServingPage(base.driver);
+            page1.Serving1();
+
+
+            WebElement Selection_kitchen =page1.kitchenselection;
+
+            Select ddlkitchen = new Select(Selection_kitchen);
+
+
+            ddlkitchen.selectByVisibleText("Börek");
+
+            ContactInformationPage page3=new ContactInformationPage(base.driver);
+            page3.Contact10();
+        }}
 }
 
 

@@ -34,7 +34,7 @@ public class WorkingHoursUpdate extends BaseUtil {
     @And("^i click an field in the table$")
     public void iClickAnFieldinTheTable() throws Throwable {
 
-        Thread.sleep(3000);
+        Thread.sleep(6000);
         WorkingHoursUpdatePage page=new WorkingHoursUpdatePage(base.driver);
         page.WorkingHoursUpdate();
 

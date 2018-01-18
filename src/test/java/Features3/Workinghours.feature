@@ -16,10 +16,6 @@ Feature:Happy path of working hours
     Then i see working hours success pop up
     And i confirm working hours are saved successfully pop up message
     And i click ok button
-    And i refresh the page
-    And i click clear form button
-    And i click from left to right
-    And i click up to down
     When i click saveandcontinuebutton
     Then i see working hours success pop up
     And i confirm working hours are saved successfully pop up message

@@ -197,7 +197,7 @@ public class Selfreg extends BaseUtil {
             alt2.accept();
 
         } catch (NoAlertPresentException noe) {
-
+    Assert.fail();
         }
 
 
