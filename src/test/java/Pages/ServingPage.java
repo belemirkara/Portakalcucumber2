@@ -48,8 +48,11 @@ public class ServingPage {
     @FindBy(how = How.XPATH, using = "//*[@id=\"paymentForm\"]/div[8]/textarea")
     public WebElement fieldquestion8;
 
-    @FindBy(how = How.CLASS_NAME, using = "checkbox-inline")
-    public List<WebElement> checkboxdm;
+    @FindBy(how = How.CLASS_NAME, using = "checker")
+    public WebElement checkboxdm;
+
+    @FindBy(how = How.CLASS_NAME, using = "checked")
+    public WebElement checkboxdm1;
 
     @FindBy(how = How.ID, using = "1")
     public WebElement fieldsuccessconfirmation;
@@ -131,4 +134,12 @@ public class ServingPage {
         fieldsuccessconfirmation.click();
 
     }
+
+    public void Serving11() {
+        fieldquestion1.clear();
+        fieldquestion4.clear();
+        fieldquestion6.clear();
+    }
+
+
 }

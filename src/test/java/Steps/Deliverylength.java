@@ -1,6 +1,7 @@
 package Steps;
 
 import Base.BaseUtil;
+import Pages.DeliverylengthPage;
 import cucumber.api.PendingException;
 import cucumber.api.Scenario;
 import cucumber.api.java.en.And;
@@ -17,7 +18,9 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-public class GonderimBolgelerimesafeyegore extends BaseUtil {
+
+
+public class Deliverylength extends BaseUtil {
 
     public BaseUtil base;
     Random r = new Random();
@@ -26,84 +29,71 @@ public class GonderimBolgelerimesafeyegore extends BaseUtil {
     int randomamountValue = r.nextInt(6);
     int randomamountValueofdiger = r.nextInt(31);
 
-    public GonderimBolgelerimesafeyegore(BaseUtil base) {
+    public Deliverylength(BaseUtil base) {
 
 
         this.base = base;
     }
 
-    @And("^i click the gonderim bolgeleri in progress bar$")
-    public void iClickTheGonderimBolgeleriinProgressBar() throws Throwable {
+    @And("^i click the delivery in progress bar$")
+    public void iClickThedeliveryinProgressBar() throws Throwable {
 
-        WebElement gonderimbolg = (new WebDriverWait(base.driver, 90))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("registerTab4")));
-        gonderimbolg.click();
+        Thread.sleep(3000);
+        DeliverylengthPage page=new DeliverylengthPage(base.driver);
+        page.Deliverylength();
         base.driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
         Thread.sleep(3000);
     }
 
-    @And("^i enter ana semt amount as max five tl and click enter$")
-    public void iEnterAnaSemtAmountAsMaxFiveTlAndClickEnter() throws Throwable {
+    @And("^i enter main district amount as max five tl and click enter$")
+    public void iEntermaindistrictAmountAsMaxFiveTlAndClickEnter() throws Throwable {
 
-
+        Thread.sleep(3000);
+        DeliverylengthPage page=new DeliverylengthPage(base.driver);
 
         int min = 0;
         int max = 5;
 
 
-        WebElement anasemt = (new WebDriverWait(base.driver, 45))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("semt_ana")));
-
-        WebElement anasemtfield = (new WebDriverWait(base.driver, 45))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("main-area-delivery-price")));
-
-        anasemtfield.click();
-        anasemtfield.clear();
-        anasemtfield.sendKeys(String.valueOf(randomamountValue));
-
-        Thread.sleep(700);
-        base.driver.findElement(By.id("main-area-delivery-price")).sendKeys(Keys.ENTER);
-
-
+        WebElement anasemt =page.maindistrict;
+        page.Deliverylength2(String.valueOf(randomamountValue));
     }
 
-    @And("^i enter en yakin semtler amount max thirty tl and click enter i control that all fields are filled by same amount$")
-    public void iEnterEnYakinSemtlerAmountMaxThirtyTlAndClickEnterIControlThatAllFieldsAreFilledBySameAmount() throws Throwable {
+    @And("^i enter most closed districts amount max thirty tl and click enter i control that all fields are filled by same amount$")
+    public void iEntermostcloseddistrictsAmountMaxThirtyTlAndClickEnterIControlThatAllFieldsAreFilledBySameAmount() throws Throwable {
+
+
+        Thread.sleep(3000);
+        DeliverylengthPage page=new DeliverylengthPage(base.driver);
 
         int min = 0;
         int max = 30;
 
         base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         Boolean isPresent = base.driver.findElements(By.id("semt_1")).size() > 0;
+
         if (isPresent == true) {
 
-            WebElement enyakinsemtsemtfield = (new WebDriverWait(base.driver, 45))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("othertotalprice_1")));
-            enyakinsemtsemtfield.click();
-            enyakinsemtsemtfield.clear();
-
-
-
-            enyakinsemtsemtfield.sendKeys(String.valueOf(randomamountValueofdiger));
+            page.Deliverylength3(String.valueOf(randomamountValueofdiger));
             Thread.sleep(700);
 
 
-            base.driver.findElement(By.id("othertotalprice_1")).sendKeys(Keys.ENTER);
+            page.allthemostcloseddistrict.sendKeys(Keys.ENTER);
 
-            String enyakinsf=enyakinsemtsemtfield.getAttribute("value");
+            String themostclosedsf=page.themostcloseddistrict.getAttribute("value");
 
 
-            WebElement enyakinsemtsemtfield1 = (new WebDriverWait(base.driver, 45))
+            WebElement themostclosedsemtfield1 = (new WebDriverWait(base.driver, 45))
                     .until(ExpectedConditions.presenceOfElementLocated(By.id("deliverMinPrice1")));
 
 
-            String enyakinsf1=enyakinsemtsemtfield1.getAttribute("value");
+            String themostsf1=page.minprice.getAttribute("value");
 
-                    if (enyakinsf.equals(enyakinsf1)) {
+            if (themostclosedsf.equals(themostsf1)) {
 
-                    } else {
-                        Assert.fail();
-                    }
+            } else {
+                Assert.fail();
+            }
 
 
         } else if (isPresent == false) {
@@ -111,8 +101,8 @@ public class GonderimBolgelerimesafeyegore extends BaseUtil {
         }
     }
 
-    @And("^i enter yakin semtler amount max thirty and click enter and i control that all fields are filled by same amount$")
-    public void iEnterYakinSemtlerAmountMaxThirtyAndClickEnterAndIControlThatAllFieldsAreFilledBySameAmount() throws Throwable {
+    @And("^i enter closed districts amount max thirty and click enter and i control that all fields are filled by same amount$")
+    public void iEntercloseddistrictsAmountMaxThirtyAndClickEnterAndIControlThatAllFieldsAreFilledBySameAmount() throws Throwable {
 
         int min = 0;
         int max = 30;
@@ -157,8 +147,8 @@ public class GonderimBolgelerimesafeyegore extends BaseUtil {
     }
 
 
-    @And("^i enter uzak semtler amount max thirty and click enter and i control that all fields are filled by same amount$")
-    public void iEnterUzakSemtlerAmountMaxThirtyAndClickEnterAndIControlThatAllFieldsAreFilledBySameAmount() throws Throwable {
+    @And("^i enter far districts amount max thirty and click enter and i control that all fields are filled by same amount$")
+    public void iEnterfardistrictsAmountMaxThirtyAndClickEnterAndIControlThatAllFieldsAreFilledBySameAmount() throws Throwable {
 
 
 
@@ -176,7 +166,7 @@ public class GonderimBolgelerimesafeyegore extends BaseUtil {
             uzaksemtfield.clear();
 
 
-           uzaksemtfield.sendKeys(String.valueOf(randomamountValueofdiger));
+            uzaksemtfield.sendKeys(String.valueOf(randomamountValueofdiger));
             Thread.sleep(700);
 
             base.driver.findElement(By.id("othertotalprice_3")).sendKeys(Keys.ENTER);
@@ -203,8 +193,8 @@ public class GonderimBolgelerimesafeyegore extends BaseUtil {
     }
 
 
-    @And("^i choose semt in semtleri seciniz combobox$")
-    public void iChooseSemtinSemtleriSecinizCombobox() throws Throwable {
+    @And("^i choose district in district selection combobox$")
+    public void iChoosedistrictindistrictselectionCombobox() throws Throwable {
 
 
         base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
@@ -266,8 +256,8 @@ public class GonderimBolgelerimesafeyegore extends BaseUtil {
     }
 
 
-    @And("^i see islem basariyla gerceklestirildi pop up$")
-    public void iSeeislemBasariylaGerceklestirildiPopUp() throws Throwable {
+    @And("^i see delivery success pop up$")
+    public void iSeedeliverysuccessPopUp() throws Throwable {
 
         base.driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
 
@@ -282,13 +272,15 @@ public class GonderimBolgelerimesafeyegore extends BaseUtil {
 
         } catch (NoAlertPresentException noe) {
 
+            Assert.fail();
+
 
         }base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
     }
 
-    @And("^i confirm islem basariyla gerceklestirildi pop up message$")
-    public void iConfirmislemBasariylaGerceklestirildiPopUpMessage() throws Throwable {
+    @And("^i confirm the operation is successfull pop up message$")
+    public void iConfirmtheoperationissuccessfullPopUpMessage() throws Throwable {
 
 
         base.driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
@@ -307,7 +299,7 @@ public class GonderimBolgelerimesafeyegore extends BaseUtil {
         }
 
     }
-    @Then("^i stay in gonderim bolgeleri page$")
+    @Then("^i stay in delivery page$")
     public void iStayInGonderimBolgeleriPage() throws Throwable {
 
         Thread.sleep(3000);
@@ -322,11 +314,11 @@ public class GonderimBolgelerimesafeyegore extends BaseUtil {
     }
 
 
-    @When("^i click kaydetvedevametbutton in gonderim bolg$")
-    public void iClickKaydetvedevametbuttonInGonderimBolg() throws Throwable {
+    @When("^i click saveandcontinuebutton in delivery$")
+    public void iClicksaveandcontinuebuttonIndelivery() throws Throwable {
         WebElement kvdb = (new WebDriverWait(base.driver, 15))
                 .until(ExpectedConditions.presenceOfElementLocated(By.id("btnSaveContinue")));
-kvdb.click();
+        kvdb.click();
     }
 
 

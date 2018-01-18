@@ -40,6 +40,7 @@ public class Serving extends BaseUtil {
 
         Thread.sleep(3000);
         ServingPage page=new ServingPage(base.driver);
+        Thread.sleep(3000);
         page.Serving1();
     }
 
@@ -116,10 +117,16 @@ public class Serving extends BaseUtil {
 
             Thread.sleep(3000);
 
-            List<WebElement> options =page.checkboxdm;
+            base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+            Boolean isPresent = base.driver.findElements(By.className("checked")).size() > 0;
 
-            int index = r.nextInt(options.size());
-            options.get(index).click();
+            if(isPresent == true){
+
+            }
+            else{
+                page.checkboxdm.click();
+            }
+
 
             page.Serving4(randomUUiDString);
 
@@ -278,7 +285,7 @@ public class Serving extends BaseUtil {
     @Then("^i see the serving success pop up$")
     public void iSeeTheServingSuccessPopUp() throws Throwable {
         try {
-
+            Thread.sleep(3000);
             ServingPage page=new ServingPage(base.driver);
             page.Serving10();
             Thread.sleep(1000);

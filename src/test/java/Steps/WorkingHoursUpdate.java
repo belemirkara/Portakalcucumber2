@@ -1,6 +1,7 @@
 package Steps;
 
 import Base.BaseUtil;
+import Pages.WorkingHoursUpdatePage;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
@@ -16,7 +17,8 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-public class SaatupdateCalismaSaatleri extends BaseUtil {
+
+public class WorkingHoursUpdate extends BaseUtil {
 
 
     public BaseUtil base;
@@ -24,23 +26,27 @@ public class SaatupdateCalismaSaatleri extends BaseUtil {
     UUID uuid = UUID.randomUUID();
     String randomUUiDString = uuid.toString();
 
-    public SaatupdateCalismaSaatleri(BaseUtil base) {
+    public WorkingHoursUpdate(BaseUtil base) {
 
         this.base = base;
     }
 
     @And("^i click an field in the table$")
     public void iClickAnFieldinTheTable() throws Throwable {
-        WebElement calismasaatleri = (new WebDriverWait(base.driver, 90))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("3_8")));
-        calismasaatleri.click();
+
         Thread.sleep(3000);
+        WorkingHoursUpdatePage page=new WorkingHoursUpdatePage(base.driver);
+        page.WorkingHoursUpdate();
+
     }
 
     @And("^i see working hours$")
     public void iSeeWorkingHours() throws Throwable {
-        WebElement clismasaati = base.driver.findElement(By.id("3_8"));
-        String ab2 = clismasaati.getText();
+        Thread.sleep(3000);
+        WorkingHoursUpdatePage page=new WorkingHoursUpdatePage(base.driver);
+
+        WebElement wh =page.whcell;
+        String ab2 = wh.getText();
 
         try {
 
@@ -54,42 +60,41 @@ public class SaatupdateCalismaSaatleri extends BaseUtil {
 
     @And("^i click minutes in working hours$")
     public void iClickMinutesinWorkingHours() throws Throwable {
-        WebElement minute1 = base.driver.findElement(By.xpath("//*[@id=\"selectedCell\"]/tbody/tr[1]/td/a/u"));
-        WebElement minute2 = base.driver.findElement(By.xpath("//*[@id=\"selectedCell\"]/tbody/tr[2]/td/span/a/u"));
-        minute1.click();
-        minute2.click();
+        Thread.sleep(3000);
+        WorkingHoursUpdatePage page=new WorkingHoursUpdatePage(base.driver);
+        page.WorkingHoursUpdate2();
     }
 
     @And("^i see and update values and control accuracy$")
     public void iSeeAndUpdateValuesAndControlAccuracy() throws Throwable {
 
+        Thread.sleep(3000);
+
+        WorkingHoursUpdatePage page=new WorkingHoursUpdatePage(base.driver);
         int[] minutes = {00, 15, 30, 45};
 
-        WebElement Select_minutes1 = (new WebDriverWait(base.driver, 45))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[4]/div[2]/div/center/div/select")));
-            Select_minutes1.click();
+        WebElement Select_minutes1 =page.selectminute1;
+        Select_minutes1.click();
         Select ddlminute = new Select(Select_minutes1);
 
 
-        int gelenminute = r.nextInt(minutes.length - 1);
+        int rminute = r.nextInt(minutes.length - 1);
 
-        ddlminute.selectByIndex(gelenminute);
+        ddlminute.selectByIndex(rminute);
 
 
-        WebElement Select_minutes2 = (new WebDriverWait(base.driver, 45))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[5]/div[2]/div/center/div/select")));
-
+        WebElement Select_minutes2 = page.selectminute2;
         Select_minutes2.click();
         Select ddlminute2 = new Select(Select_minutes2);
 
 
-        int gelenminute2 = r.nextInt(minutes.length - 1);
+        int rminute2 = r.nextInt(minutes.length - 1);
 
 
-        ddlminute2.selectByIndex(gelenminute2);
+        ddlminute2.selectByIndex(rminute2);
 
 
-        if (gelenminute2 > gelenminute) {
+        if (rminute2 > rminute) {
 
         } else {
             Assert.fail();
@@ -99,6 +104,4 @@ public class SaatupdateCalismaSaatleri extends BaseUtil {
 
 
     }}
-
-
 

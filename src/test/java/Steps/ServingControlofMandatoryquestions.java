@@ -104,7 +104,7 @@ public class ServingControlofMandatoryquestions extends BaseUtil {
 
     @And("^i choose kitchen such as kebap§Turk Mutfagi and dont click the mandatory questions checkbox just fill the txt$")
     public void iChooseKitchenSuchAsKebapTurkMutfagiAndDontClickTheMandatoryQuestionsCheckboxJustFillTheTxt() throws Throwable {
-        base.driver.manage().deleteAllCookies();
+
         Thread.sleep(1000);
 
         ServingPage page = new ServingPage(base.driver);
@@ -127,7 +127,7 @@ public class ServingControlofMandatoryquestions extends BaseUtil {
 
     @And("^i choose kitchen such as kebap§Turk Mutfagi and click the mandatory questions checkbox dont fill the its txt$")
     public void iChooseKitchenSuchAsKebapTurkMutfagiAndClickTheMandatoryQuestionsCheckboxDontFillTheitsTxt() throws Throwable {
-        base.driver.manage().deleteAllCookies();
+
         Thread.sleep(1000);
 
         ServingPage page = new ServingPage(base.driver);
@@ -141,10 +141,16 @@ public class ServingControlofMandatoryquestions extends BaseUtil {
 
         Thread.sleep(3000);
 
-        List<WebElement> options = page.checkboxdm;
+        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        Boolean isPresent = base.driver.findElements(By.className("checked")).size() > 0;
 
-        int index = r.nextInt(options.size());
-        options.get(index).click();
+        if(isPresent == true){
+
+        }
+        else{
+            page.checkboxdm.click();
+        }
+
 
         page.Serving5(randomUUIDString);
         page.Serving7(randomUUIDString);
@@ -152,44 +158,69 @@ public class ServingControlofMandatoryquestions extends BaseUtil {
 
     }
 
-    @And("^i clear all values1$")
-    public void iClearAllValues1() throws Throwable {
+    @And("^i unselect all values1$")
+    public void iUnselectAllValues1() throws Throwable {
 
-
-       Thread.sleep(3000);
+        Thread.sleep(9000);
         ServingPage page = new ServingPage(base.driver);
+        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        Boolean isPresent = base.driver.findElements(By.className("checked")).size() > 0;
+
+
+        if(isPresent == true){
+            page.checkboxdm1.click();
+        }
+        else{
+
+        }
         page.fieldquestion1.clear();
         page.fieldquestion4.clear();
-        page.fieldquestion6.clear();
+        page.fieldquestion4.clear();
 
     }
 
-    @And("^i clear all values2$")
-    public void iClearAllValues2() throws Throwable {
+    @And("^i unselect all values2$")
+    public void iUnselectAllValues2() throws Throwable {
 
-
-        Thread.sleep(3000);
+        Thread.sleep(9000);
         ServingPage page = new ServingPage(base.driver);
+        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        Boolean isPresent = base.driver.findElements(By.className("checked")).size() > 0;
+
+        if(isPresent == true){
+            page.checkboxdm1.click();
+        }
+        else{
+
+        }
+
         page.fieldquestion1.clear();
         page.fieldquestion4.clear();
-        page.fieldquestion6.clear();
+        page.fieldquestion4.clear();
 
     }
 
-    @And("^i clear all values3$")
-    public void iClearAllValues3() throws Throwable {
+    @And("^i unselect all values3$")
+    public void iUnselectAllValues3() throws Throwable {
 
-
-        Thread.sleep(3000);
+        Thread.sleep(9000);
         ServingPage page = new ServingPage(base.driver);
+
+        Boolean isPresent = base.driver.findElements(By.id("checked")).size() > 0;
+
+        if(isPresent == true){
+            page.checkboxdm1.click();
+        }
+        else{
+
+        }
+
         page.fieldquestion1.clear();
         page.fieldquestion4.clear();
-        page.fieldquestion6.clear();
+        page.fieldquestion4.clear();
 
     }
+
 }
-
-
-
 
 

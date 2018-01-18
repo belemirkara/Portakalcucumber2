@@ -23,6 +23,7 @@ Feature:Control of clear ve clear form button in working hours page
     And i get username and pw from login
     And i click rememberme checkbox
     And i click login button
+    And i click working hours tab
     And i click clear form button
     When i click from left to right
     Then i click clear form button

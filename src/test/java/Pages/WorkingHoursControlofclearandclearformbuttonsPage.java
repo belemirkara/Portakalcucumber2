@@ -30,7 +30,7 @@ public class WorkingHoursControlofclearandclearformbuttonsPage {
     @FindBy(how = How.ID, using ="2_9")
     public List<WebElement> tuesday;
 
-    @FindBy(how = How.XPATH, using ="/html/body/div[1]/div/div[1]/div/small/u")
+    @FindBy(how = How.CLASS_NAME, using ="fa-eraser")
     public WebElement clearform;
 
     @FindBy(how = How.ID, using ="workingHoursSelection")
