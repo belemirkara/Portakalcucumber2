@@ -41,6 +41,8 @@ public class ContactInformation extends BaseUtil {
         Thread.sleep(3000);
         ContactInformationPage page=new ContactInformationPage(base.driver);
 
+        Thread.sleep(3000);
+
         page.Contact1();
 
 

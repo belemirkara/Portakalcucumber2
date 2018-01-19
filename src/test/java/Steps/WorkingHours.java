@@ -37,6 +37,7 @@ public class WorkingHours extends BaseUtil {
 
         Thread.sleep(3000);
         WorkingHoursPage page=new WorkingHoursPage(base.driver);
+        Thread.sleep(3000);
         page.WorkingHours();
         Thread.sleep(3000);
     }

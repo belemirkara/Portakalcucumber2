@@ -43,6 +43,7 @@ public class Deliverylength extends BaseUtil {
 
         Thread.sleep(6000);
         DeliverylengthPage page=new DeliverylengthPage(base.driver);
+        Thread.sleep(6000);
         page.Deliverylength();
         base.driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
         Thread.sleep(3000);
@@ -76,12 +77,12 @@ public class Deliverylength extends BaseUtil {
         if (isPresent == true) {
 
             page.Deliverylength3(String.valueOf(randomamountValueofdiger));
-            Thread.sleep(3000);
+            Thread.sleep(6000);
 
 
 
             String themostclosedsf=page.allthemostcloseddistrict.getAttribute("value");
-            Thread.sleep(3000);
+            Thread.sleep(6000);
 
             String themostsf1=page.minprice.getAttribute("value");
 
@@ -106,17 +107,18 @@ public class Deliverylength extends BaseUtil {
 
         int min = 0;
         int max = 30;
+
         base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         Boolean isPresent = base.driver.findElements(By.id("semt_2")).size() > 0;
 
         if (isPresent == true) {
 
-            Thread.sleep(3000);
+            Thread.sleep(6000);
             page.Deliverylength4(String.valueOf(randomamountValueofdiger));
 
-            Thread.sleep(3000);
+            Thread.sleep(6000);
             String closedsf=page.allcloseddistrict1.getAttribute("value");
-            Thread.sleep(3000);
+            Thread.sleep(6000);
 
             String closedsf1=page.minprice2.getAttribute("value");
 
@@ -149,13 +151,13 @@ public class Deliverylength extends BaseUtil {
         Boolean isPresent = base.driver.findElements(By.id("semt_3")).size() > 0;
 
         if (isPresent == true) {
-            Thread.sleep(3000);
+            Thread.sleep(6000);
            page.Deliverylength5(String.valueOf(randomamountValueofdiger));
 
-            Thread.sleep(3000);
+            Thread.sleep(6000);
             String farsf=page.allfardistricts.getAttribute("value");
 
-            Thread.sleep(3000);
+            Thread.sleep(6000);
             String farsf1=page.minprice3.getAttribute("value");
 
             if (farsf.equals(farsf1)) {

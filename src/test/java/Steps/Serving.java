@@ -40,6 +40,7 @@ public class Serving extends BaseUtil {
 
         Thread.sleep(6000);
         ServingPage page=new ServingPage(base.driver);
+        Thread.sleep(6000);
         page.Serving1();
     }
 

@@ -87,6 +87,7 @@ public class CommercialInformation extends BaseUtil {
 
         Thread.sleep(3000);
         CommercialInformationPage page=new CommercialInformationPage(base.driver);
+        Thread.sleep(3000);
         page.Commercial6();
     }
 

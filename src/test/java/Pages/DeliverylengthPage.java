@@ -43,7 +43,7 @@ public class DeliverylengthPage {
         @FindBy(how = How.ID, using ="othertotalprice_2")
         public WebElement allcloseddistrict1;
 
-        @FindBy(how = How.CSS, using ="deliverMinPrice2")
+        @FindBy(how = How.ID, using ="deliverMinPrice2")
         public WebElement minprice2;
 
 
