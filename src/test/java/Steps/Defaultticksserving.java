@@ -1,6 +1,7 @@
 package Steps;
 
 import Base.BaseUtil;
+import Pages.DefaultTicksServingPage;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import org.openqa.selenium.By;
@@ -12,7 +13,7 @@ import java.util.Random;
 import java.util.UUID;
 
 
-public class Defaultticksservisbilgileri extends BaseUtil {
+public class Defaultticksserving extends BaseUtil {
 
 
     public BaseUtil base;
@@ -20,22 +21,24 @@ public class Defaultticksservisbilgileri extends BaseUtil {
     UUID uuid = UUID.randomUUID();
     String randomUUiDString = uuid.toString();
 
-    public Defaultticksservisbilgileri(BaseUtil base) {
+    public Defaultticksserving(BaseUtil base) {
         this.base = base;
     }
 
-    @And("^i want to click nakit$")
-    public void iWantToClickNakit() throws Throwable {
-        WebElement cash = (new WebDriverWait(base.driver, 90))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("cash")));
-        cash.click();
+    @And("^i want to click cash$")
+    public void iWantToClickcash() throws Throwable {
+  Thread.sleep(3000);
+        DefaultTicksServingPage page=new DefaultTicksServingPage(base.driver);
+        page.DefaultTicksServingPage();
     }
 
     @And("^i see i cant$")
     public boolean iSeeiCant() throws Throwable {
         try{
+            Thread.sleep(3000);
+            DefaultTicksServingPage page=new DefaultTicksServingPage(base.driver);
             WebDriverWait wait = new WebDriverWait(base.driver, 6);
-            wait.until(ExpectedConditions.elementToBeClickable(base.driver.findElement(By.id("cash"))));
+            wait.until(ExpectedConditions.elementToBeClickable(page.cbxcash));
             return false;
         }
         catch (Exception e){
@@ -46,18 +49,21 @@ public class Defaultticksservisbilgileri extends BaseUtil {
 
     @And("^i want to click okk$")
     public void iWantToClickOkk() throws Throwable {
-        WebElement occ = (new WebDriverWait(base.driver, 90))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("occ")));
-       occ.click();
 
+        Thread.sleep(3000);
+        DefaultTicksServingPage page=new DefaultTicksServingPage(base.driver);
+       page.DefaultTicksServingPage2();
 
 }
 
     @And("^i see i cantt$")
     public boolean iSeeiCantt() throws Throwable {
         try{
+
+            Thread.sleep(3000);
+            DefaultTicksServingPage page=new DefaultTicksServingPage(base.driver);
             WebDriverWait wait = new WebDriverWait(base.driver, 6);
-            wait.until(ExpectedConditions.elementToBeClickable(base.driver.findElement(By.id("occ"))));
+            wait.until(ExpectedConditions.elementToBeClickable(page.cbxocc));
             return false;
         }
         catch (Exception e){

@@ -31,8 +31,6 @@ public class DeliverylengthPage {
         @FindBy(how = How.ID, using ="main-area-delivery-price")
         public WebElement fieldmaindistrict;
 
-        @FindBy(how = How.ID, using ="semt_1")
-        public WebElement themostcloseddistrict;
 
         @FindBy(how = How.ID, using ="othertotalprice_1")
         public WebElement allthemostcloseddistrict;
@@ -40,8 +38,7 @@ public class DeliverylengthPage {
         @FindBy(how = How.ID, using ="deliverMinPrice1")
         public WebElement minprice;
 
-        @FindBy(how = How.ID, using ="semt_2")
-        public WebElement closeddistricts;
+
 
         @FindBy(how = How.ID, using ="othertotalprice_2")
         public WebElement allcloseddistrict1;
@@ -49,17 +46,12 @@ public class DeliverylengthPage {
         @FindBy(how = How.CSS, using ="deliverMinPrice2")
         public WebElement minprice2;
 
-        @FindBy(how = How.ID, using ="semt_3")
-        public WebElement fardistricts;
 
         @FindBy(how = How.ID, using = "othertotalprice_3")
         public WebElement allfardistricts;
 
         @FindBy(how = How.ID, using = "deliverMinPrice3")
         public WebElement minprice3;
-
-        @FindBy(how = How.ID, using = "semt_0")
-        public WebElement selectiondistricts;
 
         @FindBy(how = How.ID, using = "districtSelectBox")
         public WebElement districtselectbox;

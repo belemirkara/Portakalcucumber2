@@ -38,9 +38,8 @@ public class Serving extends BaseUtil {
     @And("^i click servingtab$")
     public void iclickservingtab() throws Throwable {
 
-        Thread.sleep(3000);
+        Thread.sleep(6000);
         ServingPage page=new ServingPage(base.driver);
-        Thread.sleep(3000);
         page.Serving1();
     }
 

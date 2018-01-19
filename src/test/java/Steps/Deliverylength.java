@@ -57,8 +57,6 @@ public class Deliverylength extends BaseUtil {
         int min = 0;
         int max = 5;
 
-
-        WebElement maindistrict =page.maindistrict;
         page.Deliverylength2(String.valueOf(randomamountValue));
     }
 
@@ -78,15 +76,12 @@ public class Deliverylength extends BaseUtil {
         if (isPresent == true) {
 
             page.Deliverylength3(String.valueOf(randomamountValueofdiger));
-            Thread.sleep(700);
+            Thread.sleep(3000);
 
 
 
-            String themostclosedsf=page.themostcloseddistrict.getAttribute("value");
-
-
-            WebElement themostclosedsemtfield1 =page.minprice;
-
+            String themostclosedsf=page.allthemostcloseddistrict.getAttribute("value");
+            Thread.sleep(3000);
 
             String themostsf1=page.minprice.getAttribute("value");
 
@@ -116,9 +111,12 @@ public class Deliverylength extends BaseUtil {
 
         if (isPresent == true) {
 
+            Thread.sleep(3000);
             page.Deliverylength4(String.valueOf(randomamountValueofdiger));
 
-            String closedsf=page.closeddistricts.getAttribute("value");
+            Thread.sleep(3000);
+            String closedsf=page.allcloseddistrict1.getAttribute("value");
+            Thread.sleep(3000);
 
             String closedsf1=page.minprice2.getAttribute("value");
 
@@ -151,16 +149,13 @@ public class Deliverylength extends BaseUtil {
         Boolean isPresent = base.driver.findElements(By.id("semt_3")).size() > 0;
 
         if (isPresent == true) {
-
+            Thread.sleep(3000);
            page.Deliverylength5(String.valueOf(randomamountValueofdiger));
 
+            Thread.sleep(3000);
+            String farsf=page.allfardistricts.getAttribute("value");
 
-            String farsf=page.fardistricts.getAttribute("value");
-
-            WebElement farsemtfield1 = (new WebDriverWait(base.driver, 45))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("deliverMinPrice3")));
-
-
+            Thread.sleep(3000);
             String farsf1=page.minprice3.getAttribute("value");
 
             if (farsf.equals(farsf1)) {
@@ -202,16 +197,12 @@ public class Deliverylength extends BaseUtil {
 
 
            page.Deliverylength9(String.valueOf(randomamountValueofdiger));
-            Thread.sleep(700);
+            Thread.sleep(3000);
 
 
 
             String othersf=page.allselectiondistricts.getText();
-
-            WebElement digersemtfield1 = (new WebDriverWait(base.driver, 45))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("deliverMinPrice0")));
-
-
+            Thread.sleep(3000);
             String othersf1=page.minprice0.getText();
 
             if (othersf.equals(othersf1)) {
@@ -232,7 +223,8 @@ public class Deliverylength extends BaseUtil {
 
     @And("^i see delivery success pop up$")
     public void iSeedeliverysuccessPopUp() throws Throwable {
-        Thread.sleep(3000);
+
+        Thread.sleep(5000);
         DeliverylengthPage page=new DeliverylengthPage(base.driver);
 
         base.driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
@@ -241,14 +233,14 @@ public class Deliverylength extends BaseUtil {
 
 
             page.Deliverylength10();
-            Thread.sleep(1000);
+            Thread.sleep(2000);
 
             Alert alt3 = base.driver.switchTo().alert();
             alt3.accept();
 
         } catch (NoAlertPresentException noe) {
 
-            Assert.fail();
+
 
 
         }base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
@@ -303,27 +295,45 @@ public class Deliverylength extends BaseUtil {
 
         base.driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
 
-
-            DeliverylengthPage page=new DeliverylengthPage(base.driver);
         base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        Boolean isPresent = base.driver.findElements(By.id("/html/body/div[2]/div[2]/div[6]")).size() > 0;
+        Boolean isPresent = base.driver.findElements(By.id("kitchenInfo")).size() > 0;
 
+
+        if (isPresent == false) {
+
+
+        }
         if (isPresent == true) {
 
-            ServingPage page1=new ServingPage(base.driver);
+           Thread.sleep(6000);
+
+            ContactInformationPage page2=new ContactInformationPage(base.driver);
+            page2.Contact13();
+
+            Thread.sleep(6000);
+
+           ServingPage page1=new ServingPage(base.driver);
             page1.Serving1();
 
+            Thread.sleep(6000);
 
-            WebElement Selection_kitchen =page1.kitchenselection;
-
-            Select ddlkitchen = new Select(Selection_kitchen);
+            Select ddlkitchen = new Select(page1.kitchenselection);
 
 
             ddlkitchen.selectByVisibleText("Börek");
 
+            Thread.sleep(6000);
+
             ContactInformationPage page3=new ContactInformationPage(base.driver);
             page3.Contact10();
-        }}
+
+            Thread.sleep(6000);
+             page3.Contact13();
+
+
+
+        }
+    }
 }
 
 

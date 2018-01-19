@@ -147,12 +147,6 @@ public class ContactInformationPage {
 
     }
 
-    public void Contact12(){
-
-        buttonbtnSaveAndContinue.click();
-
-    }
-
 
     public void Contact13(){
 
