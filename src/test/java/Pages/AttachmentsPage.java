@@ -48,6 +48,8 @@ public class AttachmentsPage {
     @FindBy(how = How.XPATH, using = "/html/body/div[2]/div[2]/div[6]")
     public WebElement attachmentssuccesspopup;
 
+    public String uploadfile="//Kullanıcılar/belemir.karabacakoglu/Masaüstü";
+
 
 
 
@@ -59,6 +61,7 @@ public class AttachmentsPage {
     public void Attachments2() {
 
         button1.click();
+
     }
     public void Attachments7() {
 

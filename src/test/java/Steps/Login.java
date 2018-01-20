@@ -68,7 +68,7 @@ public class Login extends BaseUtil {
 
         page.Click2();
 
-        Thread.sleep(3000);
+        Thread.sleep(6000);
 
     }
 

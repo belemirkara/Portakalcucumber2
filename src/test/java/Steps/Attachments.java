@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.sikuli.script.FindFailed;
+import org.sikuli.script.Key;
 import org.sikuli.script.Pattern;
 import org.sikuli.script.Screen;
 
@@ -27,7 +28,8 @@ public class Attachments extends BaseUtil {
     Random r = new Random();
     UUID uuid = UUID.randomUUID();
     String randomUUiDString = uuid.toString();
-    public String uploadfile="Kullanicilar//Masaustu//bele.jpg";
+    public String uploadfile="//Users//belemir.karabacakoglu//Desktop//deneme//bele.jpg";
+    public String uploadfile1="//Users//belemir.karabacakoglu//Desktop//openbutton1";
 
     public Attachments(BaseUtil base) {
 
@@ -38,7 +40,7 @@ public class Attachments extends BaseUtil {
     @And("^i click the attachments in progress bar$")
     public void iClickTheattachmentsinProgressBar() throws Throwable {
 
-        Thread.sleep(3000);
+        Thread.sleep(10000);
         AttachmentsPage page=new AttachmentsPage(base.driver);
         page.Attachments();
 
@@ -47,16 +49,25 @@ public class Attachments extends BaseUtil {
     @And("^i upload a file for brochure field$")
     public void iUploadAFileForbrochureField() throws Throwable {
 
-        Thread.sleep(500);
+        Thread.sleep(3000);
         AttachmentsPage page = new AttachmentsPage(base.driver);
         page.Attachments2();
 
-     Pattern pattern=new Pattern(uploadfile);
-        Pattern openButton = new Pattern("Kullanicilar//Masaustu//openbutton.png");
-        Screen screen = new Screen();
-        screen.type(pattern,"Kullanicilar//Masaustu//openbutton.png");
+        Screen s = new Screen();
+        try {
+
+            Pattern pattern=new Pattern(uploadfile);
+            Pattern openButton = new Pattern(uploadfile1);
+            Screen screen = new Screen();
+            screen.wait(pattern, 20);
+            screen.click(pattern);
+            screen.wait(openButton, 10);
             screen.click(openButton);
 
+        } catch (FindFailed e) {
+            e.printStackTrace();
+        }
+        Thread.sleep(5000);
 
 
     }
@@ -68,13 +79,18 @@ public class Attachments extends BaseUtil {
         AttachmentsPage page=new AttachmentsPage(base.driver);
         page.Attachments7();
 
-        Screen screen = new Screen();
-        screen.type(uploadfile);
-        screen.wait("joker.jpeg");
-        screen.doubleClick("joker.jpeg");
+        Screen s = new Screen();
+        try {
+
+            s.click("bele.jpg");
+            s.click("openbutton1.png");
+        } catch (FindFailed e) {
+            e.printStackTrace();
+        }
 
 
     }
+
 
     @And("^i check the acceptance criterion$")
     public void iCheckTheacceptancecriterion() throws Throwable {
@@ -146,11 +162,18 @@ public class Attachments extends BaseUtil {
         AttachmentsPage page=new AttachmentsPage(base.driver);
         page.Attachments8();
 
-        Screen screen = new Screen();
-        screen.type(uploadfile);
-        screen.wait(0.3000);
-        screen.doubleClick("joker.jpeg");
+        Screen s = new Screen();
+        try {
+
+            s.click( "bele.jpg");
+            s.click( "openbutton1.png");
+        } catch (FindFailed e) {
+            e.printStackTrace();
+        }
+
 
     }
+
+
     }
 
