@@ -12,6 +12,9 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.sikuli.script.FindFailed;
+import org.sikuli.script.Pattern;
+import org.sikuli.script.Screen;
 
 import java.util.Random;
 import java.util.UUID;
@@ -24,7 +27,7 @@ public class Attachments extends BaseUtil {
     Random r = new Random();
     UUID uuid = UUID.randomUUID();
     String randomUUiDString = uuid.toString();
-    public String uploadfile="//Users//belemir.karabacakoglu//Desktop//download.jpeg";
+    public String uploadfile="Kullanicilar//Masaustu//bele.jpg";
 
     public Attachments(BaseUtil base) {
 
@@ -44,46 +47,58 @@ public class Attachments extends BaseUtil {
     @And("^i upload a file for brochure field$")
     public void iUploadAFileForbrochureField() throws Throwable {
 
-        Thread.sleep(3000);
-        AttachmentsPage page=new AttachmentsPage(base.driver);
-        page.Attachments2(uploadfile);
+        Thread.sleep(500);
+        AttachmentsPage page = new AttachmentsPage(base.driver);
+        page.Attachments2();
+
+     Pattern pattern=new Pattern(uploadfile);
+        Pattern openButton = new Pattern("Kullanicilar//Masaustu//openbutton.png");
+        Screen screen = new Screen();
+        screen.type(pattern,"Kullanicilar//Masaustu//openbutton.png");
+            screen.click(openButton);
+
+
+
     }
+
 
     @And("^i upload a file for signboard field$")
     public void iUploadAFileForsignboardField() throws Throwable {
+        Thread.sleep(3000);
+        AttachmentsPage page=new AttachmentsPage(base.driver);
+        page.Attachments7();
 
-        WebElement tabela = (new WebDriverWait(base.driver, 5))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[1]/div/div[1]/div[1]/div[10]/div/div[2]/button")));
-        tabela.click();
+        Screen screen = new Screen();
+        screen.type(uploadfile);
+        screen.wait("joker.jpeg");
+        screen.doubleClick("joker.jpeg");
 
-        tabela.sendKeys(uploadfile);
+
     }
 
     @And("^i check the acceptance criterion$")
     public void iCheckTheacceptancecriterion() throws Throwable {
 
-        WebElement kabulkriteri = (new WebDriverWait(base.driver, 5))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("cb1")));
-        kabulkriteri.click();
 
+        AttachmentsPage page=new AttachmentsPage(base.driver);
+        page.Attachments4();
     }
 
     @When("^i click complete info button$")
     public void iClickcompleteinfoButton() throws Throwable {
 
-        WebElement bilgilerimitamamlabuton = (new WebDriverWait(base.driver, 5))
-                .until(ExpectedConditions.presenceOfElementLocated(By.id("btnSaveAndContinue")));
-        bilgilerimitamamlabuton.click();
-
+        AttachmentsPage page=new AttachmentsPage(base.driver);
+        page.Attachments5();
     }
 
     @And("^i see attachmentssuccess pop up$")
     public void iSeeattachmentssuccessPopUp() throws Throwable {
-
+        try{
         try {
 
-
-            base.driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[6]")).click();
+            Thread.sleep(3000);
+            AttachmentsPage page=new AttachmentsPage(base.driver);
+            page.Attachments6();
             Thread.sleep(1000);
 
             Alert alt3 = base.driver.switchTo().alert();
@@ -91,9 +106,12 @@ public class Attachments extends BaseUtil {
 
         } catch (NoAlertPresentException noe) {
 
-  Assert.fail();
-        }base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
 
+        }
+        } catch(AssertionError ae) {
+
+            Assert.fail();
+        }
     }
 
 
@@ -105,10 +123,10 @@ public class Attachments extends BaseUtil {
 
 
         try{
-            WebElement islembasarilipopup= (new WebDriverWait(base.driver, 15))
-                    .until(ExpectedConditions.presenceOfElementLocated(By.id("1")));
 
-            String ab = islembasarilipopup.getText();
+          Thread.sleep(3000);
+            AttachmentsPage page=new AttachmentsPage(base.driver);
+            String ab = page.attachmentssuccesspopup.getText();
 
             Assert.assertEquals("İşlem Başarılı", ab);
             Thread.sleep(3000);
@@ -122,8 +140,17 @@ public class Attachments extends BaseUtil {
     }
 
 
-    @When("^i finished all pages,i see (\\d+) steps page$")
-    public void iFinishedAllPagesiSeeStepsPage(int arg0) throws Throwable {
+    @And("^i upload a file for identity$")
+    public void iUploadAFileForIdentity() throws Throwable {
+        Thread.sleep(3000);
+        AttachmentsPage page=new AttachmentsPage(base.driver);
+        page.Attachments8();
+
+        Screen screen = new Screen();
+        screen.type(uploadfile);
+        screen.wait(0.3000);
+        screen.doubleClick("joker.jpeg");
 
     }
-}
+    }
+

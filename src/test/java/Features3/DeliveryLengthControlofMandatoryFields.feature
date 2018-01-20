@@ -38,6 +38,7 @@ Feature:Mandatory Control delivery
     And i see kitchen information pop up return serving
     And i click the delivery in progress bar
     And i enter main district amount as max five tl and click enter
+    And i delete most closed districts and click enter
     And i enter closed districts amount max thirty and click enter and i control that all fields are filled by same amount
     And i enter far districts amount max thirty and click enter and i control that all fields are filled by same amount
     And i choose district in district selection combobox

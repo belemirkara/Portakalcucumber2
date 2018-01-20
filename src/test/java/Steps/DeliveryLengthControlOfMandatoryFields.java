@@ -90,22 +90,93 @@ public class DeliveryLengthControlOfMandatoryFields extends BaseUtil {
     @And("^i delete closed districts click enter$")
     public void iDeleteClosedDistrictsClickEnter() throws Throwable {
         Thread.sleep(3000);
-        DeliveryLengthControlOfMandatoryFieldsPage page=new DeliveryLengthControlOfMandatoryFieldsPage(base.driver);
-        page.DeliveryLengthControlOfMandatoryFields3();
-    }
+        DeliverylengthPage page=new DeliverylengthPage(base.driver);
+
+        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        Boolean isPresent = base.driver.findElements(By.id("semt_2")).size() > 0;
+
+
+        if (isPresent == true) {
+
+
+            base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        Boolean isPresent1=page.minprice2.getAttribute("value").isEmpty();
+
+        if(isPresent1==false){
+
+
+            DeliveryLengthControlOfMandatoryFieldsPage page1=new DeliveryLengthControlOfMandatoryFieldsPage(base.driver);
+        page1.DeliveryLengthControlOfMandatoryFields3();
+    }}}
 
     @And("^i delete far districts and click enter$")
     public void iDeleteFarDistrictsAndClickEnter() throws Throwable {
         Thread.sleep(3000);
-        DeliveryLengthControlOfMandatoryFieldsPage page=new DeliveryLengthControlOfMandatoryFieldsPage(base.driver);
-        page.DeliveryLengthControlOfMandatoryFields4();
-    }
+        DeliverylengthPage page=new DeliverylengthPage(base.driver);
 
+        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        Boolean isPresent = base.driver.findElements(By.id("semt_3")).size() > 0;
+
+
+        if (isPresent == true) {
+
+            base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+            Boolean isPresent1 = page.minprice3.getAttribute("value").isEmpty();
+
+            if (isPresent1 == false) {
+
+                DeliveryLengthControlOfMandatoryFieldsPage page1 = new DeliveryLengthControlOfMandatoryFieldsPage(base.driver);
+                page1.DeliveryLengthControlOfMandatoryFields4();
+            }
+        }}
     @And("^i delete all other districts$")
     public void iDeleteAllOtherDistricts() throws Throwable {
         Thread.sleep(3000);
-        DeliveryLengthControlOfMandatoryFieldsPage page=new DeliveryLengthControlOfMandatoryFieldsPage(base.driver);
-        page.DeliveryLengthControlOfMandatoryFields5();
+
+        DeliverylengthPage page=new DeliverylengthPage(base.driver);
+
+        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        Boolean isPresent = base.driver.findElements(By.id("semt_0")).size() > 0;
+
+
+        if (isPresent == true) {
+
+            base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+            Boolean isPresent1 = page.minprice0.getAttribute("value").isEmpty();
+
+            if (isPresent1 == false) {
+
+            }
+
+            DeliveryLengthControlOfMandatoryFieldsPage page1=new DeliveryLengthControlOfMandatoryFieldsPage(base.driver);
+        page1.DeliveryLengthControlOfMandatoryFields5();
     }
 }
+
+    @And("^i delete most closed districts and click enter$")
+    public void iDeleteMostClosedDistrictsAndClickEnter() throws Throwable {
+        Thread.sleep(3000);
+
+        DeliverylengthPage page=new DeliverylengthPage(base.driver);
+
+        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        Boolean isPresent = base.driver.findElements(By.id("semt_1")).size() > 0;
+
+
+        if (isPresent == true) {
+
+            base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+            Boolean isPresent1 = page.minprice.getAttribute("value").isEmpty();
+
+            if (isPresent1 == false) {
+
+            }
+
+            DeliveryLengthControlOfMandatoryFieldsPage page1=new DeliveryLengthControlOfMandatoryFieldsPage(base.driver);
+            page1.DeliveryLengthControlOfMandatoryFields6();
+        }
+    }
+
+}
+
 

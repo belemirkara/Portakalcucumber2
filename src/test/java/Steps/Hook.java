@@ -40,6 +40,7 @@ public class Hook extends BaseUtil {
 
         FirefoxOptions options = new FirefoxOptions();
         options.setAcceptInsecureCerts(true);
+        options.addPreference("dom.file.createInChild",true);
         options.addPreference("browser.download.folderList", 2);
         options.addPreference("browser.download.dir", downloadPath);
         options.addPreference("browser.helperApps.neverAsk.saveToDisk", "application/xml,text/plain,text/xml,image/jpeg,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");

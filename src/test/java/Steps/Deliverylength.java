@@ -74,24 +74,29 @@ public class Deliverylength extends BaseUtil {
         base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         Boolean isPresent = base.driver.findElements(By.id("semt_1")).size() > 0;
 
+
         if (isPresent == true) {
 
-            page.Deliverylength3(String.valueOf(randomamountValueofdiger));
-            Thread.sleep(6000);
+            base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+            Boolean isPresent1=page.minprice.getAttribute("value").isEmpty();
+
+            if(isPresent1==true) {
+
+                page.Deliverylength3(String.valueOf(randomamountValueofdiger));
+                Thread.sleep(6000);
 
 
+                String themostclosedsf = page.allthemostcloseddistrict.getAttribute("value");
+                Thread.sleep(6000);
 
-            String themostclosedsf=page.allthemostcloseddistrict.getAttribute("value");
-            Thread.sleep(6000);
+                String themostsf1 = page.minprice.getAttribute("value");
 
-            String themostsf1=page.minprice.getAttribute("value");
+                if (themostclosedsf.equals(themostsf1)) {
 
-            if (themostclosedsf.equals(themostsf1)) {
-
-            } else {
-                Assert.fail();
+                } else {
+                    Assert.fail();
+                }
             }
-
 
         } else if (isPresent == false) {
 
@@ -111,24 +116,30 @@ public class Deliverylength extends BaseUtil {
         base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         Boolean isPresent = base.driver.findElements(By.id("semt_2")).size() > 0;
 
-        if (isPresent == true) {
+        if (isPresent == true ) {
 
             Thread.sleep(6000);
-            page.Deliverylength4(String.valueOf(randomamountValueofdiger));
 
-            Thread.sleep(6000);
-            String closedsf=page.allcloseddistrict1.getAttribute("value");
-            Thread.sleep(6000);
+            Boolean isPresent1=page.minprice2.getAttribute("value").isEmpty();
 
-            String closedsf1=page.minprice2.getAttribute("value");
+            if(isPresent1==true) {
 
-            if (closedsf.equals(closedsf1)) {
 
-            } else {
-                Assert.fail();
+                page.Deliverylength4(String.valueOf(randomamountValueofdiger));
+
+                Thread.sleep(6000);
+                String closedsf = page.allcloseddistrict1.getAttribute("value");
+                Thread.sleep(6000);
+
+                String closedsf1 = page.minprice2.getAttribute("value");
+
+                if (closedsf.equals(closedsf1)) {
+
+                } else {
+                    Assert.fail();
+                }
+
             }
-
-
 
         } else if (isPresent == false) {
 
@@ -150,22 +161,27 @@ public class Deliverylength extends BaseUtil {
         base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         Boolean isPresent = base.driver.findElements(By.id("semt_3")).size() > 0;
 
+
         if (isPresent == true) {
             Thread.sleep(6000);
-           page.Deliverylength5(String.valueOf(randomamountValueofdiger));
 
-            Thread.sleep(6000);
-            String farsf=page.allfardistricts.getAttribute("value");
+            Boolean isPresent1=page.minprice3.getAttribute("value").isEmpty();
 
-            Thread.sleep(6000);
-            String farsf1=page.minprice3.getAttribute("value");
+            if(isPresent1==true) {
+                page.Deliverylength5(String.valueOf(randomamountValueofdiger));
 
-            if (farsf.equals(farsf1)) {
+                Thread.sleep(6000);
+                String farsf = page.allfardistricts.getAttribute("value");
 
-            } else {
-                Assert.fail();
+                Thread.sleep(6000);
+                String farsf1 = page.minprice3.getAttribute("value");
+
+                if (farsf.equals(farsf1)) {
+
+                } else {
+                    Assert.fail();
+                }
             }
-
 
         } else if (isPresent == false) {
 
@@ -183,6 +199,7 @@ public class Deliverylength extends BaseUtil {
         base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
         Boolean isPresent = base.driver.findElements(By.id("semt_0")).size() > 0;
 
+
         if (isPresent == true) {
 
             page.Deliverylength6();
@@ -197,7 +214,10 @@ public class Deliverylength extends BaseUtil {
 
             Thread.sleep(1000);
 
+            base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+            Boolean isPresent1=page.minprice0.getAttribute("value").isEmpty();
 
+            if(isPresent1==true){
            page.Deliverylength9(String.valueOf(randomamountValueofdiger));
             Thread.sleep(3000);
 
@@ -220,7 +240,7 @@ public class Deliverylength extends BaseUtil {
 
 
         }
-    }
+    }}
 
 
     @And("^i see delivery success pop up$")

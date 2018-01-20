@@ -19,6 +19,9 @@ public class DeliveryLengthControlOfMandatoryFieldsPage {
     @FindBy(how = How.ID, using ="main-area-delivery-price")
     public WebElement mainareadeliveryprice1;
 
+    @FindBy(how = How.ID, using ="othertotalprice_1")
+    public WebElement othertotalprice1;
+
     @FindBy(how = How.ID, using ="othertotalprice_2")
     public WebElement othertotalprice2;
 
@@ -76,6 +79,16 @@ public class DeliveryLengthControlOfMandatoryFieldsPage {
         othertotalprice0.clear();
         othertotalprice0.sendKeys("'");
         othertotalprice0.sendKeys(Keys.ENTER);
+
+    }
+
+    public void DeliveryLengthControlOfMandatoryFields6(){
+
+
+        othertotalprice1.click();
+        othertotalprice1.clear();
+        othertotalprice1.sendKeys("'");
+        othertotalprice1.sendKeys(Keys.ENTER);
 
     }
 

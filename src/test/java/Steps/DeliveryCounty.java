@@ -95,7 +95,6 @@ public class DeliveryCounty extends BaseUtil {
         int min = 0;
         int max = 30;
 
-        page.selectioncountytable.click();
         base.driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
         Thread.sleep(3000);
 
