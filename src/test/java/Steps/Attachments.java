@@ -32,9 +32,7 @@ public class Attachments extends BaseUtil {
     Random r = new Random();
     UUID uuid = UUID.randomUUID();
     String randomUUiDString = uuid.toString();
-    public String uploadfile1 = "//Users//belemir.karabacakoglu//Desktop//bele1.jpeg";
-    public String uploadfile2 = "//Users//belemir.karabacakoglu//Desktop//bele2.jpeg";
-    public String uploadfile3 = "//Users//belemir.karabacakoglu//Desktop//bele3.jpeg";
+    public String uploadfile1 = "//Users//belemir.karabacakoglu//Desktop//bele4.jpeg";
 
 
     public Attachments(BaseUtil base) {
@@ -125,7 +123,7 @@ public class Attachments extends BaseUtil {
         AttachmentsPage page = new AttachmentsPage(base.driver);
         page.Attachments7();
 
-        File file = new File(uploadfile2);
+        File file = new File(uploadfile1);
 
         StringSelection stringSelection = new StringSelection(file.getAbsolutePath());
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
@@ -189,8 +187,7 @@ public class Attachments extends BaseUtil {
         AttachmentsPage page = new AttachmentsPage(base.driver);
         page.Attachments8();
 
-        Thread.sleep(6000);
-        File file = new File(uploadfile3);
+        File file = new File(uploadfile1);
 
         StringSelection stringSelection = new StringSelection(file.getAbsolutePath());
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
@@ -252,7 +249,7 @@ public class Attachments extends BaseUtil {
     @And("^i check the acceptance criterion$")
     public void iCheckTheacceptancecriterion() throws Throwable {
 
-Thread.sleep(3000);
+Thread.sleep(6000);
         AttachmentsPage page = new AttachmentsPage(base.driver);
         page.Attachments4();
     }
