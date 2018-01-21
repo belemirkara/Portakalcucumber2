@@ -312,8 +312,8 @@ public class Deliverylength extends BaseUtil {
     }
 
 
-    @And("^i see kitchen information pop up return serving$")
-    public void iSeeKitchenInformationPopUpReturnServing() throws Throwable {
+    @And("^i see kitchen information pop up return serving2$")
+    public void iSeeKitchenInformationPopUpReturnServing2() throws Throwable {
 
         base.driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
 
@@ -322,6 +322,7 @@ public class Deliverylength extends BaseUtil {
 
 
         if (isPresent == false) {
+
 
 
         }
@@ -352,7 +353,12 @@ public class Deliverylength extends BaseUtil {
             Thread.sleep(6000);
              page3.Contact13();
 
-
+            Thread.sleep(6000);
+            DeliverylengthPage page=new DeliverylengthPage(base.driver);
+            Thread.sleep(6000);
+            page.Deliverylength();
+            base.driver.manage().timeouts().implicitlyWait(6000, TimeUnit.SECONDS);
+            Thread.sleep(3000);
 
         }
     }

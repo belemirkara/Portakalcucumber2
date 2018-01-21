@@ -9,8 +9,7 @@ Feature:Attachments
     And i click rememberme checkbox
     And i click login button
     And i click the attachments in progress bar
-    And i see kitchen information pop up return serving
-    And i click the attachments in progress bar
+    And i see kitchen information pop up return serving3
     And i upload a file for brochure field
     And i upload a file for identity
     And i upload a file for signboard field

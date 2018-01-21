@@ -10,12 +10,12 @@ Feature:Coca cola menu
     And i click rememberme checkbox
     And i click login button
     And i click the attachments in progress bar
-    And i see kitchen information pop up return serving
-    And i click the attachments in progress bar
+    And i see kitchen information pop up return serving3
     And i click create drink menu button
     And i see the page sent to menu
     And i click adding drink button
     When i choose coca cola
+    And i enter a text in the drink name field,i enter a text in the drink price field,i click create button,i click showing to added drinks button,i see the drink is sent to added drinks page
     And i click form for adding drink button
     And i get the name of first product,i enter amount in the enter price field for first product,i click add button in create drink menu page,i click added drinks button,i see the drink is sent to added drinks page
     And i click savebutton
@@ -43,8 +43,7 @@ Feature:Coca cola menu
     And i click rememberme checkbox
     And i click login button
     And i click the attachments in progress bar
-    And i see kitchen information pop up return serving
-    And i click the attachments in progress bar
+    And i see kitchen information pop up return serving3
     And i click create drink menu button
     And i see the page sent to menu
     And i click adding drink button

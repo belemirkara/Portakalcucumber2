@@ -8,8 +8,7 @@ Feature:Delivery
     And i click rememberme checkbox
     And i click login button
     And i click the delivery in progress bar
-    And i see kitchen information pop up return serving
-    And i click the delivery in progress bar
+    And i see kitchen information pop up return serving2
     And i enter main district amount as max five tl and click enter
     And i enter most closed districts amount max thirty tl and click enter i control that all fields are filled by same amount
     And i enter closed districts amount max thirty and click enter and i control that all fields are filled by same amount

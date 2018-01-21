@@ -96,6 +96,38 @@ public class Drinks extends BaseUtil {
         DrinksPage page=new DrinksPage(base.driver);
         page.Drink6();
     }
+    @And("^i enter a text in the drink name field,i enter a text in the drink price field,i click create button,i click showing to added drinks button,i see the drink is sent to added drinks page$")
+    public void iEnterATextInTheDrinkNameFieldIEnterATextInTheDrinkPriceFieldIClickCreateButtonIClickShowingToAddedDrinksButtonISeeTheDrinkIsSentToAddedDrinksPage() throws Throwable {
+
+
+        Thread.sleep(3000);
+        DrinksPage page=new DrinksPage(base.driver);
+
+        page.Drink3(randomUUiDString);
+        Thread.sleep(3000);
+
+        String valuename = page.drinknamefield.getAttribute("value");
+        Thread.sleep(3000);
+
+        page.Drink4();
+
+
+
+        page.Drink5();
+
+        page.Drink6();
+
+
+        String ei = page.addeddrinks.getAttribute("value");
+
+
+        if (ei.contains(valuename)) {
+
+        } else {
+            Assert.fail();
+        }
+    }
+
 
 
     @And("^i get the name of first product,i enter amount in the enter price field for first product,i click add button in create drink menu page,i click added drinks button,i see the drink is sent to added drinks page$")
@@ -109,7 +141,7 @@ public class Drinks extends BaseUtil {
 
         String fpn = page.firstproduct.getAttribute("value");
 
-        page.Drink8(String.valueOf(max));
+        page.Drink8(max);
 
 
         page.Drink9();

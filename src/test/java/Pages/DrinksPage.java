@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class DrinksPage {
@@ -87,6 +88,7 @@ public class DrinksPage {
 
 
 
+
     }
 
     public void Drink5(){
@@ -116,10 +118,11 @@ public class DrinksPage {
 
 
     }
-    public void Drink8(String sdrinkpricefield){
+    public void Drink8(String senterpricefield){
 
         enterpricefield.click();
-        enterpricefield.sendKeys(sdrinkpricefield);
+        DecimalFormat myFormatter = new DecimalFormat(senterpricefield);
+        enterpricefield.sendKeys(senterpricefield);
 
     }
 

@@ -35,7 +35,7 @@ public class WorkingHours extends BaseUtil {
     @And("^i click working hours tab$")
     public void iclickworkinghourstab() throws Throwable {
 
-        Thread.sleep(3000);
+        Thread.sleep(6000);
         WorkingHoursPage page=new WorkingHoursPage(base.driver);
         Thread.sleep(3000);
         page.WorkingHours();

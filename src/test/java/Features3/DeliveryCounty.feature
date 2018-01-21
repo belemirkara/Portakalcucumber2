@@ -8,8 +8,7 @@ Feature:ilceye gore Gonderim Bolgeleri
     And i click rememberme checkbox
     And i click login button
     And i click the delivery in progress bar
-    And i see kitchen information pop up return serving
-    And i click the delivery in progress bar
+    And i see kitchen information pop up return serving2
     And i click county tab in gonderim bolg
     And i enter main district amount as max five tl and click enter
     And i choose county from the county combobox in delivery page

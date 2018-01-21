@@ -1,15 +1,14 @@
-Feature:Control of limit amount in Gonderim Bolgeleri
-  This feature deals with gonderim bolgeleri in progress bar
+Feature:Control of limit amount in delivery
+  This feature deals with delivery in progress bar
 
 
-  Scenario:Control of limit amount in Gonderim Bolgeleri
+  Scenario:Control of limit amount in delivery
     Given i navigate to login page
     And i get username and pw from login
     And i click rememberme checkbox
     And i click login button
     And i click the delivery in progress bar
-    And i see kitchen information pop up return serving
-    And i click the delivery in progress bar
+    And i see kitchen information pop up return serving2
     And i click length button
     And i enter main district amount much more five tl and click enter
     And i choose district from the district combobox and much more thirty tl
