@@ -3,7 +3,7 @@ Feature:Attachments
   This feature deals with Attachments in progress bar
 
 
-  Scenario:Happy path of Belgeler Ekler
+  Scenario:Happy path of Attachments
     Given i navigate to login page
     And i get username and pw from login
     And i click rememberme checkbox
@@ -18,6 +18,5 @@ Feature:Attachments
     And i see attachmentssuccess pop up
     And i confirm attachmentssuccess pop up message
     And i click ok button
-
 
 

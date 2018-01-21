@@ -35,7 +35,7 @@ public class AttachmentsPage {
     @FindBy(how = How.XPATH, using ="/html/body/div[1]/div/div[1]/div[1]/div[11]/div/div[2]/button")
     public WebElement button3;
 
-    @FindBy(how = How.ID, using = "cb1")
+    @FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div[1]/div[1]/div[12]/span/label")
     public WebElement acceptancecriteriaradiobutton;
 
     @FindBy(how = How.ID, using = "btnSaveAndContinue")
@@ -44,7 +44,6 @@ public class AttachmentsPage {
     @FindBy(how = How.XPATH, using = "/html/body/div[2]/div[2]/div[6]")
     public WebElement attachmentssuccesspopup;
 
-    public String uploadfile="//Kullanıcılar/belemir.karabacakoglu/Masaüstü";
 
 
 

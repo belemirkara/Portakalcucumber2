@@ -185,23 +185,25 @@ public class Selfreg extends BaseUtil {
 
 
         base.driver.manage().timeouts().implicitlyWait(3000, TimeUnit.SECONDS);
+try {
+    try {
 
-        try {
+        Thread.sleep(1000);
 
-            Thread.sleep(1000);
+        SelfregPage page = new SelfregPage(base.driver);
+        page.Click3();
 
-            SelfregPage page = new SelfregPage(base.driver);
-            page.Click3();
+        Alert alt2 = base.driver.switchTo().alert();
+        alt2.accept();
 
-            Alert alt2 = base.driver.switchTo().alert();
-            alt2.accept();
+    } catch (NoAlertPresentException noe) {
 
-        } catch (NoAlertPresentException noe) {
-
-        }
-
-
+    } }catch (AssertionError ea) {
+        Assert.fail();
     }
+
+
+}
 
     @Then("^i confirm the selfsuccesspop up message$")
     public void iConfirmTheselfsuccessPopUpMessage() throws Throwable {
