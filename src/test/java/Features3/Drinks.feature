@@ -1,7 +1,7 @@
 
 
-Feature:Coca cola menu
-  This feature deals with Coca cola in progress bar
+Feature:Drinks menu
+  This feature deals with drinks in progress bar
 
 
   Scenario:Happy path of Coca cola menu

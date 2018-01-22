@@ -68,6 +68,9 @@ public class DrinksPage {
     @FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div[1]/div/div[4]/div[2]/div[2]/div[2]/div[4]/button")
     public WebElement addbutton2;
 
+    @FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div[1]/div/div[4]/div[2]/div[2]/div[11]/div[4]/button")
+    public WebElement addbutton3;
+
     @FindBy(how = How.CLASS_NAME, using = "dropdown")
     public WebElement addbuttondropdown;
 
@@ -98,6 +101,14 @@ public class DrinksPage {
 
     @FindBy(how = How.ID, using = "check_aa4da079-c0c3-e711-80fa-00505692008b")
     public WebElement optionatom;
+
+    @FindBy(how = How.XPATH, using = "//*[@id=\"addedBeveragesList\"]/tbody/tr[2]/td[2]")
+    public WebElement addedoptions2;
+
+    @FindBy(how = How.XPATH, using = "//*[@id=\"addedBeveragesList\"]/tbody/tr[3]/td[2]")
+    public WebElement addedoptions3;
+
+
 
     public void Drink1(){
 
@@ -184,6 +195,13 @@ public class DrinksPage {
     public void Drink21(){
 
         addbutton2.click();
+
+
+    }
+
+    public void Drink888(){
+
+        addbutton3.click();
 
 
     }

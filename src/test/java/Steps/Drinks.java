@@ -261,30 +261,48 @@ if(page.enterpricefield.getAttribute("value").isEmpty()) {
         if (page.comboboxenterprice.getAttribute("value").isEmpty()) {
             page.Drink18(String.valueOf(randomNum));
         }
-           Thread.sleep(3000);
+        Thread.sleep(3000);
 
-       page.Drink6();
+        page.Drink888();
+
+        Thread.sleep(3000);
+
+        page.Drink6();
 
         base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        Boolean isPresent = base.driver.findElements(By.xpath("//*[@id=\"addedBeveragesList\"]/tbody/tr[2]/td[1]")).size() > 0;
+        Boolean isPresent = base.driver.findElements(By.xpath("//*[@id=\"addedBeveragesList\"]/tbody/tr[3]/td[1]")).size() > 0;
 
 
         if (isPresent == true) {
 
+            Thread.sleep(3000);
             String ei2 = page.addeddrinks3.getText();
+            Thread.sleep(3000);
+            String b = page.addedoptions3.getText();
 
-            if (fpn.contains(ei2)) {
+            Thread.sleep(3000);
+            if (fpn.contains(ei2) && !b.contains("Atom")) {
 
             } else {
                 Assert.fail();
             }
-        }  if(isPresent ==false){
-           String ei3=page.addeddrinks2.getText();
+        }
+        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        Boolean isPresent2 = base.driver.findElements(By.xpath("//*[@id=\"addedBeveragesList\"]/tbody/tr[2]/td[1]")).size() > 0;
 
-           if(fpn.contains(ei3)){
-               }else{
-               Assert.fail();
-           }
+
+        if (isPresent == false && isPresent2 ==true) {
+            Thread.sleep(3000);
+            String ei3 = page.addeddrinks2.getText();
+            Thread.sleep(3000);
+            String b3 = page.addedoptions2.getText();
+
+            Thread.sleep(3000);
+
+            if (fpn.contains(ei3) && !b3.contains("Atom")) {
+            } else {
+                Assert.fail();
+            }
         }
 
     }
