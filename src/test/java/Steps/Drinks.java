@@ -13,6 +13,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.*;
@@ -141,8 +142,14 @@ public class Drinks extends BaseUtil {
         Thread.sleep(3000);
         DrinksPage page=new DrinksPage(base.driver);
 
+        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        Boolean isPresent = base.driver.findElements(By.className("avoid-clicks")).size() > 0;
 
-        String fpn = page.firstproduct.getText();
+
+        if (isPresent == false) {
+
+
+            String fpn = page.productlist.getText();
 
 if(page.enterpricefield.getAttribute("value").isEmpty()) {
     page.Drink8(String.valueOf(randomNum));
@@ -151,8 +158,8 @@ if(page.enterpricefield.getAttribute("value").isEmpty()) {
         page.Drink9();
         page.Drink6();
 
-         page.addeddrinks.click();
-        String ei2=page.addeddrinks.getText();
+         page.addeddrinks1.click();
+        String ei2=page.addeddrinks1.getText();
 
         if(fpn.contains(ei2)){
 
@@ -161,6 +168,34 @@ if(page.enterpricefield.getAttribute("value").isEmpty()) {
             Assert.fail();
         }
         }
+
+        else if(isPresent==true){
+
+            String fpn2 = page.productlist2.getText();
+
+            if(page.enterpricefield2.getAttribute("value").isEmpty()) {
+                page.Drink20(String.valueOf(randomNum));
+            }
+
+
+            Thread.sleep(3000);
+            page.Drink21();
+
+            Thread.sleep(3000);
+            page.Drink6();
+
+            String ei2=page.addeddrinks2.getText();
+
+            if(fpn2.contains(ei2)){
+
+            }
+            else{
+                Assert.fail();
+            }
+        }
+
+
+    }
 
     @And("^i see drinks fail pop up$")
     public void iSeedrinksfailPopUp() throws Throwable {
@@ -207,23 +242,52 @@ if(page.enterpricefield.getAttribute("value").isEmpty()) {
     @When("^a product has an option, i get the name and click option dropdown,i enter amount in the enter price field,i click add button in icecek menusu olustur page,i click added drinks button,i see the drink is sent to added drinks page$")
     public void aProductHasAnOptionIGetTheNameAndClickOptionDropdownIEnterAmountInTheEnterPriceFieldIClickAddButtonInIcecekMenusuOlusturPageIClickAddedDrinksButtonISeeTheDrinkIsSentToAddedDrinksPage() throws Throwable {
 
+        Thread.sleep(6000);
+        DrinksPage page = new DrinksPage(base.driver);
+
+        String fpn = page.productlist3.getText();
         Thread.sleep(3000);
-        DrinksPage page=new DrinksPage(base.driver);
+
 
         page.Drink10();
 
 
         Thread.sleep(3000);
-        for (WebElement opt : page.dropdown) {
-
-            opt.click();
-            opt.click();
 
 
+        page.Drink88();
+
+
+        if (page.comboboxenterprice.getAttribute("value").isEmpty()) {
+            page.Drink18(String.valueOf(randomNum));
+        }
+           Thread.sleep(3000);
+
+       page.Drink6();
+
+        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        Boolean isPresent = base.driver.findElements(By.xpath("//*[@id=\"addedBeveragesList\"]/tbody/tr[2]/td[1]")).size() > 0;
+
+
+        if (isPresent == true) {
+
+            String ei2 = page.addeddrinks3.getText();
+
+            if (fpn.contains(ei2)) {
+
+            } else {
+                Assert.fail();
             }
+        }  if(isPresent ==false){
+           String ei3=page.addeddrinks2.getText();
+
+           if(fpn.contains(ei3)){
+               }else{
+               Assert.fail();
+           }
+        }
 
     }
-
     @And("^i click disclaim button$")
     public void iClickDisclaimButton() throws Throwable {
 

@@ -45,17 +45,40 @@ public class DrinksPage {
     public WebElement customnotes;
 
     @FindBy(how = How.CLASS_NAME, using = "beverage-list")
-    public WebElement firstproduct;
+    public WebElement productlist;
+
+    @FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div[1]/div/div[4]/div[2]/div[2]/div[2]/div[1]/label")
+    public WebElement productlist2;
+
+
+    @FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div[1]/div/div[4]/div[2]/div[2]/div[11]/div[1]/label")
+    public WebElement productlist3;
 
     @FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div[1]/div/div[4]/div[2]/div[2]/div[1]/div[3]/input")
     public WebElement enterpricefield;
 
+
+    @FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div[1]/div/div[4]/div[2]/div[2]/div[2]/div[3]/input")
+    public WebElement enterpricefield2;
+
     @FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div[1]/div/div[4]/div[2]/div[2]/div[1]/div[4]/button")
     public WebElement addbutton;
 
-    @FindBy(how = How.XPATH, using = "//*[@id=\"addedBeveragesList\"]/tbody/tr/td[1]")
-    public WebElement addeddrinks;
 
+    @FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div[1]/div/div[4]/div[2]/div[2]/div[2]/div[4]/button")
+    public WebElement addbutton2;
+
+    @FindBy(how = How.CLASS_NAME, using = "dropdown")
+    public WebElement addbuttondropdown;
+
+    @FindBy(how = How.XPATH, using = "//*[@id=\"addedBeveragesList\"]/tbody/tr/td[1]")
+    public WebElement addeddrinks1;
+
+    @FindBy(how = How.XPATH, using = "//*[@id=\"addedBeveragesList\"]/tbody/tr[2]/td[1]")
+    public WebElement addeddrinks2;
+
+    @FindBy(how = How.XPATH, using = "//*[@id=\"addedBeveragesList\"]/tbody/tr[3]/td[1]")
+    public WebElement addeddrinks3;
 
     @FindBy(how = How.XPATH, using = "/html/body/div[2]/div[2]/div[6]")
     public WebElement alertpopup;
@@ -69,10 +92,21 @@ public class DrinksPage {
     @FindBy(how = How.XPATH, using = "/html/body/div[2]/div[2]/button[2]")
     public WebElement disclaimbutton;
 
+    @FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div[1]/div/div[4]/div[2]/div[2]/div[11]/div[3]/input")
+    public WebElement comboboxenterprice;
+
+
+    @FindBy(how = How.ID, using = "check_aa4da079-c0c3-e711-80fa-00505692008b")
+    public WebElement optionatom;
 
     public void Drink1(){
 
         createdrinkmenubutton.click();
+    }
+
+    public void Drink88(){
+
+        optionatom.click();
     }
 
     public void Drink2(){
@@ -124,9 +158,32 @@ public class DrinksPage {
 
     }
 
+
+    public void Drink20(String senterpricefield2){
+
+        enterpricefield2.click();
+        enterpricefield2.sendKeys(senterpricefield2);
+
+    }
+
+
+    public void Drink18(String senterpricefield){
+
+        comboboxenterprice.click();
+        comboboxenterprice.sendKeys(senterpricefield);
+
+    }
+
     public void Drink9(){
 
         addbutton.click();
+
+
+    }
+
+    public void Drink21(){
+
+        addbutton2.click();
 
 
     }
@@ -142,6 +199,13 @@ public class DrinksPage {
     public void Drink11(){
 
         disclaimbutton.click();
+
+
+    }
+
+    public void Drink19(){
+
+        addbuttondropdown.click();
 
 
     }
