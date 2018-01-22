@@ -12,15 +12,18 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.net.URISyntaxException;
 import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
@@ -44,7 +47,7 @@ public class Attachments extends BaseUtil {
     @And("^i click the attachments in progress bar$")
     public void iClickTheattachmentsinProgressBar() throws Throwable {
 
-        Thread.sleep(10000);
+        Thread.sleep(15000);
         AttachmentsPage page = new AttachmentsPage(base.driver);
         page.Attachments();
 
@@ -58,6 +61,8 @@ public class Attachments extends BaseUtil {
         Thread.sleep(3000);
         AttachmentsPage page = new AttachmentsPage(base.driver);
         page.Attachments2();
+
+
 
         File file = new File(uploadfile1);
 
@@ -114,13 +119,91 @@ public class Attachments extends BaseUtil {
 
         robot.keyRelease(KeyEvent.VK_ENTER);
 
+        Thread.sleep(1000);
+        ContactInformationPage page1=new ContactInformationPage(base.driver);
+        page1.Contact13();
+
     }
 
 
     @And("^i upload a file for signboard field$")
     public void iUploadAFileForsignboardField() throws Throwable {
+
         Thread.sleep(3000);
         AttachmentsPage page = new AttachmentsPage(base.driver);
+        page.Attachments8();
+
+
+        File file = new File(uploadfile1);
+
+        StringSelection stringSelection = new StringSelection(file.getAbsolutePath());
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
+
+        Robot robot = new Robot();
+
+// Cmd + Tab is needed since it launches a Java app and the browser looses focus
+
+        robot.keyPress(KeyEvent.VK_META);
+
+        robot.keyPress(KeyEvent.VK_TAB);
+
+        robot.keyRelease(KeyEvent.VK_META);
+
+        robot.keyRelease(KeyEvent.VK_TAB);
+
+        robot.delay(500);
+
+//Open Goto window
+
+        robot.keyPress(KeyEvent.VK_META);
+
+        robot.keyPress(KeyEvent.VK_SHIFT);
+
+        robot.keyPress(KeyEvent.VK_G);
+
+        robot.keyRelease(KeyEvent.VK_META);
+
+        robot.keyRelease(KeyEvent.VK_SHIFT);
+
+        robot.keyRelease(KeyEvent.VK_G);
+
+//Paste the clipboard value
+
+        robot.delay(500);
+
+        robot.keyPress(KeyEvent.VK_META);
+
+        robot.keyPress(KeyEvent.VK_V);
+
+        robot.keyRelease(KeyEvent.VK_META);
+
+        robot.keyRelease(KeyEvent.VK_V);
+
+//Press Enter key to close the Goto window and Upload window
+
+        robot.keyPress(KeyEvent.VK_ENTER);
+
+        robot.keyRelease(KeyEvent.VK_ENTER);
+
+        robot.delay(500);
+
+        robot.keyPress(KeyEvent.VK_ENTER);
+
+        robot.keyRelease(KeyEvent.VK_ENTER);
+
+        Thread.sleep(500);
+
+
+
+
+    }
+
+    @And("^i upload a file for identity$")
+    public void iUploadAFileForIdentity() throws Throwable {
+
+        Thread.sleep(1000);
+        AttachmentsPage page = new AttachmentsPage(base.driver);
+
         page.Attachments7();
 
         File file = new File(uploadfile1);
@@ -178,81 +261,21 @@ public class Attachments extends BaseUtil {
 
         robot.keyRelease(KeyEvent.VK_ENTER);
 
-    }
 
-    @And("^i upload a file for identity$")
-    public void iUploadAFileForIdentity() throws Throwable {
-
-        Thread.sleep(6000);
-        AttachmentsPage page = new AttachmentsPage(base.driver);
-        page.Attachments8();
-
-        File file = new File(uploadfile1);
-
-        StringSelection stringSelection = new StringSelection(file.getAbsolutePath());
-        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
-
-        Robot robot = new Robot();
-
-// Cmd + Tab is needed since it launches a Java app and the browser looses focus
-
-        robot.keyPress(KeyEvent.VK_META);
-
-        robot.keyPress(KeyEvent.VK_TAB);
-
-        robot.keyRelease(KeyEvent.VK_META);
-
-        robot.keyRelease(KeyEvent.VK_TAB);
-
-        robot.delay(500);
-
-//Open Goto window
-
-        robot.keyPress(KeyEvent.VK_META);
-
-        robot.keyPress(KeyEvent.VK_SHIFT);
-
-        robot.keyPress(KeyEvent.VK_G);
-
-        robot.keyRelease(KeyEvent.VK_META);
-
-        robot.keyRelease(KeyEvent.VK_SHIFT);
-
-        robot.keyRelease(KeyEvent.VK_G);
-
-//Paste the clipboard value
-
-        robot.keyPress(KeyEvent.VK_META);
-
-        robot.keyPress(KeyEvent.VK_V);
-
-        robot.keyRelease(KeyEvent.VK_META);
-
-        robot.keyRelease(KeyEvent.VK_V);
-
-//Press Enter key to close the Goto window and Upload window
-
-        robot.keyPress(KeyEvent.VK_ENTER);
-
-        robot.keyRelease(KeyEvent.VK_ENTER);
-
-        robot.delay(500);
-
-        robot.keyPress(KeyEvent.VK_ENTER);
-
-        robot.keyRelease(KeyEvent.VK_ENTER);
 
     }
-
 
 
     @And("^i check the acceptance criterion$")
     public void iCheckTheacceptancecriterion() throws Throwable {
 
-Thread.sleep(6000);
-        AttachmentsPage page = new AttachmentsPage(base.driver);
-        page.Attachments4();
+Thread.sleep(30000);
+
+AttachmentsPage page = new AttachmentsPage(base.driver);
+
+page.Attachments4();
     }
+
 
     @When("^i click complete info button$")
     public void iClickcompleteinfoButton() throws Throwable {

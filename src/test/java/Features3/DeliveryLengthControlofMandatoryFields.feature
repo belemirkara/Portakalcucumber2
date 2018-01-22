@@ -9,7 +9,7 @@ Feature:Mandatory Control delivery
     And i click rememberme checkbox
     And i click login button
     And i click the delivery in progress bar
-    And i see kitchen information pop up return serving
+    And i see kitchen information pop up return serving2
     And i click the delivery in progress bar
     And i clear the main district amount
     And i enter most closed districts amount max thirty tl and click enter i control that all fields are filled by same amount

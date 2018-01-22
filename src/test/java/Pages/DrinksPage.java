@@ -28,7 +28,6 @@ public class DrinksPage {
     @FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/ul")
     public List<WebElement> options1;
 
-
     @FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div[1]/div/div[4]/div[2]/div[1]/div[2]/div[1]/input")
     public WebElement drinknamefield;
 
@@ -42,10 +41,10 @@ public class DrinksPage {
     @FindBy(how = How.ID, using = "show-list-button")
     public WebElement listbutton;
 
-    @FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div[1]/div/div[4]/div[2]")
-    public WebElement addeddrinks;
+    @FindBy(how = How.ID, using = "customNotes")
+    public WebElement customnotes;
 
-    @FindBy(how = How.ID, using = "check_3001")
+    @FindBy(how = How.CLASS_NAME, using = "beverage-list")
     public WebElement firstproduct;
 
     @FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div[1]/div/div[4]/div[2]/div[2]/div[1]/div[3]/input")
@@ -54,12 +53,18 @@ public class DrinksPage {
     @FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div[1]/div/div[4]/div[2]/div[2]/div[1]/div[4]/button")
     public WebElement addbutton;
 
+    @FindBy(how = How.XPATH, using = "//*[@id=\"addedBeveragesList\"]/tbody/tr/td[1]")
+    public WebElement addeddrinks;
+
 
     @FindBy(how = How.XPATH, using = "/html/body/div[2]/div[2]/div[6]")
     public WebElement alertpopup;
 
     @FindBy(how = How.ID, using = "dropdownMenu1")
     public WebElement selectiondropdown;
+
+    @FindBy(how = How.CLASS_NAME, using = "dropdown-menu")
+    public List<WebElement> dropdown;
 
     @FindBy(how = How.XPATH, using = "/html/body/div[2]/div[2]/button[2]")
     public WebElement disclaimbutton;
@@ -82,10 +87,10 @@ public class DrinksPage {
 
     }
 
-    public void Drink4(){
+    public void Drink4(String sdrinkpricefield){
 
         drinkpricefield.click();
-
+        drinkpricefield.sendKeys(sdrinkpricefield);
 
 
 
@@ -105,12 +110,6 @@ public class DrinksPage {
 
     }
 
-    public void Drink7(){
-
-        firstproduct.click();
-
-
-    }
 
     public void Drink12(){
 
@@ -121,7 +120,6 @@ public class DrinksPage {
     public void Drink8(String senterpricefield){
 
         enterpricefield.click();
-        DecimalFormat myFormatter = new DecimalFormat(senterpricefield);
         enterpricefield.sendKeys(senterpricefield);
 
     }
@@ -136,6 +134,7 @@ public class DrinksPage {
     public void Drink10(){
 
         selectiondropdown.click();
+
 
 
     }

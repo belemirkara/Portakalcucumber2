@@ -193,13 +193,13 @@ public class ContactInformation extends BaseUtil {
     @Then("^i click ok button$")
     public void iClickokButton() throws Throwable {
 
-        Thread.sleep(1000);
+        Thread.sleep(500);
 
 
         ContactInformationPage page=new ContactInformationPage(base.driver);
         page.Contact13();
 
-        Thread.sleep(1000);
+        Thread.sleep(3000);
 
 
     }

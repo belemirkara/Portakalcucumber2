@@ -29,8 +29,10 @@ public class Drinks extends BaseUtil {
     Random r = new Random();
     UUID uuid = UUID.randomUUID();
     String randomUUiDString = uuid.toString();
-    String max = "100";
+    int max = 100;
     int min = 0;
+
+    int randomNum = r.nextInt((max - min) + 1) + min;
 
 
 
@@ -96,8 +98,8 @@ public class Drinks extends BaseUtil {
         DrinksPage page=new DrinksPage(base.driver);
         page.Drink6();
     }
-    @And("^i enter a text in the drink name field,i enter a text in the drink price field,i click create button,i click showing to added drinks button,i see the drink is sent to added drinks page$")
-    public void iEnterATextInTheDrinkNameFieldIEnterATextInTheDrinkPriceFieldIClickCreateButtonIClickShowingToAddedDrinksButtonISeeTheDrinkIsSentToAddedDrinksPage() throws Throwable {
+    @And("^i enter a text in the drink name field,i enter a text in the drink price field,i click create button$")
+    public void iEnterATextInTheDrinkNameFieldIEnterATextInTheDrinkPriceFieldIClickCreateButton() throws Throwable {
 
 
         Thread.sleep(3000);
@@ -109,19 +111,22 @@ public class Drinks extends BaseUtil {
         String valuename = page.drinknamefield.getAttribute("value");
         Thread.sleep(3000);
 
-        page.Drink4();
+        page.Drink4(String.valueOf(randomNum));
 
+        String valuename1 = page.drinkpricefield.getAttribute("value");
 
+        Thread.sleep(3000);
 
         page.Drink5();
 
-        page.Drink6();
+        Thread.sleep(3000);
 
 
-        String ei = page.addeddrinks.getAttribute("value");
+
+        String ei = page.customnotes.getAttribute("value");
 
 
-        if (ei.contains(valuename)) {
+        if (ei.contains(valuename) && ei.contains(valuename1)) {
 
         } else {
             Assert.fail();
@@ -136,21 +141,20 @@ public class Drinks extends BaseUtil {
         Thread.sleep(3000);
         DrinksPage page=new DrinksPage(base.driver);
 
-       page.Drink7();
 
+        String fpn = page.firstproduct.getText();
 
-        String fpn = page.firstproduct.getAttribute("value");
-
-        page.Drink8(max);
-
+if(page.enterpricefield.getAttribute("value").isEmpty()) {
+    page.Drink8(String.valueOf(randomNum));
+}
 
         page.Drink9();
         page.Drink6();
 
          page.addeddrinks.click();
-        String ei2=page.addeddrinks.getAttribute("value");
+        String ei2=page.addeddrinks.getText();
 
-        if(ei2.contains(fpn)){
+        if(fpn.contains(ei2)){
 
         }
         else{
@@ -209,8 +213,8 @@ public class Drinks extends BaseUtil {
         page.Drink10();
 
 
-
-        for (WebElement opt : page.options1) {
+        Thread.sleep(3000);
+        for (WebElement opt : page.dropdown) {
 
             opt.click();
             opt.click();

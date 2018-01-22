@@ -15,24 +15,17 @@ Feature:Coca cola menu
     And i see the page sent to menu
     And i click adding drink button
     When i choose coca cola
-    And i enter a text in the drink name field,i enter a text in the drink price field,i click create button,i click showing to added drinks button,i see the drink is sent to added drinks page
-    And i click form for adding drink button
+    And i enter a text in the drink name field,i enter a text in the drink price field,i click create button
     And i get the name of first product,i enter amount in the enter price field for first product,i click add button in create drink menu page,i click added drinks button,i see the drink is sent to added drinks page
-    And i click savebutton
+    And i click saveandcontinuebutton
     And i see drinks fail pop up
     And i confirm there are not added drinks even if choosen pop up
     And i click disclaim button
     And i click savebutton
     And i see drinks fail pop up
     And i confirm there are not added drinks even if choosen pop up
+   And i click ok button
     And i click ok button
-    And i click saveandcontinuebutton
-    And i see drinks fail pop up
-    And i confirm there are not added drinks even if choosen pop up
-    And i click disclaim button
-    And i click saveandcontinuebutton
-    And i see drinks fail pop up
-    And i confirm there are not added drinks even if choosen pop up
     And i click form for adding drink button
     When a product has an option, i get the name and click option dropdown,i enter amount in the enter price field,i click add button in icecek menusu olustur page,i click added drinks button,i see the drink is sent to added drinks page
 
