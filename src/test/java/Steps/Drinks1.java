@@ -10,7 +10,9 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
+import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
@@ -38,9 +40,9 @@ public class Drinks1 extends BaseUtil {
     @And("^i click create drink menu button$")
     public void iClickcreatedrinkmenuButton() throws Throwable {
 
-         Thread.sleep(3000);
+        Thread.sleep(3000);
         Drinks1Page page=new Drinks1Page(base.driver);
-       page.Drink1();
+        page.Drink1();
     }
 
     @And("^i see the page sent to menu$")
@@ -130,22 +132,36 @@ public class Drinks1 extends BaseUtil {
 
     @And("^i get the name of first product,i enter amount in the enter price field for first product,i click add button in create drink menu page,i click added drinks button,i see the drink is sent to added drinks page$")
     public void iGetTheNameOfFirstProductIEnterAmountInTheEnterPriceFieldForFirstProductIClickAddButtonInCreateDrinkMenuPageIClickAddedDrinksButtonISeeTheDrinkIsSentToAddedDrinksPage() throws Throwable {
+        String [] s={"Coca-Cola (33 cl.)","Fanta"};
 
+        int select = r.nextInt(s.length);
+
+
+        int rkitchen = r.nextInt(s.length - 1);
         Thread.sleep(3000);
         Drinks1Page page=new Drinks1Page(base.driver);
 
+        List<WebElement> lstDrp = base.driver.findElements(By.className("wrap-floateds"));
+
+        if(lstDrp.contains(s[select])){
+            page.Drink8(String.valueOf(randomNum));
+        }
+
+        if(lstDrp.contains(s[select])){
+            page.Drink00(String.valueOf(randomNum));
+        }
 
 
-            String fpn = page.productlist.getText();
+        String fpn = page.productlist.getText();
 
-if(page.enterpricefield.getAttribute("value").isEmpty()) {
-    page.Drink8(String.valueOf(randomNum));
-}
+        if(page.enterpricefield.getAttribute("value").isEmpty()) {
+            page.Drink00(String.valueOf(randomNum));
+        }
 
         page.Drink9();
         page.Drink6();
 
-         page.addeddrinks1.click();
+        page.addeddrinks1.click();
         String ei2=page.addeddrinks1.getText();
 
         if(fpn.contains(ei2)){
@@ -164,7 +180,7 @@ if(page.enterpricefield.getAttribute("value").isEmpty()) {
             Thread.sleep(3000);
             Drinks1Page page=new Drinks1Page(base.driver);
 
-             page.Drink12();
+            page.Drink12();
             Thread.sleep(1000);
 
             Alert alt3 = base.driver.switchTo().alert();
@@ -230,17 +246,17 @@ if(page.enterpricefield.getAttribute("value").isEmpty()) {
         page.Drink6();
 
 
-            Thread.sleep(3000);
-            String ei2 = page.addeddrinks2.getText();
-            Thread.sleep(3000);
-            String b = page.addedoptions2.getText();
+        Thread.sleep(3000);
+        String ei2 = page.addeddrinks2.getText();
+        Thread.sleep(3000);
+        String b = page.addedoptions2.getText();
 
-            Thread.sleep(3000);
-            if (fpn.contains(ei2) && !b.contains("Atom")) {
+        Thread.sleep(3000);
+        if (fpn.contains(ei2) && !b.contains("Atom")) {
 
-            } else {
-                Assert.fail();
-            }
+        } else {
+            Assert.fail();
+        }
 
     }
     @And("^i click disclaim button$")
@@ -256,7 +272,7 @@ if(page.enterpricefield.getAttribute("value").isEmpty()) {
 
         Thread.sleep(6000);
         Drinks1Page page=new Drinks1Page(base.driver);
-     page.Drinkspepsi3();
+        page.Drinkspepsi3();
 
 
     }
@@ -294,19 +310,19 @@ if(page.enterpricefield.getAttribute("value").isEmpty()) {
         page.Drink6();
 
 
-            Thread.sleep(3000);
-            String ei2 = page.addeddrinks4.getText();
-            Thread.sleep(3000);
-            String b = page.addedoptions4.getText();
+        Thread.sleep(3000);
+        String ei2 = page.addeddrinks4.getText();
+        Thread.sleep(3000);
+        String b = page.addedoptions4.getText();
 
-            Thread.sleep(3000);
-            if (fpn.contains(ei2) && !b.contains("Karışık")) {
+        Thread.sleep(3000);
+        if (fpn.contains(ei2) && !b.contains("Karışık")) {
 
-            } else {
-                Assert.fail();
-            }
-
+        } else {
+            Assert.fail();
         }
+
+    }
 
 
     @And("^i get the name of first product,i enter amount in the enter price field for first product,i click add button in create drink menu page,i click added drinks button,i see the drink is sent to added drinks page pepsi$")
@@ -316,33 +332,32 @@ if(page.enterpricefield.getAttribute("value").isEmpty()) {
         Drinks1Page page=new Drinks1Page(base.driver);
 
 
-            String fpn = page.productlist.getText();
+        String fpn = page.productlist.getText();
 
-            if(page.enterpricefield.getAttribute("value").isEmpty()) {
-                page.Drink8(String.valueOf(randomNum));
-            }
-
-        Thread.sleep(3000);
-            page.Drink9();
-        Thread.sleep(3000);
-            page.Drink6();
+        if(page.enterpricefield.getAttribute("value").isEmpty()) {
+            page.Drink8(String.valueOf(randomNum));
+        }
 
         Thread.sleep(3000);
+        page.Drink9();
+        Thread.sleep(3000);
+        page.Drink6();
 
-                page.addeddrinks3.click();
-            String ei2=page.addeddrinks3.getText();
+        Thread.sleep(3000);
 
-            if(fpn.contains(ei2)){
+        page.addeddrinks3.click();
+        String ei2=page.addeddrinks3.getText();
 
-            }
-            else{
-                Assert.fail();
-            }
+        if(fpn.contains(ei2)){
+
+        }
+        else{
+            Assert.fail();
+        }
 
     }
 
-    }
-
+}
 
 
 

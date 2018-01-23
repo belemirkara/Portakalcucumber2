@@ -132,6 +132,10 @@ public class Drinks1Page {
     @FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/ul/li[2]/a")
     public WebElement pepsi;
 
+
+    @FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div[1]/div/div[4]/div[2]/div[2]/div[4]/div[3]/input")
+    public WebElement enterpricefanta;
+
     public void Drinkspepsi2()
     {
         addbuton.click();
@@ -163,6 +167,12 @@ public class Drinks1Page {
 
     }
 
+    public void Drink00(String sdrinknamefield){
+
+        enterpricefanta.click();
+        enterpricefanta.sendKeys(sdrinknamefield);
+
+    }
     public void Drink4(String sdrinkpricefield){
 
         drinkpricefield.click();
