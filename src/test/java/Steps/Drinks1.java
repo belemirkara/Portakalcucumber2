@@ -1,29 +1,21 @@
 package Steps;
 
 import Base.BaseUtil;
-import Pages.DrinksPage;
+import Pages.Drinks1Page;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import cucumber.api.java.gl.E;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.*;
-import java.sql.SQLException;
-import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
-public class Drinks extends BaseUtil {
+public class Drinks1 extends BaseUtil {
 
 
     public BaseUtil base;
@@ -37,7 +29,7 @@ public class Drinks extends BaseUtil {
 
 
 
-    public Drinks(BaseUtil base) {
+    public Drinks1(BaseUtil base) {
 
         this.base = base;
     }
@@ -47,7 +39,7 @@ public class Drinks extends BaseUtil {
     public void iClickcreatedrinkmenuButton() throws Throwable {
 
          Thread.sleep(3000);
-        DrinksPage page=new DrinksPage(base.driver);
+        Drinks1Page page=new Drinks1Page(base.driver);
        page.Drink1();
     }
 
@@ -69,7 +61,7 @@ public class Drinks extends BaseUtil {
     public void iClickaddingdrinkButton() throws Throwable {
 
         Thread.sleep(3000);
-        DrinksPage page=new DrinksPage(base.driver);
+        Drinks1Page page=new Drinks1Page(base.driver);
         page.Drink2();
     }
 
@@ -77,7 +69,7 @@ public class Drinks extends BaseUtil {
     public void iChooseCocaCola() throws Throwable {
 
         Thread.sleep(3000);
-        DrinksPage page=new DrinksPage(base.driver);
+        Drinks1Page page=new Drinks1Page(base.driver);
 
 
         for (WebElement opt : page.options1) {
@@ -95,8 +87,8 @@ public class Drinks extends BaseUtil {
     @And("^i click form for adding drink button$")
     public void iClickformforaddingdrinkButton() throws Throwable {
 
-        Thread.sleep(3000);
-        DrinksPage page=new DrinksPage(base.driver);
+        Thread.sleep(6000);
+        Drinks1Page page=new Drinks1Page(base.driver);
         page.Drink6();
     }
     @And("^i enter a text in the drink name field,i enter a text in the drink price field,i click create button$")
@@ -104,7 +96,7 @@ public class Drinks extends BaseUtil {
 
 
         Thread.sleep(3000);
-        DrinksPage page=new DrinksPage(base.driver);
+        Drinks1Page page=new Drinks1Page(base.driver);
 
         page.Drink3(randomUUiDString);
         Thread.sleep(3000);
@@ -140,13 +132,8 @@ public class Drinks extends BaseUtil {
     public void iGetTheNameOfFirstProductIEnterAmountInTheEnterPriceFieldForFirstProductIClickAddButtonInCreateDrinkMenuPageIClickAddedDrinksButtonISeeTheDrinkIsSentToAddedDrinksPage() throws Throwable {
 
         Thread.sleep(3000);
-        DrinksPage page=new DrinksPage(base.driver);
+        Drinks1Page page=new Drinks1Page(base.driver);
 
-        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        Boolean isPresent = base.driver.findElements(By.className("avoid-clicks")).size() > 0;
-
-
-        if (isPresent == false) {
 
 
             String fpn = page.productlist.getText();
@@ -167,33 +154,6 @@ if(page.enterpricefield.getAttribute("value").isEmpty()) {
         else{
             Assert.fail();
         }
-        }
-
-        else if(isPresent==true){
-
-            String fpn2 = page.productlist2.getText();
-
-            if(page.enterpricefield2.getAttribute("value").isEmpty()) {
-                page.Drink20(String.valueOf(randomNum));
-            }
-
-
-            Thread.sleep(3000);
-            page.Drink21();
-
-            Thread.sleep(3000);
-            page.Drink6();
-
-            String ei2=page.addeddrinks2.getText();
-
-            if(fpn2.contains(ei2)){
-
-            }
-            else{
-                Assert.fail();
-            }
-        }
-
 
     }
 
@@ -202,7 +162,7 @@ if(page.enterpricefield.getAttribute("value").isEmpty()) {
         try {
 
             Thread.sleep(3000);
-            DrinksPage page=new DrinksPage(base.driver);
+            Drinks1Page page=new Drinks1Page(base.driver);
 
              page.Drink12();
             Thread.sleep(1000);
@@ -226,7 +186,7 @@ if(page.enterpricefield.getAttribute("value").isEmpty()) {
 
         try {
             Thread.sleep(3000);
-            DrinksPage page=new DrinksPage(base.driver);
+            Drinks1Page page=new Drinks1Page(base.driver);
 
             String ab = page.alertpopup.getText();
 
@@ -243,7 +203,7 @@ if(page.enterpricefield.getAttribute("value").isEmpty()) {
     public void aProductHasAnOptionIGetTheNameAndClickOptionDropdownIEnterAmountInTheEnterPriceFieldIClickAddButtonInIcecekMenusuOlusturPageIClickAddedDrinksButtonISeeTheDrinkIsSentToAddedDrinksPage() throws Throwable {
 
         Thread.sleep(6000);
-        DrinksPage page = new DrinksPage(base.driver);
+        Drinks1Page page = new Drinks1Page(base.driver);
 
         String fpn = page.productlist3.getText();
         Thread.sleep(3000);
@@ -269,16 +229,11 @@ if(page.enterpricefield.getAttribute("value").isEmpty()) {
 
         page.Drink6();
 
-        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        Boolean isPresent = base.driver.findElements(By.xpath("//*[@id=\"addedBeveragesList\"]/tbody/tr[3]/td[1]")).size() > 0;
-
-
-        if (isPresent == true) {
 
             Thread.sleep(3000);
-            String ei2 = page.addeddrinks3.getText();
+            String ei2 = page.addeddrinks2.getText();
             Thread.sleep(3000);
-            String b = page.addedoptions3.getText();
+            String b = page.addedoptions2.getText();
 
             Thread.sleep(3000);
             if (fpn.contains(ei2) && !b.contains("Atom")) {
@@ -286,48 +241,111 @@ if(page.enterpricefield.getAttribute("value").isEmpty()) {
             } else {
                 Assert.fail();
             }
-        }
-        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        Boolean isPresent2 = base.driver.findElements(By.xpath("//*[@id=\"addedBeveragesList\"]/tbody/tr[2]/td[1]")).size() > 0;
-
-
-        if (isPresent == false && isPresent2 ==true) {
-            Thread.sleep(3000);
-            String ei3 = page.addeddrinks2.getText();
-            Thread.sleep(3000);
-            String b3 = page.addedoptions2.getText();
-
-            Thread.sleep(3000);
-
-            if (fpn.contains(ei3) && !b3.contains("Atom")) {
-            } else {
-                Assert.fail();
-            }
-        }
 
     }
     @And("^i click disclaim button$")
     public void iClickDisclaimButton() throws Throwable {
 
         Thread.sleep(3000);
-        DrinksPage page=new DrinksPage(base.driver);
+        Drinks1Page page=new Drinks1Page(base.driver);
         page.Drink11();
     }
 
     @When("^i choose pepsi$")
     public void iChoosePepsi() throws Throwable {
 
+        Thread.sleep(6000);
+        Drinks1Page page=new Drinks1Page(base.driver);
+     page.Drinkspepsi3();
+
+
+    }
+
+
+
+    @When("^a product has an option, i get the name and click option dropdown,i enter amount in the enter price field,i click add button in icecek menusu olustur page,i click added drinks button,i see the drink is sent to added drinks page pepsi$")
+    public void aProductHasAnOptionIGetTheNameAndClickOptionDropdownIEnterAmountInTheEnterPriceFieldIClickAddButtonInIcecekMenusuOlusturPageIClickAddedDrinksButtonISeeTheDrinkIsSentToAddedDrinksPagePepsi() throws Throwable {
+
+
+        Thread.sleep(6000);
+        Drinks1Page page=new Drinks1Page(base.driver);
+
+        String fpn = page.optionline.getText();
         Thread.sleep(3000);
-        DrinksPage page=new DrinksPage(base.driver);
+
+        page.Drink10();
 
 
-        for (WebElement opt : page.options1) {
-            if (opt.getAttribute("value").equals("Pepsi")) {
-                opt.click();
+        Thread.sleep(3000);
+
+
+        page.Drink88();
+
+
+        if (page.comboboxenterprice2.getAttribute("value").isEmpty()) {
+            page.Drink18(String.valueOf(randomNum));
+        }
+        Thread.sleep(3000);
+
+        page.Drinkspepsi2();
+
+        Thread.sleep(3000);
+
+        page.Drink6();
+
+
+            Thread.sleep(3000);
+            String ei2 = page.addeddrinks4.getText();
+            Thread.sleep(3000);
+            String b = page.addedoptions4.getText();
+
+            Thread.sleep(3000);
+            if (fpn.contains(ei2) && !b.contains("Karışık")) {
+
+            } else {
+                Assert.fail();
+            }
+
+        }
+
+
+    @And("^i get the name of first product,i enter amount in the enter price field for first product,i click add button in create drink menu page,i click added drinks button,i see the drink is sent to added drinks page pepsi$")
+    public void iGetTheNameOfFirstProductIEnterAmountInTheEnterPriceFieldForFirstProductIClickAddButtonInCreateDrinkMenuPageIClickAddedDrinksButtonISeeTheDrinkIsSentToAddedDrinksPagePepsi() throws Throwable {
+
+        Thread.sleep(3000);
+        Drinks1Page page=new Drinks1Page(base.driver);
+
+
+            String fpn = page.productlist.getText();
+
+            if(page.enterpricefield.getAttribute("value").isEmpty()) {
+                page.Drink8(String.valueOf(randomNum));
+            }
+
+        Thread.sleep(3000);
+            page.Drink9();
+        Thread.sleep(3000);
+            page.Drink6();
+
+        Thread.sleep(3000);
+
+                page.addeddrinks3.click();
+            String ei2=page.addeddrinks3.getText();
+
+            if(fpn.contains(ei2)){
 
             }
+            else{
+                Assert.fail();
+            }
+
     }
-}}
+
+    }
+
+
+
+
 
 
 

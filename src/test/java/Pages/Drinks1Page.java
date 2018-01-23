@@ -9,10 +9,10 @@ import org.openqa.selenium.support.PageFactory;
 import java.text.DecimalFormat;
 import java.util.List;
 
-public class DrinksPage {
+public class Drinks1Page {
 
 
-    public DrinksPage(WebDriver driver) {
+    public Drinks1Page(WebDriver driver) {
 
         PageFactory.initElements(driver, this);
 
@@ -83,6 +83,12 @@ public class DrinksPage {
     @FindBy(how = How.XPATH, using = "//*[@id=\"addedBeveragesList\"]/tbody/tr[3]/td[1]")
     public WebElement addeddrinks3;
 
+    @FindBy(how = How.XPATH, using = "//*[@id=\"addedBeveragesList\"]/tbody/tr[6]/td[1]")
+    public WebElement addeddrinks6;
+
+    @FindBy(how = How.XPATH, using = "//*[@id=\"addedBeveragesList\"]/tbody/tr[4]/td[1]")
+    public WebElement addeddrinks4;
+
     @FindBy(how = How.XPATH, using = "/html/body/div[2]/div[2]/div[6]")
     public WebElement alertpopup;
 
@@ -100,7 +106,7 @@ public class DrinksPage {
 
 
     @FindBy(how = How.ID, using = "check_aa4da079-c0c3-e711-80fa-00505692008b")
-    public WebElement optionatom;
+    public WebElement optionfirst;
 
     @FindBy(how = How.XPATH, using = "//*[@id=\"addedBeveragesList\"]/tbody/tr[2]/td[2]")
     public WebElement addedoptions2;
@@ -108,7 +114,32 @@ public class DrinksPage {
     @FindBy(how = How.XPATH, using = "//*[@id=\"addedBeveragesList\"]/tbody/tr[3]/td[2]")
     public WebElement addedoptions3;
 
+    @FindBy(how = How.XPATH, using = "//*[@id=\"addedBeveragesList\"]/tbody/tr[6]/td[2]")
+    public WebElement addedoptions6;
 
+    @FindBy(how = How.XPATH, using = "//*[@id=\"addedBeveragesList\"]/tbody/tr[4]/td[2]")
+    public WebElement addedoptions4;
+
+    @FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div[1]/div/div[4]/div[2]/div[2]/div[7]")
+    public WebElement optionline;
+
+    @FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div[1]/div/div[4]/div[2]/div[2]/div[7]/div[3]/input")
+    public WebElement comboboxenterprice2;
+
+    @FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div[1]/div/div[4]/div[2]/div[2]/div[7]/div[4]/button")
+    public WebElement addbuton;
+
+    @FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div[1]/div/div[4]/div[1]/div[2]/div/ul/li[2]/a")
+    public WebElement pepsi;
+
+    public void Drinkspepsi2()
+    {
+        addbuton.click();
+    }
+    public void Drinkspepsi3()
+    {
+        pepsi.click();
+    }
 
     public void Drink1(){
 
@@ -117,7 +148,7 @@ public class DrinksPage {
 
     public void Drink88(){
 
-        optionatom.click();
+        optionfirst.click();
     }
 
     public void Drink2(){
