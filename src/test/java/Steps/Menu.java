@@ -7,6 +7,7 @@ import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 
 import java.util.Random;
@@ -38,7 +39,7 @@ public class Menu extends BaseUtil {
 
     @And("^i see the page sent to menu context$")
     public void iSeeThePageSentToMenuContext() throws Throwable {
-        Thread.sleep(3000);
+        Thread.sleep(6000);
         try {
             String URL = base.driver.getCurrentUrl();
             Assert.assertEquals(URL, "http://portakal.ystest.com/SelfRegistration/registrationwizard/menuContentIndex");
@@ -63,13 +64,16 @@ public class Menu extends BaseUtil {
         page.Menu3(randomUUIDString);
         String productcontents=page.productcontent.getAttribute("value");
 
-        String pn= page.prodctnameintable.getText();
-
-        Thread.sleep(3000);
-
-        String pc= page.prodctcontentintable.getText();
         Thread.sleep(3000);
         page.Menu4();
+
+        Thread.sleep(6000);
+
+        String pn= page.prodctnameintable.getText();
+
+        Thread.sleep(6000);
+
+        String pc= page.prodctcontentintable.getText();
 
         Thread.sleep(3000);
 
@@ -142,12 +146,37 @@ public class Menu extends BaseUtil {
     @And("^i see the product is not there$")
     public void iSeeTheProductIsNotThere() throws Throwable {
         Thread.sleep(3000);
-        MenuPage page=new MenuPage(base.driver);
+
+        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        Boolean isPresent = base.driver.findElements(By.xpath("/html/body/div[1]/div/div/div/div[4]/div/div[2]/table/tbody/tr[2]")).size() > 0;
 
 
-        if(page.prodctcontentintable.getText().equals("")) {
+        if (isPresent == false) {
+
 
     }else{
             Assert.fail();
         }
-}}
+}
+
+    @And("^i click and enter product name and i click and enter product content and i click add button$")
+    public void iClickAndEnterProductNameAndIClickAndEnterProductContentAndIClickAddButton() throws Throwable {
+
+        Thread.sleep(3000);
+        MenuPage page=new MenuPage(base.driver);
+        page.Menu2(base.uret());
+
+
+
+        Thread.sleep(3000);
+        page.Menu3(randomUUIDString);
+
+
+        Thread.sleep(3000);
+
+
+        page.Menu4();
+
+        Thread.sleep(3000);
+    }
+}

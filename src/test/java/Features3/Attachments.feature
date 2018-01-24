@@ -11,6 +11,7 @@ Feature:Attachments
     And i click the attachments in progress bar
     And i see kitchen information pop up return serving3
     And i upload a file for brochure field
+    And i wait something
     And i upload a file for signboard field
     And i check the acceptance criterion
     When i click complete info button

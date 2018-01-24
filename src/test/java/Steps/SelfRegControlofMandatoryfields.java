@@ -26,7 +26,7 @@ public class SelfRegControlofMandatoryfields {
 
     @And("^i see the selfreg fail pop up$")
     public void theselfregfailpopup() throws Throwable {
-
+try{
         try {
 
             base.driver.findElement(By.xpath("/html/body/div[2]/div[2]")).click();
@@ -39,6 +39,8 @@ public class SelfRegControlofMandatoryfields {
         } catch (NoAlertPresentException noe) {
 
             base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+        } }catch(AssertionError ae){
+            Assert.fail();
         }
 
     }

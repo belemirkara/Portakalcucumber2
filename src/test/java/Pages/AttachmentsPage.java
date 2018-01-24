@@ -66,6 +66,7 @@ public class AttachmentsPage {
     public void Attachments8() {
 
         button5.click();
+
         }
 
 

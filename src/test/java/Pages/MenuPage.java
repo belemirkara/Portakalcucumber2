@@ -33,6 +33,9 @@ public class MenuPage {
     @FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div/div/div[4]/div/div[2]/table/tbody/tr[1]/td[2]")
     public WebElement prodctcontentintable;
 
+    @FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div/div/div[4]/div/div[2]/table/tbody/tr[2]")
+    public WebElement prodcttableline2;
+
     @FindBy(how = How.XPATH, using = "/html/body/div[1]/div/div/div/div[4]/div/div[2]/table/tbody/tr[2]/td[3]/button")
     public WebElement seconddeletebutton;
 

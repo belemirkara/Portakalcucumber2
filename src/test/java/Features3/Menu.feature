@@ -11,6 +11,7 @@ Feature:Menu
     And i click menu button
     And i see the page sent to menu context
     And i click and enter product name and i click and enter product content and i click add button and i seeour products is in the table
+    And i click and enter product name and i click and enter product content and i click add button
     And i click delete button in table
     And i see the product is not there
     And i fill the texts in menu
