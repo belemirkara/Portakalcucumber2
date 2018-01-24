@@ -2,6 +2,7 @@ package Steps;
 
 import Base.BaseUtil;
 import Pages.Drinks1Page;
+import Pages.MenuPage;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import org.junit.Assert;
@@ -30,6 +31,9 @@ public class Menu extends BaseUtil {
     @And("^i click menu button$")
     public void iClickMenuButton() throws Throwable {
 
+        Thread.sleep(3000);
+        MenuPage page=new MenuPage(base.driver);
+        page.Menu1();
     }
 
     @And("^i see the page sent to menu context$")
@@ -46,32 +50,46 @@ public class Menu extends BaseUtil {
     }
 
 
-    @And("^i click and enter product name$")
-    public void iClickAndEnterProductName() throws Throwable {
+    @And("^i click and enter product name and i click and enter product content and i click add button and i seeour products is in the table$")
+    public void iClickAndEnterProductNameAndIClickAndEnterProductContentAndIClickAddButtonAndISeeourProductsIsInTheTable() throws Throwable {
 
-    }
+        Thread.sleep(3000);
+        MenuPage page=new MenuPage(base.driver);
+        page.Menu2(base.uret());
+        String productnames=page.productname.getAttribute("value");
 
-    @And("^i click and enter product content$")
-    public void iClickAndEnterProductContent() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
 
-    @And("^i click add button$")
-    public void iClickAddButton() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
+        Thread.sleep(3000);
+        page.Menu3(randomUUIDString);
+        String productcontents=page.productcontent.getAttribute("value");
 
-    @And("^i seeour products is in the table$")
-    public void iSeeourProductsIsInTheTable() throws Throwable {
+        String pn= page.prodctnameintable.getText();
 
-    }
+        Thread.sleep(3000);
+
+        String pc= page.prodctcontentintable.getText();
+        Thread.sleep(3000);
+        page.Menu4();
+
+        Thread.sleep(3000);
+
+        if(pn.equals(productnames) && pc.equals(productcontents)) {
+
+        } else{
+            Assert.fail();
+
+
+            }
+        }
+
 
     @And("^i fill the texts in menu$")
     public void iFillTheTextsInMenu() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+
+        Thread.sleep(3000);
+        MenuPage page=new MenuPage(base.driver);
+        page.Menu5(randomUUIDString);
+
     }
 
     @And("^i see menusuccess pop up$")
@@ -80,9 +98,8 @@ public class Menu extends BaseUtil {
            try {
 
                Thread.sleep(3000);
-               Drinks1Page page = new Drinks1Page(base.driver);
-
-               page.Drink12();
+               MenuPage page=new MenuPage(base.driver);
+               page.Menu7();
                Thread.sleep(1000);
 
                Alert alt3 = base.driver.switchTo().alert();
@@ -90,13 +107,10 @@ public class Menu extends BaseUtil {
 
 
            } catch (NoAlertPresentException noe) {
-           } catch (AssertionError ae) {
+           } }catch (AssertionError ae) {
+            Assert.fail();
+           }}
 
-           }
-
-           base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
-
-       }}
 
 
     @And("^i confirm menu is saved successfully pop up$")
@@ -105,11 +119,10 @@ public class Menu extends BaseUtil {
 
         try {
             Thread.sleep(3000);
-            Drinks1Page page=new Drinks1Page(base.driver);
+            MenuPage page=new MenuPage(base.driver);
+            String ab = page.menusuccesspopup.getText();
 
-            String ab = page.alertpopup.getText();
-
-            Assert.assertEquals("Seçili olduğu halde eklenmemiş içecekleriniz var devam etmek istiyor musunuz ?", ab);
+            Assert.assertEquals("Menü içeriği bilgileriniz başarıyla kaydedildi.", ab);
 
         } catch (AssertionError ae) {
 
@@ -121,12 +134,20 @@ public class Menu extends BaseUtil {
 
     @And("^i click delete button in table$")
     public void iClickDeleteButtonInTable() throws Throwable {
-
+        Thread.sleep(3000);
+        MenuPage page=new MenuPage(base.driver);
+        page.Menu6();
     }
 
     @And("^i see the product is not there$")
     public void iSeeTheProductIsNotThere() throws Throwable {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
-    }
-}
+        Thread.sleep(3000);
+        MenuPage page=new MenuPage(base.driver);
+
+
+        if(page.prodctcontentintable.getText().equals("")) {
+
+    }else{
+            Assert.fail();
+        }
+}}
