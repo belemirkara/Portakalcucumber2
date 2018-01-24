@@ -199,7 +199,7 @@ public class ContactInformation extends BaseUtil {
         ContactInformationPage page=new ContactInformationPage(base.driver);
         page.Contact13();
 
-        Thread.sleep(3000);
+        Thread.sleep(6000);
 
 
     }

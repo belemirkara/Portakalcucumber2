@@ -99,7 +99,7 @@ public class Drinks1 extends BaseUtil {
 
         Thread.sleep(3000);
         Drinks1Page page=new Drinks1Page(base.driver);
-
+        Thread.sleep(3000);
         page.Drink3(randomUUiDString);
         Thread.sleep(3000);
 
@@ -132,39 +132,86 @@ public class Drinks1 extends BaseUtil {
 
     @And("^i get the name of first product,i enter amount in the enter price field for first product,i click add button in create drink menu page,i click added drinks button,i see the drink is sent to added drinks page$")
     public void iGetTheNameOfFirstProductIEnterAmountInTheEnterPriceFieldForFirstProductIClickAddButtonInCreateDrinkMenuPageIClickAddedDrinksButtonISeeTheDrinkIsSentToAddedDrinksPage() throws Throwable {
-        String [] s={"Coca-Cola (33 cl.)","Fanta"};
+
+        String [] s={"Coca-Cola (33 cl.)","Coca-Cola Zero (33 cl.)","Fanta (33 cl.)","Coca-Cola Light (1 L.)"
+        ,"Sprite (1 L.)","Ayran (20 cl.)"};
 
         int select = r.nextInt(s.length);
 
-
-        int rkitchen = r.nextInt(s.length - 1);
         Thread.sleep(3000);
         Drinks1Page page=new Drinks1Page(base.driver);
 
-        List<WebElement> lstDrp = base.driver.findElements(By.className("wrap-floateds"));
+        Thread.sleep(3000);
 
-        if(lstDrp.contains(s[select])){
-            page.Drink8(String.valueOf(randomNum));
-        }
+        String cocacola33s=page.cocacola33.getText();
+        if(cocacola33s.equals(s[select])){
 
-        if(lstDrp.contains(s[select])){
+            Thread.sleep(3000);
             page.Drink00(String.valueOf(randomNum));
+            Thread.sleep(3000);
+            page.Drink07();
+            Thread.sleep(3000);
+        }
+
+        String cocacolazero33s=page.cocacolazero33.getText();
+
+        if(cocacolazero33s.equals(s[select])){
+
+            Thread.sleep(3000);
+            page.Drink01(String.valueOf(randomNum));
+            Thread.sleep(3000);
+            page.Drink08();
+            Thread.sleep(3000);
+        }
+        String fanta33s=page.fanta33.getText();
+        if(fanta33s.equals(s[select])){
+
+            Thread.sleep(3000);
+            page.Drink02(String.valueOf(randomNum));
+            Thread.sleep(3000);
+            page.Drink09();
+            Thread.sleep(3000);
+        }
+
+        String cocacolalight1s=page.cocacolalight1.getText();
+        if(cocacolalight1s.equals(s[select])){
+
+            Thread.sleep(3000);
+            page.Drink03(String.valueOf(randomNum));
+            Thread.sleep(3000);
+            Thread.sleep(3000);
+            page.Drink1000();
         }
 
 
-        String fpn = page.productlist.getText();
+        String sprite1s=page.sprite1.getText();
+        if(sprite1s.equals(s[select])){
 
-        if(page.enterpricefield.getAttribute("value").isEmpty()) {
-            page.Drink00(String.valueOf(randomNum));
+            Thread.sleep(3000);
+            page.Drink05(String.valueOf(randomNum));
+            Thread.sleep(3000);
+            page.Drink1002();
+            Thread.sleep(3000);
+        }
+        String ayran20s=page.ayran20.getText();
+        if(ayran20s.equals(s[select])){
+
+            Thread.sleep(3000);
+            page.Drink06(String.valueOf(randomNum));
+            Thread.sleep(3000);
+            page.Drink1003();
         }
 
-        page.Drink9();
+        Thread.sleep(6000);
         page.Drink6();
+        Thread.sleep(3000);
+        page.addeddrink1.click();
+        Thread.sleep(3000);
+        String ei2=page.addeddrink1.getText();
 
-        page.addeddrinks1.click();
-        String ei2=page.addeddrinks1.getText();
+        Thread.sleep(3000);
+        if(ei2.contains(ayran20s) || ei2.contains(sprite1s) || ei2.contains(cocacolalight1s) || ei2.contains(cocacola33s) || ei2.contains(fanta33s) || ei2.contains(cocacolazero33s)){
 
-        if(fpn.contains(ei2)){
 
         }
         else{
@@ -234,20 +281,20 @@ public class Drinks1 extends BaseUtil {
         page.Drink88();
 
 
-        if (page.comboboxenterprice.getAttribute("value").isEmpty()) {
+        if (page.combobox1enterprice.getAttribute("value").isEmpty()) {
             page.Drink18(String.valueOf(randomNum));
         }
         Thread.sleep(3000);
 
-        page.Drink888();
+        page.Drink19();
 
         Thread.sleep(3000);
+
 
         page.Drink6();
 
-
         Thread.sleep(3000);
-        String ei2 = page.addeddrinks2.getText();
+        String ei2 = page.addeddrink2.getText();
         Thread.sleep(3000);
         String b = page.addedoptions2.getText();
 
@@ -295,11 +342,11 @@ public class Drinks1 extends BaseUtil {
         Thread.sleep(3000);
 
 
-        page.Drink88();
+        page.Drink0007();
 
 
         if (page.comboboxenterprice2.getAttribute("value").isEmpty()) {
-            page.Drink18(String.valueOf(randomNum));
+            page.Drink027(String.valueOf(randomNum));
         }
         Thread.sleep(3000);
 
@@ -311,7 +358,7 @@ public class Drinks1 extends BaseUtil {
 
 
         Thread.sleep(3000);
-        String ei2 = page.addeddrinks4.getText();
+        String ei2 = page.addeddrink4.getText();
         Thread.sleep(3000);
         String b = page.addedoptions4.getText();
 
@@ -328,37 +375,61 @@ public class Drinks1 extends BaseUtil {
     @And("^i get the name of first product,i enter amount in the enter price field for first product,i click add button in create drink menu page,i click added drinks button,i see the drink is sent to added drinks page pepsi$")
     public void iGetTheNameOfFirstProductIEnterAmountInTheEnterPriceFieldForFirstProductIClickAddButtonInCreateDrinkMenuPageIClickAddedDrinksButtonISeeTheDrinkIsSentToAddedDrinksPagePepsi() throws Throwable {
 
+        String [] s={"Pepsi (33 cl.)","Pepsi Light (33 cl.)","Pepsi Max (33 cl.)"};
+        int select = r.nextInt(s.length-1);
+
         Thread.sleep(3000);
         Drinks1Page page=new Drinks1Page(base.driver);
 
+        Thread.sleep(3000);
 
-        String fpn = page.productlist.getText();
+        String pepsi33s=page.pepsi33.getText();
+        if(pepsi33s.equals(s[select])){
 
-        if(page.enterpricefield.getAttribute("value").isEmpty()) {
-            page.Drink8(String.valueOf(randomNum));
+            Thread.sleep(3000);
+            page.Drink0001(String.valueOf(randomNum));
+            Thread.sleep(3000);
+            page.Drink0002();
+            Thread.sleep(3000);
+        }
+
+        String pepsilight33s=page.pepsilight33.getText();
+
+        if(pepsilight33s.equals(s[select])){
+
+            Thread.sleep(3000);
+            page.Drink0003(String.valueOf(randomNum));
+            Thread.sleep(3000);
+            page.Drink0004();
+            Thread.sleep(3000);
+        }
+        String pepsimax33s=page.pepsimax33.getText();
+        if(pepsimax33s.equals(s[select])){
+
+            Thread.sleep(3000);
+            page.Drink0005(String.valueOf(randomNum));
+            Thread.sleep(3000);
+            page.Drink0006();
+            Thread.sleep(3000);
         }
 
         Thread.sleep(3000);
-        page.Drink9();
-        Thread.sleep(3000);
+
         page.Drink6();
-
         Thread.sleep(3000);
+        page.addeddrink3.click();
+        Thread.sleep(3000);
+        String ei2=page.addeddrink3.getText();
 
-        page.addeddrinks3.click();
-        String ei2=page.addeddrinks3.getText();
 
-        if(fpn.contains(ei2)){
-
-        }
-        else{
-            Assert.fail();
+        if(ei2.contains(pepsi33s) || ei2.contains(pepsilight33s) || ei2.contains(pepsimax33s) ) {
         }
 
-    }
+            else{
+                Assert.fail();
+            }
 
-}
-
+        }}
 
 
 

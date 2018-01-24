@@ -28,9 +28,8 @@ Feature:Drinks1 menu
     And i click ok button
     And i click form for adding drink button
     When a product has an option, i get the name and click option dropdown,i enter amount in the enter price field,i click add button in icecek menusu olustur page,i click added drinks button,i see the drink is sent to added drinks page
-    And i click saveandcontinuebutton
-    And i click ok button
     And i click form for adding drink button
+    And i click adding drink button
     When i choose pepsi
     And i enter a text in the drink name field,i enter a text in the drink price field,i click create button
     And i get the name of first product,i enter amount in the enter price field for first product,i click add button in create drink menu page,i click added drinks button,i see the drink is sent to added drinks page pepsi
