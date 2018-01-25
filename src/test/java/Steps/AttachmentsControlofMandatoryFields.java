@@ -22,6 +22,9 @@ import java.io.File;
 import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class AttachmentsControlofMandatoryFields extends BaseUtil {
 
@@ -31,11 +34,17 @@ public class AttachmentsControlofMandatoryFields extends BaseUtil {
     UUID uuid = UUID.randomUUID();
     String randomUUiDString = uuid.toString();
     public String uploadfile1 = "//Users//belemir.karabacakoglu//Desktop//bele4.jpeg";
-
+    public Logger log;
 
     public AttachmentsControlofMandatoryFields(BaseUtil base) {
 
         this.base = base;
+        String loggerName = "com.something";
+        this.log= Logger.getLogger(loggerName);
+        ConsoleHandler handler = new ConsoleHandler();
+        handler.setLevel(Level.ALL);
+        log.addHandler(handler);
+        log.setLevel(Level.ALL);
     }
 
 
@@ -132,16 +141,6 @@ Thread.sleep(3000);
 
 // Cmd + Tab is needed since it launches a Java app and the browser looses focus
 
-        robot.keyPress(KeyEvent.VK_META);
-
-        robot.keyPress(KeyEvent.VK_TAB);
-
-        robot.keyRelease(KeyEvent.VK_META);
-
-        robot.keyRelease(KeyEvent.VK_TAB);
-
-        robot.delay(500);
-
 //Open Goto window
 
         robot.keyPress(KeyEvent.VK_META);
@@ -185,13 +184,11 @@ Thread.sleep(3000);
 
     @And("^i upload a file for brand field$")
     public void iUploadAFileForBrandField() throws Throwable {
-
-
-        Thread.sleep(4000);
+        log.fine("adım3");
         AttachmentControlofMandatoryFieldsPage page = new AttachmentControlofMandatoryFieldsPage(base.driver);
         page.AttachmentControlofMandatoryFields3();
 
-        Thread.sleep(4000);
+
                 File file = new File(uploadfile1);
 
                 StringSelection stringSelection = new StringSelection(file.getAbsolutePath());
@@ -199,19 +196,6 @@ Thread.sleep(3000);
 
         Robot robot = new Robot();
 
-// Cmd + Tab is needed since it launches a Java app and the browser looses focus
-
-                robot.keyPress(KeyEvent.VK_META);
-
-                robot.keyPress(KeyEvent.VK_TAB);
-
-                robot.keyRelease(KeyEvent.VK_META);
-
-                robot.keyRelease(KeyEvent.VK_TAB);
-
-                robot.delay(500);
-
-//Open Goto window
 
                 robot.keyPress(KeyEvent.VK_META);
 
@@ -246,7 +230,13 @@ Thread.sleep(3000);
                 robot.keyPress(KeyEvent.VK_ENTER);
 
                 robot.keyRelease(KeyEvent.VK_ENTER);
+
+        Thread.sleep(3000);
+        ContactInformationPage page1=new ContactInformationPage(base.driver);
+        page1.Contact13();
     }
+
+
 
     @And("^i see attachmentsfail pop up$")
     public void iSeeAttachmentsfailPopUp() throws Throwable {

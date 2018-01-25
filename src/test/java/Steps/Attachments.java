@@ -4,6 +4,7 @@ import Base.BaseUtil;
 import Pages.AttachmentsPage;
 import Pages.ContactInformationPage;
 import Pages.ServingPage;
+import com.sun.tools.javac.util.Log;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
@@ -21,6 +22,10 @@ import java.net.URISyntaxException;
 import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 public class Attachments extends BaseUtil {
 
@@ -30,35 +35,41 @@ public class Attachments extends BaseUtil {
     UUID uuid = UUID.randomUUID();
     String randomUUiDString = uuid.toString();
     public String uploadfile1 = "//Users//belemir.karabacakoglu//Desktop//bele4.jpeg";
-
-
+    public String uploadfile2 = "//Users//belemir.karabacakoglu//Desktop//bele4.jpeg";
+    public Logger log;
     public Attachments(BaseUtil base) {
 
         this.base = base;
+        String loggerName = "com.something";
+        this.log= Logger.getLogger(loggerName);
+        ConsoleHandler handler = new ConsoleHandler();
+        handler.setLevel(Level.ALL);
+        log.addHandler(handler);
+        log.setLevel(Level.ALL);
+
     }
 
 
     @And("^i click the attachments in progress bar$")
     public void iClickTheattachmentsinProgressBar() throws Throwable {
 
-        Thread.sleep(15000);
+        Thread.sleep(1000);
         AttachmentsPage page = new AttachmentsPage(base.driver);
         page.Attachments();
 
     }
 
 
-
     @And("^i upload a file for brochure field$")
     public void iUploadAFileForbrochureField() throws Throwable {
 
+        log.fine("brochure");
         Thread.sleep(3000);
         AttachmentsPage page = new AttachmentsPage(base.driver);
         page.Attachments2();
 
 
-
-        File file = new File(uploadfile1);
+        File file = new File(uploadfile2);
 
         StringSelection stringSelection = new StringSelection(file.getAbsolutePath());
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
@@ -67,7 +78,7 @@ public class Attachments extends BaseUtil {
 
 // Cmd + Tab is needed since it launches a Java app and the browser looses focus
 
-        robot.keyPress(KeyEvent.VK_META);
+       robot.keyPress(KeyEvent.VK_META);
 
         robot.keyPress(KeyEvent.VK_TAB);
 
@@ -114,93 +125,80 @@ public class Attachments extends BaseUtil {
         robot.keyRelease(KeyEvent.VK_ENTER);
 
 
-
-        Thread.sleep(1500);
+Thread.sleep(3000);
         ContactInformationPage page1=new ContactInformationPage(base.driver);
-        page1.Contact13();
+     page1.Contact13();
     }
 
 
     @And("^i upload a file for signboard field$")
     public void iUploadAFileForsignboardField() throws Throwable {
 
-
-        Thread.sleep(3000);
         AttachmentsPage page = new AttachmentsPage(base.driver);
         page.Attachments8();
 
-        File file = new File(uploadfile1);
+
+        File file = new File(uploadfile2);
 
         StringSelection stringSelection = new StringSelection(file.getAbsolutePath());
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
 
-            Robot robot1 = new Robot();
+        Robot robot1 = new Robot();
 
 
-//  the browser focus
 
-            robot1.keyPress(KeyEvent.VK_META);
-
-            robot1.keyPress(KeyEvent.VK_TAB);
-
-            robot1.keyRelease(KeyEvent.VK_META);
-
-            robot1.keyRelease(KeyEvent.VK_TAB);
-
-            robot1.delay(500);
 
 
 //Open Goto window
 
-            robot1.keyPress(KeyEvent.VK_META);
+        robot1.keyPress(KeyEvent.VK_META);
 
-            robot1.keyPress(KeyEvent.VK_SHIFT);
+        robot1.keyPress(KeyEvent.VK_SHIFT);
 
-            robot1.keyPress(KeyEvent.VK_G);
+        robot1.keyPress(KeyEvent.VK_G);
 
-            robot1.keyRelease(KeyEvent.VK_META);
+        robot1.keyRelease(KeyEvent.VK_META);
 
-            robot1.keyRelease(KeyEvent.VK_SHIFT);
+        robot1.keyRelease(KeyEvent.VK_SHIFT);
 
-            robot1.keyRelease(KeyEvent.VK_G);
+        robot1.keyRelease(KeyEvent.VK_G);
 
 //Paste the clipboard value/Users
+        robot1.delay(2500);
+        robot1.keyPress(KeyEvent.VK_META);
 
-            robot1.keyPress(KeyEvent.VK_META);
+        robot1.keyPress(KeyEvent.VK_V);
 
-            robot1.keyPress(KeyEvent.VK_V);
+        robot1.keyRelease(KeyEvent.VK_META);
 
-            robot1.keyRelease(KeyEvent.VK_META);
-
-            robot1.keyRelease(KeyEvent.VK_V);
+        robot1.keyRelease(KeyEvent.VK_V);
 
 //Press Enter key to close the Goto window and Upload window
 
-            robot1.keyPress(KeyEvent.VK_ENTER);
+        robot1.keyPress(KeyEvent.VK_ENTER);
 
-            robot1.keyRelease(KeyEvent.VK_ENTER);
+        robot1.keyRelease(KeyEvent.VK_ENTER);
 
-            robot1.delay(500);
+        robot1.keyPress(KeyEvent.VK_ENTER);
 
-            robot1.keyPress(KeyEvent.VK_ENTER);
+        robot1.keyRelease(KeyEvent.VK_ENTER);
 
-            robot1.keyRelease(KeyEvent.VK_ENTER);
-
-
-
-Thread.sleep(3000);
+        Thread.sleep(3000);
         ContactInformationPage page1=new ContactInformationPage(base.driver);
         page1.Contact13();
+        log.fine("adım2");
     }
+
+
 
     @And("^i check the acceptance criterion$")
     public void iCheckTheacceptancecriterion() throws Throwable {
 
-Thread.sleep(30000);
+        Thread.sleep(30000);
 
-AttachmentsPage page = new AttachmentsPage(base.driver);
+        AttachmentsPage page = new AttachmentsPage(base.driver);
 
-page.Attachments4();
+        page.Attachments4();
     }
 
 
@@ -305,77 +303,4 @@ page.Attachments4();
         }
     }
 
-    @And("^waitmany$")
-    public void waitmany() throws Throwable {
-      Thread.sleep(10000);
-    }
-
-    @And("^i wait something$")
-    public void iWaitSomething() throws Throwable {
-
-
-        File file = new File(uploadfile1);
-
-        StringSelection stringSelection = new StringSelection(file.getAbsolutePath());
-        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(stringSelection, null);
-
-        Robot robot1 = new Robot();
-
-
-//  the browser focus
-
-        robot1.keyPress(KeyEvent.VK_META);
-
-        robot1.keyPress(KeyEvent.VK_TAB);
-
-        robot1.keyRelease(KeyEvent.VK_META);
-
-        robot1.keyRelease(KeyEvent.VK_TAB);
-
-        robot1.delay(500);
-
-
-//Open Goto window
-
-        robot1.keyPress(KeyEvent.VK_META);
-
-        robot1.keyPress(KeyEvent.VK_SHIFT);
-
-        robot1.keyPress(KeyEvent.VK_G);
-
-        robot1.keyRelease(KeyEvent.VK_META);
-
-        robot1.keyRelease(KeyEvent.VK_SHIFT);
-
-        robot1.keyRelease(KeyEvent.VK_G);
-
-//Paste the clipboard value/Users
-
-        robot1.keyPress(KeyEvent.VK_META);
-
-        robot1.keyPress(KeyEvent.VK_V);
-
-        robot1.keyRelease(KeyEvent.VK_META);
-
-        robot1.keyRelease(KeyEvent.VK_V);
-
-//Press Enter key to close the Goto window and Upload window
-
-        robot1.keyPress(KeyEvent.VK_ENTER);
-
-        robot1.keyRelease(KeyEvent.VK_ENTER);
-
-        robot1.delay(500);
-
-        robot1.keyPress(KeyEvent.VK_ENTER);
-
-        robot1.keyRelease(KeyEvent.VK_ENTER);
-
-
-
-        Thread.sleep(3000);
-        ContactInformationPage page1=new ContactInformationPage(base.driver);
-        page1.Contact13();
-    }
-    }
-
+}

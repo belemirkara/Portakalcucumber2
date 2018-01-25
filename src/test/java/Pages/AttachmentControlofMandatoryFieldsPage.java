@@ -21,7 +21,7 @@ public class AttachmentControlofMandatoryFieldsPage {
     @FindBy(how = How.ID, using = "uploadButton_2")
     public WebElement button2;
 
-    @FindBy(how = How.ID, using = "uploadButton_2")
+    @FindBy(how = How.ID, using = "uploadButton_3")
     public WebElement button3;
 
     @FindBy(how = How.ID, using = "deleteAttachment_0_0")
