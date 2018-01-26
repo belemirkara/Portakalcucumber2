@@ -158,26 +158,6 @@ public class ServingControlofMandatoryquestions extends BaseUtil {
 
     }
 
-    @And("^i unselect all values1$")
-    public void iUnselectAllValues1() throws Throwable {
-
-        Thread.sleep(9000);
-        ServingPage page = new ServingPage(base.driver);
-        base.driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
-        Boolean isPresent = base.driver.findElements(By.className("checked")).size() > 0;
-
-
-        if(isPresent == true){
-            page.checkboxdm1.click();
-        }
-        else{
-
-        }
-        page.fieldquestion1.clear();
-        page.fieldquestion4.clear();
-        page.fieldquestion4.clear();
-
-    }
 
     @And("^i unselect all values2$")
     public void iUnselectAllValues2() throws Throwable {
@@ -196,28 +176,7 @@ public class ServingControlofMandatoryquestions extends BaseUtil {
 
         page.fieldquestion1.clear();
         page.fieldquestion4.clear();
-        page.fieldquestion4.clear();
-
-    }
-
-    @And("^i unselect all values3$")
-    public void iUnselectAllValues3() throws Throwable {
-
-        Thread.sleep(9000);
-        ServingPage page = new ServingPage(base.driver);
-
-        Boolean isPresent = base.driver.findElements(By.id("checked")).size() > 0;
-
-        if(isPresent == true){
-            page.checkboxdm1.click();
-        }
-        else{
-
-        }
-
-        page.fieldquestion1.clear();
-        page.fieldquestion4.clear();
-        page.fieldquestion4.clear();
+        page.fieldquestion6.clear();
 
     }
 

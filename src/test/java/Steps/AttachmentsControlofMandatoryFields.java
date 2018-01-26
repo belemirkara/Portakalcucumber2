@@ -34,17 +34,11 @@ public class AttachmentsControlofMandatoryFields extends BaseUtil {
     UUID uuid = UUID.randomUUID();
     String randomUUiDString = uuid.toString();
     public String uploadfile1 = "//Users//belemir.karabacakoglu//Desktop//bele4.jpeg";
-    public Logger log;
 
     public AttachmentsControlofMandatoryFields(BaseUtil base) {
 
         this.base = base;
-        String loggerName = "com.something";
-        this.log= Logger.getLogger(loggerName);
-        ConsoleHandler handler = new ConsoleHandler();
-        handler.setLevel(Level.ALL);
-        log.addHandler(handler);
-        log.setLevel(Level.ALL);
+
     }
 
 
@@ -184,7 +178,8 @@ Thread.sleep(3000);
 
     @And("^i upload a file for brand field$")
     public void iUploadAFileForBrandField() throws Throwable {
-        log.fine("adım3");
+
+        Thread.sleep(3000);
         AttachmentControlofMandatoryFieldsPage page = new AttachmentControlofMandatoryFieldsPage(base.driver);
         page.AttachmentControlofMandatoryFields3();
 
@@ -275,7 +270,8 @@ Thread.sleep(3000);
             AttachmentControlofMandatoryFieldsPage page = new AttachmentControlofMandatoryFieldsPage(base.driver);
             String ab = page.attachmentfailpopup.getText();
 
-            Assert.assertEquals("Broşür, Tabela girişi / girişleri eksiktir, tamamlamadan bilgilerinizi gönderemezsiniz.", ab);
+            Assert.assertEquals(
+                    "Broşür, Marka Tescil Belgesi, Tabela girişi / girişleri eksiktir, tamamlamadan bilgilerinizi gönderemezsiniz.", ab);
             Thread.sleep(3000);
 
         } catch (AssertionError ae) {

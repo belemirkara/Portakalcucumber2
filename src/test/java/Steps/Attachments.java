@@ -36,16 +36,13 @@ public class Attachments extends BaseUtil {
     String randomUUiDString = uuid.toString();
     public String uploadfile1 = "//Users//belemir.karabacakoglu//Desktop//bele4.jpeg";
     public String uploadfile2 = "//Users//belemir.karabacakoglu//Desktop//bele4.jpeg";
-    public Logger log;
+
+
     public Attachments(BaseUtil base) {
 
         this.base = base;
-        String loggerName = "com.something";
-        this.log= Logger.getLogger(loggerName);
-        ConsoleHandler handler = new ConsoleHandler();
-        handler.setLevel(Level.ALL);
-        log.addHandler(handler);
-        log.setLevel(Level.ALL);
+
+
 
     }
 
@@ -53,7 +50,7 @@ public class Attachments extends BaseUtil {
     @And("^i click the attachments in progress bar$")
     public void iClickTheattachmentsinProgressBar() throws Throwable {
 
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         AttachmentsPage page = new AttachmentsPage(base.driver);
         page.Attachments();
 
@@ -63,7 +60,6 @@ public class Attachments extends BaseUtil {
     @And("^i upload a file for brochure field$")
     public void iUploadAFileForbrochureField() throws Throwable {
 
-        log.fine("brochure");
         Thread.sleep(3000);
         AttachmentsPage page = new AttachmentsPage(base.driver);
         page.Attachments2();
@@ -125,7 +121,7 @@ public class Attachments extends BaseUtil {
         robot.keyRelease(KeyEvent.VK_ENTER);
 
 
-Thread.sleep(3000);
+Thread.sleep(4000);
         ContactInformationPage page1=new ContactInformationPage(base.driver);
      page1.Contact13();
     }
@@ -134,6 +130,7 @@ Thread.sleep(3000);
     @And("^i upload a file for signboard field$")
     public void iUploadAFileForsignboardField() throws Throwable {
 
+        Thread.sleep(3000);
         AttachmentsPage page = new AttachmentsPage(base.driver);
         page.Attachments8();
 
@@ -146,10 +143,6 @@ Thread.sleep(3000);
         Robot robot1 = new Robot();
 
 
-
-
-
-//Open Goto window
 
         robot1.keyPress(KeyEvent.VK_META);
 
@@ -164,7 +157,7 @@ Thread.sleep(3000);
         robot1.keyRelease(KeyEvent.VK_G);
 
 //Paste the clipboard value/Users
-        robot1.delay(2500);
+        robot1.delay(500);
         robot1.keyPress(KeyEvent.VK_META);
 
         robot1.keyPress(KeyEvent.VK_V);
@@ -179,6 +172,8 @@ Thread.sleep(3000);
 
         robot1.keyRelease(KeyEvent.VK_ENTER);
 
+        robot1.delay(500);
+
         robot1.keyPress(KeyEvent.VK_ENTER);
 
         robot1.keyRelease(KeyEvent.VK_ENTER);
@@ -186,7 +181,7 @@ Thread.sleep(3000);
         Thread.sleep(3000);
         ContactInformationPage page1=new ContactInformationPage(base.driver);
         page1.Contact13();
-        log.fine("adım2");
+
     }
 
 

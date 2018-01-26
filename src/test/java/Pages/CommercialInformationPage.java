@@ -108,5 +108,11 @@ public class CommercialInformationPage {
         filedkepaddress.sendKeys(sfiledkepaddress);
 
     }
+
+    public void Commercial10() {
+        confirmationmessage.click();
+
+
+    }
 }
 

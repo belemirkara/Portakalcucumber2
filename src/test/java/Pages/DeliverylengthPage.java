@@ -38,6 +38,8 @@ public class DeliverylengthPage {
         @FindBy(how = How.ID, using ="deliverMinPrice1")
         public WebElement minprice;
 
+    @FindBy(how = How.XPATH, using ="/html/body/div[1]/div/div[1]/div/div[4]/div[1]/div/div/label[1]")
+    public WebElement deliverylengthbutton;
 
 
         @FindBy(how = How.ID, using ="othertotalprice_2")
@@ -153,6 +155,12 @@ public class DeliverylengthPage {
     public void Deliverylength11() {
 
         saveandcontinuebuttondelivery.click();
+
+    }
+
+    public void Deliverylength12() {
+
+        deliverylengthbutton.click();
 
     }
 

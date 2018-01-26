@@ -362,6 +362,13 @@ public class Deliverylength extends BaseUtil {
 
         }
     }
+
+    @And("^i click delivery length button$")
+    public void iClickDeliveryLengthButton() throws Throwable {
+        Thread.sleep(3000);
+        DeliverylengthPage page=new DeliverylengthPage(base.driver);
+        page.Deliverylength12();
+    }
 }
 
 

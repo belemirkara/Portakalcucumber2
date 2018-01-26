@@ -14,12 +14,12 @@ Feature:CommercialInformation
     And i enter kep address
     And i delete invoiceemailaddress and type again
     When i click savebutton
-    And i see the success pop up
+    And i see the commercialsuccess pop up
     And i confirm commercial informations are saved successfully pop up message
     And i click ok button
     Then i stay in commercialInfo page
     When i click saveandcontinuebutton
-    And i see the success pop up
+    And i see the commercialsuccess pop up
     And i confirm commercial informations are saved successfully pop up message
     And i click ok button
 

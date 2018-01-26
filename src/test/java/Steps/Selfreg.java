@@ -48,8 +48,8 @@ public class Selfreg extends BaseUtil {
                 public Boolean apply(WebDriver driver) {
 
 
-                    String[] sehir = {"ADIYAMAN", "AFYONKARAHİSAR", "AKSARAY", "AMASYA", "ANKARA", "ANTALYA", "AYDIN", "BALiKESİR", "BATMAN", "BİLECİK",
-                            "BOLU", "BURSA", "ÇORUM", "DENİZLİ", "DİYARBAKiR", "EDİRNE", "ELAZiĞ", "ERZİNCAN", "ERZURUM", "ESKİŞEHİR",
+                    String[] sehir = {"ADIYAMAN", "AFYONKARAHİSAR", "AKSARAY", "ANKARA", "ANTALYA", "AYDIN", "BALiKESİR", "BATMAN", "BİLECİK",
+                            "BOLU", "BURSA", "ÇORUM", "DENİZLİ", "DİYARBAKiR", "ELAZiĞ", "ERZİNCAN", "ERZURUM", "ESKİŞEHİR",
                             "GAZİANTEP", "GİRESUN", "HATAY", "ISPARTA", "İSTANBUL", "İZMİR", "KAHRAMANMARAŞ", "KARABÜK", "KASTAMONU", "KAYSERİ", "KIBRIS", "KiRKLARELİ", "KiRŞEHİR",
                             "KOCAELİ", "KONYA", "KÜTAHYA", "MALATYA", "MANİSA", "MARDİN", "MERSİN", "MUĞLA", "NEVŞEHİR", "NİĞDE", "ORDU", "OSMANİYE", "RİZE", "SAKARYA", "SAMSUN", "ŞANLIURFA",
                             "SİNOP", "SİVAS", "TEKİRDAĞ", "TOKAT", "TRABZON", "UŞAK", "VAN", "YALOVA", "YOZGAT", "ZONGULDAK"};

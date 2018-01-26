@@ -73,9 +73,10 @@ public class WorkingHoursUpdate extends BaseUtil {
         WorkingHoursUpdatePage page=new WorkingHoursUpdatePage(base.driver);
         int[] minutes = {00, 15, 30, 45};
 
-        WebElement Select_minutes1 =page.selectminute1;
-        Select_minutes1.click();
-        Select ddlminute = new Select(Select_minutes1);
+        page.m1.click();
+
+        page.selectminute1.click();
+        Select ddlminute = new Select(page.selectminute1);
 
 
         int rminute = r.nextInt(minutes.length - 1);
@@ -83,9 +84,10 @@ public class WorkingHoursUpdate extends BaseUtil {
         ddlminute.selectByIndex(rminute);
 
 
-        WebElement Select_minutes2 = page.selectminute2;
-        Select_minutes2.click();
-        Select ddlminute2 = new Select(Select_minutes2);
+        Thread.sleep(3000);
+
+        page.selectminute2.click();
+        Select ddlminute2 = new Select(page.selectminute2);
 
 
         int rminute2 = r.nextInt(minutes.length - 1);
@@ -93,6 +95,9 @@ public class WorkingHoursUpdate extends BaseUtil {
 
         ddlminute2.selectByIndex(rminute2);
 
+        page.close.click();
+
+        Thread.sleep(3000);
 
         if (rminute2 > rminute) {
 

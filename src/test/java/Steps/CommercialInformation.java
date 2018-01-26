@@ -2,6 +2,8 @@ package Steps;
 
 import Base.BaseUtil;
 import Pages.CommercialInformationPage;
+import Pages.Drinks1Page;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
@@ -168,6 +170,28 @@ public class CommercialInformation extends BaseUtil {
 
     }
 
-}
+    @And("^i see the commercialsuccess pop up$")
+    public void iSeeTheCommercialsuccessPopUp() throws Throwable {
+        try {
+
+            Thread.sleep(3000);
+            CommercialInformationPage page=new CommercialInformationPage(base.driver);
+
+            page.Commercial10();
+            Thread.sleep(1000);
+
+            Alert alt3 = base.driver.switchTo().alert();
+            alt3.accept();
+
+
+        } catch (NoAlertPresentException noe) {
+
+
+        }
+        base.driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+
+    }
+    }
+
 
 
