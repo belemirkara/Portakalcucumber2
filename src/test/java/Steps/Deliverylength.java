@@ -246,14 +246,14 @@ public class Deliverylength extends BaseUtil {
     @And("^i see delivery success pop up$")
     public void iSeedeliverysuccessPopUp() throws Throwable {
 
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         DeliverylengthPage page=new DeliverylengthPage(base.driver);
 
         base.driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
 
         try {
 
-
+            Thread.sleep(1000);
             page.Deliverylength10();
             Thread.sleep(2000);
 

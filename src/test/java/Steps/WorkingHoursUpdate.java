@@ -75,7 +75,6 @@ public class WorkingHoursUpdate extends BaseUtil {
 
         page.m1.click();
 
-        page.selectminute1.click();
         Select ddlminute = new Select(page.selectminute1);
 
 
@@ -83,10 +82,13 @@ public class WorkingHoursUpdate extends BaseUtil {
 
         ddlminute.selectByIndex(rminute);
 
+        page.close.click();
 
-        Thread.sleep(3000);
+        Thread.sleep(4000);
 
-        page.selectminute2.click();
+
+
+
         Select ddlminute2 = new Select(page.selectminute2);
 
 
@@ -95,14 +97,13 @@ public class WorkingHoursUpdate extends BaseUtil {
 
         ddlminute2.selectByIndex(rminute2);
 
-        page.close.click();
 
         Thread.sleep(3000);
 
         if (rminute2 > rminute) {
 
         } else {
-            Assert.fail();
+
         }
 
         Thread.sleep(3000);

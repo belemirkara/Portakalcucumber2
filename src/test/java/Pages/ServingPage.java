@@ -24,6 +24,9 @@ public class ServingPage {
     @FindBy(how = How.ID, using = "restaurant-kitchen")
     public WebElement kitchenselection;
 
+    @FindBy(how = How.CLASS_NAME, using = "ng-untouched")
+    public WebElement mandatorytext;
+
     @FindBy(how = How.XPATH, using = "//*[@id=\"paymentForm\"]/div[1]/textarea")
     public WebElement fieldquestion1;
 
@@ -61,6 +64,17 @@ public class ServingPage {
     public void Serving1() {
 
         servingtab.click();
+    }
+
+    public void Serving888() {
+
+        checkboxdm.click();
+    }
+
+    public void Serving88(String mandatorytexts) {
+
+        mandatorytext.click();
+        mandatorytext.sendKeys(mandatorytexts);
     }
 
 
